@@ -21,3 +21,13 @@ Android-first operator shell. Cropped text and zero padding are **bugs**, not st
 ## Intent
 
 Phones, tablets, and other Android OS devices with a SIM. Desktop is dry-run only.
+
+## Action-first (not a brochure)
+
+The shell must make the gateway *do* something visible:
+
+1. **Do Next** banner with the single current blocker (permission / SIM / send test / share).
+2. **Real listen URL** via `lan::listen_base_url` — never `http://<this-device-ip>:…`.
+3. **Share / copy** URL + API key + curl (`cx.share_text` / `copy_to_clipboard`).
+4. **Send a real SMS** above optional relay docs; live-update the test result from outbox status.
+5. Cut marketing paragraphs — status chips + actions, not clustered explanatory text.

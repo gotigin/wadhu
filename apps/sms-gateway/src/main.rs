@@ -21,9 +21,9 @@
 pub use makepad_widgets;
 
 #[cfg(target_os = "android")]
-use crate::{gateway, identity, permissions};
+use crate::{gateway, identity, lan, permissions};
 #[cfg(not(target_os = "android"))]
-use wadhu_sms_gateway::{gateway, identity, permissions};
+use wadhu_sms_gateway::{gateway, identity, lan, permissions};
 
 use gateway::Gateway;
 use makepad_widgets::*;
@@ -205,7 +205,7 @@ script_mod! {
                                 }
 
                                 tagline_label := BodyCopyLime{
-                                    body: "Turn this Android device into an SMS radio for your apps"
+                                    body: "This phone sends SMS for your apps — grant permission, send a test, share the URL"
                                 }
                                 identity_label := BodyCopySm{
                                     body: ""
@@ -219,20 +219,48 @@ script_mod! {
                             height: Fill
                             flow: Down
 
-                            // Inner pad — do not rely on ScrollYView padding alone.
                             SolidView{
                                 width: Fill
                                 height: Fit
                                 flow: Down
-                                spacing: 36
-                                padding: Inset{left: 28. right: 28. top: 28. bottom: 64.}
+                                spacing: 28
+                                padding: Inset{left: 28. right: 28. top: 24. bottom: 64.}
 
-                                // —— Status ——
+                                // —— Next step (action, not brochure) ——
+                                next_card := RoundedView{
+                                    width: Fill
+                                    height: Fit
+                                    flow: Down
+                                    spacing: 14
+                                    padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
+                                    draw_bg +: {
+                                        color: #x0133ad
+                                        border_radius: 20.
+                                    }
+                                    Label{
+                                        width: Fill
+                                        height: Fit
+                                        text: "DO NEXT"
+                                        draw_text.color: #x9fb4d0
+                                        draw_text.text_style.font_size: 11
+                                    }
+                                    next_step_label := BodyCopy{
+                                        body: "Starting…"
+                                        font_size: 15.
+                                        font_color: #xfcfbfb
+                                        draw_text +: {color: #xfcfbfb}
+                                    }
+                                    perm_button := SecondaryBtn{
+                                        text: "Allow SMS permission"
+                                    }
+                                }
+
+                                // —— Status chips (compact) ——
                                 SolidView{
                                     width: Fill
                                     height: Fit
                                     flow: Down
-                                    spacing: 12
+                                    spacing: 10
                                     Label{
                                         width: Fill
                                         height: Fit
@@ -249,20 +277,17 @@ script_mod! {
                                             color: #x161252
                                             border_radius: 20.
                                         }
-
-                                        // Right rows: Fit key + Fill spacer + Fit chip.
-                                        // Fill-before-Fit starves the chip (clips "Listening").
                                         SolidView{
                                             width: Fill
                                             height: Fit
                                             flow: Right
                                             spacing: 12
-                                            padding: Inset{left: 22. right: 22. top: 20. bottom: 20.}
+                                            padding: Inset{left: 22. right: 22. top: 18. bottom: 18.}
                                             align: Align{y: 0.5}
                                             Label{
                                                 width: Fit
                                                 height: Fit
-                                                text: "SIM radio"
+                                                text: "SIM"
                                                 draw_text.color: #x9fb4d0
                                                 draw_text.text_style.font_size: 14
                                             }
@@ -281,12 +306,12 @@ script_mod! {
                                             height: Fit
                                             flow: Right
                                             spacing: 12
-                                            padding: Inset{left: 22. right: 22. top: 20. bottom: 20.}
+                                            padding: Inset{left: 22. right: 22. top: 18. bottom: 18.}
                                             align: Align{y: 0.5}
                                             Label{
                                                 width: Fit
                                                 height: Fit
-                                                text: "LAN API"
+                                                text: "LAN"
                                                 draw_text.color: #x9fb4d0
                                                 draw_text.text_style.font_size: 14
                                             }
@@ -305,7 +330,7 @@ script_mod! {
                                             height: Fit
                                             flow: Right
                                             spacing: 12
-                                            padding: Inset{left: 22. right: 22. top: 20. bottom: 20.}
+                                            padding: Inset{left: 22. right: 22. top: 18. bottom: 18.}
                                             align: Align{y: 0.5}
                                             Label{
                                                 width: Fit
@@ -329,7 +354,7 @@ script_mod! {
                                             height: Fit
                                             flow: Right
                                             spacing: 12
-                                            padding: Inset{left: 22. right: 22. top: 20. bottom: 20.}
+                                            padding: Inset{left: 22. right: 22. top: 18. bottom: 18.}
                                             align: Align{y: 0.5}
                                             Label{
                                                 width: Fit
@@ -353,7 +378,7 @@ script_mod! {
                                             height: Fit
                                             flow: Right
                                             spacing: 12
-                                            padding: Inset{left: 22. right: 22. top: 20. bottom: 20.}
+                                            padding: Inset{left: 22. right: 22. top: 18. bottom: 18.}
                                             align: Align{y: 0.5}
                                             Label{
                                                 width: Fit
@@ -378,7 +403,7 @@ script_mod! {
                                     }
                                 }
 
-                                // —— Share ——
+                                // —— Test send (prove the radio) ——
                                 SolidView{
                                     width: Fill
                                     height: Fit
@@ -387,120 +412,7 @@ script_mod! {
                                     Label{
                                         width: Fill
                                         height: Fit
-                                        text: "SHARE WITH CLIENT APPS"
-                                        draw_text.color: #x9fb4d0
-                                        draw_text.text_style.font_size: 11
-                                    }
-                                    BodyCopy{
-                                        body: "Any app on the same Wi‑Fi can send SMS through this device."
-                                    }
-                                    RoundedView{
-                                        width: Fill
-                                        height: Fit
-                                        flow: Down
-                                        spacing: 20
-                                        padding: Inset{left: 22. right: 22. top: 24. bottom: 24.}
-                                        draw_bg +: {
-                                            color: #x161252
-                                            border_radius: 20.
-                                        }
-                                        SolidView{
-                                            width: Fill
-                                            height: Fit
-                                            flow: Down
-                                            spacing: 8
-                                            Label{
-                                                width: Fill
-                                                height: Fit
-                                                text: "Listen URL"
-                                                draw_text.color: #x9fb4d0
-                                                draw_text.text_style.font_size: 11
-                                            }
-                                            listen_label := BodyCopy{
-                                                body: ""
-                                                font_size: 15.
-                                                font_color: #xfcfbfb
-                                                draw_text +: {color: #xfcfbfb}
-                                            }
-                                        }
-                                        SolidView{
-                                            width: Fill
-                                            height: Fit
-                                            flow: Down
-                                            spacing: 8
-                                            Label{
-                                                width: Fill
-                                                height: Fit
-                                                text: "API key  ·  X-Api-Key or Bearer"
-                                                draw_text.color: #x9fb4d0
-                                                draw_text.text_style.font_size: 11
-                                            }
-                                            token_label := BodyCopySm{
-                                                body: ""
-                                                font_color: #x00c8fc
-                                                draw_text +: {color: #x00c8fc}
-                                            }
-                                        }
-                                        hint_label := BodyCopySm{
-                                            body: "POST /v1/messages   ·   GET /v1/health"
-                                            font_size: 12.
-                                        }
-                                        bt_hint_label := BodyCopySm{
-                                            body: "Bluetooth framing also available on TCP port 18766 (same JSON as HTTP)."
-                                            font_size: 12.
-                                        }
-                                    }
-                                }
-
-                                // —— This device ——
-                                SolidView{
-                                    width: Fill
-                                    height: Fit
-                                    flow: Down
-                                    spacing: 12
-                                    Label{
-                                        width: Fill
-                                        height: Fit
-                                        text: "THIS ANDROID DEVICE"
-                                        draw_text.color: #x9fb4d0
-                                        draw_text.text_style.font_size: 11
-                                    }
-                                    RoundedView{
-                                        width: Fill
-                                        height: Fit
-                                        flow: Down
-                                        spacing: 16
-                                        padding: Inset{left: 22. right: 22. top: 24. bottom: 24.}
-                                        draw_bg +: {
-                                            color: #x161252
-                                            border_radius: 20.
-                                        }
-                                        perm_label := Label{
-                                            width: Fill
-                                            height: Fit
-                                            text: ""
-                                            draw_text.color: #x00c8fc
-                                            draw_text.text_style.font_size: 14
-                                        }
-                                        perm_button := SecondaryBtn{
-                                            text: "Allow SMS permission"
-                                        }
-                                        device_hint := BodyCopySm{
-                                            body: "Works on phones, tablets, and other Android devices with a usable SIM. Keep the app open while clients send."
-                                        }
-                                    }
-                                }
-
-                                // —— Test send ——
-                                SolidView{
-                                    width: Fill
-                                    height: Fit
-                                    flow: Down
-                                    spacing: 14
-                                    Label{
-                                        width: Fill
-                                        height: Fit
-                                        text: "TEST SEND"
+                                        text: "SEND A REAL SMS"
                                         draw_text.color: #x9fb4d0
                                         draw_text.text_style.font_size: 11
                                     }
@@ -509,13 +421,13 @@ script_mod! {
                                         height: Fit
                                         flow: Down
                                         spacing: 8
-                                        padding: Inset{left: 22. right: 22. top: 24. bottom: 24.}
+                                        padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
                                         draw_bg +: {
                                             color: #x161252
                                             border_radius: 20.
                                         }
                                         BodyCopySm{
-                                            body: "Uses the same queue client apps use."
+                                            body: "Goes through the same queue as LAN clients. Needs SMS permission + SIM."
                                         }
                                         to_input := FieldInput{
                                             empty_text: "To (+country number)"
@@ -526,7 +438,7 @@ script_mod! {
                                         }
                                         SolidView{ width: Fill height: 12 }
                                         send_button := PrimaryBtn{
-                                            text: "Queue & send"
+                                            text: "Send via this SIM"
                                         }
                                         result_label := Label{
                                             width: Fill
@@ -544,7 +456,7 @@ script_mod! {
                                     width: Fill
                                     height: Fit
                                     flow: Down
-                                    spacing: 14
+                                    spacing: 12
                                     SolidView{
                                         width: Fill
                                         height: Fit
@@ -580,23 +492,99 @@ script_mod! {
                                         height: Fit
                                         flow: Down
                                         spacing: 8
-                                        padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
+                                        padding: Inset{left: 22. right: 22. top: 20. bottom: 20.}
                                         draw_bg +: {
                                             color: #x161252
                                             border_radius: 20.
                                         }
                                         recent_label := BodyCopySm{
-                                            body: "No messages yet. Send a test, or POST from a client app."
+                                            body: "No messages yet — send one above."
                                         }
                                     }
                                 }
 
-                                // —— Relay ——
+                                // —— Connect clients ——
                                 SolidView{
                                     width: Fill
                                     height: Fit
                                     flow: Down
-                                    spacing: 14
+                                    spacing: 12
+                                    Label{
+                                        width: Fill
+                                        height: Fit
+                                        text: "CONNECT A CLIENT"
+                                        draw_text.color: #x9fb4d0
+                                        draw_text.text_style.font_size: 11
+                                    }
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 16
+                                        padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+                                        SolidView{
+                                            width: Fill
+                                            height: Fit
+                                            flow: Down
+                                            spacing: 6
+                                            Label{
+                                                width: Fill
+                                                height: Fit
+                                                text: "Listen URL (same Wi‑Fi)"
+                                                draw_text.color: #x9fb4d0
+                                                draw_text.text_style.font_size: 11
+                                            }
+                                            listen_label := BodyCopy{
+                                                body: ""
+                                                font_size: 15.
+                                                font_color: #xfcfbfb
+                                                draw_text +: {color: #xfcfbfb}
+                                            }
+                                        }
+                                        SolidView{
+                                            width: Fill
+                                            height: Fit
+                                            flow: Down
+                                            spacing: 6
+                                            Label{
+                                                width: Fill
+                                                height: Fit
+                                                text: "API key"
+                                                draw_text.color: #x9fb4d0
+                                                draw_text.text_style.font_size: 11
+                                            }
+                                            token_label := BodyCopySm{
+                                                body: ""
+                                                font_color: #x00c8fc
+                                                draw_text +: {color: #x00c8fc}
+                                            }
+                                        }
+                                        share_curl_button := PrimaryBtn{
+                                            text: "Share curl example"
+                                        }
+                                        share_url_button := GhostBtn{
+                                            text: "Share URL + API key"
+                                        }
+                                        copy_key_button := GhostBtn{
+                                            text: "Copy API key"
+                                        }
+                                        hint_label := BodyCopySm{
+                                            body: "POST /v1/messages · GET /v1/health · BT TCP :18766"
+                                            font_size: 12.
+                                        }
+                                    }
+                                }
+
+                                // —— Relay (optional, collapsed visually) ——
+                                SolidView{
+                                    width: Fill
+                                    height: Fit
+                                    flow: Down
+                                    spacing: 12
                                     Label{
                                         width: Fill
                                         height: Fit
@@ -604,18 +592,18 @@ script_mod! {
                                         draw_text.color: #x9fb4d0
                                         draw_text.text_style.font_size: 11
                                     }
-                                    BodyCopy{
-                                        body: "For internet clients. LAN and Bluetooth keep working if the relay is offline."
-                                    }
                                     RoundedView{
                                         width: Fill
                                         height: Fit
                                         flow: Down
                                         spacing: 8
-                                        padding: Inset{left: 22. right: 22. top: 24. bottom: 24.}
+                                        padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
                                         draw_bg +: {
                                             color: #x161252
                                             border_radius: 20.
+                                        }
+                                        BodyCopySm{
+                                            body: "Internet clients via sms-relay. LAN/BT keep working without it."
                                         }
                                         relay_url_input := FieldInput{
                                             empty_text: "Relay URL (http://host:9876)"
@@ -655,6 +643,9 @@ pub struct App {
     gateway: Option<Gateway>,
     #[rust]
     refresh_timer: Timer,
+    /// Last test-send id — refresh_all updates result_label as status moves.
+    #[rust]
+    last_test_id: Option<String>,
 }
 
 impl MatchEvent for App {
@@ -670,19 +661,16 @@ impl MatchEvent for App {
 
         #[cfg(not(target_os = "android"))]
         {
-            self.ui.label(cx, ids!(perm_label)).set_text(
-                cx,
-                "Desktop dry-run — SIM radio needs an Android device with a usable SIM.",
-            );
-            self.ui
-                .label(cx, ids!(perm_label))
-                .set_text_color(cx, color_muted());
             self.ui
                 .button(cx, ids!(perm_button))
                 .set_text(cx, "SMS permission (Android only)");
             self.ui.markdown(cx, ids!(tagline_label)).set_text(
                 cx,
-                "Desktop preview — ship and run on Android phones, tablets, and other devices",
+                "Desktop preview — run on Android to send real SMS through a SIM",
+            );
+            self.ui.markdown(cx, ids!(next_step_label)).set_text(
+                cx,
+                "Desktop dry-run: LAN API works here; SIM send needs an Android device.",
             );
         }
 
@@ -746,12 +734,55 @@ impl MatchEvent for App {
             permissions::request_sms_permission();
             self.ui.label(cx, ids!(result_label)).set_text(
                 cx,
-                "Permission dialog requested — allow SMS, then wait for status to update",
+                "Permission dialog requested — allow SMS, then wait for SIM → Ready",
             );
             self.ui
                 .label(cx, ids!(result_label))
                 .set_text_color(cx, color_lime());
             self.refresh_all(cx);
+        }
+        if self.ui.button(cx, ids!(share_url_button)).clicked(actions)
+            || self.ui.button(cx, ids!(share_curl_button)).clicked(actions)
+        {
+            let Some(gw) = &self.gateway else { return };
+            let base = lan::listen_base_url(gw.handle.listen.port());
+            let token = gw.handle.api_token.clone();
+            let curl = format!(
+                "curl -s -H \"X-Api-Key: {token}\" -H 'Content-Type: application/json' \\\n  -d '{{\"to\":\"+15551212\",\"body\":\"hello\",\"idempotency_key\":\"demo-1\"}}' \\\n  {base}/v1/messages"
+            );
+            let share_curl = self.ui.button(cx, ids!(share_curl_button)).clicked(actions);
+            let text = if share_curl {
+                format!("Wadhu SMS Gateway\n\n{curl}")
+            } else {
+                format!(
+                    "Wadhu SMS Gateway\n\nURL: {base}\nAPI key: {token}\n\nGET {base}/v1/health\nPOST {base}/v1/messages\nHeader: X-Api-Key: {token}"
+                )
+            };
+            cx.share_text(&text);
+            cx.copy_to_clipboard(&text);
+            self.ui.label(cx, ids!(result_label)).set_text(
+                cx,
+                if share_curl {
+                    "Shared curl example (also copied)"
+                } else {
+                    "Shared URL + API key (also copied)"
+                },
+            );
+            self.ui
+                .label(cx, ids!(result_label))
+                .set_text_color(cx, color_lime());
+        }
+        if self.ui.button(cx, ids!(copy_key_button)).clicked(actions) {
+            let Some(gw) = &self.gateway else { return };
+            let token = gw.handle.api_token.clone();
+            cx.copy_to_clipboard(&token);
+            cx.share_text(&token);
+            self.ui
+                .label(cx, ids!(result_label))
+                .set_text(cx, "API key copied / shared");
+            self.ui
+                .label(cx, ids!(result_label))
+                .set_text_color(cx, color_lime());
         }
         if self.ui.button(cx, ids!(send_button)).clicked(actions) {
             let to = self.ui.text_input(cx, ids!(to_input)).text();
@@ -765,12 +796,35 @@ impl MatchEvent for App {
                     .set_text_color(cx, color_fail());
                 return;
             }
+            #[cfg(target_os = "android")]
+            if !permissions::sms_permission_granted() {
+                self.ui.label(cx, ids!(result_label)).set_text(
+                    cx,
+                    "Allow SMS permission first (Do Next above)",
+                );
+                self.ui
+                    .label(cx, ids!(result_label))
+                    .set_text_color(cx, color_fail());
+                return;
+            }
             if let Some(gw) = &self.gateway {
+                let caps = gw.handle.radio.capabilities();
+                if !caps.available {
+                    self.ui.label(cx, ids!(result_label)).set_text(
+                        cx,
+                        &format!("SIM not ready: {}", humanize_radio_detail(&caps.detail)),
+                    );
+                    self.ui
+                        .label(cx, ids!(result_label))
+                        .set_text_color(cx, color_fail());
+                    return;
+                }
                 match gw.handle.outbox.accept(String::new(), to, body) {
                     Ok(m) => {
+                        self.last_test_id = Some(m.id.clone());
                         self.ui.label(cx, ids!(result_label)).set_text(
                             cx,
-                            &format!("Queued {} — watching drain…", short_id(&m.id)),
+                            &format!("Queued {} — waiting for radio…", short_id(&m.id)),
                         );
                         self.ui
                             .label(cx, ids!(result_label))
@@ -799,6 +853,7 @@ impl App {
         let (pending, submitted, failed) = gw.handle.outbox.counts();
         let listen = gw.handle.listen;
         let token = &gw.handle.api_token;
+        let base = lan::listen_base_url(listen.port());
 
         self.ui.label(cx, ids!(live_badge)).set_text(cx, "LIVE");
         self.ui
@@ -819,10 +874,20 @@ impl App {
             .label(cx, ids!(radio_chip))
             .set_text_color(cx, radio_color);
 
-        self.ui.label(cx, ids!(api_chip)).set_text(cx, "Listening");
-        self.ui
-            .label(cx, ids!(api_chip))
-            .set_text_color(cx, color_ok());
+        let lan_chip = if lan::local_ipv4().is_some() {
+            "Listening"
+        } else {
+            "No Wi‑Fi IP"
+        };
+        self.ui.label(cx, ids!(api_chip)).set_text(cx, lan_chip);
+        self.ui.label(cx, ids!(api_chip)).set_text_color(
+            cx,
+            if lan::local_ipv4().is_some() {
+                color_ok()
+            } else {
+                color_warn()
+            },
+        );
 
         let bt = gw.handle.bluetooth.snapshot();
         let (bt_text, bt_color) = if bt.listening {
@@ -871,17 +936,13 @@ impl App {
         self.ui.markdown(cx, ids!(detail_label)).set_text(
             cx,
             &format!(
-                "{}\n\n{}\n\nSent {submitted} · failed {failed}",
-                caps.label, caps.detail
+                "{} — {}\nSent {submitted} · failed {failed}",
+                caps.label,
+                humanize_radio_detail(&caps.detail)
             ),
         );
 
-        let host = if cfg!(target_os = "android") {
-            format!("http://<this-device-ip>:{}", listen.port())
-        } else {
-            format!("http://{}", listen)
-        };
-        self.ui.markdown(cx, ids!(listen_label)).set_text(cx, &host);
+        self.ui.markdown(cx, ids!(listen_label)).set_text(cx, &base);
         self.ui.markdown(cx, ids!(token_label)).set_text(cx, token);
 
         let lines: Vec<String> = gw
@@ -906,32 +967,84 @@ impl App {
             })
             .collect();
         let text = if lines.is_empty() {
-            "No messages yet. Send a test, or POST from a client app.".into()
+            "No messages yet — send one above.".into()
         } else {
             lines.join("\n")
         };
         self.ui.markdown(cx, ids!(recent_label)).set_text(cx, &text);
 
-        #[cfg(target_os = "android")]
-        {
-            let granted = permissions::sms_permission_granted();
-            if granted {
+        if let Some(id) = &self.last_test_id {
+            if let Some(m) = gw.handle.outbox.get(id) {
+                let (msg, color) = match m.status.as_str() {
+                    "queued" | "submitting" => (
+                        format!("{} — handing to SIM…", short_id(&m.id)),
+                        color_lime(),
+                    ),
+                    "submitted" => (
+                        format!("{} submitted to carrier → {}", short_id(&m.id), m.to),
+                        color_ok(),
+                    ),
+                    "failed" => (
+                        format!(
+                            "{} failed: {}",
+                            short_id(&m.id),
+                            m.error.as_deref().unwrap_or("unknown")
+                        ),
+                        color_fail(),
+                    ),
+                    other => (format!("{} — {other}", short_id(&m.id)), color_muted()),
+                };
+                self.ui.label(cx, ids!(result_label)).set_text(cx, &msg);
                 self.ui
-                    .label(cx, ids!(perm_label))
-                    .set_text(cx, "SMS permission granted — this device can send");
-                self.ui
-                    .label(cx, ids!(perm_label))
-                    .set_text_color(cx, color_ok());
-            } else {
-                self.ui.label(cx, ids!(perm_label)).set_text(
-                    cx,
-                    "Allow SMS so this Android device can send through its SIM",
-                );
-                self.ui
-                    .label(cx, ids!(perm_label))
-                    .set_text_color(cx, color_warn());
+                    .label(cx, ids!(result_label))
+                    .set_text_color(cx, color);
             }
         }
+
+        #[cfg(target_os = "android")]
+        let sms_ok = permissions::sms_permission_granted();
+        #[cfg(not(target_os = "android"))]
+        let sms_ok = false;
+
+        let next = if cfg!(not(target_os = "android")) {
+            "Desktop dry-run: API listens on localhost. Install on Android to use a SIM."
+                .to_string()
+        } else if !sms_ok {
+            "1) Tap Allow SMS permission — without it this device cannot send."
+                .to_string()
+        } else if !caps.available {
+            format!(
+                "SMS allowed, but SIM not ready: {}. Check airplane mode / signal.",
+                humanize_radio_detail(&caps.detail)
+            )
+        } else if submitted + failed + pending == 0 {
+            "SIM ready. Send a real SMS below, or share the Listen URL with a client."
+                .to_string()
+        } else {
+            format!(
+                "Gateway live at {base}. Sent {submitted} · failed {failed} · pending {pending}."
+            )
+        };
+        self.ui
+            .markdown(cx, ids!(next_step_label))
+            .set_text(cx, &next);
+
+        self.ui.button(cx, ids!(perm_button)).set_text(
+            cx,
+            if sms_ok {
+                "SMS permission granted"
+            } else {
+                "Allow SMS permission"
+            },
+        );
+    }
+}
+
+fn humanize_radio_detail(detail: &str) -> String {
+    match detail {
+        "ready" => "ready".into(),
+        "" => "unknown".into(),
+        other => other.replace('_', " "),
     }
 }
 

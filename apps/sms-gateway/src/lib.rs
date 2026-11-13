@@ -8,6 +8,7 @@ pub use makepad_widgets;
 
 pub mod gateway;
 pub mod identity;
+pub mod lan;
 pub mod permissions;
 
 // Android packaging compiles this library as the cdylib.
