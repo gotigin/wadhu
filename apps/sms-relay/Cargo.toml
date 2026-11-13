@@ -1,0 +1,15 @@
+[package]
+name = "wadhu-sms-relay"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Self-hostable SMS relay — internet clients reach paired Android sms-gateway devices"
+publish = false
+
+[[bin]]
+name = "wadhu-sms-relay"
+path = "src/main.rs"
+
+[dependencies]
+# Headless service — no Makepad. Std-only HTTP + WebSocket + JSON file store.

@@ -1,0 +1,67 @@
+# Wadhu workspace — Gotigin's home for reusable code.
+#
+# Wadhu ("more") builds the tools, apps and libraries that other Gotigin
+# brands' apps need (Kumkaj and others), and that are useful to anyone else.
+# Everything reusable lives here, in one place, on the same vendored
+# Makepad 2 (vendor/makepad).
+#
+# Independence rules (docs/WADHU_VISION_AND_PRINCIPLES.md §3, enforced by
+# scripts/check-independence.sh):
+# - apps/<app>/     — never depends on a sibling app.
+# - crates/<crate>/ — never depends on a sibling crate or on any app; it is a
+#                     self-contained, brand-neutral library anyone can take.
+# - Apps may depend on crates — that is what crates are for.
+# - tools/<app>-dev — thin cargo-alias shims, one per app, never shared.
+[workspace]
+members = [
+    "crates/sms-client",
+    "apps/sms-gateway",
+    "apps/sms-relay",
+    "tools/sms-gateway-dev",
+    "tools/sms-gateway-android-dev",
+    "tools/sms-gateway-windows-dev",
+    "tools/sms-relay-dev",
+    "templates/app",
+    "templates/crate",
+    "templates/widgets",
+    "tools/template-app-dev",
+    "tools/template-app-windows-dev",
+    "tools/template-app-android-dev",
+]
+# No default-members yet: with no shipping app, `cargo build` at the root
+# builds every member. Add each shipping app here (like Kumkaj) once it exists.
+exclude = [
+    "vendor/makepad",
+]
+resolver = "3"
+
+# Defaults every member inherits with `field.workspace = true`. A member may
+# still set its own value (e.g. its own `version`), since crates release
+# independently (docs/CRATES.md § Versioning).
+[workspace.package]
+edition = "2024"
+license = "MIT OR Apache-2.0"
+authors = ["Gotigin"]
+
+# One version of each shared dependency for the whole workspace. Members opt
+# in with `dep = { workspace = true }` (plus their own `features`).
+[workspace.dependencies]
+# Makepad 2. Members name it by crates.io version, and the [patch] below
+# resolves it to vendor/makepad. That keeps Wadhu crates consumable from
+# another workspace (e.g. Kumkaj): the consumer adds the same one-line patch
+# pointing at ITS vendor tree, and Cargo builds one Makepad, not two
+# colliding path copies. See docs/DEV.md § Consuming Wadhu from another workspace.
+makepad-widgets = "2.0.0"
+
+[patch.crates-io]
+makepad-widgets = { path = "vendor/makepad/widgets" }
+
+# Android live-dev: release-speed native code, but NOT the cargo profile name
+# `release` — cargo-makepad sets android:debuggable=true iff profile != "release".
+# Plain `dev` on a phone is too slow. Line tables keep useful panic locations
+# without embedding hundreds of MB of DWARF into libmakepad.so.
+[profile.android-dev]
+inherits = "release"
+debug = "line-tables-only"
+lto = false
+codegen-units = 16

@@ -1,0 +1,24 @@
+[package]
+name = "wadhu-sms-gateway"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Local SMS gateway service — other apps connect here to send via SIM or (later) modem"
+publish = false
+
+# Packager metadata is the production id. Dev builds use env/development.env
+# (<id>.debug) via scripts — see docs/DEV.md § Env and app ids.
+[package.metadata.packager]
+identifier = "com.wadhu.smsgateway"
+product_name = "SMS Gateway"
+
+[package.metadata.makepad.android]
+version_code = 1
+version_name = "0.1.0"
+min_sdk_version = 26
+
+[dependencies]
+makepad-widgets = { workspace = true }
+# An app takes Wadhu crates it needs by path, e.g.:
+# wadhu-<crate> = { path = "../../crates/<crate>" }

@@ -1,0 +1,46 @@
+--- a/platform/src/os/linux/android/android_jni.rs
++++ b/platform/src/os/linux/android/android_jni.rs
+@@ -1737,6 +1737,43 @@
+     }
+ }
+ 
++/// Wadhu SMS Gateway: send SMS via the device SIM (MakepadActivity.sendSms).
++pub unsafe fn to_java_send_sms(to: String, body: String) -> bool {
++    let env = attach_jni_env();
++    let Ok(to) = CString::new(to) else {
++        return false;
++    };
++    let Ok(body) = CString::new(body) else {
++        return false;
++    };
++    let to = ((**env).NewStringUTF.unwrap())(env, to.as_ptr());
++    let body = ((**env).NewStringUTF.unwrap())(env, body.as_ptr());
++    let ok = ndk_utils::call_bool_method!(
++        env,
++        get_activity(),
++        "sendSms",
++        "(Ljava/lang/String;Ljava/lang/String;)Z",
++        to,
++        body
++    );
++    ok != 0
++}
++
++/// Wadhu SMS Gateway: coarse SIM/permission status string from Java.
++pub unsafe fn to_java_sms_radio_status() -> String {
++    let env = attach_jni_env();
++    let result = ndk_utils::call_object_method!(
++        env,
++        get_activity(),
++        "smsRadioStatus",
++        "()Ljava/lang/String;"
++    );
++    if result.is_null() {
++        return "error".to_string();
++    }
++    jstring_to_string(env, result)
++}
++
+ pub unsafe fn to_java_paste_from_clipboard() -> String {
+     let env = attach_jni_env();
+     let result = ndk_utils::call_object_method!(

@@ -1,0 +1,9 @@
+[package]
+name = "sms-relay-dev"
+version = "0.1.0"
+edition.workspace = true
+publish = false
+
+[[bin]]
+name = "sms-relay-dev"
+path = "main.rs"

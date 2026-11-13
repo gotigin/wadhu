@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Wadhu: template app live (--hot --remote)",
+      "type": "shell",
+      "command": "cargo",
+      "args": ["template-app-dev"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": ["$rustc"],
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "dedicated", "focus": false }
+    },
+    {
+      "label": "Wadhu: test workspace",
+      "type": "shell",
+      "command": "cargo test --workspace && ./scripts/check-independence.sh",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": ["$rustc"],
+      "group": "test",
+      "presentation": { "reveal": "always", "panel": "dedicated", "focus": false }
+    },
+    {
+      "label": "Wadhu: setup Makepad 2 (vendor/makepad)",
+      "type": "shell",
+      "command": "./scripts/setup-makepad.sh",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated", "focus": false }
+    }
+  ]
+}

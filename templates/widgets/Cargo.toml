@@ -1,0 +1,18 @@
+[package]
+name = "wadhu-template-widgets"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Starter Makepad 2 widget crate for Wadhu — copy with scripts/new-crate.sh --widgets"
+publish = false
+readme = "README.md"
+
+# Kind for scripts/check-independence.sh (crates/ members get this from their path).
+[package.metadata.wadhu]
+kind = "crate"
+
+[dependencies]
+# Always the workspace dep (registry name + [patch]), never a vendor path —
+# a consumer in another workspace must be able to point it at its own Makepad.
+makepad-widgets = { workspace = true }

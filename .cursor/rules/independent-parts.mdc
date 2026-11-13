@@ -1,0 +1,31 @@
+---
+description: Wadhu = reusable code for Gotigin and others; every app and crate stands alone (no sibling coupling)
+alwaysApply: true
+---
+
+# Every part stands alone
+
+**Wadhu** (by Gotigin, *Tools · Apps · More*) holds reusable code: crates, apps and tools that other Gotigin brands' apps (e.g. Kumkaj) need and that anyone else can use. Canonical text: `docs/WADHU_VISION_AND_PRINCIPLES.md` §1–5; crate rules: `docs/CRATES.md`.
+
+## Do
+
+- Put generic, brand-neutral libraries in `crates/<name>/` (package `wadhu-<name>`) and standalone programs in `apps/<name>/`.
+- Let apps (and sites) depend on crates by path.
+- When a crate has a core plus Makepad UI, put the UI behind an optional `widgets` feature **of the same crate**.
+- Take Makepad as `makepad-widgets = { workspace = true }` (registry name + root `[patch.crates-io]`).
+- Give each app its own `env/`, `scripts/`, `docs/` and `tools/<app>-dev` shim; root `scripts/` name no app.
+- Version each crate with SemVer and a `CHANGELOG.md`; add behaviour as new API or options with the old default.
+- Create parts with `./scripts/new-app.sh` / `./scripts/new-crate.sh`; run `./scripts/check-independence.sh` before finishing.
+
+## Do not
+
+- Make an app depend on a sibling app, or a crate depend on a sibling crate or on any app. If two parts need the same code, copy it (copy-then-diverge) or make it a crate an app uses.
+- Point a crate at `vendor/` by path (it breaks consumers in other workspaces).
+- Put any brand's product/business logic (books, KOT, AWB, …) in Wadhu. It stays in the product app that owns it.
+- Depend on anything under `templates/`; copy it.
+- Restate a root doc in an app/crate doc; link to it.
+
+```text
+✅ apps/print-bridge → crates/escpos            ✅ Kumkaj app → wadhu crates/escpos (+ one [patch] line)
+❌ apps/print-bridge → apps/label-maker         ❌ crates/escpos-widgets → crates/escpos (use a feature)
+```

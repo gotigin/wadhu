@@ -1,0 +1,18 @@
+[package]
+name = "wadhu-sms-client"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+# Declare the oldest Rust this crate supports; CI should test it (docs/CRATES.md § MSRV).
+rust-version = "1.85"
+description = "HTTP client helpers for Wadhu SMS Gateway and SMS Relay"
+publish = false
+readme = "README.md"
+keywords = []
+categories = []
+
+[dependencies]
+# External crates only: never a sibling Wadhu crate or app
+# (docs/WADHU_VISION_AND_PRINCIPLES.md §3). Prefer `{ workspace = true }`
+# for anything listed in the root [workspace.dependencies].

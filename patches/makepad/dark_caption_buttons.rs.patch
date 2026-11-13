@@ -1,0 +1,111 @@
+--- a/widgets/src/window.rs
++++ b/widgets/src/window.rs
+@@ -145,7 +145,7 @@
+ 
+             flow: Right
+ 
+-            draw_bg.color: theme.color_app_caption_bar
++            draw_bg.color: #x1f1b2e
+             // Note: by default, the caption bar height is calculated at runtime
+             // based on window chrome button geometry to ensure the buttons are vertically centered.
+             // If you want to override this height with a fixed value, set the `caption_bar_height_override` on the Window itself.
+@@ -153,41 +153,65 @@
+             caption_label := View {
+                 width: Fill height: Fill
+                 align: Center
+-                label := Label {text: "Makepad"}
++                label := Label {
++                    text: "Makepad"
++                    draw_text.color: #xe8e4dc
++                }
+             }
+             voice_wave := VoiceWave {}
+             windows_buttons := View {
+                 visible: false
+                 width: Fit height: Fit
++                // Cream glyphs on navy caption (Khaynjo). Hardcoded so hot-reload/theme cannot leave them black.
+                 min := DesktopButton {
+                     draw_bg.button_type: DesktopButtonType.WindowsMin
+                     width: 46 height: 29
+                     draw_bg +: {
+-                        color: #000, color_hover: #000, color_down: #000
+-                        bg_color_hover: #E9E9E9, bg_color_down: #CCCCCC
++                        color: #xe8e4dc
++                        color_hover: #xffffff
++                        color_down: #xc4b9ae
++                        bg_color: #00000000
++                        bg_color_hover: #xffffff28
++                        bg_color_down: #ffffff40
+                     }
+                 }
+                 max := DesktopButton {
+                     draw_bg.button_type: DesktopButtonType.WindowsMax
+                     width: 46 height: 29
+                     draw_bg +: {
+-                        color: #000, color_hover: #000, color_down: #000
+-                        bg_color_hover: #E9E9E9, bg_color_down: #CCCCCC
++                        color: #xe8e4dc
++                        color_hover: #xffffff
++                        color_down: #xc4b9ae
++                        bg_color: #00000000
++                        bg_color_hover: #xffffff28
++                        bg_color_down: #ffffff40
+                     }
+                 }
+                 close := DesktopButton {
+                     draw_bg.button_type: DesktopButtonType.WindowsClose
+                     width: 46 height: 29
+                     draw_bg +: {
+-                        color: #000, color_hover: #FFF, color_down: #FFF
+-                        bg_color_hover: #E81123, bg_color_down: #F1707A
++                        color: #xe8e4dc
++                        color_hover: #xffffff
++                        color_down: #xffffff
++                        bg_color: #00000000
++                        bg_color_hover: #xE81123
++                        bg_color_down: #xF1707A
+                     }
+                 }
+             }
+             web_fullscreen := View {
+                 visible: false
+                 width: Fit height: Fit
+-                fullscreen := DesktopButton {draw_bg.button_type: DesktopButtonType.Fullscreen width: 50 height: 36}
++                fullscreen := DesktopButton {
++                    draw_bg.button_type: DesktopButtonType.Fullscreen
++                    width: 50 height: 36
++                    draw_bg +: {
++                        color: #xe8e4dc
++                        color_hover: #xffffff
++                        color_down: #xc4b9ae
++                    }
++                }
+             }
+         }
+         window_menu := WindowMenu {
+--- a/widgets/src/desktop_button.rs
++++ b/widgets/src/desktop_button.rs
+@@ -51,12 +51,12 @@
+                     DesktopButtonType.WindowsMin => {
+                         sdf.move_to(c.x - sz, c.y)
+                         sdf.line_to(c.x + sz, c.y)
+-                        sdf.stroke(color, 0.5 + 0.5 * self.draw_pass.dpi_dilate)
++                        sdf.stroke(color, 1.75 + 0.5 * self.draw_pass.dpi_dilate)
+                         return sdf.result
+                     }
+                     DesktopButtonType.WindowsMax => {
+                         sdf.rect(c.x - sz, c.y - sz, 2. * sz, 2. * sz)
+-                        sdf.stroke(color, 0.5 + 0.5 * self.draw_pass.dpi_dilate)
++                        sdf.stroke(color, 1.75 + 0.5 * self.draw_pass.dpi_dilate)
+                         return sdf.result
+                     }
+                     DesktopButtonType.WindowsMaxToggled => {
+@@ -72,7 +72,7 @@
+                         sdf.line_to(c.x + sz, c.y + sz)
+                         sdf.move_to(c.x - sz, c.y + sz)
+                         sdf.line_to(c.x + sz, c.y - sz)
+-                        sdf.stroke(color, 0.5 + 0.5 * self.draw_pass.dpi_dilate)
++                        sdf.stroke(color, 1.75 + 0.5 * self.draw_pass.dpi_dilate)
+                         return sdf.result
+                     }
+                     DesktopButtonType.XRMode => {

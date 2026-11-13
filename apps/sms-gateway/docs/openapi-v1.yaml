@@ -1,0 +1,186 @@
+openapi: 3.0.3
+info:
+  title: Wadhu SMS Gateway (device) API
+  version: "1.0.0"
+  description: |
+    Local HTTP API exposed by the Android/desktop **sms-gateway** app.
+    Third parties and Gotigin apps use the same surface. Auth with
+    `X-Api-Key` or `Authorization: Bearer`.
+
+    Remote (internet) clients should prefer the **sms-relay** API instead;
+    message paths and JSON shapes match.
+servers:
+  - url: http://{host}:18765
+    variables:
+      host:
+        default: 127.0.0.1
+security:
+  - ApiKeyAuth: []
+  - BearerAuth: []
+paths:
+  /v1/health:
+    get:
+      summary: Liveness, radio, transports, queue
+      responses:
+        "200":
+          description: Gateway is accepting requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Health"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /v1/capabilities:
+    get:
+      summary: What this instance can do
+      responses:
+        "200":
+          description: Capability document
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Capabilities"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /v1/messages:
+    get:
+      summary: List recent messages (newest first)
+      responses:
+        "200":
+          description: Message list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Message"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      summary: Accept an SMS job into the outbox
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AcceptMessage"
+      responses:
+        "202":
+          description: Accepted (queued or existing idempotent result)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
+        "400":
+          description: Validation error
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /v1/messages/{id}:
+    get:
+      summary: One message by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Message
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
+        "404":
+          description: Not found
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+    BearerAuth:
+      type: http
+      scheme: bearer
+  responses:
+    Unauthorized:
+      description: Missing or wrong API key
+  schemas:
+    AcceptMessage:
+      type: object
+      required: [to, body]
+      properties:
+        to:
+          type: string
+          description: E.164 or local dialing number
+        body:
+          type: string
+        idempotency_key:
+          type: string
+          description: |
+            Optional. Retries with the same key return the original message
+            and must never cause a second radio send after handoff.
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+        idempotency_key:
+          type: string
+        to:
+          type: string
+        body:
+          type: string
+        status:
+          $ref: "#/components/schemas/Status"
+        error:
+          type: string
+          nullable: true
+        created_at_ms:
+          type: integer
+          format: int64
+        updated_at_ms:
+          type: integer
+          format: int64
+    Status:
+      type: string
+      enum:
+        - queued
+        - submitting
+        - submitted
+        - delivered
+        - failed
+        - expired
+        - cancelled
+        - indeterminate
+    Health:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        app:
+          type: string
+        radio:
+          type: object
+        transports:
+          type: object
+        queue:
+          type: object
+    Capabilities:
+      type: object
+      properties:
+        radio:
+          type: object
+        transports:
+          type: array
+          items:
+            type: string
+        api:
+          type: array
+          items:
+            type: string

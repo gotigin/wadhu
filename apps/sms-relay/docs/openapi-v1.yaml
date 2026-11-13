@@ -1,0 +1,127 @@
+openapi: 3.0.3
+info:
+  title: Wadhu SMS Relay API
+  version: "1.0.0"
+  description: |
+    Self-hostable remote API. Message paths match the device LAN API so
+    third parties learn one schema. Admin paths mint devices and client keys.
+servers:
+  - url: http://{host}:9876
+    variables:
+      host:
+        default: 127.0.0.1
+paths:
+  /v1/health:
+    get:
+      summary: Liveness and online devices
+      responses:
+        "200":
+          description: OK
+  /v1/capabilities:
+    get:
+      summary: Relay capability document
+      responses:
+        "200":
+          description: OK
+  /v1/devices/pair:
+    post:
+      summary: Create device credentials (admin)
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: pairing_code, device_id, device_secret
+  /v1/devices:
+    get:
+      summary: List devices (admin)
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: Device list with online flags
+  /v1/keys:
+    post:
+      summary: Mint a client API key (admin)
+      security:
+        - BearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                label:
+                  type: string
+                device_id:
+                  type: string
+                  nullable: true
+      responses:
+        "200":
+          description: Client key with token
+  /v1/messages:
+    post:
+      summary: Accept SMS job (client key)
+      security:
+        - BearerAuth: []
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [to, body]
+              properties:
+                to:
+                  type: string
+                body:
+                  type: string
+                idempotency_key:
+                  type: string
+      responses:
+        "202":
+          description: Accepted
+    get:
+      summary: List recent messages
+      security:
+        - BearerAuth: []
+        - ApiKeyAuth: []
+      responses:
+        "200":
+          description: Message list
+  /v1/messages/{id}:
+    get:
+      summary: Message status
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Message
+  /v1/device/ws:
+    get:
+      summary: Device WebSocket (phone outbound)
+      description: |
+        Android sms-gateway connects here with `?device_id=` and
+        `Authorization: Bearer <device_secret>`. Not for third-party apps.
+      parameters:
+        - name: device_id
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "101":
+          description: Switching Protocols
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Api-Key

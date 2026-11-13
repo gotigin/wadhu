@@ -1,0 +1,56 @@
+--- a/widgets/src/scroll_bar.rs
++++ b/widgets/src/scroll_bar.rs
+@@ -280,6 +280,12 @@
+     /// Whether to enable drag scrolling
+     #[live(false)]
+     drag_scrolling: bool,
++    /// When true, a mouse press on a child (nested pane, list, …) can still
++    /// start a drag-scroll. Default false so horizontal chip strips only
++    /// mouse-drag from whitespace (nav drag-to-swap on a chip is not stolen).
++    /// Desk panes / page ScrollYViews that fill the view set this true.
++    #[live(false)]
++    mouse_capture_overload: bool,
+ 
+     #[apply_default]
+     animator: Animator,
+@@ -876,7 +882,14 @@
+         // Android touch-drag can scroll ScrollYView even when the press began
+         // on a child Button (desktop wheel never needed this). On the first
+         // real move we promote our capture so the child does not also click.
+-        match event.hits_with_capture_overload(cx, scroll_area, true) {
++        // Mouse default: no capture overload — only a press on the scroll
++        // view itself (whitespace around child buttons) starts a drag-scroll,
++        // so an app-level drag on a child Button (nav swap) is not stolen.
++        // Pages / desk panes set `mouse_capture_overload` so press-drag works
++        // over nested lists and buttons (vertical and horizontal).
++        let capture_overload = self.mouse_capture_overload
++            || !matches!(event, Event::MouseDown(_));
++        match event.hits_with_capture_overload(cx, scroll_area, capture_overload) {
+             Hit::FingerDown(fe) if fe.is_primary_hit() => {
+                 let abs = match self.axis {
+                     ScrollAxis::Horizontal => fe.abs.x,
+--- a/widgets/src/portal_list.rs
++++ b/widgets/src/portal_list.rs
+@@ -496,6 +496,11 @@
+     grab_key_focus: bool,
+     #[live(true)]
+     drag_scrolling: bool,
++    /// When true, mouse press-drag also flings this list (capped SuggestList /
++    /// StationCheckList). Default false: page ScrollYView owns mouse press-drag
++    /// over expand-to-content lists (`drag_scroll_touch_only`).
++    #[live(false)]
++    mouse_drag_scrolling: bool,
+     /// The minimum distance (in pixels) a finger/mouse must move before a drag is
+     /// "committed" and treated as a scroll gesture rather than a tap/click.
+     /// This prevents accidental micro-scrolling when tapping interactive items.
+@@ -3121,6 +3126,10 @@
+                             self.update_item_selections(cx);
+                         }
+                     } else if self.drag_scrolling && fe.is_primary_hit()
++                        // Touch always. Mouse only when opted in (capped
++                        // SuggestList / StationCheckList) — expand-to-content
++                        // lists leave mouse press-drag to page ScrollYView.
++                        && (self.mouse_drag_scrolling || !fe.device.is_mouse())
+                         && cx.is_scrolling_allowed_within(&self.area)
+                     {
+                         // Always enter drag state to enable drag-to-scroll even over

@@ -1,0 +1,12 @@
+[package]
+name = "template-app-dev"
+version = "0.1.0"
+edition.workspace = true
+publish = false
+
+[package.metadata.wadhu]
+kind = "tool"
+
+[[bin]]
+name = "template-app-dev"
+path = "main.rs"
