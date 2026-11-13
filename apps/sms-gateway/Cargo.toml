@@ -4,7 +4,7 @@ version = "0.1.0"
 edition.workspace = true
 license.workspace = true
 authors.workspace = true
-description = "Local SMS gateway service — other apps connect here to send via SIM or (later) modem"
+description = "Android-first SMS gateway — turn a phone/tablet SIM into a LAN/Bluetooth/relay SMS radio"
 publish = false
 
 # Packager metadata is the production id. Dev builds use env/development.env

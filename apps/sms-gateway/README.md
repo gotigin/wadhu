@@ -1,13 +1,13 @@
 # SMS Gateway
 
-**SIM execution device:** other apps connect here (LAN / Bluetooth) to send
-SMS. Optional outbound session to a self-hosted
-[SMS Relay](../sms-relay/README.md) for internet clients. Local send never
-depends on the relay.
+**Android-first** SMS execution app: install on a phone, tablet, or other
+Android device with a SIM. Client apps (Gotigin or third parties) connect
+over LAN or Bluetooth; optional [SMS Relay](../sms-relay/README.md) covers
+internet clients. Local send never depends on the relay.
 
 ```bash
-cargo sms-gateway-dev              # desktop UI + API on 127.0.0.1:18765
-cargo sms-gateway-android-dev      # Android gateway (SIM) on LAN :18765
+cargo sms-gateway-android-dev      # primary path — device / emulator with telephony
+cargo sms-gateway-dev              # desktop UI/API dry-run only (no SIM)
 cargo test -p wadhu-sms-gateway
 ```
 
@@ -21,9 +21,9 @@ Docs: [`docs/SMS_GATEWAY.md`](docs/SMS_GATEWAY.md) ·
 ### Client example (LAN)
 
 ```bash
-TOKEN=…   # from the SMS Gateway window
-curl -s -H "X-Api-Key: $TOKEN" http://127.0.0.1:18765/v1/health
+TOKEN=…   # from the SMS Gateway screen on the Android device
+curl -s -H "X-Api-Key: $TOKEN" http://<device-ip>:18765/v1/health
 curl -s -H "X-Api-Key: $TOKEN" -H 'Content-Type: application/json' \
   -d '{"to":"+15551212","body":"hello","idempotency_key":"demo-1"}' \
-  http://127.0.0.1:18765/v1/messages
+  http://<device-ip>:18765/v1/messages
 ```

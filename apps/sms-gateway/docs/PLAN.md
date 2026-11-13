@@ -9,13 +9,13 @@
 
 ## 1. Goal
 
-Ship **one Wadhu app** that **is** the SIM execution device:
+Ship **one Wadhu app** that **is** the SIM execution device on **Android
+OS** (phones, tablets, and other form factors with a usable SIM):
 
 - Other apps (Kumkaj, third parties) connect via **LAN HTTP**, **Bluetooth
   framing**, or (for internet) a self-hosted [`sms-relay`](../../sms-relay/README.md).
-- It places messages on the mobile network using a **radio it owns**:
-  - **Android:** the device SIM (in tree).
-  - **Desktop:** USB GSM/LTE modem (next).
+- Radio: **Android SIM** (primary product path). Desktop builds are UI/API
+  dry-runs only for now; USB modem is explicitly deferred.
 - Local LAN/BT send **never** depends on the relay.
 
 ```text

@@ -4,7 +4,19 @@
     windows_subsystem = "windows"
 )]
 
-//! SMS Gateway — Makepad 2 operator shell for the local SMS gateway service.
+//! SMS Gateway — Android-first operator shell (phones, tablets, and other
+//! Android OS devices with a SIM).
+//!
+//! Layout rules (do not regress):
+//! - Body / multi-word copy uses `Label { width: Fill, height: Fit }` so text
+//!   wraps inside the card. Never put long Fit-width labels in a Right row
+//!   beside a badge — they crop.
+//! - Page padding lives on an **inner** content view (ScrollYView padding is
+//!   easy to lose). Cards keep their own padding ≥ 20.
+//! - Text fields: Fixed height (≥ 56), `padding: Inset{…}`, `flow: Right`,
+//!   `max_lines: 1`. Bare `{left:…}` / `{y:…}` objects are type-rejected
+//!   (`expected Inset/Align, got object`) — padding becomes zero.
+//! - Status value chips stay short Fit text; keys are Fill.
 
 pub use makepad_widgets;
 
@@ -22,11 +34,117 @@ app_main!(App);
 script_mod! {
     use mod.prelude.widgets.*
 
+    // Shared wells — Fixed height + Inset padding. Fit+wrap empty_text clips.
+    let FieldInput = TextInput{
+        width: Fill
+        height: 56.
+        margin: Inset{left: 0. right: 0. top: 10. bottom: 10.}
+        padding: Inset{left: 18. right: 18. top: 16. bottom: 14.}
+        flow: Right
+        is_multiline: false
+        blink_speed: 0.5
+        draw_bg +: {
+            color: #x0b1f63
+            color_hover: #x0133ad
+            color_focus: #x0133ad
+            color_empty: #x0b1f63
+            border_radius: 14.
+            border_size: 1.
+            border_color: #x161252
+            border_color_focus: #x00c8fc
+            border_color_empty: #x161252
+        }
+        draw_text +: {
+            color: #xfcfbfb
+            color_empty: #x9fb4d0
+            max_lines: 1
+            text_overflow: Ellipsis
+            text_style +: {font_size: 15.}
+        }
+    }
+
+    let PrimaryBtn = Button{
+        width: Fill
+        height: 56.
+        margin: Inset{left: 0. right: 0. top: 12. bottom: 8.}
+        padding: Inset{left: 18. right: 18. top: 14. bottom: 14.}
+        draw_bg +: {
+            color: #xadfb15
+            color_hover: #x00c8fc
+            color_down: #x0fca65
+            border_radius: 14.
+            border_size: 0.
+        }
+        draw_text +: {
+            color: #x0d0b3a
+            text_style +: {font_size: 15.}
+        }
+    }
+
+    let SecondaryBtn = Button{
+        width: Fill
+        height: 56.
+        margin: Inset{left: 0. right: 0. top: 12. bottom: 8.}
+        padding: Inset{left: 18. right: 18. top: 14. bottom: 14.}
+        draw_bg +: {
+            color: #x0133ad
+            color_hover: #x00c8fc
+            color_down: #x0b1f63
+            border_radius: 14.
+            border_size: 0.
+        }
+        draw_text +: {
+            color: #xfcfbfb
+            text_style +: {font_size: 15.}
+        }
+    }
+
+    let GhostBtn = Button{
+        width: Fill
+        height: 56.
+        margin: Inset{left: 0. right: 0. top: 12. bottom: 8.}
+        padding: Inset{left: 18. right: 18. top: 14. bottom: 14.}
+        draw_bg +: {
+            color: #x0b1f63
+            color_hover: #x0133ad
+            border_radius: 14.
+            border_size: 0.
+        }
+        draw_text +: {
+            color: #xfcfbfb
+            text_style +: {font_size: 14.}
+        }
+    }
+
+    // Body prose — stock Label{Fill} crops; Markdown+Flow.Right{wrap} wraps.
+    let BodyCopy = Markdown{
+        width: Fill
+        height: Fit
+        flow: Flow.Right{wrap: true}
+        padding: Inset{left: 0. right: 0. top: 0. bottom: 0.}
+        selectable: false
+        paragraph_spacing: 0.
+        pre_code_spacing: 0.
+        font_size: 14.
+        font_color: #x9fb4d0
+        draw_text +: {color: #x9fb4d0}
+    }
+
+    let BodyCopySm = BodyCopy{
+        font_size: 13.
+    }
+
+    let BodyCopyLime = BodyCopy{
+        font_size: 13.
+        font_color: #xadfb15
+        draw_text +: {color: #xadfb15}
+    }
+
     startup() do #(App::script_component(vm)){
         ui: Root{
             main_window := Window{
                 window.title: "SMS Gateway"
-                window.inner_size: vec2(760, 860)
+                window.inner_size: vec2(460, 920)
                 body +: {
                     SolidView{
                         width: Fill
@@ -34,678 +152,491 @@ script_mod! {
                         flow: Down
                         draw_bg +: {color: #x0d0b3a}
 
-                        // Brand accent strip
+                        // —— Header (full width, wraps under the badge) ——
                         SolidView{
                             width: Fill
-                            height: 4
-                            draw_bg +: {color: #x00c8fc}
+                            height: Fit
+                            flow: Down
+                            draw_bg +: {color: #x0b1f63}
+                            SolidView{
+                                width: Fill
+                                height: 3
+                                draw_bg +: {color: #x00c8fc}
+                            }
+                            SolidView{
+                                width: Fill
+                                height: Fit
+                                flow: Down
+                                spacing: 12
+                                padding: Inset{left: 28. right: 28. top: 24. bottom: 24.}
+
+                                SolidView{
+                                    width: Fill
+                                    height: Fit
+                                    flow: Right
+                                    spacing: 12
+                                    align: Align{y: 0.5}
+                                    title_label := Label{
+                                        width: Fit
+                                        height: Fit
+                                        text: "SMS Gateway"
+                                        draw_text.color: #xfcfbfb
+                                        draw_text.text_style.font_size: 26
+                                    }
+                                    SolidView{ width: Fill height: 1 }
+                                    RoundedView{
+                                        width: Fit
+                                        height: Fit
+                                        padding: Inset{left: 14. right: 14. top: 10. bottom: 10.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 999.
+                                            border_size: 1.
+                                            border_color: #x00c8fc
+                                        }
+                                        live_badge := Label{
+                                            width: Fit
+                                            height: Fit
+                                            text: "…"
+                                            draw_text.color: #x00c8fc
+                                            draw_text.text_style.font_size: 11
+                                        }
+                                    }
+                                }
+
+                                tagline_label := BodyCopyLime{
+                                    body: "Turn this Android device into an SMS radio for your apps"
+                                }
+                                identity_label := BodyCopySm{
+                                    body: ""
+                                    font_size: 11.
+                                }
+                            }
                         }
 
                         ScrollYView{
                             width: Fill
                             height: Fill
                             flow: Down
-                            spacing: 16
-                            padding: {left: 24. right: 24. top: 22. bottom: 32.}
 
-                            // —— Header ——
+                            // Inner pad — do not rely on ScrollYView padding alone.
                             SolidView{
                                 width: Fill
                                 height: Fit
-                                flow: Right
-                                spacing: 12
-                                align: {y: 0.5}
+                                flow: Down
+                                spacing: 36
+                                padding: Inset{left: 28. right: 28. top: 28. bottom: 64.}
+
+                                // —— Status ——
                                 SolidView{
                                     width: Fill
                                     height: Fit
                                     flow: Down
-                                    spacing: 4
-                                    title_label := Label{
-                                        text: "SMS Gateway"
-                                        draw_text.color: #xfcfbfb
-                                        draw_text.text_style.font_size: 30
-                                    }
-                                    tagline_label := Label{
-                                        text: "Other apps connect here to send SMS"
-                                        draw_text.color: #xadfb15
-                                        draw_text.text_style.font_size: 13
-                                    }
-                                    identity_label := Label{
-                                        text: ""
-                                        draw_text.color: #x9fb4d0
-                                        draw_text.text_style.font_size: 10
-                                    }
-                                }
-                                RoundedView{
-                                    width: Fit
-                                    height: Fit
-                                    padding: {left: 12. right: 12. top: 8. bottom: 8.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        border_radius: 999.
-                                        border_size: 1.
-                                        border_color: #x00c8fc
-                                    }
-                                    live_badge := Label{
-                                        text: "STARTING"
-                                        draw_text.color: #x00c8fc
-                                        draw_text.text_style.font_size: 10
-                                    }
-                                }
-                            }
-
-                            // —— Health ——
-                            RoundedView{
-                                width: Fill
-                                height: Fit
-                                flow: Down
-                                spacing: 12
-                                padding: {left: 18. right: 18. top: 16. bottom: 16.}
-                                draw_bg +: {
-                                    color: #x161252
-                                    border_radius: 16.
-                                }
-                                Label{
-                                    text: "GATEWAY HEALTH"
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 10
-                                }
-                                SolidView{
-                                    width: Fill
-                                    height: Fit
-                                    flow: Right
-                                    spacing: 10
-                                    RoundedView{
-                                        width: Fill
-                                        height: Fit
-                                        flow: Down
-                                        spacing: 4
-                                        padding: {left: 14. right: 14. top: 12. bottom: 12.}
-                                        draw_bg +: {
-                                            color: #x0b1f63
-                                            border_radius: 12.
-                                        }
-                                        Label{
-                                            text: "RADIO"
-                                            draw_text.color: #x9fb4d0
-                                            draw_text.text_style.font_size: 9
-                                        }
-                                        radio_chip := Label{
-                                            text: "…"
-                                            draw_text.color: #x00c8fc
-                                            draw_text.text_style.font_size: 15
-                                        }
-                                    }
-                                    RoundedView{
-                                        width: Fill
-                                        height: Fit
-                                        flow: Down
-                                        spacing: 4
-                                        padding: {left: 14. right: 14. top: 12. bottom: 12.}
-                                        draw_bg +: {
-                                            color: #x0b1f63
-                                            border_radius: 12.
-                                        }
-                                        Label{
-                                            text: "API"
-                                            draw_text.color: #x9fb4d0
-                                            draw_text.text_style.font_size: 9
-                                        }
-                                        api_chip := Label{
-                                            text: "…"
-                                            draw_text.color: #x00c8fc
-                                            draw_text.text_style.font_size: 15
-                                        }
-                                    }
-                                    RoundedView{
-                                        width: Fill
-                                        height: Fit
-                                        flow: Down
-                                        spacing: 4
-                                        padding: {left: 14. right: 14. top: 12. bottom: 12.}
-                                        draw_bg +: {
-                                            color: #x0b1f63
-                                            border_radius: 12.
-                                        }
-                                        Label{
-                                            text: "QUEUE"
-                                            draw_text.color: #x9fb4d0
-                                            draw_text.text_style.font_size: 9
-                                        }
-                                        queue_chip := Label{
-                                            text: "…"
-                                            draw_text.color: #x00c8fc
-                                            draw_text.text_style.font_size: 15
-                                        }
-                                    }
-                                }
-                                SolidView{
-                                    width: Fill
-                                    height: Fit
-                                    flow: Right
-                                    spacing: 10
-                                    RoundedView{
-                                        width: Fill
-                                        height: Fit
-                                        flow: Down
-                                        spacing: 4
-                                        padding: {left: 14. right: 14. top: 12. bottom: 12.}
-                                        draw_bg +: {
-                                            color: #x0b1f63
-                                            border_radius: 12.
-                                        }
-                                        Label{
-                                            text: "BLUETOOTH"
-                                            draw_text.color: #x9fb4d0
-                                            draw_text.text_style.font_size: 9
-                                        }
-                                        bt_chip := Label{
-                                            text: "…"
-                                            draw_text.color: #x00c8fc
-                                            draw_text.text_style.font_size: 15
-                                        }
-                                    }
-                                    RoundedView{
-                                        width: Fill
-                                        height: Fit
-                                        flow: Down
-                                        spacing: 4
-                                        padding: {left: 14. right: 14. top: 12. bottom: 12.}
-                                        draw_bg +: {
-                                            color: #x0b1f63
-                                            border_radius: 12.
-                                        }
-                                        Label{
-                                            text: "RELAY"
-                                            draw_text.color: #x9fb4d0
-                                            draw_text.text_style.font_size: 9
-                                        }
-                                        relay_chip := Label{
-                                            text: "…"
-                                            draw_text.color: #x00c8fc
-                                            draw_text.text_style.font_size: 15
-                                        }
-                                    }
-                                }
-                                detail_label := Label{
-                                    text: ""
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 11
-                                }
-                            }
-
-                            // —— Connection ——
-                            RoundedView{
-                                width: Fill
-                                height: Fit
-                                flow: Down
-                                spacing: 10
-                                padding: {left: 18. right: 18. top: 16. bottom: 16.}
-                                draw_bg +: {
-                                    color: #x161252
-                                    border_radius: 16.
-                                }
-                                Label{
-                                    text: "FOR CLIENT APPS"
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 10
-                                }
-                                Label{
-                                    text: "Give these to any app that should send SMS through this gateway."
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 11
-                                }
-                                RoundedView{
-                                    width: Fill
-                                    height: Fit
-                                    flow: Down
-                                    spacing: 4
-                                    padding: {left: 14. right: 14. top: 10. bottom: 10.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        border_radius: 10.
-                                    }
+                                    spacing: 12
                                     Label{
-                                        text: "LISTEN URL"
+                                        width: Fill
+                                        height: Fit
+                                        text: "STATUS"
                                         draw_text.color: #x9fb4d0
-                                        draw_text.text_style.font_size: 9
+                                        draw_text.text_style.font_size: 11
                                     }
-                                    listen_label := Label{
-                                        text: ""
-                                        draw_text.color: #xfcfbfb
-                                        draw_text.text_style.font_size: 14
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 0
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+
+                                        // Right rows: Fit key + Fill spacer + Fit chip.
+                                        // Fill-before-Fit starves the chip (clips "Listening").
+                                        SolidView{
+                                            width: Fill
+                                            height: Fit
+                                            flow: Right
+                                            spacing: 12
+                                            padding: Inset{left: 22. right: 22. top: 20. bottom: 20.}
+                                            align: Align{y: 0.5}
+                                            Label{
+                                                width: Fit
+                                                height: Fit
+                                                text: "SIM radio"
+                                                draw_text.color: #x9fb4d0
+                                                draw_text.text_style.font_size: 14
+                                            }
+                                            SolidView{ width: Fill height: 1 }
+                                            radio_chip := Label{
+                                                width: Fit
+                                                height: Fit
+                                                text: "…"
+                                                draw_text.color: #x00c8fc
+                                                draw_text.text_style.font_size: 14
+                                            }
+                                        }
+                                        SolidView{ width: Fill height: 1 draw_bg +: {color: #x0b1f63} }
+                                        SolidView{
+                                            width: Fill
+                                            height: Fit
+                                            flow: Right
+                                            spacing: 12
+                                            padding: Inset{left: 22. right: 22. top: 20. bottom: 20.}
+                                            align: Align{y: 0.5}
+                                            Label{
+                                                width: Fit
+                                                height: Fit
+                                                text: "LAN API"
+                                                draw_text.color: #x9fb4d0
+                                                draw_text.text_style.font_size: 14
+                                            }
+                                            SolidView{ width: Fill height: 1 }
+                                            api_chip := Label{
+                                                width: Fit
+                                                height: Fit
+                                                text: "…"
+                                                draw_text.color: #x00c8fc
+                                                draw_text.text_style.font_size: 14
+                                            }
+                                        }
+                                        SolidView{ width: Fill height: 1 draw_bg +: {color: #x0b1f63} }
+                                        SolidView{
+                                            width: Fill
+                                            height: Fit
+                                            flow: Right
+                                            spacing: 12
+                                            padding: Inset{left: 22. right: 22. top: 20. bottom: 20.}
+                                            align: Align{y: 0.5}
+                                            Label{
+                                                width: Fit
+                                                height: Fit
+                                                text: "Bluetooth"
+                                                draw_text.color: #x9fb4d0
+                                                draw_text.text_style.font_size: 14
+                                            }
+                                            SolidView{ width: Fill height: 1 }
+                                            bt_chip := Label{
+                                                width: Fit
+                                                height: Fit
+                                                text: "…"
+                                                draw_text.color: #x00c8fc
+                                                draw_text.text_style.font_size: 14
+                                            }
+                                        }
+                                        SolidView{ width: Fill height: 1 draw_bg +: {color: #x0b1f63} }
+                                        SolidView{
+                                            width: Fill
+                                            height: Fit
+                                            flow: Right
+                                            spacing: 12
+                                            padding: Inset{left: 22. right: 22. top: 20. bottom: 20.}
+                                            align: Align{y: 0.5}
+                                            Label{
+                                                width: Fit
+                                                height: Fit
+                                                text: "Relay"
+                                                draw_text.color: #x9fb4d0
+                                                draw_text.text_style.font_size: 14
+                                            }
+                                            SolidView{ width: Fill height: 1 }
+                                            relay_chip := Label{
+                                                width: Fit
+                                                height: Fit
+                                                text: "…"
+                                                draw_text.color: #x00c8fc
+                                                draw_text.text_style.font_size: 14
+                                            }
+                                        }
+                                        SolidView{ width: Fill height: 1 draw_bg +: {color: #x0b1f63} }
+                                        SolidView{
+                                            width: Fill
+                                            height: Fit
+                                            flow: Right
+                                            spacing: 12
+                                            padding: Inset{left: 22. right: 22. top: 20. bottom: 20.}
+                                            align: Align{y: 0.5}
+                                            Label{
+                                                width: Fit
+                                                height: Fit
+                                                text: "Queue"
+                                                draw_text.color: #x9fb4d0
+                                                draw_text.text_style.font_size: 14
+                                            }
+                                            SolidView{ width: Fill height: 1 }
+                                            queue_chip := Label{
+                                                width: Fit
+                                                height: Fit
+                                                text: "…"
+                                                draw_text.color: #x00c8fc
+                                                draw_text.text_style.font_size: 14
+                                            }
+                                        }
+                                    }
+                                    detail_label := BodyCopySm{
+                                        body: ""
+                                        font_size: 12.
                                     }
                                 }
-                                RoundedView{
+
+                                // —— Share ——
+                                SolidView{
                                     width: Fill
                                     height: Fit
                                     flow: Down
-                                    spacing: 4
-                                    padding: {left: 14. right: 14. top: 10. bottom: 10.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        border_radius: 10.
-                                    }
+                                    spacing: 12
                                     Label{
-                                        text: "API KEY  ·  X-Api-Key or Authorization: Bearer"
+                                        width: Fill
+                                        height: Fit
+                                        text: "SHARE WITH CLIENT APPS"
                                         draw_text.color: #x9fb4d0
-                                        draw_text.text_style.font_size: 9
+                                        draw_text.text_style.font_size: 11
                                     }
-                                    token_label := Label{
-                                        text: ""
-                                        draw_text.color: #x00c8fc
-                                        draw_text.text_style.font_size: 12
+                                    BodyCopy{
+                                        body: "Any app on the same Wi‑Fi can send SMS through this device."
+                                    }
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 20
+                                        padding: Inset{left: 22. right: 22. top: 24. bottom: 24.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+                                        SolidView{
+                                            width: Fill
+                                            height: Fit
+                                            flow: Down
+                                            spacing: 8
+                                            Label{
+                                                width: Fill
+                                                height: Fit
+                                                text: "Listen URL"
+                                                draw_text.color: #x9fb4d0
+                                                draw_text.text_style.font_size: 11
+                                            }
+                                            listen_label := BodyCopy{
+                                                body: ""
+                                                font_size: 15.
+                                                font_color: #xfcfbfb
+                                                draw_text +: {color: #xfcfbfb}
+                                            }
+                                        }
+                                        SolidView{
+                                            width: Fill
+                                            height: Fit
+                                            flow: Down
+                                            spacing: 8
+                                            Label{
+                                                width: Fill
+                                                height: Fit
+                                                text: "API key  ·  X-Api-Key or Bearer"
+                                                draw_text.color: #x9fb4d0
+                                                draw_text.text_style.font_size: 11
+                                            }
+                                            token_label := BodyCopySm{
+                                                body: ""
+                                                font_color: #x00c8fc
+                                                draw_text +: {color: #x00c8fc}
+                                            }
+                                        }
+                                        hint_label := BodyCopySm{
+                                            body: "POST /v1/messages   ·   GET /v1/health"
+                                            font_size: 12.
+                                        }
+                                        bt_hint_label := BodyCopySm{
+                                            body: "Bluetooth framing also available on TCP port 18766 (same JSON as HTTP)."
+                                            font_size: 12.
+                                        }
                                     }
                                 }
-                                hint_label := Label{
-                                    text: "POST /v1/messages   ·   GET /v1/health   ·   GET /v1/capabilities"
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 10
-                                }
-                                bt_hint_label := Label{
-                                    text: "Bluetooth framing: TCP :18766 (same JSON) — see docs/BLUETOOTH.md"
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 10
-                                }
-                            }
 
-                            // —— Relay pairing ——
-                            RoundedView{
-                                width: Fill
-                                height: Fit
-                                flow: Down
-                                spacing: 10
-                                padding: {left: 18. right: 18. top: 16. bottom: 16.}
-                                draw_bg +: {
-                                    color: #x161252
-                                    border_radius: 16.
-                                }
-                                Label{
-                                    text: "SMS RELAY (OPTIONAL)"
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 10
-                                }
-                                Label{
-                                    text: "Self-hosted sms-relay for internet clients. Local LAN/BT never need this."
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 11
-                                }
-                                relay_url_input := TextInput{
+                                // —— This device ——
+                                SolidView{
                                     width: Fill
                                     height: Fit
-                                    empty_text: "Relay URL — http://host:9876"
-                                    padding: {left: 12. right: 12. top: 10. bottom: 10.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        color_hover: #x0133ad
-                                        color_focus: #x0133ad
-                                        color_empty: #x0b1f63
-                                        border_radius: 10.
-                                        border_size: 1.
-                                        border_color: #x161252
-                                        border_color_focus: #x00c8fc
-                                        border_color_empty: #x161252
+                                    flow: Down
+                                    spacing: 12
+                                    Label{
+                                        width: Fill
+                                        height: Fit
+                                        text: "THIS ANDROID DEVICE"
+                                        draw_text.color: #x9fb4d0
+                                        draw_text.text_style.font_size: 11
                                     }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        color_empty: #x9fb4d0
-                                        text_style +: {font_size: 13.}
-                                    }
-                                }
-                                relay_device_id_input := TextInput{
-                                    width: Fill
-                                    height: Fit
-                                    empty_text: "Device id from relay pairing"
-                                    padding: {left: 12. right: 12. top: 10. bottom: 10.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        color_hover: #x0133ad
-                                        color_focus: #x0133ad
-                                        color_empty: #x0b1f63
-                                        border_radius: 10.
-                                        border_size: 1.
-                                        border_color: #x161252
-                                        border_color_focus: #x00c8fc
-                                        border_color_empty: #x161252
-                                    }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        color_empty: #x9fb4d0
-                                        text_style +: {font_size: 13.}
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 16
+                                        padding: Inset{left: 22. right: 22. top: 24. bottom: 24.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+                                        perm_label := Label{
+                                            width: Fill
+                                            height: Fit
+                                            text: ""
+                                            draw_text.color: #x00c8fc
+                                            draw_text.text_style.font_size: 14
+                                        }
+                                        perm_button := SecondaryBtn{
+                                            text: "Allow SMS permission"
+                                        }
+                                        device_hint := BodyCopySm{
+                                            body: "Works on phones, tablets, and other Android devices with a usable SIM. Keep the app open while clients send."
+                                        }
                                     }
                                 }
-                                relay_secret_input := TextInput{
-                                    width: Fill
-                                    height: Fit
-                                    empty_text: "Device secret from relay pairing"
-                                    padding: {left: 12. right: 12. top: 10. bottom: 10.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        color_hover: #x0133ad
-                                        color_focus: #x0133ad
-                                        color_empty: #x0b1f63
-                                        border_radius: 10.
-                                        border_size: 1.
-                                        border_color: #x161252
-                                        border_color_focus: #x00c8fc
-                                        border_color_empty: #x161252
-                                    }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        color_empty: #x9fb4d0
-                                        text_style +: {font_size: 13.}
-                                    }
-                                }
-                                relay_save_button := Button{
-                                    width: Fill
-                                    height: Fit
-                                    text: "Save relay pairing"
-                                    padding: {left: 16. right: 16. top: 12. bottom: 12.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        color_hover: #x0133ad
-                                        border_radius: 12.
-                                        border_size: 0.
-                                    }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        text_style +: {font_size: 13.}
-                                    }
-                                }
-                                relay_status_label := Label{
-                                    text: ""
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 11
-                                }
-                            }
 
-                            // —— Compose ——
-                            RoundedView{
-                                width: Fill
-                                height: Fit
-                                flow: Down
-                                spacing: 10
-                                padding: {left: 18. right: 18. top: 16. bottom: 16.}
-                                draw_bg +: {
-                                    color: #x161252
-                                    border_radius: 16.
-                                }
-                                Label{
-                                    text: "SEND A TEST SMS"
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 10
-                                }
-                                Label{
-                                    text: "Queues through the same path client apps use."
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 11
-                                }
-                                to_input := TextInput{
+                                // —— Test send ——
+                                SolidView{
                                     width: Fill
                                     height: Fit
-                                    empty_text: "To — +country code and number"
-                                    padding: {left: 12. right: 12. top: 10. bottom: 10.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        color_hover: #x0133ad
-                                        color_focus: #x0133ad
-                                        color_empty: #x0b1f63
-                                        border_radius: 10.
-                                        border_size: 1.
-                                        border_color: #x161252
-                                        border_color_focus: #x00c8fc
-                                        border_color_empty: #x161252
+                                    flow: Down
+                                    spacing: 14
+                                    Label{
+                                        width: Fill
+                                        height: Fit
+                                        text: "TEST SEND"
+                                        draw_text.color: #x9fb4d0
+                                        draw_text.text_style.font_size: 11
                                     }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        color_empty: #x9fb4d0
-                                        text_style +: {font_size: 13.}
-                                    }
-                                }
-                                body_input := TextInput{
-                                    width: Fill
-                                    height: Fit
-                                    empty_text: "Message body"
-                                    padding: {left: 12. right: 12. top: 10. bottom: 10.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        color_hover: #x0133ad
-                                        color_focus: #x0133ad
-                                        color_empty: #x0b1f63
-                                        border_radius: 10.
-                                        border_size: 1.
-                                        border_color: #x161252
-                                        border_color_focus: #x00c8fc
-                                        border_color_empty: #x161252
-                                    }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        color_empty: #x9fb4d0
-                                        text_style +: {font_size: 13.}
-                                    }
-                                }
-                                send_button := Button{
-                                    width: Fill
-                                    height: Fit
-                                    text: "Queue & send"
-                                    padding: {left: 16. right: 16. top: 14. bottom: 14.}
-                                    draw_bg +: {
-                                        color: #x0133ad
-                                        color_hover: #x00c8fc
-                                        color_down: #x0b1f63
-                                        border_radius: 12.
-                                        border_size: 0.
-                                    }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        text_style +: {font_size: 14.}
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 8
+                                        padding: Inset{left: 22. right: 22. top: 24. bottom: 24.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+                                        BodyCopySm{
+                                            body: "Uses the same queue client apps use."
+                                        }
+                                        to_input := FieldInput{
+                                            empty_text: "To (+country number)"
+                                        }
+                                        SolidView{ width: Fill height: 8 }
+                                        body_input := FieldInput{
+                                            empty_text: "Message"
+                                        }
+                                        SolidView{ width: Fill height: 12 }
+                                        send_button := PrimaryBtn{
+                                            text: "Queue & send"
+                                        }
+                                        result_label := Label{
+                                            width: Fill
+                                            height: Fit
+                                            margin: Inset{top: 4. bottom: 0.}
+                                            text: ""
+                                            draw_text.color: #xadfb15
+                                            draw_text.text_style.font_size: 13
+                                        }
                                     }
                                 }
-                                result_label := Label{
-                                    text: ""
-                                    draw_text.color: #xadfb15
-                                    draw_text.text_style.font_size: 12
-                                }
-                            }
 
-                            // —— Recent ——
-                            SolidView{
-                                width: Fill
-                                height: Fit
-                                flow: Right
-                                spacing: 10
-                                align: {y: 0.5}
-                                Label{
+                                // —— Recent ——
+                                SolidView{
                                     width: Fill
-                                    text: "RECENT MESSAGES"
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 10
-                                }
-                                refresh_button := Button{
-                                    width: Fit
                                     height: Fit
-                                    text: "Refresh"
-                                    padding: {left: 14. right: 14. top: 8. bottom: 8.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        color_hover: #x0133ad
-                                        border_radius: 10.
-                                        border_size: 0.
+                                    flow: Down
+                                    spacing: 14
+                                    SolidView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Right
+                                        spacing: 12
+                                        align: Align{y: 0.5}
+                                        Label{
+                                            width: Fill
+                                            height: Fit
+                                            text: "RECENT"
+                                            draw_text.color: #x9fb4d0
+                                            draw_text.text_style.font_size: 11
+                                        }
+                                        refresh_button := Button{
+                                            width: Fit
+                                            height: 40.
+                                            text: "Refresh"
+                                            padding: Inset{left: 16. right: 16. top: 10. bottom: 10.}
+                                            draw_bg +: {
+                                                color: #x0b1f63
+                                                color_hover: #x0133ad
+                                                border_radius: 12.
+                                                border_size: 0.
+                                            }
+                                            draw_text +: {
+                                                color: #xfcfbfb
+                                                text_style +: {font_size: 13.}
+                                            }
+                                        }
                                     }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        text_style +: {font_size: 11.}
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 8
+                                        padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+                                        recent_label := BodyCopySm{
+                                            body: "No messages yet. Send a test, or POST from a client app."
+                                        }
                                     }
                                 }
-                            }
-                            RoundedView{
-                                width: Fill
-                                height: Fit
-                                flow: Down
-                                spacing: 6
-                                padding: {left: 18. right: 18. top: 14. bottom: 14.}
-                                draw_bg +: {
-                                    color: #x161252
-                                    border_radius: 16.
-                                }
-                                recent_label := Label{
-                                    text: "No messages yet"
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 12
-                                }
-                            }
 
-                            // —— Relay ——
-                            RoundedView{
-                                width: Fill
-                                height: Fit
-                                flow: Down
-                                spacing: 10
-                                padding: {left: 18. right: 18. top: 16. bottom: 16.}
-                                draw_bg +: {
-                                    color: #x161252
-                                    border_radius: 16.
-                                }
-                                Label{
-                                    text: "SMS RELAY (OPTIONAL)"
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 10
-                                }
-                                Label{
-                                    text: "Pair with a self-hosted sms-relay for internet clients. LAN and Bluetooth still work offline."
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 11
-                                }
-                                relay_url_input := TextInput{
+                                // —— Relay ——
+                                SolidView{
                                     width: Fill
                                     height: Fit
-                                    empty_text: "Relay URL — http://host:9876"
-                                    padding: {left: 12. right: 12. top: 10. bottom: 10.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        color_hover: #x0133ad
-                                        color_focus: #x0133ad
-                                        color_empty: #x0b1f63
-                                        border_radius: 10.
-                                        border_size: 1.
-                                        border_color: #x161252
-                                        border_color_focus: #x00c8fc
-                                        border_color_empty: #x161252
+                                    flow: Down
+                                    spacing: 14
+                                    Label{
+                                        width: Fill
+                                        height: Fit
+                                        text: "RELAY (OPTIONAL)"
+                                        draw_text.color: #x9fb4d0
+                                        draw_text.text_style.font_size: 11
                                     }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        color_empty: #x9fb4d0
-                                        text_style +: {font_size: 13.}
+                                    BodyCopy{
+                                        body: "For internet clients. LAN and Bluetooth keep working if the relay is offline."
                                     }
-                                }
-                                relay_device_input := TextInput{
-                                    width: Fill
-                                    height: Fit
-                                    empty_text: "Device id from relay pairing"
-                                    padding: {left: 12. right: 12. top: 10. bottom: 10.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        color_hover: #x0133ad
-                                        color_focus: #x0133ad
-                                        color_empty: #x0b1f63
-                                        border_radius: 10.
-                                        border_size: 1.
-                                        border_color: #x161252
-                                        border_color_focus: #x00c8fc
-                                        border_color_empty: #x161252
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 8
+                                        padding: Inset{left: 22. right: 22. top: 24. bottom: 24.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+                                        relay_url_input := FieldInput{
+                                            empty_text: "Relay URL (http://host:9876)"
+                                        }
+                                        SolidView{ width: Fill height: 8 }
+                                        relay_device_id_input := FieldInput{
+                                            empty_text: "Device id"
+                                        }
+                                        SolidView{ width: Fill height: 8 }
+                                        relay_secret_input := FieldInput{
+                                            empty_text: "Device secret"
+                                        }
+                                        SolidView{ width: Fill height: 12 }
+                                        relay_save_button := GhostBtn{
+                                            text: "Save relay pairing"
+                                        }
+                                        relay_status_label := BodyCopySm{
+                                            body: ""
+                                            font_size: 12.
+                                        }
                                     }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        color_empty: #x9fb4d0
-                                        text_style +: {font_size: 13.}
-                                    }
-                                }
-                                relay_secret_input := TextInput{
-                                    width: Fill
-                                    height: Fit
-                                    empty_text: "Device secret from relay pairing"
-                                    padding: {left: 12. right: 12. top: 10. bottom: 10.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        color_hover: #x0133ad
-                                        color_focus: #x0133ad
-                                        color_empty: #x0b1f63
-                                        border_radius: 10.
-                                        border_size: 1.
-                                        border_color: #x161252
-                                        border_color_focus: #x00c8fc
-                                        border_color_empty: #x161252
-                                    }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        color_empty: #x9fb4d0
-                                        text_style +: {font_size: 13.}
-                                    }
-                                }
-                                relay_save_button := Button{
-                                    width: Fill
-                                    height: Fit
-                                    text: "Save relay pairing"
-                                    padding: {left: 16. right: 16. top: 12. bottom: 12.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        color_hover: #x0133ad
-                                        border_radius: 12.
-                                        border_size: 0.
-                                    }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        text_style +: {font_size: 13.}
-                                    }
-                                }
-                                relay_detail_label := Label{
-                                    text: ""
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 11
-                                }
-                            }
-
-                            // —— Device ——
-                            RoundedView{
-                                width: Fill
-                                height: Fit
-                                flow: Down
-                                spacing: 10
-                                padding: {left: 18. right: 18. top: 16. bottom: 16.}
-                                draw_bg +: {
-                                    color: #x161252
-                                    border_radius: 16.
-                                }
-                                Label{
-                                    text: "THIS DEVICE"
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 10
-                                }
-                                perm_label := Label{
-                                    text: ""
-                                    draw_text.color: #x00c8fc
-                                    draw_text.text_style.font_size: 12
-                                }
-                                perm_button := Button{
-                                    width: Fill
-                                    height: Fit
-                                    text: "Request SMS permission"
-                                    padding: {left: 16. right: 16. top: 12. bottom: 12.}
-                                    draw_bg +: {
-                                        color: #x0b1f63
-                                        color_hover: #x0133ad
-                                        border_radius: 12.
-                                        border_size: 0.
-                                    }
-                                    draw_text +: {
-                                        color: #xfcfbfb
-                                        text_style +: {font_size: 13.}
-                                    }
-                                }
-                                device_hint := Label{
-                                    text: "Android uses this phone's SIM. Clients: LAN :18765 · BT framing :18766 · optional sms-relay."
-                                    draw_text.color: #x9fb4d0
-                                    draw_text.text_style.font_size: 11
                                 }
                             }
                         }
@@ -732,21 +663,27 @@ impl MatchEvent for App {
         self.ui
             .window(cx, ids!(main_window))
             .set_title(cx, identity::APP_LABEL);
-        self.ui
-            .label(cx, ids!(identity_label))
-            .set_text(cx, &format!("{} · {}", identity::APP_ID, identity::ENV));
+        self.ui.markdown(cx, ids!(identity_label)).set_text(
+            cx,
+            &format!("{} · {}", identity::APP_ID, identity::ENV),
+        );
 
         #[cfg(not(target_os = "android"))]
         {
-            self.ui
-                .label(cx, ids!(perm_label))
-                .set_text(cx, "SMS permission applies on Android only");
+            self.ui.label(cx, ids!(perm_label)).set_text(
+                cx,
+                "Desktop dry-run — SIM radio needs an Android device with a usable SIM.",
+            );
             self.ui
                 .label(cx, ids!(perm_label))
                 .set_text_color(cx, color_muted());
             self.ui
                 .button(cx, ids!(perm_button))
                 .set_text(cx, "SMS permission (Android only)");
+            self.ui.markdown(cx, ids!(tagline_label)).set_text(
+                cx,
+                "Desktop preview — ship and run on Android phones, tablets, and other devices",
+            );
         }
 
         let addr: SocketAddr = if cfg!(target_os = "android") {
@@ -770,7 +707,7 @@ impl MatchEvent for App {
                     .label(cx, ids!(api_chip))
                     .set_text_color(cx, color_fail());
                 self.ui
-                    .label(cx, ids!(detail_label))
+                    .markdown(cx, ids!(detail_label))
                     .set_text(cx, &format!("Gateway failed to start: {e}"));
             }
         }
@@ -793,14 +730,15 @@ impl MatchEvent for App {
             let device_id = self.ui.text_input(cx, ids!(relay_device_id_input)).text();
             let secret = self.ui.text_input(cx, ids!(relay_secret_input)).text();
             if let Some(gw) = &self.gateway {
-                gw.configure_relay(url.trim().into(), device_id.trim().into(), secret.trim().into());
-                self.ui.label(cx, ids!(relay_status_label)).set_text(
-                    cx,
-                    "Relay pairing saved — outbound session will reconnect",
+                gw.configure_relay(
+                    url.trim().into(),
+                    device_id.trim().into(),
+                    secret.trim().into(),
                 );
-                self.ui
-                    .label(cx, ids!(relay_status_label))
-                    .set_text_color(cx, color_lime());
+                self.ui.markdown(cx, ids!(relay_status_label)).set_text(
+                    cx,
+                    "Relay pairing saved — reconnecting in the background",
+                );
                 self.refresh_all(cx);
             }
         }
@@ -808,28 +746,12 @@ impl MatchEvent for App {
             permissions::request_sms_permission();
             self.ui.label(cx, ids!(result_label)).set_text(
                 cx,
-                "Permission dialog requested — allow SMS, then wait for health to update",
+                "Permission dialog requested — allow SMS, then wait for status to update",
             );
             self.ui
                 .label(cx, ids!(result_label))
                 .set_text_color(cx, color_lime());
             self.refresh_all(cx);
-        }
-        if self.ui.button(cx, ids!(relay_save_button)).clicked(actions) {
-            let url = self.ui.text_input(cx, ids!(relay_url_input)).text();
-            let device_id = self.ui.text_input(cx, ids!(relay_device_input)).text();
-            let secret = self.ui.text_input(cx, ids!(relay_secret_input)).text();
-            if let Some(gw) = &self.gateway {
-                gw.configure_relay(url, device_id, secret);
-                self.ui.label(cx, ids!(relay_detail_label)).set_text(
-                    cx,
-                    "Relay pairing saved — reconnecting in the background",
-                );
-                self.ui
-                    .label(cx, ids!(relay_detail_label))
-                    .set_text_color(cx, color_lime());
-                self.refresh_all(cx);
-            }
         }
         if self.ui.button(cx, ids!(send_button)).clicked(actions) {
             let to = self.ui.text_input(cx, ids!(to_input)).text();
@@ -837,7 +759,7 @@ impl MatchEvent for App {
             if to.trim().is_empty() || body.trim().is_empty() {
                 self.ui
                     .label(cx, ids!(result_label))
-                    .set_text(cx, "Enter a destination and a message body");
+                    .set_text(cx, "Enter a destination and a message");
                 self.ui
                     .label(cx, ids!(result_label))
                     .set_text_color(cx, color_fail());
@@ -886,7 +808,7 @@ impl App {
         let (radio_text, radio_color) = if caps.available {
             ("Ready", color_ok())
         } else if caps.kind == "none" {
-            ("No modem yet", color_warn())
+            ("Desktop only", color_warn())
         } else {
             ("Not ready", color_fail())
         };
@@ -904,7 +826,7 @@ impl App {
 
         let bt = gw.handle.bluetooth.snapshot();
         let (bt_text, bt_color) = if bt.listening {
-            ("Listening", color_ok())
+            ("On", color_ok())
         } else if bt.enabled {
             ("Starting", color_warn())
         } else {
@@ -919,14 +841,14 @@ impl App {
         } else if relay.configured {
             ("Connecting", color_warn())
         } else {
-            ("Optional", color_muted())
+            ("Off", color_muted())
         };
         self.ui.label(cx, ids!(relay_chip)).set_text(cx, relay_text);
         self.ui
             .label(cx, ids!(relay_chip))
             .set_text_color(cx, relay_color);
         self.ui
-            .label(cx, ids!(relay_status_label))
+            .markdown(cx, ids!(relay_status_label))
             .set_text(cx, &relay.detail);
 
         let queue_text = if pending == 0 {
@@ -946,21 +868,21 @@ impl App {
             },
         );
 
-        self.ui.label(cx, ids!(detail_label)).set_text(
+        self.ui.markdown(cx, ids!(detail_label)).set_text(
             cx,
             &format!(
-                "{} · {}   ·   submitted {submitted}   ·   failed {failed}",
+                "{}\n\n{}\n\nSent {submitted} · failed {failed}",
                 caps.label, caps.detail
             ),
         );
 
         let host = if cfg!(target_os = "android") {
-            format!("http://<this-phone-ip>:{}", listen.port())
+            format!("http://<this-device-ip>:{}", listen.port())
         } else {
             format!("http://{}", listen)
         };
-        self.ui.label(cx, ids!(listen_label)).set_text(cx, &host);
-        self.ui.label(cx, ids!(token_label)).set_text(cx, token);
+        self.ui.markdown(cx, ids!(listen_label)).set_text(cx, &host);
+        self.ui.markdown(cx, ids!(token_label)).set_text(cx, token);
 
         let lines: Vec<String> = gw
             .handle
@@ -984,19 +906,11 @@ impl App {
             })
             .collect();
         let text = if lines.is_empty() {
-            "No messages yet. Send a test above, or POST from a client app.".into()
+            "No messages yet. Send a test, or POST from a client app.".into()
         } else {
             lines.join("\n")
         };
-        self.ui.label(cx, ids!(recent_label)).set_text(cx, &text);
-        self.ui.label(cx, ids!(recent_label)).set_text_color(
-            cx,
-            if lines.is_empty() {
-                color_muted()
-            } else {
-                color_white()
-            },
-        );
+        self.ui.markdown(cx, ids!(recent_label)).set_text(cx, &text);
 
         #[cfg(target_os = "android")]
         {
@@ -1004,14 +918,15 @@ impl App {
             if granted {
                 self.ui
                     .label(cx, ids!(perm_label))
-                    .set_text(cx, "SMS permission granted — radio can send");
+                    .set_text(cx, "SMS permission granted — this device can send");
                 self.ui
                     .label(cx, ids!(perm_label))
                     .set_text_color(cx, color_ok());
             } else {
-                self.ui
-                    .label(cx, ids!(perm_label))
-                    .set_text(cx, "SMS permission needed before the SIM radio can send");
+                self.ui.label(cx, ids!(perm_label)).set_text(
+                    cx,
+                    "Allow SMS so this Android device can send through its SIM",
+                );
                 self.ui
                     .label(cx, ids!(perm_label))
                     .set_text_color(cx, color_warn());
@@ -1038,9 +953,6 @@ fn color_lime() -> Vec4f {
 }
 fn color_muted() -> Vec4f {
     hex_rgb(0x9f_b4_d0)
-}
-fn color_white() -> Vec4f {
-    hex_rgb(0xfc_fb_fb)
 }
 
 fn hex_rgb(rgb: u32) -> Vec4f {

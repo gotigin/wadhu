@@ -1,6 +1,8 @@
 # SMS Gateway — app brief
 
 > **Package:** `wadhu-sms-gateway`\
+> **Primary target:** Android OS devices (phones, tablets, and other form
+> factors with a usable SIM)\
 > **Ids:** production `com.wadhu.smsgateway` · development
 > `com.wadhu.smsgateway.debug`\
 > **Doctrine:** [`docs/LOCAL_SMS.md`](../../../docs/LOCAL_SMS.md)\
@@ -11,23 +13,29 @@
 
 | Role | Who |
 |---|---|
-| **Gateway (this app)** | Owns the SIM radio; accepts jobs over LAN / Bluetooth / optional relay; queues; sends; reports status |
-| **Clients** | Kumkaj / other apps / third parties — call this app’s LAN API, Bluetooth framing, or talk to `sms-relay` for internet |
+| **Gateway (this app)** | Runs on an Android device; owns the SIM radio; accepts jobs over LAN / Bluetooth / optional relay |
+| **Clients** | Kumkaj / other apps / third parties — LAN API, Bluetooth framing, or [`sms-relay`](../../sms-relay/README.md) for internet |
 
 ## What it is
 
-SMS **execution device**. Install on an Android phone with a SIM:
+SMS **execution device** for Android. Install where the SIM lives:
 
 - **LAN** — HTTP on `:18765` (OpenAPI above)
-- **Bluetooth** — length-prefixed JSON framing ([BLUETOOTH.md](BLUETOOTH.md)); desktop also exposes TCP `:18766` for the same framing
-- **Relay** — optional outbound WebSocket to a self-hosted [`sms-relay`](../../sms-relay/README.md); local send never depends on it
+- **Bluetooth** — length-prefixed JSON framing ([BLUETOOTH.md](BLUETOOTH.md)); TCP `:18766` framing for lab/desktop clients
+- **Relay** — optional outbound WebSocket to a self-hosted [`sms-relay`](../../sms-relay/README.md)
 
-API key + outbox persist across restarts under the app data dir (`WADHU_SMS_GATEWAY_DATA` override).
+Desktop builds are **dry-run only** (operator UI + API; no SIM). Shipping
+and day-to-day use are Android-first.
+
+Telephony is declared **optional** in the manifest so tablets without a
+SIM can install; the radio reports unavailable until a SIM is ready.
+
+API key + outbox persist across restarts (`WADHU_SMS_GATEWAY_DATA` override).
 
 ## Client API (LAN)
 
-Listen: Android `0.0.0.0:18765`, desktop `127.0.0.1:18765`.  
-Auth: `X-Api-Key` / `Authorization: Bearer` (token shown in the operator UI).
+Listen: Android `0.0.0.0:18765`.  
+Auth: `X-Api-Key` / `Authorization: Bearer` (token on the operator screen).
 
 | Method | Path | Purpose |
 |---|---|---|
@@ -39,5 +47,5 @@ Auth: `X-Api-Key` / `Authorization: Bearer` (token shown in the operator UI).
 
 ## Scope
 
-**In:** outbox, LAN HTTP, Bluetooth framing, relay client, Android SIM, operator UI, persistence.  
-**Out:** commercial SMS providers; brand business logic; requiring cloud for local send.
+**In (now):** Android SIM, LAN, Bluetooth framing, relay client, operator UI, persistence.  
+**Out for now:** USB modem / desktop radio as a product path; commercial SMS providers; brand business logic.

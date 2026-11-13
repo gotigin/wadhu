@@ -49,7 +49,9 @@ fi
 OUT="${SMOKE_OUT:-/tmp/wadhu-ui-smoke-$$.png}"
 WAIT="${SMOKE_WAIT_SECS:-6}"
 
-Xvfb :"$N" -screen 0 800x600x24 -nolisten tcp >/tmp/wadhu-xvfb-"$N".log 2>&1 &
+# Wide private display so a phone-tall window is not clipped on the right
+# when the WM places it off-origin (root shots then look "cropped").
+Xvfb :"$N" -screen 0 1200x1200x24 -nolisten tcp >/tmp/wadhu-xvfb-"$N".log 2>&1 &
 XPID=$!
 cleanup() { kill "$APID" "$XPID" 2>/dev/null || true; }
 trap cleanup EXIT
@@ -57,5 +59,16 @@ sleep 0.4
 env -u WAYLAND_DISPLAY DISPLAY=:"$N" "$BIN" >/tmp/wadhu-app-smoke-$$.log 2>&1 &
 APID=$!
 sleep "$WAIT"
-DISPLAY=:"$N" import -window root "$OUT"
+# Prefer the app window (full frame). Fall back to root if xdotool is missing.
+if command -v xdotool >/dev/null 2>&1; then
+  WIN="$(DISPLAY=:"$N" xdotool search --name . 2>/dev/null | tail -1 || true)"
+  if [[ -n "${WIN:-}" ]]; then
+    DISPLAY=:"$N" xdotool windowmove "$WIN" 20 20 2>/dev/null || true
+    DISPLAY=:"$N" import -window "$WIN" "$OUT"
+  else
+    DISPLAY=:"$N" import -window root "$OUT"
+  fi
+else
+  DISPLAY=:"$N" import -window root "$OUT"
+fi
 echo "smoke ok: $PKG → $OUT"

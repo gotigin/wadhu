@@ -24,9 +24,9 @@ impl SmsRadio for DesktopNoRadio {
     fn capabilities(&self) -> RadioCapabilities {
         RadioCapabilities {
             kind: "none",
-            label: "No radio on this desktop yet".into(),
+            label: "No SIM on desktop".into(),
             available: false,
-            detail: "USB modem next — or run on Android with a SIM.".into(),
+            detail: "Android-first app — run on a phone/tablet with a SIM.".into(),
             supports_send: false,
             supports_multipart: false,
         }

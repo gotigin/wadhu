@@ -16,5 +16,5 @@ how-to: [`../docs/DEV.md`](../docs/DEV.md).
 
 | App | What |
 |---|---|
-| [`sms-gateway/`](sms-gateway/README.md) | **SIM execution device:** LAN + Bluetooth + optional relay client (Android SIM) — [`docs/LOCAL_SMS.md`](../docs/LOCAL_SMS.md) |
+| [`sms-gateway/`](sms-gateway/README.md) | **Android-first SIM gateway** (phones/tablets/…): LAN + Bluetooth + optional relay — [`docs/LOCAL_SMS.md`](../docs/LOCAL_SMS.md) |
 | [`sms-relay/`](sms-relay/README.md) | **Self-hostable remote plane:** internet clients → paired Android gateways |
