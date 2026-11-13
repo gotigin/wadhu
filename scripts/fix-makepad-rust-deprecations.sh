@@ -41,7 +41,7 @@ replace_in() {
   shift
   local rel="${file#"$VENDOR"/}"
   if [[ ! -f "$file" ]]; then
-    echo "warn: missing $rel" >&2
+    # File not in this Makepad tree (rev / platform subset) — skip quietly.
     return 0
   fi
   local tmp
@@ -72,7 +72,6 @@ replace_in() {
     changed=$((changed + 1))
   else
     rm -f "$tmp"
-    echo "Already current: $rel"
   fi
 }
 

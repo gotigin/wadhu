@@ -14,7 +14,7 @@
 | Role | Who |
 |---|---|
 | **Gateway (this app)** | Runs on an Android device; owns the SIM radio; accepts jobs over LAN / Bluetooth / optional relay |
-| **Clients** | Kumkaj / other apps / third parties — LAN API, Bluetooth framing, or [`sms-relay`](../../sms-relay/README.md) for internet |
+| **Clients** | Other Gotigin brands / third parties — LAN API, Bluetooth framing, or [`sms-relay`](../../sms-relay/README.md) for internet |
 
 ## What it is
 

@@ -23,7 +23,7 @@
 |---|---|---|
 | **Gateway** | Android-first app (phones, tablets, other Android OS devices with a SIM). Owns the radio. Accepts jobs over **LAN**, **Bluetooth**, and optional **relay**. | [`apps/sms-gateway`](../apps/sms-gateway/README.md) |
 | **Relay** | Optional self-hosted remote plane. Device registry, client keys, internet `POST /v1/messages`, push to phones over outbound WebSocket. **Does not own a radio.** | [`apps/sms-relay`](../apps/sms-relay/README.md) |
-| **Client** | Any app that needs SMS — calls the gateway (LAN/BT) or the relay (internet). | Kumkaj / third parties + [`crates/sms-client`](../crates/sms-client/README.md) |
+| **Client** | Any app that needs SMS — calls the gateway (LAN/BT) or the relay (internet). | Other Gotigin brands / third parties + [`crates/sms-client`](../crates/sms-client/README.md) |
 
 Local LAN/BT send **never** requires the relay. Killing the relay must not break local send.
 

@@ -15,15 +15,15 @@ template-app-android-dev = ["run", "-p", "template-app-android-dev", "--"]
 # Usage: cargo template-app-windows-dev
 template-app-windows-dev = ["run", "-p", "template-app-windows-dev", "--"]
 
-# SMS Gateway desktop live-dev (apps/sms-gateway, com.gotigin.wadhu.smsgateway.debug).
+# SMS Gateway desktop live-dev (apps/sms-gateway, com.wadhu.smsgateway.debug).
 # Usage: cargo sms-gateway-dev
 sms-gateway-dev = ["run", "-p", "sms-gateway-dev", "--"]
 
-# SMS Gateway Android live-dev (apps/sms-gateway, com.gotigin.wadhu.smsgateway.debug).
+# SMS Gateway Android live-dev (apps/sms-gateway, com.wadhu.smsgateway.debug).
 # Usage: cargo sms-gateway-android-dev
 sms-gateway-android-dev = ["run", "-p", "sms-gateway-android-dev", "--"]
 
-# SMS Gateway Windows package (apps/sms-gateway, com.gotigin.wadhu.smsgateway.debug).
+# SMS Gateway Windows package (apps/sms-gateway, com.wadhu.smsgateway.debug).
 # Usage: cargo sms-gateway-windows-dev
 sms-gateway-windows-dev = ["run", "-p", "sms-gateway-windows-dev", "--"]
 

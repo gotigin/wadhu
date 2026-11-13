@@ -16,7 +16,8 @@ Ids: `com.wadhu.smsgateway` / `.debug`.
 Docs: [`docs/SMS_GATEWAY.md`](docs/SMS_GATEWAY.md) ·
 [`docs/openapi-v1.yaml`](docs/openapi-v1.yaml) ·
 [`docs/BLUETOOTH.md`](docs/BLUETOOTH.md) ·
-[`docs/LOCAL_SMS.md`](../../docs/LOCAL_SMS.md)
+[`docs/LOCAL_SMS.md`](../../docs/LOCAL_SMS.md) ·
+[`docs/ANDROID_PLAY_LESSONS.md`](docs/ANDROID_PLAY_LESSONS.md) (Android / Play do-not-regress)
 
 ### Client example (LAN)
 

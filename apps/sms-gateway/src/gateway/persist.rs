@@ -51,6 +51,7 @@ pub fn data_dir() -> PathBuf {
         if let Ok(base) = std::env::var("APPDATA") {
             return PathBuf::from(base).join(APP_ID);
         }
+        return PathBuf::from(".").join(APP_ID);
     }
     #[cfg(not(any(target_os = "android", target_os = "windows")))]
     {
@@ -63,8 +64,8 @@ pub fn data_dir() -> PathBuf {
                 .join("share")
                 .join(APP_ID);
         }
+        PathBuf::from(".").join(APP_ID)
     }
-    PathBuf::from(".").join(APP_ID)
 }
 
 pub fn state_path() -> PathBuf {

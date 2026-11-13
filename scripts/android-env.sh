@@ -4,37 +4,67 @@
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
+# Must match scripts/setup-makepad.sh — cargo-makepad and vendor/makepad are
+# the same upstream commit. Picking a newer cargo git checkout breaks Android
+# packaging (e.g. requiring `.makepad.font-assets.v1` the app tree does not emit).
+MAKEPAD_REV="${MAKEPAD_REV:-915ce7c4e271593101b46dcff0aa96e4466864af}"
+MAKEPAD_REV_SHORT="${MAKEPAD_REV:0:7}"
+
+# Materialize vendor/makepad-full at MAKEPAD_REV (includes tools/cargo_makepad).
+ensure_makepad_full() {
+  local dest="$ROOT/vendor/makepad-full"
+  local stamp="$dest/.wadhu-makepad-rev"
+  local cargo_git="${CARGO_HOME:-$HOME/.cargo}/git"
+  local checkout="$cargo_git/checkouts/makepad-ec2f134f34cd9f98/${MAKEPAD_REV_SHORT}"
+  local cargo_db="$cargo_git/db/makepad-ec2f134f34cd9f98"
+
+  if [[ -d "$dest/tools/cargo_makepad" && -f "$stamp" ]] \
+    && [[ "$(cat "$stamp" 2>/dev/null || true)" == "$MAKEPAD_REV" ]]; then
+    return 0
+  fi
+
+  echo "Preparing vendor/makepad-full at $MAKEPAD_REV_SHORT for cargo-makepad…"
+  mkdir -p "$ROOT/vendor"
+  local src=""
+  if [[ -d "$checkout/tools/cargo_makepad" ]]; then
+    src="$checkout"
+  elif git -C "$cargo_db" cat-file -e "${MAKEPAD_REV}^{commit}" 2>/dev/null; then
+    src="$(mktemp -d)/makepad"
+    mkdir -p "$src"
+    git -C "$cargo_db" archive "$MAKEPAD_REV" | tar -x -C "$src"
+  else
+    src="$(mktemp -d)/makepad"
+    git init -q "$src"
+    git -C "$src" fetch -q --depth 1 https://github.com/makepad/makepad.git "$MAKEPAD_REV"
+    git -C "$src" checkout -q FETCH_HEAD
+  fi
+
+  rm -rf "$dest"
+  mkdir -p "$dest"
+  # Keep a complete workspace: cargo-makepad is a member of the Makepad root
+  # Cargo.toml, so every workspace.members path must exist on disk (unlike
+  # vendor/makepad, which is never loaded as that workspace). Drop only
+  # build/VCS noise — not examples/ or apps/.
+  rsync -a \
+    --exclude '.git/' \
+    --exclude 'target/' \
+    --exclude 'node_modules/' \
+    "$src/" "$dest/"
+  printf '%s\n' "$MAKEPAD_REV" >"$stamp"
+  if [[ "$src" == /tmp/* || "$src" == "${TMPDIR:-/tmp}"/* ]]; then
+    rm -rf "$(dirname "$src")"
+  fi
+}
+
 resolve_makepad_root() {
   if [[ -n "${MAKEPAD_ROOT:-}" && -d "$MAKEPAD_ROOT/tools/cargo_makepad" ]]; then
     return 0
   fi
-  MAKEPAD_ROOT=""
-  local c
-  for c in \
-    "$ROOT/vendor/makepad-full" \
-    "$ROOT/../makepad" \
-    "$HOME/.cargo/git/checkouts/makepad-ec2f134f34cd9f98/915ce7c" \
-    "$HOME/.cargo/git/checkouts/makepad-ec2f134f34cd9f98/a4ea253"; do
-    if [[ -d "$c/tools/cargo_makepad" ]]; then
-      MAKEPAD_ROOT="$c"
-      break
-    fi
-  done
-  if [[ -z "$MAKEPAD_ROOT" && -d "$HOME/.cargo/git/checkouts/makepad-ec2f134f34cd9f98" ]]; then
-    while IFS= read -r c; do
-      if [[ -d "$c/tools/cargo_makepad" ]]; then
-        MAKEPAD_ROOT="$c"
-        break
-      fi
-    done < <(ls -1dt "$HOME/.cargo/git/checkouts/makepad-ec2f134f34cd9f98"/* 2>/dev/null || true)
-  fi
-  if [[ -z "${MAKEPAD_ROOT:-}" || ! -d "$MAKEPAD_ROOT/tools/cargo_makepad" ]]; then
-    echo "Cloning Makepad main into vendor/makepad-full for cargo-makepad…"
-    mkdir -p "$ROOT/vendor"
-    if [[ ! -d "$ROOT/vendor/makepad-full/.git" ]]; then
-      git clone --depth 1 --branch main https://github.com/makepad/makepad.git "$ROOT/vendor/makepad-full"
-    fi
-    MAKEPAD_ROOT="$ROOT/vendor/makepad-full"
+  ensure_makepad_full
+  MAKEPAD_ROOT="$ROOT/vendor/makepad-full"
+  if [[ ! -d "$MAKEPAD_ROOT/tools/cargo_makepad" ]]; then
+    echo "MAKEPAD_ROOT missing tools/cargo_makepad at $MAKEPAD_ROOT (rev $MAKEPAD_REV)" >&2
+    return 1
   fi
 }
 
@@ -97,31 +127,81 @@ android_pkg_opts() {
   echo "Android package: $pkg ($label)"
 }
 
-# Release builds: a version code that always goes up (YYYYMMDDHH), so each
-# package installs over the last one and Play accepts it.
+# Release builds: cargo-makepad reads version_code from the app's Cargo.toml
+# `[package.metadata.makepad.android]`. Never pass --version-code=auto
+# (timestamps burn Play's ceiling and trip Console warnings). Bump the
+# integer by hand (+1) per Play upload; new app ids start at 1.
 android_release_opts() {
-  ANDROID_PKG_OPTS+=(--version-code=auto)
+  :
 }
 
 # Release signing. An Android update installs only over an app signed with
-# the same key, and uninstalling to get past a key change deletes the books
-# on that device — so packages for shops are signed with the app's own
-# release key. cargo-makepad's `build` always signs with Makepad's bundled
-# debug key; android_release_sign re-signs the APK in place.
-#   WADHU_ANDROID_KEYSTORE       keystore file, made once per app with
-#                                 cargo makepad android keystore-create <path>
-#   WADHU_ANDROID_KEYSTORE_PASS  its password
-#   WADHU_ANDROID_KEY_ALIAS      key alias (default: the keystore's
-#                                 <path>.makepad sidecar, else "upload")
-# Keep the keystore and its password outside the repo, backed up: a lost key
-# means no more updates for installed devices.
+# the same key — so Play/shop packages use the app's own release keystore.
+# cargo-makepad's `build` always signs with Makepad's bundled debug key;
+# android_release_sign re-signs the APK in place.
+#
+# Defaults (no env required when these files exist):
+#   $HOME/<slug>-release.jks            production / Play upload keystore
+#   $HOME/<slug>-release.jks.password   store+key password (mode 600, one line)
+#   $HOME/<slug>-release.jks.makepad    alias sidecar (optional; else "upload")
+# where <slug> is the lowercased product label with spaces removed
+# (WADHU_APP_LABEL "SMS Gateway" → smsgateway), else basename of WADHU_APP_DIR.
+#
+# Optional overrides:
+#   WADHU_ANDROID_KEYSTORE       keystore path
+#   WADHU_ANDROID_KEYSTORE_PASS  password (else read from <keystore>.password)
+#   WADHU_ANDROID_KEY_ALIAS      default: sibling <path>.makepad alias, else "upload"
+#
+# Keep the keystore and its password file outside the repo, backed up: a lost
+# key means no more Play updates for that package id.
+
+android_release_keystore_path() {
+  if [[ -n "${WADHU_ANDROID_KEYSTORE:-}" ]]; then
+    printf '%s\n' "$WADHU_ANDROID_KEYSTORE"
+    return 0
+  fi
+  local slug=""
+  if [[ -n "${WADHU_APP_LABEL:-}" ]]; then
+    # Strip trailing " Dev" so development packaging still finds the same
+    # production keystore as release packages.
+    local label="${WADHU_APP_LABEL%" Dev"}"
+    slug="$(printf '%s' "$label" | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]')"
+  elif [[ -n "${WADHU_APP_DIR:-}" ]]; then
+    slug="$(basename "$WADHU_APP_DIR" | tr -d '-')"
+  else
+    slug="wadhu"
+  fi
+  printf '%s\n' "${HOME}/${slug}-release.jks"
+}
+
+# True when a usable release keystore file is available; exports
+# WADHU_ANDROID_KEYSTORE to the resolved path for callers.
 android_release_keystore_set() {
-  [[ -n "${WADHU_ANDROID_KEYSTORE:-}" ]]
+  local ks
+  ks="$(android_release_keystore_path)"
+  export WADHU_ANDROID_KEYSTORE="$ks"
+  [[ -f "$ks" ]]
+}
+
+# Password from env, else sibling `<keystore>.password` (trim trailing newlines).
+android_release_keystore_pass() {
+  if [[ -n "${WADHU_ANDROID_KEYSTORE_PASS:-}" ]]; then
+    printf '%s\n' "$WADHU_ANDROID_KEYSTORE_PASS"
+    return 0
+  fi
+  local ks="${WADHU_ANDROID_KEYSTORE:-$(android_release_keystore_path)}"
+  local pwf="${ks}.password"
+  if [[ -f "$pwf" ]]; then
+    # shellcheck disable=SC2002
+    tr -d '\r\n' <"$pwf"
+    return 0
+  fi
+  return 1
 }
 
 android_key_alias() {
   local alias="${WADHU_ANDROID_KEY_ALIAS:-}"
-  if [[ -z "$alias" && -f "$WADHU_ANDROID_KEYSTORE.makepad" ]]; then
+  if [[ -z "$alias" && -n "${WADHU_ANDROID_KEYSTORE:-}" && -f "$WADHU_ANDROID_KEYSTORE.makepad" ]]; then
     alias="$(sed -n 's/^[[:space:]]*alias[[:space:]]*=[[:space:]]*"\{0,1\}\([^"]*\)"\{0,1\}[[:space:]]*$/\1/p' "$WADHU_ANDROID_KEYSTORE.makepad" | head -1)"
   fi
   echo "${alias:-upload}"
@@ -131,15 +211,17 @@ android_release_sign() {
   local apk="$1" sdk="$2"
   if ! android_release_keystore_set; then
     echo "NOTE: $(basename "$apk") is signed with Makepad's debug key — fine to try out," >&2
-    echo "      not for shops: set WADHU_ANDROID_KEYSTORE and WADHU_ANDROID_KEYSTORE_PASS" >&2
-    echo "      so every later update installs over this one." >&2
+    echo "      not for shops. Create \$HOME/<slug>-release.jks and \$HOME/<slug>-release.jks.password" >&2
+    echo "      (e.g. smsgateway-release.jks) — or set WADHU_ANDROID_KEYSTORE / _PASS." >&2
     return 0
   fi
-  if [[ ! -f "$WADHU_ANDROID_KEYSTORE" ]]; then
-    echo "WADHU_ANDROID_KEYSTORE not found: $WADHU_ANDROID_KEYSTORE" >&2
+  local pass
+  if ! pass="$(android_release_keystore_pass)"; then
+    echo "Release keystore found at $WADHU_ANDROID_KEYSTORE but no password:" >&2
+    echo "  set WADHU_ANDROID_KEYSTORE_PASS or create ${WADHU_ANDROID_KEYSTORE}.password" >&2
     return 1
   fi
-  : "${WADHU_ANDROID_KEYSTORE_PASS:?set WADHU_ANDROID_KEYSTORE_PASS for $WADHU_ANDROID_KEYSTORE}"
+  export WADHU_ANDROID_KEYSTORE_PASS="$pass"
   local java="$sdk/openjdk/bin/java"
   [[ -x "$java" ]] || java="$sdk/openjdk/jdk-17.0.2/bin/java"
   local signer="$sdk/build-tools/33.0.1/lib/apksigner.jar"
@@ -157,7 +239,13 @@ android_release_sign() {
 android_aab_sign_opts() {
   ANDROID_AAB_SIGN_OPTS=()
   if android_release_keystore_set; then
-    : "${WADHU_ANDROID_KEYSTORE_PASS:?set WADHU_ANDROID_KEYSTORE_PASS for $WADHU_ANDROID_KEYSTORE}"
+    local pass
+    if ! pass="$(android_release_keystore_pass)"; then
+      echo "Release keystore found at $WADHU_ANDROID_KEYSTORE but no password:" >&2
+      echo "  set WADHU_ANDROID_KEYSTORE_PASS or create ${WADHU_ANDROID_KEYSTORE}.password" >&2
+      return 1
+    fi
+    export WADHU_ANDROID_KEYSTORE_PASS="$pass"
     export MAKEPAD_KEYSTORE_PASS="$WADHU_ANDROID_KEYSTORE_PASS"
     ANDROID_AAB_SIGN_OPTS=(--keystore="$WADHU_ANDROID_KEYSTORE" --keystore-key-alias="$(android_key_alias)")
   fi

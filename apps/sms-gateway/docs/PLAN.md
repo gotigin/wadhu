@@ -12,7 +12,7 @@
 Ship **one Wadhu app** that **is** the SIM execution device on **Android
 OS** (phones, tablets, and other form factors with a usable SIM):
 
-- Other apps (Kumkaj, third parties) connect via **LAN HTTP**, **Bluetooth
+- Other apps (Gotigin brands, third parties) connect via **LAN HTTP**, **Bluetooth
   framing**, or (for internet) a self-hosted [`sms-relay`](../../sms-relay/README.md).
 - Radio: **Android SIM** (primary product path). Desktop builds are UI/API
   dry-runs only for now; USB modem is explicitly deferred.
@@ -95,7 +95,7 @@ On Android: grant SMS permission in the app; clients use `http://<phone-ip>:1876
 | `permissions` | Android `SEND_SMS` check/request |
 | `main` | Operator UI |
 
-Reusable client types later move to `crates/<name>/` (e.g. `wadhu-sms-client`) so Kumkaj depends on a crate, not this app.
+Reusable client types later move to `crates/<name>/` (e.g. `wadhu-sms-client`) so other brands depend on a crate, not this app.
 
 ### 5.3 Status machine
 
@@ -159,7 +159,7 @@ Bind: Android `0.0.0.0:18765` · Desktop `127.0.0.1:18765` (LAN bind optional la
 
 1. `./scripts/new-crate.sh` → brand-neutral HTTP client + types.
 2. OpenAPI file generated from the frozen v1 surface.
-3. Kumkaj / others depend on the crate by path or git tag.
+3. Other brands / third parties depend on the crate by path or git tag.
 
 ## 7. UI plan (operator)
 
