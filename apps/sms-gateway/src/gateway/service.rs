@@ -76,7 +76,8 @@ impl Gateway {
             persist_meta: Arc::clone(&persist_meta),
         };
 
-        // Persist on outbox changes.
+        // Persist on outbox changes and wake the UI so status chips / Recent
+        // update as soon as drain or LAN/BT accept mutates the queue.
         let token_p = api_token.clone();
         let outbox_p = outbox.clone();
         let meta_p = Arc::clone(&persist_meta);
@@ -90,6 +91,7 @@ impl Gateway {
                 &meta.relay_device_secret,
                 meta.bluetooth_enabled,
             );
+            makepad_widgets::makepad_platform::thread::SignalToUI::set_ui_signal();
         }));
 
         // Initial save so token lands on disk even with empty outbox.
@@ -187,12 +189,34 @@ fn drain_loop(outbox: Outbox, radio: Arc<dyn SmsRadio>) {
                     outbox.set_status(&msg.id, Status::Submitted, None);
                 }
                 Err(e) => {
-                    outbox.set_status(&msg.id, Status::Failed, Some(e));
+                    outbox.set_status(&msg.id, Status::Failed, Some(humanize_send_error(&e)));
                 }
             }
+            // Drain the rest of the queue without sleeping between jobs.
+            continue;
         }
-        thread::sleep(Duration::from_millis(200));
+        thread::sleep(Duration::from_millis(50));
     }
+}
+
+fn humanize_send_error(raw: &str) -> String {
+    let lower = raw.to_ascii_lowercase();
+    if lower.contains("permission") {
+        return "SMS permission not granted — tap Allow SMS in the app".into();
+    }
+    if lower.contains("sim_not_ready") || lower.contains("sim not ready") {
+        return format!("SIM not ready ({raw}). Check SIM / airplane mode / signal");
+    }
+    if lower.contains("no_telephony") {
+        return "This device has no telephony (tablet without SIM?)".into();
+    }
+    if lower.contains("refused") {
+        return "Phone radio refused the send (permission, SIM, or carrier)".into();
+    }
+    if lower.contains("not running on android") || lower.contains("only available on android") {
+        return "Desktop build has no SIM — run on Android to send".into();
+    }
+    raw.to_string()
 }
 
 fn generate_token() -> String {

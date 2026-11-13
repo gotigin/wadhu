@@ -13,7 +13,7 @@ pub(crate) fn request(
 ) -> Result<String, ClientError> {
     let (host, port) = parse_http_base(&client.base)?;
     let mut stream = TcpStream::connect((host.as_str(), port)).map_err(|e| {
-        ClientError::Io(e.to_string())
+        ClientError::Io(format!("{e} (connecting to {host}:{port})"))
     })?;
     stream.set_read_timeout(Some(client.timeout)).ok();
     stream.set_write_timeout(Some(client.timeout)).ok();

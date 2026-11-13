@@ -76,7 +76,7 @@ impl SmsRadio for AndroidSimRadio {
         {
             let caps = self.capabilities();
             if !caps.available {
-                return Err(format!("Android SIM not ready: {}", caps.detail));
+                return Err(caps.detail.clone());
             }
             let ok = unsafe {
                 makepad_widgets::makepad_platform::os::linux::android::android_jni::to_java_send_sms(
@@ -87,7 +87,13 @@ impl SmsRadio for AndroidSimRadio {
             if ok {
                 Ok(())
             } else {
-                Err("SmsManager refused the send (permission or radio error)".into())
+                // Java logs the cause; surface the last known radio status for the UI.
+                let detail = self.capabilities().detail;
+                if detail == "ready" {
+                    Err("SmsManager refused the send (carrier or radio error)".into())
+                } else {
+                    Err(detail)
+                }
             }
         }
         #[cfg(not(target_os = "android"))]

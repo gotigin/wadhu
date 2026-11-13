@@ -280,6 +280,9 @@ pub struct App {
     last_base: String,
     #[rust]
     last_token: String,
+    /// When true, poll every ~300ms until status leaves queued/submitting.
+    #[rust]
+    watch_active: bool,
 }
 
 impl MatchEvent for App {
@@ -292,17 +295,23 @@ impl MatchEvent for App {
             cx,
             &format!("{} · {} · desktop demo", identity::APP_ID, identity::ENV),
         );
-        self.poll_timer = cx.start_interval(1.2);
+        // Fast interval while watching a send; cheap no-op when idle.
+        self.poll_timer = cx.start_interval(0.3);
     }
 
     fn handle_timer(&mut self, cx: &mut Cx, e: &TimerEvent) {
         if self.poll_timer.is_timer(e).is_none() {
             return;
         }
+        if !self.watch_active {
+            return;
+        }
         let Some(id) = self.last_id.clone() else {
+            self.watch_active = false;
             return;
         };
         if self.last_base.is_empty() || self.last_token.is_empty() {
+            self.watch_active = false;
             return;
         }
         let client = Client::new(&self.last_base, &self.last_token);
@@ -313,14 +322,19 @@ impl MatchEvent for App {
                 self.ui
                     .label(cx, ids!(result_label))
                     .set_text_color(cx, color);
+                if is_terminal_status(&m.status) {
+                    self.watch_active = false;
+                }
             }
             Err(e) => {
-                self.ui
-                    .label(cx, ids!(result_label))
-                    .set_text(cx, &format!("Poll error: {e}"));
+                self.ui.label(cx, ids!(result_label)).set_text(
+                    cx,
+                    &format!("Could not refresh status — {}", e.user_message()),
+                );
                 self.ui
                     .label(cx, ids!(result_label))
                     .set_text_color(cx, color_fail());
+                // Keep watching briefly; one blip should not freeze the UI forever.
             }
         }
     }
@@ -331,26 +345,22 @@ impl MatchEvent for App {
             if base.is_empty() || token.is_empty() {
                 self.ui.markdown(cx, ids!(health_label)).set_text(
                     cx,
-                    "Enter base URL and API key first.",
+                    "Paste the phone Listen URL and API key from SMS Gateway first.",
                 );
                 return;
             }
             let client = Client::new(&base, &token);
             match client.health() {
                 Ok(raw) => {
-                    let snippet = if raw.len() > 280 {
-                        format!("{}…", &raw[..280])
-                    } else {
-                        raw
-                    };
                     self.ui
                         .markdown(cx, ids!(health_label))
-                        .set_text(cx, &format!("OK — `{snippet}`"));
+                        .set_text(cx, &format!("Connected — {}", summarize_health(&raw)));
                 }
                 Err(e) => {
-                    self.ui
-                        .markdown(cx, ids!(health_label))
-                        .set_text(cx, &format!("Health failed: {e}"));
+                    self.ui.markdown(cx, ids!(health_label)).set_text(
+                        cx,
+                        &format!("Not connected — {}", e.user_message()),
+                    );
                 }
             }
         }
@@ -360,9 +370,10 @@ impl MatchEvent for App {
             let to = self.ui.text_input(cx, ids!(to_input)).text();
             let body = self.ui.text_input(cx, ids!(body_input)).text();
             if base.is_empty() || token.is_empty() {
-                self.ui
-                    .label(cx, ids!(result_label))
-                    .set_text(cx, "Enter base URL and API key first");
+                self.ui.label(cx, ids!(result_label)).set_text(
+                    cx,
+                    "Paste phone Listen URL + API key first (not localhost unless gateway is on this PC)",
+                );
                 self.ui
                     .label(cx, ids!(result_label))
                     .set_text_color(cx, color_fail());
@@ -377,6 +388,12 @@ impl MatchEvent for App {
                     .set_text_color(cx, color_fail());
                 return;
             }
+            self.ui
+                .label(cx, ids!(result_label))
+                .set_text(cx, "Contacting gateway…");
+            self.ui
+                .label(cx, ids!(result_label))
+                .set_text_color(cx, color_lime());
             let client = Client::new(&base, &token);
             match client.accept(&AcceptRequest {
                 to: to.trim().into(),
@@ -387,6 +404,7 @@ impl MatchEvent for App {
                     self.last_id = Some(m.id.clone());
                     self.last_base = base;
                     self.last_token = token;
+                    self.watch_active = !is_terminal_status(&m.status);
                     let (text, color) = status_line(&m.status, &m.to, m.error.as_deref());
                     self.ui.label(cx, ids!(result_label)).set_text(cx, &text);
                     self.ui
@@ -394,9 +412,11 @@ impl MatchEvent for App {
                         .set_text_color(cx, color);
                 }
                 Err(e) => {
-                    self.ui
-                        .label(cx, ids!(result_label))
-                        .set_text(cx, &format!("Send failed: {e}"));
+                    self.watch_active = false;
+                    self.ui.label(cx, ids!(result_label)).set_text(
+                        cx,
+                        &format!("Send failed — {}", e.user_message()),
+                    );
                     self.ui
                         .label(cx, ids!(result_label))
                         .set_text_color(cx, color_fail());
@@ -414,24 +434,71 @@ impl App {
     }
 }
 
+fn is_terminal_status(status: &str) -> bool {
+    matches!(
+        status,
+        "submitted" | "delivered" | "failed" | "expired" | "cancelled" | "indeterminate"
+    )
+}
+
 fn status_line(status: &str, to: &str, error: Option<&str>) -> (String, Vec4f) {
     match status {
-        "queued" | "submitting" => (
-            format!("Sending to {to}… ({status})"),
+        "queued" => (
+            format!("Queued for {to} — waiting for the phone radio…"),
             color_lime(),
         ),
-        "submitted" | "delivered" => (
-            format!("Sent to {to} — gateway accepted ({status})"),
+        "submitting" => (
+            format!("Handing to SIM for {to}…"),
+            color_lime(),
+        ),
+        "submitted" => (
+            format!("Sent to {to} — SIM handed it to the carrier"),
             color_ok(),
         ),
+        "delivered" => (format!("Delivered to {to}"), color_ok()),
         "failed" => (
             format!(
-                "Failed to {to}: {}",
-                error.unwrap_or("unknown")
+                "Failed for {to}: {}",
+                error.unwrap_or("unknown radio/permission error")
             ),
             color_fail(),
         ),
+        "indeterminate" => (
+            format!("Uncertain for {to} — may have been interrupted mid-send"),
+            color_muted(),
+        ),
         other => (format!("{other} → {to}"), color_muted()),
+    }
+}
+
+fn summarize_health(raw: &str) -> String {
+    let radio = extract_json_boolish(raw, "available").unwrap_or("?");
+    let pending = extract_json_number(raw, "pending").unwrap_or(0);
+    let submitted = extract_json_number(raw, "submitted").unwrap_or(0);
+    let failed = extract_json_number(raw, "failed").unwrap_or(0);
+    format!("radio available={radio} · queue pending={pending} sent={submitted} failed={failed}")
+}
+
+fn extract_json_number(raw: &str, key: &str) -> Option<u64> {
+    let needle = format!("\"{key}\":");
+    let i = raw.find(&needle)?;
+    let rest = raw[i + needle.len()..].trim_start();
+    let end = rest
+        .find(|c: char| !c.is_ascii_digit())
+        .unwrap_or(rest.len());
+    rest[..end].parse().ok()
+}
+
+fn extract_json_boolish(raw: &str, key: &str) -> Option<&'static str> {
+    let needle = format!("\"{key}\":");
+    let i = raw.find(&needle)?;
+    let rest = raw[i + needle.len()..].trim_start();
+    if rest.starts_with("true") {
+        Some("yes")
+    } else if rest.starts_with("false") {
+        Some("no")
+    } else {
+        None
     }
 }
 

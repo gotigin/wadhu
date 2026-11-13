@@ -700,7 +700,13 @@ impl MatchEvent for App {
             }
         }
 
-        self.refresh_timer = cx.start_interval(1.5);
+        // Backup poll — primary updates come from outbox → SignalToUI.
+        self.refresh_timer = cx.start_interval(0.5);
+    }
+
+    fn handle_signal(&mut self, cx: &mut Cx) {
+        self.refresh_all(cx);
+        self.ui.redraw(cx);
     }
 
     fn handle_timer(&mut self, cx: &mut Cx, e: &TimerEvent) {
@@ -1045,11 +1051,25 @@ impl App {
 }
 
 fn humanize_radio_detail(detail: &str) -> String {
-    match detail {
-        "ready" => "ready".into(),
-        "" => "unknown".into(),
-        other => other.replace('_', " "),
+    if detail == "ready" {
+        return "ready".into();
     }
+    if detail == "permission_needed" {
+        return "SMS permission needed".into();
+    }
+    if detail == "no_telephony" {
+        return "no cellular radio on this device".into();
+    }
+    if detail == "error" {
+        return "could not read SIM status".into();
+    }
+    if let Some(rest) = detail.strip_prefix("sim_not_ready:") {
+        return format!("SIM not ready (state {rest})");
+    }
+    if detail.is_empty() {
+        return "unknown".into();
+    }
+    detail.replace('_', " ")
 }
 
 fn status_label(status: gateway::message::Status) -> &'static str {

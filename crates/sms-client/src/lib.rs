@@ -62,16 +62,58 @@ pub enum ClientError {
 
 impl fmt::Display for ClientError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            ClientError::BadUrl(s) => write!(f, "bad url: {s}"),
-            ClientError::Io(s) => write!(f, "io: {s}"),
-            ClientError::Api { status, body } => write!(f, "api {status}: {body}"),
-            ClientError::Unsupported(s) => write!(f, "unsupported: {s}"),
-        }
+        f.write_str(&self.user_message())
     }
 }
 
 impl std::error::Error for ClientError {}
+
+impl ClientError {
+    /// Plain-language message for operator UIs.
+    pub fn user_message(&self) -> String {
+        match self {
+            ClientError::BadUrl(s) => format!("Bad URL — {s}"),
+            ClientError::Io(s) => humanize_io(s),
+            ClientError::Api { status, body } => humanize_api(*status, body),
+            ClientError::Unsupported(s) => format!("Not supported here — {s}"),
+        }
+    }
+}
+
+fn humanize_io(s: &str) -> String {
+    let lower = s.to_ascii_lowercase();
+    if lower.contains("connection refused") || lower.contains("actively refused") {
+        return "Cannot reach gateway — is the phone on the same Wi‑Fi and is SMS Gateway open?".into();
+    }
+    if lower.contains("timed out") || lower.contains("timeout") {
+        return "Gateway did not answer in time — check Wi‑Fi / Listen URL".into();
+    }
+    if lower.contains("network is unreachable") || lower.contains("no route") {
+        return "Network unreachable — connect to the same Wi‑Fi as the phone".into();
+    }
+    if lower.contains("name or service not known") || lower.contains("nodename") {
+        return "Host not found — check the Listen URL / IP".into();
+    }
+    format!("Network error — {s}")
+}
+
+fn humanize_api(status: u16, body: &str) -> String {
+    let hint = json_get(body, "error").unwrap_or_else(|| {
+        let t = body.trim();
+        if t.len() > 160 {
+            format!("{}…", &t[..160])
+        } else {
+            t.to_string()
+        }
+    });
+    match status {
+        401 => format!("Unauthorized — wrong API key ({hint})"),
+        404 => format!("Not found — {hint}"),
+        400 => format!("Rejected — {hint}"),
+        0 => format!("Bad response — {hint}"),
+        s => format!("HTTP {s} — {hint}"),
+    }
+}
 
 /// Body for `POST /v1/messages`.
 #[derive(Clone, Debug, PartialEq, Eq)]

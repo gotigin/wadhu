@@ -20,9 +20,11 @@ fn accept_request_is_constructible() {
 #[test]
 fn error_is_displayable() {
     let e = ClientError::BadUrl("nope".into());
-    assert!(e.to_string().contains("bad url"));
+    assert!(e.user_message().contains("Bad URL"));
     let u = ClientError::Unsupported("sync");
-    assert!(u.to_string().contains("unsupported"));
+    assert!(u.user_message().contains("Not supported"));
+    let io = ClientError::Io("Connection refused (os error 111)".into());
+    assert!(io.user_message().contains("Cannot reach gateway"));
 }
 
 #[test]
