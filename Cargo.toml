@@ -14,6 +14,8 @@
 # - tools/<app>-dev — thin cargo-alias shims, one per app, never shared.
 [workspace]
 members = [
+    "apps/sms-client-demo",
+    "tools/sms-client-demo-dev",
     "crates/sms-client",
     "apps/sms-gateway",
     "apps/sms-relay",

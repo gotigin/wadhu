@@ -37,6 +37,12 @@ fn handle_connection(mut stream: TcpStream, app: &App) -> Result<(), String> {
     let raw = read_http_head_and_body(&mut stream)?;
     let (method, path, headers, body) = parse_request(&raw).ok_or("bad_request")?;
 
+    if method.eq_ignore_ascii_case("OPTIONS") {
+        write_response(&mut stream, 204, "text/plain", "")?;
+        let _ = stream.shutdown(Shutdown::Both);
+        return Ok(());
+    }
+
     if path.starts_with("/v1/device/ws") {
         return handle_device_ws(stream, app, &path, &headers);
     }
@@ -383,6 +389,12 @@ fn url_decode(s: &str) -> String {
     out
 }
 
+fn cors_headers() -> &'static str {
+    "Access-Control-Allow-Origin: *\r\n\
+     Access-Control-Allow-Headers: Authorization, Content-Type, X-Api-Key\r\n\
+     Access-Control-Allow-Methods: GET, POST, OPTIONS\r\n"
+}
+
 fn write_response(
     stream: &mut TcpStream,
     code: u16,
@@ -392,6 +404,7 @@ fn write_response(
     let reason = match code {
         200 => "OK",
         202 => "Accepted",
+        204 => "No Content",
         400 => "Bad Request",
         401 => "Unauthorized",
         404 => "Not Found",
@@ -399,8 +412,9 @@ fn write_response(
         _ => "Error",
     };
     let packet = format!(
-        "HTTP/1.1 {code} {reason}\r\nContent-Type: {ctype}\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",
-        body.len()
+        "HTTP/1.1 {code} {reason}\r\n{cors}Content-Type: {ctype}\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",
+        body.len(),
+        cors = cors_headers(),
     );
     stream
         .write_all(packet.as_bytes())

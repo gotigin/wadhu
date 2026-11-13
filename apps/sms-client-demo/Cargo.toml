@@ -1,0 +1,18 @@
+[package]
+name = "wadhu-sms-client-demo"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Desktop demo of wadhu-sms-client against SMS Gateway / Relay"
+publish = false
+
+# Packager metadata is the production id. Dev builds use env/development.env
+# (<id>.debug) via scripts — see docs/DEV.md § Env and app ids.
+[package.metadata.packager]
+identifier = "com.wadhu.smsclientdemo"
+product_name = "SMS Client Demo"
+
+[dependencies]
+makepad-widgets = { workspace = true }
+wadhu-sms-client = { path = "../../crates/sms-client" }

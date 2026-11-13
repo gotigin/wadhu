@@ -19,6 +19,9 @@ Docs: [`docs/SMS_GATEWAY.md`](docs/SMS_GATEWAY.md) ·
 [`docs/LOCAL_SMS.md`](../../docs/LOCAL_SMS.md) ·
 [`docs/ANDROID_PLAY_LESSONS.md`](docs/ANDROID_PLAY_LESSONS.md) (Android / Play do-not-regress)
 
+Integrator SDK: [`crates/sms-client`](../../crates/sms-client) · desktop demo:
+[`apps/sms-client-demo`](../sms-client-demo) (`cargo sms-client-demo-dev`).
+
 ### Client example (LAN)
 
 ```bash

@@ -36,6 +36,13 @@ fn handle_client(mut stream: TcpStream, handle: &GatewayHandle) {
         return;
     };
 
+    // Browser preflight — no auth (Access-Control-Request-* only).
+    if method.eq_ignore_ascii_case("OPTIONS") {
+        let _ = write_response(&mut stream, 204, "text/plain", "");
+        let _ = stream.shutdown(std::net::Shutdown::Both);
+        return;
+    }
+
     if !authorize(&headers, &handle.api_token) {
         let _ = write_response(&mut stream, 401, "application/json", r#"{"error":"unauthorized"}"#);
         return;
@@ -229,10 +236,17 @@ fn parse_request(raw: &str) -> Option<(String, String, Vec<(String, String)>, &s
     Some((method, path, headers, body))
 }
 
+fn cors_headers() -> &'static str {
+    "Access-Control-Allow-Origin: *\r\n\
+     Access-Control-Allow-Headers: Authorization, Content-Type, X-Api-Key\r\n\
+     Access-Control-Allow-Methods: GET, POST, OPTIONS\r\n"
+}
+
 fn write_response(stream: &mut TcpStream, code: u16, ctype: &str, body: &str) -> std::io::Result<()> {
     let reason = match code {
         200 => "OK",
         202 => "Accepted",
+        204 => "No Content",
         400 => "Bad Request",
         401 => "Unauthorized",
         404 => "Not Found",
@@ -241,8 +255,9 @@ fn write_response(stream: &mut TcpStream, code: u16, ctype: &str, body: &str) ->
     // Buffer the full response then write_all — partial `write!` to a socket
     // can leave clients hanging on incomplete HTTP heads.
     let packet = format!(
-        "HTTP/1.1 {code} {reason}\r\nContent-Type: {ctype}\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",
-        body.len()
+        "HTTP/1.1 {code} {reason}\r\n{cors}Content-Type: {ctype}\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",
+        body.len(),
+        cors = cors_headers(),
     );
     stream.write_all(packet.as_bytes())
 }

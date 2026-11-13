@@ -32,6 +32,10 @@ sms-gateway-windows-dev = ["run", "-p", "sms-gateway-windows-dev", "--"]
 # Env: SMS_RELAY_BIND SMS_RELAY_DATA SMS_RELAY_ADMIN_TOKEN
 sms-relay-dev = ["run", "-p", "sms-relay-dev", "--"]
 
+# SMS Client Demo desktop live-dev (apps/sms-client-demo, com.wadhu.smsclientdemo.debug).
+# Usage: cargo sms-client-demo-dev — desktop only; library covers other platforms.
+sms-client-demo-dev = ["run", "-p", "sms-client-demo-dev", "--"]
+
 # Cross-link the Windows GNU target from Arch (pacman -S mingw-w64-gcc).
 [target.x86_64-pc-windows-gnu]
 linker = "x86_64-w64-mingw32-gcc"

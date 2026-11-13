@@ -105,3 +105,47 @@ fn extract_id(http: &str) -> Option<String> {
     let end = rest.find('"')?;
     Some(rest[..end].to_string())
 }
+
+#[test]
+fn options_preflight_returns_cors_without_auth() {
+    let dir = std::env::temp_dir().join(format!(
+        "wadhu-sms-gateway-cors-test-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&dir);
+    std::fs::create_dir_all(&dir).unwrap();
+    unsafe {
+        std::env::set_var("WADHU_SMS_GATEWAY_DATA", &dir);
+    }
+
+    let addr: SocketAddr = "127.0.0.1:0".parse().unwrap();
+    let gw = Gateway::start(addr).expect("start gateway");
+    let listen = gw.handle.listen;
+    std::thread::sleep(Duration::from_millis(200));
+
+    let mut stream = TcpStream::connect(listen).expect("connect");
+    stream
+        .set_read_timeout(Some(Duration::from_secs(3)))
+        .ok();
+    let req = "OPTIONS /v1/messages HTTP/1.1\r\nHost: localhost\r\nOrigin: http://example.com\r\nAccess-Control-Request-Method: POST\r\nConnection: close\r\n\r\n";
+    stream.write_all(req.as_bytes()).unwrap();
+    let mut out = Vec::new();
+    let mut buf = [0u8; 2048];
+    loop {
+        match stream.read(&mut buf) {
+            Ok(0) => break,
+            Ok(n) => out.extend_from_slice(&buf[..n]),
+            Err(_) => break,
+        }
+    }
+    let text = String::from_utf8_lossy(&out);
+    assert!(text.contains("204"), "{text}");
+    assert!(text.contains("Access-Control-Allow-Origin: *"), "{text}");
+    assert!(text.contains("Access-Control-Allow-Methods:"), "{text}");
+
+    drop(gw);
+    let _ = std::fs::remove_dir_all(&dir);
+    unsafe {
+        std::env::remove_var("WADHU_SMS_GATEWAY_DATA");
+    }
+}

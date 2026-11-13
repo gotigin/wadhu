@@ -1,0 +1,471 @@
+// Production Windows: GUI subsystem (no console). Dev keeps a console for logs.
+#![cfg_attr(
+    all(target_os = "windows", wadhu_hide_console),
+    windows_subsystem = "windows"
+)]
+
+//! SMS Client Demo — desktop integrator shell for `wadhu-sms-client`.
+//!
+//! Talks only to the crate (LAN gateway or relay). No radio / BT code here.
+
+pub use makepad_widgets;
+
+#[cfg(target_os = "android")]
+use crate::identity;
+#[cfg(not(target_os = "android"))]
+use wadhu_sms_client_demo::identity;
+
+use makepad_widgets::*;
+use wadhu_sms_client::{AcceptRequest, Client};
+
+app_main!(App);
+
+script_mod! {
+    use mod.prelude.widgets.*
+
+    let FieldInput = TextInput{
+        width: Fill
+        height: 56.
+        margin: Inset{left: 0. right: 0. top: 10. bottom: 10.}
+        padding: Inset{left: 18. right: 18. top: 16. bottom: 14.}
+        flow: Right
+        is_multiline: false
+        blink_speed: 0.5
+        draw_bg +: {
+            color: #x0b1f63
+            color_hover: #x0133ad
+            color_focus: #x0133ad
+            color_empty: #x0b1f63
+            border_radius: 14.
+            border_size: 1.
+            border_color: #x161252
+            border_color_focus: #x00c8fc
+            border_color_empty: #x161252
+        }
+        draw_text +: {
+            color: #xfcfbfb
+            color_empty: #x9fb4d0
+            max_lines: 1
+            text_overflow: Ellipsis
+            text_style +: {font_size: 15.}
+        }
+    }
+
+    let PrimaryBtn = Button{
+        width: Fill
+        height: 56.
+        margin: Inset{left: 0. right: 0. top: 12. bottom: 8.}
+        padding: Inset{left: 18. right: 18. top: 14. bottom: 14.}
+        draw_bg +: {
+            color: #xadfb15
+            color_hover: #x00c8fc
+            color_down: #x0fca65
+            border_radius: 14.
+            border_size: 0.
+        }
+        draw_text +: {
+            color: #x0d0b3a
+            text_style +: {font_size: 15.}
+        }
+    }
+
+    let GhostBtn = Button{
+        width: Fill
+        height: 56.
+        margin: Inset{left: 0. right: 0. top: 12. bottom: 8.}
+        padding: Inset{left: 18. right: 18. top: 14. bottom: 14.}
+        draw_bg +: {
+            color: #x0b1f63
+            color_hover: #x0133ad
+            border_radius: 14.
+            border_size: 0.
+        }
+        draw_text +: {
+            color: #xfcfbfb
+            text_style +: {font_size: 14.}
+        }
+    }
+
+    let BodyCopy = Markdown{
+        width: Fill
+        height: Fit
+        body: ""
+        font_size: 14.
+        font_color: #x9fb4d0
+        paragraph_spacing: 0.
+        flow: Right{wrap: true}
+        selectable: false
+        draw_text +: {color: #x9fb4d0}
+    }
+
+    startup() do #(App::script_component(vm)){
+        ui: Root{
+            main_window := Window{
+                window.title: "SMS Client Demo"
+                window.inner_size: vec2(520, 780)
+                body +: {
+                    SolidView{
+                        width: Fill
+                        height: Fill
+                        flow: Down
+                        draw_bg +: {color: #x0d0b3a}
+
+                        SolidView{
+                            width: Fill
+                            height: Fit
+                            flow: Down
+                            spacing: 8
+                            padding: Inset{left: 28. right: 28. top: 28. bottom: 16.}
+                            Label{
+                                width: Fill
+                                height: Fit
+                                text: "SMS Client Demo"
+                                draw_text.color: #xfcfbfb
+                                draw_text.text_style.font_size: 28
+                            }
+                            Label{
+                                width: Fill
+                                height: Fit
+                                text: "Desktop integrator for wadhu-sms-client"
+                                draw_text.color: #xadfb15
+                                draw_text.text_style.font_size: 13
+                            }
+                            identity_label := Label{
+                                width: Fill
+                                height: Fit
+                                text: ""
+                                draw_text.color: #x9fb4d0
+                                draw_text.text_style.font_size: 11
+                            }
+                        }
+
+                        ScrollYView{
+                            width: Fill
+                            height: Fill
+                            flow: Down
+                            SolidView{
+                                width: Fill
+                                height: Fit
+                                flow: Down
+                                spacing: 28
+                                padding: Inset{left: 28. right: 28. top: 12. bottom: 64.}
+
+                                SolidView{
+                                    width: Fill
+                                    height: Fit
+                                    flow: Down
+                                    spacing: 10
+                                    Label{
+                                        width: Fill
+                                        height: Fit
+                                        text: "GATEWAY / RELAY"
+                                        draw_text.color: #x9fb4d0
+                                        draw_text.text_style.font_size: 11
+                                    }
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 8
+                                        padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+                                        BodyCopy{
+                                            body: "Paste the Listen URL + API key from SMS Gateway (same Wi‑Fi), or a relay base URL."
+                                        }
+                                        url_input := FieldInput{
+                                            empty_text: "Base URL (http://host:18765)"
+                                            text: "http://127.0.0.1:18765"
+                                        }
+                                        key_input := FieldInput{
+                                            empty_text: "API key"
+                                        }
+                                        health_button := GhostBtn{
+                                            text: "Check health"
+                                        }
+                                        health_label := BodyCopy{
+                                            body: "Not checked yet."
+                                        }
+                                    }
+                                }
+
+                                SolidView{
+                                    width: Fill
+                                    height: Fit
+                                    flow: Down
+                                    spacing: 10
+                                    Label{
+                                        width: Fill
+                                        height: Fit
+                                        text: "SEND"
+                                        draw_text.color: #x9fb4d0
+                                        draw_text.text_style.font_size: 11
+                                    }
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 8
+                                        padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+                                        to_input := FieldInput{
+                                            empty_text: "To (+country number)"
+                                        }
+                                        body_input := FieldInput{
+                                            empty_text: "Message"
+                                        }
+                                        send_button := PrimaryBtn{
+                                            text: "Send via wadhu-sms-client"
+                                        }
+                                        result_label := Label{
+                                            width: Fill
+                                            height: Fit
+                                            margin: Inset{top: 4. bottom: 0.}
+                                            text: ""
+                                            draw_text.color: #xadfb15
+                                            draw_text.text_style.font_size: 13
+                                        }
+                                    }
+                                }
+
+                                SolidView{
+                                    width: Fill
+                                    height: Fit
+                                    flow: Down
+                                    spacing: 10
+                                    Label{
+                                        width: Fill
+                                        height: Fit
+                                        text: "HOW TO INTEGRATE"
+                                        draw_text.color: #x9fb4d0
+                                        draw_text.text_style.font_size: 11
+                                    }
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 8
+                                        padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+                                        BodyCopy{
+                                            body: "Depend on crates/sms-client (wadhu-sms-client). Same Client works for phone LAN and sms-relay. Native = sync HTTP; wasm = *_async + fetch."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#[derive(Script, ScriptHook)]
+pub struct App {
+    #[live]
+    ui: WidgetRef,
+    #[rust]
+    poll_timer: Timer,
+    #[rust]
+    last_id: Option<String>,
+    #[rust]
+    last_base: String,
+    #[rust]
+    last_token: String,
+}
+
+impl MatchEvent for App {
+    fn handle_startup(&mut self, cx: &mut Cx) {
+        log!("{}", identity::summary());
+        self.ui
+            .window(cx, ids!(main_window))
+            .set_title(cx, identity::APP_LABEL);
+        self.ui.label(cx, ids!(identity_label)).set_text(
+            cx,
+            &format!("{} · {} · desktop demo", identity::APP_ID, identity::ENV),
+        );
+        self.poll_timer = cx.start_interval(1.2);
+    }
+
+    fn handle_timer(&mut self, cx: &mut Cx, e: &TimerEvent) {
+        if self.poll_timer.is_timer(e).is_none() {
+            return;
+        }
+        let Some(id) = self.last_id.clone() else {
+            return;
+        };
+        if self.last_base.is_empty() || self.last_token.is_empty() {
+            return;
+        }
+        let client = Client::new(&self.last_base, &self.last_token);
+        match client.get_message(&id) {
+            Ok(m) => {
+                let (text, color) = status_line(&m.status, &m.to, m.error.as_deref());
+                self.ui.label(cx, ids!(result_label)).set_text(cx, &text);
+                self.ui
+                    .label(cx, ids!(result_label))
+                    .set_text_color(cx, color);
+            }
+            Err(e) => {
+                self.ui
+                    .label(cx, ids!(result_label))
+                    .set_text(cx, &format!("Poll error: {e}"));
+                self.ui
+                    .label(cx, ids!(result_label))
+                    .set_text_color(cx, color_fail());
+            }
+        }
+    }
+
+    fn handle_actions(&mut self, cx: &mut Cx, actions: &Actions) {
+        if self.ui.button(cx, ids!(health_button)).clicked(actions) {
+            let (base, token) = self.read_endpoint(cx);
+            if base.is_empty() || token.is_empty() {
+                self.ui.markdown(cx, ids!(health_label)).set_text(
+                    cx,
+                    "Enter base URL and API key first.",
+                );
+                return;
+            }
+            let client = Client::new(&base, &token);
+            match client.health() {
+                Ok(raw) => {
+                    let snippet = if raw.len() > 280 {
+                        format!("{}…", &raw[..280])
+                    } else {
+                        raw
+                    };
+                    self.ui
+                        .markdown(cx, ids!(health_label))
+                        .set_text(cx, &format!("OK — `{snippet}`"));
+                }
+                Err(e) => {
+                    self.ui
+                        .markdown(cx, ids!(health_label))
+                        .set_text(cx, &format!("Health failed: {e}"));
+                }
+            }
+        }
+
+        if self.ui.button(cx, ids!(send_button)).clicked(actions) {
+            let (base, token) = self.read_endpoint(cx);
+            let to = self.ui.text_input(cx, ids!(to_input)).text();
+            let body = self.ui.text_input(cx, ids!(body_input)).text();
+            if base.is_empty() || token.is_empty() {
+                self.ui
+                    .label(cx, ids!(result_label))
+                    .set_text(cx, "Enter base URL and API key first");
+                self.ui
+                    .label(cx, ids!(result_label))
+                    .set_text_color(cx, color_fail());
+                return;
+            }
+            if to.trim().is_empty() || body.trim().is_empty() {
+                self.ui
+                    .label(cx, ids!(result_label))
+                    .set_text(cx, "Enter destination and message");
+                self.ui
+                    .label(cx, ids!(result_label))
+                    .set_text_color(cx, color_fail());
+                return;
+            }
+            let client = Client::new(&base, &token);
+            match client.accept(&AcceptRequest {
+                to: to.trim().into(),
+                body: body.trim().into(),
+                idempotency_key: None,
+            }) {
+                Ok(m) => {
+                    self.last_id = Some(m.id.clone());
+                    self.last_base = base;
+                    self.last_token = token;
+                    let (text, color) = status_line(&m.status, &m.to, m.error.as_deref());
+                    self.ui.label(cx, ids!(result_label)).set_text(cx, &text);
+                    self.ui
+                        .label(cx, ids!(result_label))
+                        .set_text_color(cx, color);
+                }
+                Err(e) => {
+                    self.ui
+                        .label(cx, ids!(result_label))
+                        .set_text(cx, &format!("Send failed: {e}"));
+                    self.ui
+                        .label(cx, ids!(result_label))
+                        .set_text_color(cx, color_fail());
+                }
+            }
+        }
+    }
+}
+
+impl App {
+    fn read_endpoint(&self, cx: &mut Cx) -> (String, String) {
+        let base = self.ui.text_input(cx, ids!(url_input)).text().trim().to_string();
+        let token = self.ui.text_input(cx, ids!(key_input)).text().trim().to_string();
+        (base, token)
+    }
+}
+
+fn status_line(status: &str, to: &str, error: Option<&str>) -> (String, Vec4f) {
+    match status {
+        "queued" | "submitting" => (
+            format!("Sending to {to}… ({status})"),
+            color_lime(),
+        ),
+        "submitted" | "delivered" => (
+            format!("Sent to {to} — gateway accepted ({status})"),
+            color_ok(),
+        ),
+        "failed" => (
+            format!(
+                "Failed to {to}: {}",
+                error.unwrap_or("unknown")
+            ),
+            color_fail(),
+        ),
+        other => (format!("{other} → {to}"), color_muted()),
+    }
+}
+
+fn color_ok() -> Vec4f {
+    hex_rgb(0x0f_ca_65)
+}
+fn color_fail() -> Vec4f {
+    hex_rgb(0xd9_67_fb)
+}
+fn color_lime() -> Vec4f {
+    hex_rgb(0xad_fb_15)
+}
+fn color_muted() -> Vec4f {
+    hex_rgb(0x9f_b4_d0)
+}
+
+fn hex_rgb(rgb: u32) -> Vec4f {
+    Vec4f {
+        x: ((rgb >> 16) & 0xff) as f32 / 255.0,
+        y: ((rgb >> 8) & 0xff) as f32 / 255.0,
+        z: (rgb & 0xff) as f32 / 255.0,
+        w: 1.0,
+    }
+}
+
+impl AppMain for App {
+    fn script_mod(vm: &mut ScriptVm) -> ScriptValue {
+        crate::makepad_widgets::script_mod(vm);
+        self::script_mod(vm)
+    }
+
+    fn handle_event(&mut self, cx: &mut Cx, event: &Event) {
+        self.match_event(cx, event);
+        self.ui.handle_event(cx, event, &mut Scope::empty());
+    }
+}

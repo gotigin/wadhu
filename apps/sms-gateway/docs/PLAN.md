@@ -50,21 +50,25 @@ Same app package, same API. `GET /v1/capabilities` tells clients which radio is 
 | Android SIM send (Java + JNI patches) | Done |
 | Android manifest `SEND_SMS` + permission UI | Done |
 | Operator UI (status chips, connection, compose, recent) | Done (redesigned) |
+| Client crate [`crates/sms-client`](../../../crates/sms-client) | Done (native + wasm) |
+| Desktop demo [`apps/sms-client-demo`](../../sms-client-demo) | Done (desktop only) |
+| CORS on gateway / relay HTTP | Done |
 | Desktop modem radio | Not yet |
 | Persist outbox across restarts | Not yet |
 | Delivery reports / inbound / STOP | Not yet |
 | mDNS + QR pairing | Not yet |
-| Client crate under `crates/` | Not yet |
 
 ### How to run (today)
 
 ```bash
 cargo sms-gateway-dev                 # desktop UI + http://127.0.0.1:18765
 cargo sms-gateway-android-dev         # phone gateway on LAN :18765
+cargo sms-client-demo-dev             # desktop integrator UI (wadhu-sms-client)
 cargo test -p wadhu-sms-gateway
+cargo test -p wadhu-sms-client
 ```
 
-Client:
+Client (crate or curl):
 
 ```bash
 curl -H "X-Api-Key: $TOKEN" http://127.0.0.1:18765/v1/health
@@ -157,9 +161,10 @@ Bind: Android `0.0.0.0:18765` · Desktop `127.0.0.1:18765` (LAN bind optional la
 
 ### Phase E — Client crate
 
-1. `./scripts/new-crate.sh` → brand-neutral HTTP client + types.
-2. OpenAPI file generated from the frozen v1 surface.
-3. Other brands / third parties depend on the crate by path or git tag.
+1. ~~Brand-neutral HTTP client + types~~ → [`crates/sms-client`](../../../crates/sms-client) (native sync + wasm `*_async`).
+2. ~~Desktop demo~~ → [`apps/sms-client-demo`](../../sms-client-demo) (`cargo sms-client-demo-dev`).
+3. OpenAPI kept in sync with frozen v1 surface.
+4. Other brands / third parties depend on the crate by path or git tag; mobile/browser *demos* later.
 
 ## 7. UI plan (operator)
 

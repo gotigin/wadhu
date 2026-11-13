@@ -23,9 +23,13 @@
 |---|---|---|
 | **Gateway** | Android-first app (phones, tablets, other Android OS devices with a SIM). Owns the radio. Accepts jobs over **LAN**, **Bluetooth**, and optional **relay**. | [`apps/sms-gateway`](../apps/sms-gateway/README.md) |
 | **Relay** | Optional self-hosted remote plane. Device registry, client keys, internet `POST /v1/messages`, push to phones over outbound WebSocket. **Does not own a radio.** | [`apps/sms-relay`](../apps/sms-relay/README.md) |
-| **Client** | Any app that needs SMS — calls the gateway (LAN/BT) or the relay (internet). | Other Gotigin brands / third parties + [`crates/sms-client`](../crates/sms-client/README.md) |
+| **Client** | Any app that needs SMS — calls the gateway (LAN/BT) or the relay (internet). | Other Gotigin brands / third parties + [`crates/sms-client`](../crates/sms-client/README.md) + desktop demo [`apps/sms-client-demo`](../apps/sms-client-demo/README.md) |
 
 Local LAN/BT send **never** requires the relay. Killing the relay must not break local send.
+
+`wadhu-sms-client` compiles for native (Linux / Windows / macOS / Android / iOS)
+and `wasm32` (browsers / Edge). The **demo app** is desktop-only for now.
+Gateway and relay answer CORS so browser third parties can call LAN/HTTP.
 
 ## 2. Transports
 
@@ -51,6 +55,9 @@ Same paths on the **phone** and the **relay** so third parties learn once:
 | `GET` | `/v1/messages/{id}` | Status |
 
 Auth: `Authorization: Bearer <token>` or `X-Api-Key`.
+
+CORS: `OPTIONS` preflight + `Access-Control-Allow-Origin: *` (and allow
+`Authorization`, `Content-Type`, `X-Api-Key`) on gateway and relay HTTP.
 
 ## 4. Status machine
 
