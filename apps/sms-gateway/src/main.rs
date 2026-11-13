@@ -824,7 +824,7 @@ impl MatchEvent for App {
                         self.last_test_id = Some(m.id.clone());
                         self.ui.label(cx, ids!(result_label)).set_text(
                             cx,
-                            &format!("Queued {} — waiting for radio…", short_id(&m.id)),
+                            &format!("Queued for {} — sending via SIM…", m.to),
                         );
                         self.ui
                             .label(cx, ids!(result_label))
@@ -957,13 +957,7 @@ impl App {
                     .filter(|e| !e.is_empty())
                     .map(|e| format!(" — {e}"))
                     .unwrap_or_default();
-                format!(
-                    "{}  ·  {}  →  {}{}",
-                    m.status.as_str(),
-                    short_id(&m.id),
-                    m.to,
-                    err
-                )
+                format!("{}  →  {}{}", status_label(m.status), m.to, err)
             })
             .collect();
         let text = if lines.is_empty() {
@@ -973,26 +967,36 @@ impl App {
         };
         self.ui.markdown(cx, ids!(recent_label)).set_text(cx, &text);
 
+        // Keep the test-send line in sync with the outbox — never leave it on
+        // "Queued…" after the radio already accepted the message.
         if let Some(id) = &self.last_test_id {
             if let Some(m) = gw.handle.outbox.get(id) {
-                let (msg, color) = match m.status.as_str() {
-                    "queued" | "submitting" => (
-                        format!("{} — handing to SIM…", short_id(&m.id)),
+                let (msg, color) = match m.status {
+                    gateway::message::Status::Queued
+                    | gateway::message::Status::Submitting => (
+                        format!("Sending to {} via SIM…", m.to),
                         color_lime(),
                     ),
-                    "submitted" => (
-                        format!("{} submitted to carrier → {}", short_id(&m.id), m.to),
+                    gateway::message::Status::Submitted
+                    | gateway::message::Status::Delivered => (
+                        format!(
+                            "Sent to {} — SIM handed it to the carrier",
+                            m.to
+                        ),
                         color_ok(),
                     ),
-                    "failed" => (
+                    gateway::message::Status::Failed => (
                         format!(
-                            "{} failed: {}",
-                            short_id(&m.id),
-                            m.error.as_deref().unwrap_or("unknown")
+                            "Failed to {}: {}",
+                            m.to,
+                            m.error.as_deref().unwrap_or("radio error")
                         ),
                         color_fail(),
                     ),
-                    other => (format!("{} — {other}", short_id(&m.id)), color_muted()),
+                    other => (
+                        format!("{} — {}", status_label(other), m.to),
+                        color_muted(),
+                    ),
                 };
                 self.ui.label(cx, ids!(result_label)).set_text(cx, &msg);
                 self.ui
@@ -1048,8 +1052,18 @@ fn humanize_radio_detail(detail: &str) -> String {
     }
 }
 
-fn short_id(id: &str) -> &str {
-    id.rsplit('-').next().unwrap_or(id)
+fn status_label(status: gateway::message::Status) -> &'static str {
+    use gateway::message::Status::*;
+    match status {
+        Queued => "Queued",
+        Submitting => "Sending",
+        Submitted => "Sent",
+        Delivered => "Delivered",
+        Failed => "Failed",
+        Expired => "Expired",
+        Cancelled => "Cancelled",
+        Indeterminate => "Unknown",
+    }
 }
 
 fn color_ok() -> Vec4f {
