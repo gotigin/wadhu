@@ -20,10 +20,14 @@ headers (Wadhu sms-gateway does). Mixed content still blocks
 
 ## Example (native)
 
+Use the **Listen URL from the phone** (LAN) or your **relay** base URL — not
+localhost, unless the gateway is running on the same machine for a dry-run.
+
 ```rust
 use wadhu_sms_client::{AcceptRequest, Client};
 
-let client = Client::new("http://127.0.0.1:18765", "your-api-key");
+// From SMS Gateway on the phone (same Wi‑Fi), e.g. http://192.168.1.40:18765
+let client = Client::new("http://192.168.1.40:18765", "your-api-key");
 let msg = client.accept(&AcceptRequest {
     to: "+15551212".into(),
     body: "hello".into(),

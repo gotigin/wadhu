@@ -20,14 +20,15 @@
 //! ```
 //! use wadhu_sms_client::{AcceptRequest, Client};
 //!
-//! let client = Client::new("http://127.0.0.1:18765", "wadhu-sms-demo");
+//! // Prefer the phone LAN Listen URL from SMS Gateway (same Wi‑Fi).
+//! let client = Client::new("http://192.168.1.40:18765", "wadhu-sms-demo");
 //! let _ = AcceptRequest {
 //!     to: "+15551212".into(),
 //!     body: "hello".into(),
 //!     idempotency_key: Some("demo-1".into()),
 //! };
 //! // client.accept(&_).unwrap();  // requires a live gateway
-//! assert_eq!(client.base_url(), "http://127.0.0.1:18765");
+//! assert_eq!(client.base_url(), "http://192.168.1.40:18765");
 //! ```
 
 #![forbid(unsafe_code)]

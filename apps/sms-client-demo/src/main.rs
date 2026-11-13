@@ -173,14 +173,13 @@ script_mod! {
                                             border_radius: 20.
                                         }
                                         BodyCopy{
-                                            body: "Paste the Listen URL + API key from SMS Gateway (same Wi‑Fi), or a relay base URL."
+                                            body: "From the SMS Gateway app on the phone: copy Listen URL (LAN, same Wi‑Fi) and API key. Or use your sms-relay base URL for internet. Do not use localhost unless the gateway is running on this same PC."
                                         }
                                         url_input := FieldInput{
-                                            empty_text: "Base URL (http://host:18765)"
-                                            text: "http://127.0.0.1:18765"
+                                            empty_text: "http://<phone-lan-ip>:18765  or  http://<relay-host>:9876"
                                         }
                                         key_input := FieldInput{
-                                            empty_text: "API key"
+                                            empty_text: "API key from SMS Gateway (or relay client key)"
                                         }
                                         health_button := GhostBtn{
                                             text: "Check health"
@@ -256,7 +255,7 @@ script_mod! {
                                             border_radius: 20.
                                         }
                                         BodyCopy{
-                                            body: "Depend on crates/sms-client (wadhu-sms-client). Same Client works for phone LAN and sms-relay. Native = sync HTTP; wasm = *_async + fetch."
+                                            body: "Depend on crates/sms-client. Same Client for phone LAN HTTP and sms-relay. Bluetooth uses the gateway’s BT framing (separate from this HTTP demo). Native = sync HTTP; wasm = *_async + fetch."
                                         }
                                     }
                                 }
