@@ -11,11 +11,13 @@
 //! ```
 
 use std::io::{Read, Write};
-use std::net::{SocketAddr, TcpListener, TcpStream};
+#[cfg(not(target_os = "android"))]
+use std::net::{SocketAddr, TcpListener};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
 use std::thread;
 
+use super::clients::{AuthFail, AuthKind, Clients};
 use super::frame::{read_frame, write_frame};
 use super::outbox::Outbox;
 
@@ -43,7 +45,12 @@ impl BluetoothHandle {
 }
 
 /// Start Bluetooth (or desktop framing simulator) transport.
-pub fn spawn(outbox: Outbox, api_token: String, enabled: bool) -> BluetoothHandle {
+pub fn spawn(
+    outbox: Outbox,
+    api_token: Arc<std::sync::Mutex<String>>,
+    clients: Clients,
+    enabled: bool,
+) -> BluetoothHandle {
     let status = Arc::new(std::sync::Mutex::new(BluetoothStatus {
         enabled,
         listening: false,
@@ -68,31 +75,38 @@ pub fn spawn(outbox: Outbox, api_token: String, enabled: bool) -> BluetoothHandl
     {
         let st = Arc::clone(&status);
         let outbox_a = outbox.clone();
-        let token_a = api_token.clone();
+        let token_a = Arc::clone(&api_token);
+        let clients_a = clients.clone();
         let stop_a = Arc::clone(&stop);
         thread::Builder::new()
             .name("sms-gateway-bt-android".into())
-            .spawn(move || android_rfcomm_loop(outbox_a, token_a, st, stop_a))
+            .spawn(move || android_rfcomm_loop(outbox_a, token_a, clients_a, st, stop_a))
             .ok();
     }
 
-    // Desktop always gets the framing simulator; Android also keeps it as a
-    // LAN fallback for framed clients that are not using RFCOMM yet.
-    let st2 = Arc::clone(&status);
-    let outbox2 = outbox;
-    let token2 = api_token;
-    let stop2 = Arc::clone(&stop);
-    thread::Builder::new()
-        .name("sms-gateway-bt-sim".into())
-        .spawn(move || framing_tcp_loop(outbox2, token2, st2, stop2))
-        .ok();
+    // Desktop / lab: length-prefixed framing over TCP :18766 (same JSON as RFCOMM).
+    // Android primary offline BT path is Classic RFCOMM; TCP lab stays desktop-side.
+    #[cfg(not(target_os = "android"))]
+    {
+        let st2 = Arc::clone(&status);
+        let outbox2 = outbox;
+        let token2 = api_token;
+        let clients2 = clients;
+        let stop2 = Arc::clone(&stop);
+        thread::Builder::new()
+            .name("sms-gateway-bt-sim".into())
+            .spawn(move || framing_tcp_loop(outbox2, token2, clients2, st2, stop2))
+            .ok();
+    }
 
     handle
 }
 
+#[cfg(not(target_os = "android"))]
 fn framing_tcp_loop(
     outbox: Outbox,
-    api_token: String,
+    api_token: Arc<std::sync::Mutex<String>>,
+    clients: Clients,
     status: Arc<std::sync::Mutex<BluetoothStatus>>,
     stop: Arc<AtomicBool>,
 ) {
@@ -122,45 +136,67 @@ fn framing_tcp_loop(
             break;
         }
         let outbox = outbox.clone();
-        let token = api_token.clone();
-        let _ = thread::spawn(move || handle_framed_client(stream, &outbox, &token));
+        let token = Arc::clone(&api_token);
+        let clients = clients.clone();
+        let _ = thread::spawn(move || handle_framed_client(stream, &outbox, &token, &clients));
     }
 }
 
-fn handle_framed_client(mut stream: TcpStream, outbox: &Outbox, api_token: &str) {
-    let _ = stream.set_read_timeout(Some(std::time::Duration::from_secs(120)));
+fn handle_framed_client(
+    mut stream: impl Read + Write,
+    outbox: &Outbox,
+    api_token: &Arc<std::sync::Mutex<String>>,
+    clients: &Clients,
+) {
     loop {
         let raw = match read_frame(&mut stream) {
             Ok(s) => s,
             Err(_) => break,
         };
-        let reply = handle_op(&raw, outbox, api_token);
+        let reply = handle_op(&raw, outbox, api_token, clients);
         if write_frame(&mut stream, &reply).is_err() {
             break;
         }
     }
 }
 
-fn handle_op(raw: &str, outbox: &Outbox, api_token: &str) -> String {
+fn handle_op(
+    raw: &str,
+    outbox: &Outbox,
+    api_token: &Arc<std::sync::Mutex<String>>,
+    clients: &Clients,
+) -> String {
     let op = json_get(raw, "op").unwrap_or_default();
     match op.as_str() {
         "ping" => r#"{"ok":true,"pong":true}"#.into(),
         "send" => {
             let token = json_get(raw, "token").unwrap_or_default();
-            if token != api_token {
-                return r#"{"ok":false,"error":"unauthorized"}"#.into();
-            }
+            let operator = api_token.lock().expect("token").clone();
+            let auth = match clients.authorize(&token, &operator) {
+                Ok(a) => a,
+                Err(AuthFail::Blocked) => {
+                    return r#"{"ok":false,"error":"blocked"}"#.into();
+                }
+                Err(AuthFail::Unauthorized) => {
+                    return r#"{"ok":false,"error":"unauthorized"}"#.into();
+                }
+            };
             let to = json_get(raw, "to").unwrap_or_default();
             let body = json_get(raw, "body").unwrap_or_default();
             let idem = json_get(raw, "idempotency_key").unwrap_or_default();
             match outbox.accept(idem, to, body) {
-                Ok(m) => format!(
-                    r#"{{"ok":true,"message":{{"id":{},"status":{},"to":{},"idempotency_key":{}}}}}"#,
-                    json_str(&m.id),
-                    json_str(m.status.as_str()),
-                    json_str(&m.to),
-                    json_str(&m.idempotency_key)
-                ),
+                Ok(m) => {
+                    if let AuthKind::Client { id, .. } = auth {
+                        clients.record_send(&id);
+                    }
+                    format!(
+                        r#"{{"ok":true,"message":{{"id":{},"status":{},"to":{},"idempotency_key":{}}}}}"#,
+                        json_str(&m.id),
+                        json_str(m.status.as_str()),
+                        json_str(&m.to),
+                        json_str(&m.idempotency_key)
+                    )
+                }
                 Err(e) => format!(r#"{{"ok":false,"error":{}}}"#, json_str(&e)),
             }
         }
@@ -171,25 +207,116 @@ fn handle_op(raw: &str, outbox: &Outbox, api_token: &str) -> String {
 #[cfg(target_os = "android")]
 fn android_rfcomm_loop(
     outbox: Outbox,
-    api_token: String,
+    api_token: Arc<std::sync::Mutex<String>>,
+    clients: Clients,
     status: Arc<std::sync::Mutex<BluetoothStatus>>,
     stop: Arc<AtomicBool>,
 ) {
-    // RFCOMM accept via platform Bluetooth APIs lands with the JNI bridge.
-    // Until then: same length-prefixed JSON framing is available on TCP :18766
-    // (usable over USB-tether / local hotspot) and documented in BLUETOOTH.md
-    // for Classic RFCOMM UUID 00001101-0000-1000-8000-00805F9B34FB.
+    use makepad_widgets::makepad_platform::os::linux::android::android_jni::{
+        to_java_bt_rfcomm_disconnect_client, to_java_bt_rfcomm_start,
+        to_java_bt_rfcomm_status, to_java_bt_rfcomm_stop, to_java_bt_rfcomm_wait_client,
+    };
+
+    let started = unsafe { to_java_bt_rfcomm_start() };
     if let Ok(mut s) = status.lock() {
-        s.detail =
-            "BT framing on TCP :18766; RFCOMM UUID SPP — see docs/BLUETOOTH.md".into();
-        if s.endpoint.is_empty() {
-            s.endpoint = "rfcomm://Wadhu SMS Gateway + tcp://0.0.0.0:18766".into();
-        }
-        s.listening = true;
+        s.endpoint = "rfcomm://Wadhu SMS Gateway (SPP)".into();
+        s.detail = started.clone();
+        s.listening = started == "listening" || started == "connected";
     }
+    if started != "listening" && started != "connected" {
+        // Keep polling start in case the user grants BT permission later.
+        while !stop.load(Ordering::Relaxed) {
+            thread::sleep(std::time::Duration::from_secs(3));
+            let again = unsafe { to_java_bt_rfcomm_start() };
+            if let Ok(mut s) = status.lock() {
+                s.detail = again.clone();
+                s.listening = again == "listening" || again == "connected";
+            }
+            if again == "listening" || again == "connected" {
+                break;
+            }
+        }
+    }
+
     while !stop.load(Ordering::Relaxed) {
-        let _ = (&outbox, &api_token);
-        thread::sleep(std::time::Duration::from_secs(2));
+        let st = unsafe { to_java_bt_rfcomm_status() };
+        if let Ok(mut s) = status.lock() {
+            s.detail = st.clone();
+            s.listening = st == "listening" || st == "connected";
+        }
+        if !unsafe { to_java_bt_rfcomm_wait_client(2000) } {
+            continue;
+        }
+        if let Ok(mut s) = status.lock() {
+            s.detail = "connected".into();
+            s.listening = true;
+        }
+        let stream = AndroidBtStream;
+        handle_framed_client(stream, &outbox, &api_token, &clients);
+        unsafe {
+            to_java_bt_rfcomm_disconnect_client();
+        }
+        if let Ok(mut s) = status.lock() {
+            let st = unsafe { to_java_bt_rfcomm_status() };
+            s.detail = st;
+            s.listening = true;
+        }
+    }
+    unsafe {
+        to_java_bt_rfcomm_stop();
+    }
+}
+
+/// JNI-backed byte stream for one RFCOMM client session.
+#[cfg(target_os = "android")]
+struct AndroidBtStream;
+
+#[cfg(target_os = "android")]
+impl Read for AndroidBtStream {
+    fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+        if buf.is_empty() {
+            return Ok(0);
+        }
+        let n = buf.len().min(65536) as i32;
+        let got = unsafe {
+            makepad_widgets::makepad_platform::os::linux::android::android_jni::to_java_bt_rfcomm_read_exact(
+                n, 120_000,
+            )
+        };
+        match got {
+            Some(bytes) if !bytes.is_empty() => {
+                let take = bytes.len().min(buf.len());
+                buf[..take].copy_from_slice(&bytes[..take]);
+                Ok(take)
+            }
+            _ => Err(std::io::Error::new(
+                std::io::ErrorKind::UnexpectedEof,
+                "bt rfcomm read failed",
+            )),
+        }
+    }
+}
+
+#[cfg(target_os = "android")]
+impl Write for AndroidBtStream {
+    fn write(&mut self, buf: &[u8]) -> std::io::Result<usize> {
+        let ok = unsafe {
+            makepad_widgets::makepad_platform::os::linux::android::android_jni::to_java_bt_rfcomm_write_all(
+                buf,
+            )
+        };
+        if ok {
+            Ok(buf.len())
+        } else {
+            Err(std::io::Error::new(
+                std::io::ErrorKind::BrokenPipe,
+                "bt rfcomm write failed",
+            ))
+        }
+    }
+
+    fn flush(&mut self) -> std::io::Result<()> {
+        Ok(())
     }
 }
 

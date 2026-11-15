@@ -5,5 +5,9 @@ previews), following the pattern Kumkaj uses for its product sites
 (`kumkaj-workspace/sites/`). A site may depend on Wadhu crates, never on an
 app or another site.
 
-None yet. A Wadhu brand site would live at `sites/wadhu/` (package
-`wadhu-site`).
+| Site | Package | Domain |
+| --- | --- | --- |
+| [`wadhu/`](wadhu/README.md) | `wadhu-site` | https://wadhu.com |
+
+Deploy: `./sites/wadhu/scripts/deploy-firebase.sh`. Connect API is separate:
+https://connect.wadhu.com (`apps/wadhu-connect`).

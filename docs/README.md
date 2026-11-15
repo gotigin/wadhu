@@ -12,6 +12,10 @@ part independent of its siblings**.
 | [`CRATES.md`](CRATES.md) | Rules for reusable crates: shape, independence, features, API, versioning, MSRV, tests, publishing |
 | [`DESIGN.md`](DESIGN.md) | Wadhu brand tokens (colours sampled from the logo), type, voice, icons |
 | [`LOCAL_SMS.md`](LOCAL_SMS.md) | Local SMS: **gateway (provider) vs client** roles, API/status contract; gateway app is [`apps/sms-gateway/`](../apps/sms-gateway/README.md) |
+| [`IDENTITY_AND_MONETIZATION_ALIGNMENT.md`](IDENTITY_AND_MONETIZATION_ALIGNMENT.md) | Post-BT alignment: monetize relay/platform only; IdP/orgs staged after LAN+BT (not a same-day build) |
+| [`WEBSITES.md`](WEBSITES.md) | wadhu.com (Makepad + Firebase) and connect.wadhu.com (Rust Connect) |
+| [`plans/BT_THEN_IDENTITY.md`](plans/BT_THEN_IDENTITY.md) | Readable plan: finish Classic RFCOMM first, then identity/monetization direction |
+| [`TRANSPORTS.md`](TRANSPORTS.md) | LAN / Bluetooth / relay: user-facing behaviour + gateway security controls |
 
 ## Documentation system (read before adding or moving a doc)
 

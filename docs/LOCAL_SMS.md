@@ -26,6 +26,11 @@
 | **Client** | Any app that needs SMS — calls the gateway (LAN/BT) or the relay (internet). | Other Gotigin brands / third parties + [`crates/sms-client`](../crates/sms-client/README.md) + desktop demo [`apps/sms-client-demo`](../apps/sms-client-demo/README.md) |
 
 Local LAN/BT send **never** requires the relay. Killing the relay must not break local send.
+Hosted identity / org billing (when built) monetizes **relay/platform only** —
+see [`IDENTITY_AND_MONETIZATION_ALIGNMENT.md`](IDENTITY_AND_MONETIZATION_ALIGNMENT.md).
+
+**How each approach feels for non-experts** (no IP typing on LAN; gateway
+controls for block / usage / rotate): [`TRANSPORTS.md`](TRANSPORTS.md).
 
 `wadhu-sms-client` compiles for native (Linux / Windows / macOS / Android / iOS)
 and `wasm32` (browsers / Edge). The **demo app** is desktop-only for now.
@@ -35,12 +40,17 @@ Gateway and relay answer CORS so browser third parties can call LAN/HTTP.
 
 ```text
   Clients
-    ├── LAN HTTP ──────────────┐
-    ├── Bluetooth framing ─────┼──►  sms-gateway  ──SIM──►  mobile network
-    └── Internet HTTP ──► sms-relay ──WSS──►┘
+    ├── LAN HTTP (+ discover / pair code) ──┐
+    ├── Bluetooth framing ──────────────────┼──►  sms-gateway  ──SIM──►  mobile network
+    └── Internet HTTP ──► sms-relay ──WSS───┘
 ```
 
 One job model: all transports feed the same outbox and status machine.
+
+**LAN default UX:** brand app discovers the phone on Wi‑Fi and pairs with a
+short **Allow** code from SMS Gateway — users do not enter IP addresses.
+Phone owner can list connected apps, see send counts, block an app, and
+change the access key. Details: [`TRANSPORTS.md`](TRANSPORTS.md).
 
 ## 3. Shared HTTP message API
 

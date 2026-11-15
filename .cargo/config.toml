@@ -32,6 +32,11 @@ sms-gateway-windows-dev = ["run", "-p", "sms-gateway-windows-dev", "--"]
 # Env: SMS_RELAY_BIND SMS_RELAY_DATA SMS_RELAY_ADMIN_TOKEN
 sms-relay-dev = ["run", "-p", "sms-relay-dev", "--"]
 
+# Wadhu Connect (WhatsApp Cloud API bridge) — http://127.0.0.1:3847
+# Usage: cargo wadhu-connect-dev
+# Env: META_APP_ID META_APP_SECRET META_CONFIG_ID PUBLIC_ORIGIN …
+wadhu-connect-dev = ["run", "-p", "wadhu-connect-dev", "--"]
+
 # SMS Client Demo desktop live-dev (apps/sms-client-demo, com.wadhu.smsclientdemo.debug).
 # Usage: cargo sms-client-demo-dev — desktop only; library covers other platforms.
 sms-client-demo-dev = ["run", "-p", "sms-client-demo-dev", "--"]

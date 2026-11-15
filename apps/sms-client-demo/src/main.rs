@@ -16,6 +16,7 @@ use crate::identity;
 use wadhu_sms_client_demo::identity;
 
 use makepad_widgets::*;
+use wadhu_sms_client::framed::FramedClient;
 use wadhu_sms_client::{AcceptRequest, Client};
 
 app_main!(App);
@@ -158,7 +159,7 @@ script_mod! {
                                     Label{
                                         width: Fill
                                         height: Fit
-                                        text: "GATEWAY / RELAY"
+                                        text: "CONNECT TO PHONE (LAN)"
                                         draw_text.color: #x9fb4d0
                                         draw_text.text_style.font_size: 11
                                     }
@@ -173,13 +174,50 @@ script_mod! {
                                             border_radius: 20.
                                         }
                                         BodyCopy{
-                                            body: "From the SMS Gateway app on the phone: copy Listen URL (LAN, same Wi‑Fi) and API key. Or use your sms-relay base URL for internet. Do not use localhost unless the gateway is running on this same PC."
+                                            body: "On the phone: SMS Gateway → Allow a new app → read the code. Same Wi‑Fi. No IP typing."
+                                        }
+                                        pair_code_input := FieldInput{
+                                            empty_text: "6-digit code from the phone"
+                                        }
+                                        connect_lan_button := PrimaryBtn{
+                                            text: "Find phone & connect"
+                                        }
+                                        connect_label := BodyCopy{
+                                            body: "Not connected yet."
+                                        }
+                                    }
+                                }
+
+                                SolidView{
+                                    width: Fill
+                                    height: Fit
+                                    flow: Down
+                                    spacing: 10
+                                    Label{
+                                        width: Fill
+                                        height: Fit
+                                        text: "ADVANCED / RELAY"
+                                        draw_text.color: #x9fb4d0
+                                        draw_text.text_style.font_size: 11
+                                    }
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 8
+                                        padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+                                        BodyCopy{
+                                            body: "Filled automatically after Find phone & connect. Or paste relay URL + key for internet."
                                         }
                                         url_input := FieldInput{
-                                            empty_text: "http://<phone-lan-ip>:18765  or  http://<relay-host>:9876"
+                                            empty_text: "Filled after connect — or relay http://host:9876"
                                         }
                                         key_input := FieldInput{
-                                            empty_text: "API key from SMS Gateway (or relay client key)"
+                                            empty_text: "App token after connect — or relay client key"
                                         }
                                         health_button := GhostBtn{
                                             text: "Check health"
@@ -219,9 +257,54 @@ script_mod! {
                                             empty_text: "Message"
                                         }
                                         send_button := PrimaryBtn{
-                                            text: "Send via wadhu-sms-client"
+                                            text: "Send via HTTP (LAN / relay)"
                                         }
                                         result_label := Label{
+                                            width: Fill
+                                            height: Fit
+                                            margin: Inset{top: 4. bottom: 0.}
+                                            text: ""
+                                            draw_text.color: #xadfb15
+                                            draw_text.text_style.font_size: 13
+                                        }
+                                    }
+                                }
+
+                                SolidView{
+                                    width: Fill
+                                    height: Fit
+                                    flow: Down
+                                    spacing: 10
+                                    Label{
+                                        width: Fill
+                                        height: Fit
+                                        text: "FRAMED TCP (BT LAB)"
+                                        draw_text.color: #x9fb4d0
+                                        draw_text.text_style.font_size: 11
+                                    }
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 8
+                                        padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+                                        BodyCopy{
+                                            body: "No cloud. Run SMS Gateway on this PC — it listens on 127.0.0.1:18766 with the same length-prefixed JSON as Classic RFCOMM. Paste the gateway API key above, then ping/send here. Phone RFCOMM uses UUID 00001101-… (see BLUETOOTH.md)."
+                                        }
+                                        framed_host_input := FieldInput{
+                                            empty_text: "127.0.0.1 (or host exposing :18766)"
+                                        }
+                                        framed_ping_button := GhostBtn{
+                                            text: "Framed ping :18766"
+                                        }
+                                        framed_send_button := PrimaryBtn{
+                                            text: "Send via framed TCP (BT lab)"
+                                        }
+                                        framed_label := Label{
                                             width: Fill
                                             height: Fit
                                             margin: Inset{top: 4. bottom: 0.}
@@ -255,7 +338,7 @@ script_mod! {
                                             border_radius: 20.
                                         }
                                         BodyCopy{
-                                            body: "Depend on crates/sms-client. Same Client for phone LAN HTTP and sms-relay. Bluetooth uses the gateway’s BT framing (separate from this HTTP demo). Native = sync HTTP; wasm = *_async + fetch."
+                                            body: "Depend on crates/sms-client. HTTP Client for phone LAN and sms-relay. FramedClient for BT lab TCP. Production nearby-device RFCOMM is implemented in brand apps with the same framing. Native = sync; wasm = *_async + fetch (HTTP only)."
                                         }
                                     }
                                 }
@@ -340,6 +423,44 @@ impl MatchEvent for App {
     }
 
     fn handle_actions(&mut self, cx: &mut Cx, actions: &Actions) {
+        if self.ui.button(cx, ids!(connect_lan_button)).clicked(actions) {
+            let code = self.ui.text_input(cx, ids!(pair_code_input)).text();
+            if code.trim().len() < 4 {
+                self.ui.markdown(cx, ids!(connect_label)).set_text(
+                    cx,
+                    "Enter the code shown on the phone (Allow a new app).",
+                );
+                return;
+            }
+            self.ui
+                .markdown(cx, ids!(connect_label))
+                .set_text(cx, "Looking for the phone on this Wi‑Fi…");
+            match Client::connect_on_lan(code.trim(), "SMS Client Demo") {
+                Ok(client) => {
+                    self.ui
+                        .text_input(cx, ids!(url_input))
+                        .set_text(cx, client.base_url());
+                    self.ui
+                        .text_input(cx, ids!(key_input))
+                        .set_text(cx, client.token());
+                    self.ui.markdown(cx, ids!(connect_label)).set_text(
+                        cx,
+                        &format!("Connected — {}", client.base_url()),
+                    );
+                    self.ui.markdown(cx, ids!(health_label)).set_text(
+                        cx,
+                        "Connected via Allow code. You can Check health or Send.",
+                    );
+                }
+                Err(e) => {
+                    self.ui.markdown(cx, ids!(connect_label)).set_text(
+                        cx,
+                        &format!("Could not connect — {}", e.user_message()),
+                    );
+                }
+            }
+        }
+
         if self.ui.button(cx, ids!(health_button)).clicked(actions) {
             let (base, token) = self.read_endpoint(cx);
             if base.is_empty() || token.is_empty() {
@@ -423,6 +544,89 @@ impl MatchEvent for App {
                 }
             }
         }
+
+        if self.ui.button(cx, ids!(framed_ping_button)).clicked(actions) {
+            let token = self.ui.text_input(cx, ids!(key_input)).text().trim().to_string();
+            let host = self.framed_host(cx);
+            if token.is_empty() {
+                self.ui.label(cx, ids!(framed_label)).set_text(
+                    cx,
+                    "Paste the gateway API key above first",
+                );
+                self.ui
+                    .label(cx, ids!(framed_label))
+                    .set_text_color(cx, color_fail());
+                return;
+            }
+            match FramedClient::connect_tcp(&host, 18766, &token).and_then(|mut c| c.ping()) {
+                Ok(()) => {
+                    self.ui.label(cx, ids!(framed_label)).set_text(
+                        cx,
+                        &format!("Framed ping ok — {host}:18766 (no cloud)"),
+                    );
+                    self.ui
+                        .label(cx, ids!(framed_label))
+                        .set_text_color(cx, color_ok());
+                }
+                Err(e) => {
+                    self.ui.label(cx, ids!(framed_label)).set_text(
+                        cx,
+                        &format!("Framed ping failed — {}", e.user_message()),
+                    );
+                    self.ui
+                        .label(cx, ids!(framed_label))
+                        .set_text_color(cx, color_fail());
+                }
+            }
+        }
+
+        if self.ui.button(cx, ids!(framed_send_button)).clicked(actions) {
+            let token = self.ui.text_input(cx, ids!(key_input)).text().trim().to_string();
+            let host = self.framed_host(cx);
+            let to = self.ui.text_input(cx, ids!(to_input)).text();
+            let body = self.ui.text_input(cx, ids!(body_input)).text();
+            if token.is_empty() {
+                self.ui.label(cx, ids!(framed_label)).set_text(
+                    cx,
+                    "Paste the gateway API key above first",
+                );
+                self.ui
+                    .label(cx, ids!(framed_label))
+                    .set_text_color(cx, color_fail());
+                return;
+            }
+            if to.trim().is_empty() || body.trim().is_empty() {
+                self.ui
+                    .label(cx, ids!(framed_label))
+                    .set_text(cx, "Enter destination and message above");
+                self.ui
+                    .label(cx, ids!(framed_label))
+                    .set_text_color(cx, color_fail());
+                return;
+            }
+            match FramedClient::connect_tcp(&host, 18766, &token).and_then(|mut c| {
+                c.send(to.trim(), body.trim(), None)
+            }) {
+                Ok(reply) => {
+                    self.ui.label(cx, ids!(framed_label)).set_text(
+                        cx,
+                        &format!("Framed send ok — {reply}"),
+                    );
+                    self.ui
+                        .label(cx, ids!(framed_label))
+                        .set_text_color(cx, color_ok());
+                }
+                Err(e) => {
+                    self.ui.label(cx, ids!(framed_label)).set_text(
+                        cx,
+                        &format!("Framed send failed — {}", e.user_message()),
+                    );
+                    self.ui
+                        .label(cx, ids!(framed_label))
+                        .set_text_color(cx, color_fail());
+                }
+            }
+        }
     }
 }
 
@@ -431,6 +635,20 @@ impl App {
         let base = self.ui.text_input(cx, ids!(url_input)).text().trim().to_string();
         let token = self.ui.text_input(cx, ids!(key_input)).text().trim().to_string();
         (base, token)
+    }
+
+    fn framed_host(&self, cx: &mut Cx) -> String {
+        let host = self
+            .ui
+            .text_input(cx, ids!(framed_host_input))
+            .text()
+            .trim()
+            .to_string();
+        if host.is_empty() {
+            "127.0.0.1".into()
+        } else {
+            host
+        }
     }
 }
 

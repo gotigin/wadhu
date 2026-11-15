@@ -16,7 +16,24 @@
                 Log.e(LOG_TAG, "sendSms: SEND_SMS not granted");
                 return false;
             }
-            android.telephony.SmsManager sms = android.telephony.SmsManager.getDefault();
+            // API 31+: Context.getSystemService. Older: SmsManager.getDefault via
+            // reflection so the compile SDK does not emit a deprecation warning.
+            android.telephony.SmsManager sms = null;
+            if (android.os.Build.VERSION.SDK_INT >= 31) {
+                sms = getSystemService(android.telephony.SmsManager.class);
+            } else {
+                try {
+                    java.lang.reflect.Method m =
+                            android.telephony.SmsManager.class.getMethod("getDefault");
+                    sms = (android.telephony.SmsManager) m.invoke(null);
+                } catch (Exception reflectEx) {
+                    Log.e(LOG_TAG, "sendSms: SmsManager.getDefault reflect failed", reflectEx);
+                }
+            }
+            if (sms == null) {
+                Log.e(LOG_TAG, "sendSms: no SmsManager");
+                return false;
+            }
             java.util.ArrayList<String> parts = sms.divideMessage(body);
             if (parts == null || parts.size() <= 1) {
                 sms.sendTextMessage(to.trim(), null, body, null, null);

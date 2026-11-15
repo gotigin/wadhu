@@ -5,6 +5,7 @@ use std::net::{SocketAddr, TcpListener, TcpStream};
 use std::sync::Arc;
 use std::thread;
 
+use super::clients::{AuthFail, AuthKind};
 use super::outbox::Outbox;
 use super::radio::SmsRadio;
 use super::service::GatewayHandle;
@@ -36,45 +37,124 @@ fn handle_client(mut stream: TcpStream, handle: &GatewayHandle) {
         return;
     };
 
-    // Browser preflight — no auth (Access-Control-Request-* only).
     if method.eq_ignore_ascii_case("OPTIONS") {
         let _ = write_response(&mut stream, 204, "text/plain", "");
         let _ = stream.shutdown(std::net::Shutdown::Both);
         return;
     }
 
-    if !authorize(&headers, &handle.api_token) {
-        let _ = write_response(&mut stream, 401, "application/json", r#"{"error":"unauthorized"}"#);
+    // Pairing uses the short code on the phone — no API key yet.
+    if method.eq_ignore_ascii_case("POST") && path == "/v1/pair" {
+        let (code, ctype, body) = pair_client(handle, body);
+        let _ = write_response(&mut stream, code, ctype, &body);
+        let _ = stream.shutdown(std::net::Shutdown::Both);
         return;
     }
 
-    let (code, ctype, body) = route(handle, &method, &path, body);
+    let presented = extract_token(&headers);
+    let operator = handle.api_token.lock().expect("token").clone();
+    let auth = match presented.as_deref() {
+        Some(tok) => handle.clients.authorize(tok, &operator),
+        None => Err(AuthFail::Unauthorized),
+    };
+    let auth = match auth {
+        Ok(a) => a,
+        Err(AuthFail::Blocked) => {
+            let _ = write_response(
+                &mut stream,
+                403,
+                "application/json",
+                r#"{"error":"blocked","message":"This app was blocked on the SMS Gateway phone"}"#,
+            );
+            let _ = stream.shutdown(std::net::Shutdown::Both);
+            return;
+        }
+        Err(AuthFail::Unauthorized) => {
+            let _ = write_response(&mut stream, 401, "application/json", r#"{"error":"unauthorized"}"#);
+            let _ = stream.shutdown(std::net::Shutdown::Both);
+            return;
+        }
+    };
+
+    let (code, ctype, body) = route(handle, &auth, &method, &path, body);
     let _ = write_response(&mut stream, code, ctype, &body);
     let _ = stream.shutdown(std::net::Shutdown::Both);
 }
 
-fn authorize(headers: &[(String, String)], token: &str) -> bool {
+fn extract_token(headers: &[(String, String)]) -> Option<String> {
     for (k, v) in headers {
         let k = k.to_ascii_lowercase();
-        if k == "x-api-key" && v == token {
-            return true;
+        if k == "x-api-key" {
+            return Some(v.clone());
         }
         if k == "authorization" {
             let v = v.trim();
             if let Some(rest) = v.strip_prefix("Bearer ") {
-                if rest == token {
-                    return true;
-                }
+                return Some(rest.to_string());
             }
-            if v == token {
-                return true;
-            }
+            return Some(v.to_string());
         }
     }
-    false
+    None
 }
 
-fn route(handle: &GatewayHandle, method: &str, path: &str, body: &str) -> (u16, &'static str, String) {
+fn pair_client(handle: &GatewayHandle, body: &str) -> (u16, &'static str, String) {
+    let code = json_get(body, "code").unwrap_or_default();
+    let label = json_get(body, "label").unwrap_or_else(|| "App".into());
+    match handle.clients.pair(&code, &label) {
+        Ok(c) => {
+            // Persist paired apps immediately.
+            persist_handle(handle);
+            makepad_widgets::makepad_platform::thread::SignalToUI::set_ui_signal();
+            let base = crate::lan::listen_base_url(handle.listen.port());
+            (
+                200,
+                "application/json",
+                format!(
+                    r#"{{"ok":true,"client_id":{},"label":{},"token":{},"base_url":{}}}"#,
+                    json_str(&c.id),
+                    json_str(&c.label),
+                    json_str(&c.token),
+                    json_str(&base),
+                ),
+            )
+        }
+        Err(e) => (
+            400,
+            "application/json",
+            format!(r#"{{"ok":false,"error":{}}}"#, json_str(&e)),
+        ),
+    }
+}
+
+fn persist_handle(handle: &GatewayHandle) {
+    let token = handle.api_token.lock().expect("token").clone();
+    // Re-use outbox on_change path by touching meta through a minimal save.
+    let meta = handle.persist_meta.lock().expect("meta").clone();
+    super::persist::save_from_outbox(
+        &token,
+        &handle.outbox,
+        &meta.relay_url,
+        &meta.relay_device_id,
+        &meta.relay_device_secret,
+        meta.bluetooth_enabled,
+        &handle.clients.snapshot(),
+    );
+}
+
+// PersistMeta fields are private — expose via cloning through service only.
+// http uses the same struct via GatewayHandle — need persist_meta public or helper.
+// Made persist_meta accessible: change to pub(crate) in service.
+
+fn route(
+    handle: &GatewayHandle,
+    auth: &AuthKind,
+    method: &str,
+    path: &str,
+    body: &str,
+) -> (u16, &'static str, String) {
+    let is_operator = matches!(auth, AuthKind::Operator);
+
     match (method, path) {
         ("GET", "/v1/health") => {
             let caps = handle.radio.capabilities();
@@ -85,10 +165,11 @@ fn route(handle: &GatewayHandle, method: &str, path: &str, body: &str) -> (u16, 
                 200,
                 "application/json",
                 format!(
-                    r#"{{"ok":true,"app":"wadhu-sms-gateway","radio":{{"kind":"{}","available":{},"detail":{}}},"transports":{{"lan":true,"bluetooth":{{"listening":{},"endpoint":{}}},"relay":{{"configured":{},"connected":{},"detail":{}}}}},"queue":{{"pending":{q},"submitted":{s},"failed":{f}}}}}"#,
+                    r#"{{"ok":true,"app":"wadhu-sms-gateway","radio":{{"kind":"{}","available":{},"detail":{}}},"transports":{{"lan":true,"discover_port":{},"bluetooth":{{"listening":{},"endpoint":{}}},"relay":{{"configured":{},"connected":{},"detail":{}}}}},"queue":{{"pending":{q},"submitted":{s},"failed":{f}}}}}"#,
                     caps.kind,
                     caps.available,
                     json_str(&caps.detail),
+                    super::discover::DISCOVER_PORT,
                     bt.listening,
                     json_str(&bt.endpoint),
                     relay.configured,
@@ -103,17 +184,18 @@ fn route(handle: &GatewayHandle, method: &str, path: &str, body: &str) -> (u16, 
                 200,
                 "application/json",
                 format!(
-                    r#"{{"radio":{{"kind":"{}","label":{},"available":{},"detail":{},"supports_send":{},"supports_multipart":{}}},"transports":["lan","bluetooth","relay"],"api":["/v1/health","/v1/capabilities","/v1/messages"]}}"#,
+                    r#"{{"radio":{{"kind":"{}","label":{},"available":{},"detail":{},"supports_send":{},"supports_multipart":{}}},"transports":["lan","bluetooth","relay"],"api":["/v1/health","/v1/capabilities","/v1/messages","/v1/pair","/v1/clients"],"pairing":true,"discover_port":{}}}"#,
                     caps.kind,
                     json_str(&caps.label),
                     caps.available,
                     json_str(&caps.detail),
                     caps.supports_send,
-                    caps.supports_multipart
+                    caps.supports_multipart,
+                    super::discover::DISCOVER_PORT
                 ),
             )
         }
-        ("POST", "/v1/messages") => accept_message(&handle.outbox, body),
+        ("POST", "/v1/messages") => accept_message(handle, auth, body),
         ("GET", p) if p.starts_with("/v1/messages/") => {
             let id = &p["/v1/messages/".len()..];
             match handle.outbox.get(id) {
@@ -134,16 +216,88 @@ fn route(handle: &GatewayHandle, method: &str, path: &str, body: &str) -> (u16, 
                 format!(r#"{{"messages":[{}]}}"#, list.join(",")),
             )
         }
+        ("GET", "/v1/clients") if is_operator => {
+            let list: Vec<String> = handle
+                .clients
+                .snapshot()
+                .iter()
+                .map(|c| {
+                    format!(
+                        r#"{{"id":{},"label":{},"blocked":{},"sent_count":{}}}"#,
+                        json_str(&c.id),
+                        json_str(&c.label),
+                        c.blocked,
+                        c.sent_count
+                    )
+                })
+                .collect();
+            (
+                200,
+                "application/json",
+                format!(r#"{{"clients":[{}]}}"#, list.join(",")),
+            )
+        }
+        ("POST", p) if is_operator && p.starts_with("/v1/clients/") && p.ends_with("/block") => {
+            let id = &p["/v1/clients/".len()..p.len() - "/block".len()];
+            match handle.clients.set_blocked(id, true) {
+                Ok(()) => {
+                    persist_handle(handle);
+                    (200, "application/json", r#"{"ok":true,"blocked":true}"#.into())
+                }
+                Err(e) => (404, "application/json", format!(r#"{{"error":{}}}"#, json_str(&e))),
+            }
+        }
+        ("POST", p) if is_operator && p.starts_with("/v1/clients/") && p.ends_with("/unblock") => {
+            let id = &p["/v1/clients/".len()..p.len() - "/unblock".len()];
+            match handle.clients.set_blocked(id, false) {
+                Ok(()) => {
+                    persist_handle(handle);
+                    (200, "application/json", r#"{"ok":true,"blocked":false}"#.into())
+                }
+                Err(e) => (404, "application/json", format!(r#"{{"error":{}}}"#, json_str(&e))),
+            }
+        }
+        ("POST", "/v1/admin/rotate-key") if is_operator => {
+            let next = format!("wadhu-sms-{:x}", {
+                use std::time::{SystemTime, UNIX_EPOCH};
+                SystemTime::now()
+                    .duration_since(UNIX_EPOCH)
+                    .map(|d| d.as_nanos())
+                    .unwrap_or(1)
+            });
+            *handle.api_token.lock().expect("token") = next.clone();
+            handle.clients.revoke_all_tokens();
+            persist_handle(handle);
+            makepad_widgets::makepad_platform::thread::SignalToUI::set_ui_signal();
+            (
+                200,
+                "application/json",
+                format!(r#"{{"ok":true,"api_token":{}}}"#, json_str(&next)),
+            )
+        }
+        ("GET", "/v1/clients") | ("POST", "/v1/admin/rotate-key") => {
+            (403, "application/json", r#"{"error":"operator_only"}"#.into())
+        }
         _ => (404, "application/json", r#"{"error":"not_found"}"#.into()),
     }
 }
 
-fn accept_message(outbox: &Outbox, body: &str) -> (u16, &'static str, String) {
+fn accept_message(
+    handle: &GatewayHandle,
+    auth: &AuthKind,
+    body: &str,
+) -> (u16, &'static str, String) {
     let to = json_get(body, "to").unwrap_or_default();
     let text = json_get(body, "body").unwrap_or_default();
     let idem = json_get(body, "idempotency_key").unwrap_or_default();
-    match outbox.accept(idem, to, text) {
-        Ok(m) => (202, "application/json", message_json(&m)),
+    match handle.outbox.accept(idem, to, text) {
+        Ok(m) => {
+            if let AuthKind::Client { id, .. } = auth {
+                handle.clients.record_send(id);
+                persist_handle(handle);
+            }
+            (202, "application/json", message_json(&m))
+        }
         Err(e) => (
             400,
             "application/json",
@@ -187,7 +341,7 @@ fn read_http_message(stream: &mut TcpStream) -> Result<String, ()> {
             for line in head.lines().skip(1) {
                 if let Some((k, v)) = line.split_once(':') {
                     if k.eq_ignore_ascii_case("content-length") {
-                        content_len = v.trim().parse().unwrap_or(0).min(MAX_BODY);
+                        content_len = v.parse().unwrap_or(0).min(MAX_BODY);
                     }
                 }
             }
@@ -249,11 +403,10 @@ fn write_response(stream: &mut TcpStream, code: u16, ctype: &str, body: &str) ->
         204 => "No Content",
         400 => "Bad Request",
         401 => "Unauthorized",
+        403 => "Forbidden",
         404 => "Not Found",
         _ => "Error",
     };
-    // Buffer the full response then write_all — partial `write!` to a socket
-    // can leave clients hanging on incomplete HTTP heads.
     let packet = format!(
         "HTTP/1.1 {code} {reason}\r\n{cors}Content-Type: {ctype}\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",
         body.len(),
@@ -279,7 +432,6 @@ fn json_str(s: &str) -> String {
     out
 }
 
-/// Tiny JSON string field extractor (enough for our flat POST body).
 fn json_get(body: &str, key: &str) -> Option<String> {
     let needle = format!("\"{key}\"");
     let i = body.find(&needle)?;
@@ -313,3 +465,6 @@ fn json_get(body: &str, key: &str) -> Option<String> {
 
 #[allow(dead_code)]
 fn _radio_type_use(_: &dyn SmsRadio) {}
+
+#[allow(dead_code)]
+fn _outbox_use(_: &Outbox) {}

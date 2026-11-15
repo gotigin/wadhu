@@ -1,0 +1,103 @@
+--- a/platform/src/os/linux/android/android_jni.rs
++++ b/platform/src/os/linux/android/android_jni.rs
+@@ -1774,6 +1774,100 @@
+     jstring_to_string(env, result)
+ }
+ 
++/// Start Classic RFCOMM SPP server ("Wadhu SMS Gateway"). Returns status string.
++pub unsafe fn to_java_bt_rfcomm_start() -> String {
++    let env = attach_jni_env();
++    let result = ndk_utils::call_object_method!(
++        env,
++        get_activity(),
++        "btRfcommStart",
++        "()Ljava/lang/String;"
++    );
++    if result.is_null() {
++        return "error".to_string();
++    }
++    jstring_to_string(env, result)
++}
++
++pub unsafe fn to_java_bt_rfcomm_stop() {
++    let env = attach_jni_env();
++    ndk_utils::call_void_method!(env, get_activity(), "btRfcommStop", "()V");
++}
++
++pub unsafe fn to_java_bt_rfcomm_status() -> String {
++    let env = attach_jni_env();
++    let result = ndk_utils::call_object_method!(
++        env,
++        get_activity(),
++        "btRfcommStatus",
++        "()Ljava/lang/String;"
++    );
++    if result.is_null() {
++        return "off".to_string();
++    }
++    jstring_to_string(env, result)
++}
++
++pub unsafe fn to_java_bt_rfcomm_wait_client(timeout_ms: i32) -> bool {
++    let env = attach_jni_env();
++    let ok = ndk_utils::call_bool_method!(
++        env,
++        get_activity(),
++        "btRfcommWaitClient",
++        "(I)Z",
++        timeout_ms
++    );
++    ok != 0
++}
++
++pub unsafe fn to_java_bt_rfcomm_read_exact(n: i32, timeout_ms: i32) -> Option<Vec<u8>> {
++    let env = attach_jni_env();
++    let result = ndk_utils::call_object_method!(
++        env,
++        get_activity(),
++        "btRfcommReadExact",
++        "(II)[B",
++        n,
++        timeout_ms
++    );
++    if result.is_null() {
++        return None;
++    }
++    let bytes = java_byte_array_to_vec(env, result);
++    if bytes.len() != n as usize {
++        return None;
++    }
++    Some(bytes)
++}
++
++pub unsafe fn to_java_bt_rfcomm_write_all(data: &[u8]) -> bool {
++    let env = attach_jni_env();
++    let arr = ((**env).NewByteArray.unwrap())(env, data.len() as i32);
++    if arr.is_null() {
++        return false;
++    }
++    ((**env).SetByteArrayRegion.unwrap())(
++        env,
++        arr,
++        0,
++        data.len() as i32,
++        data.as_ptr() as *const jni_sys::jbyte,
++    );
++    let ok = ndk_utils::call_bool_method!(
++        env,
++        get_activity(),
++        "btRfcommWriteAll",
++        "([B)Z",
++        arr
++    );
++    ok != 0
++}
++
++pub unsafe fn to_java_bt_rfcomm_disconnect_client() {
++    let env = attach_jni_env();
++    ndk_utils::call_void_method!(env, get_activity(), "btRfcommDisconnectClient", "()V");
++}
++
+ pub unsafe fn to_java_paste_from_clipboard() -> String {
+     let env = attach_jni_env();
+     let result = ndk_utils::call_object_method!(

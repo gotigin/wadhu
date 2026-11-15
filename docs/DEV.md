@@ -13,7 +13,7 @@ wadhu-workspace/
 ├── .cargo/config.toml      cargo aliases (<app>-dev), Windows cross linker, default window icons
 ├── apps/<app>/             independent apps (package wadhu-<app>); never depend on each other
 ├── crates/<crate>/         reusable, self-contained libraries (package wadhu-<crate>)
-├── sites/<site>/           Makepad 2 fullpage sites (none yet)
+├── sites/wadhu/            Makepad 2 brand site → wadhu.com (Firebase)
 ├── tools/<app>-dev/        one thin `cargo <app>-dev` shim per app → apps/<app>/scripts/dev.sh
 ├── templates/              starters copied by scripts/new-app.sh / new-crate.sh (kept compiling)
 │   ├── app/                Makepad 2 app (wadhu-template-app)

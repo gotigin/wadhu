@@ -1,11 +1,14 @@
 //! Running gateway: outbox + radio + LAN HTTP + Bluetooth + optional relay + drain.
 
 use std::net::SocketAddr;
+use std::sync::atomic::AtomicBool;
 use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::Duration;
 
 use super::bluetooth::{self, BluetoothHandle};
+use super::clients::Clients;
+use super::discover;
 use super::http;
 use super::message::Status;
 use super::outbox::Outbox;
@@ -17,23 +20,27 @@ use super::relay_client::{self, RelayConfig, RelayHandle};
 pub struct GatewayHandle {
     pub outbox: Outbox,
     pub radio: Arc<dyn SmsRadio>,
-    pub api_token: String,
+    /// Operator key (advanced). Prefer per-app tokens from pairing for brand apps.
+    pub api_token: Arc<Mutex<String>>,
+    pub clients: Clients,
     pub listen: SocketAddr,
     pub bluetooth: BluetoothHandle,
     pub relay: RelayHandle,
-    persist_meta: Arc<Mutex<PersistMeta>>,
+    pub(crate) persist_meta: Arc<Mutex<PersistMeta>>,
 }
 
 #[derive(Clone, Default)]
-struct PersistMeta {
-    relay_url: String,
-    relay_device_id: String,
-    relay_device_secret: String,
-    bluetooth_enabled: bool,
+pub(crate) struct PersistMeta {
+    pub(crate) relay_url: String,
+    pub(crate) relay_device_id: String,
+    pub(crate) relay_device_secret: String,
+    pub(crate) bluetooth_enabled: bool,
 }
 
 pub struct Gateway {
     pub handle: GatewayHandle,
+    #[allow(dead_code)]
+    discover_stop: Arc<AtomicBool>,
 }
 
 impl Gateway {
@@ -44,13 +51,20 @@ impl Gateway {
         } else {
             loaded.api_token.clone()
         };
+        let api_token = Arc::new(Mutex::new(api_token));
 
         let outbox = Outbox::new();
         outbox.restore(loaded.messages.clone());
+        let clients = Clients::from_list(loaded.clients.clone());
 
         let radio: Arc<dyn SmsRadio> = Arc::from(default_radio());
         let bluetooth_enabled = loaded.bluetooth_enabled;
-        let bluetooth = bluetooth::spawn(outbox.clone(), api_token.clone(), bluetooth_enabled);
+        let bluetooth = bluetooth::spawn(
+            outbox.clone(),
+            Arc::clone(&api_token),
+            clients.clone(),
+            bluetooth_enabled,
+        );
 
         let relay_cfg = RelayConfig {
             url: loaded.relay_url.clone(),
@@ -69,47 +83,31 @@ impl Gateway {
         let handle = GatewayHandle {
             outbox: outbox.clone(),
             radio: Arc::clone(&radio),
-            api_token: api_token.clone(),
+            api_token: Arc::clone(&api_token),
+            clients: clients.clone(),
             listen,
             bluetooth,
             relay,
             persist_meta: Arc::clone(&persist_meta),
         };
 
-        // Persist on outbox changes and wake the UI so status chips / Recent
-        // update as soon as drain or LAN/BT accept mutates the queue.
-        let token_p = api_token.clone();
+        let token_p = Arc::clone(&api_token);
         let outbox_p = outbox.clone();
         let meta_p = Arc::clone(&persist_meta);
+        let clients_p = clients.clone();
         outbox.set_on_change(Arc::new(move || {
-            let meta = meta_p.lock().expect("persist meta").clone();
-            persist::save_from_outbox(
-                &token_p,
-                &outbox_p,
-                &meta.relay_url,
-                &meta.relay_device_id,
-                &meta.relay_device_secret,
-                meta.bluetooth_enabled,
-            );
+            persist_now(&token_p, &outbox_p, &meta_p, &clients_p);
             makepad_widgets::makepad_platform::thread::SignalToUI::set_ui_signal();
         }));
 
-        // Initial save so token lands on disk even with empty outbox.
-        {
-            let meta = persist_meta.lock().expect("persist meta").clone();
-            persist::save_from_outbox(
-                &api_token,
-                &outbox,
-                &meta.relay_url,
-                &meta.relay_device_id,
-                &meta.relay_device_secret,
-                meta.bluetooth_enabled,
-            );
-        }
+        persist_now(&api_token, &outbox, &persist_meta, &clients);
 
         let bound = http::spawn(handle.clone(), listen)?;
         let mut handle = handle;
         handle.listen = bound;
+
+        let discover_stop = Arc::new(AtomicBool::new(false));
+        discover::spawn(bound.port(), Arc::clone(&discover_stop));
 
         let drain_outbox = outbox.clone();
         let drain_radio = Arc::clone(&radio);
@@ -118,7 +116,47 @@ impl Gateway {
             .spawn(move || drain_loop(drain_outbox, drain_radio))
             .map_err(|e| e.to_string())?;
 
-        Ok(Self { handle })
+        Ok(Self {
+            handle,
+            discover_stop,
+        })
+    }
+
+    pub fn operator_token(&self) -> String {
+        self.handle.api_token.lock().expect("token").clone()
+    }
+
+    pub fn begin_pairing(&self) -> String {
+        let code = self.handle.clients.begin_pairing();
+        self.persist();
+        makepad_widgets::makepad_platform::thread::SignalToUI::set_ui_signal();
+        code
+    }
+
+    pub fn set_client_blocked(&self, name: &str, blocked: bool) -> Result<(), String> {
+        self.handle.clients.set_blocked(name, blocked)?;
+        self.persist();
+        makepad_widgets::makepad_platform::thread::SignalToUI::set_ui_signal();
+        Ok(())
+    }
+
+    /// New operator key; clears paired apps (they must Allow again).
+    pub fn rotate_operator_key(&self) -> String {
+        let next = generate_token();
+        *self.handle.api_token.lock().expect("token") = next.clone();
+        self.handle.clients.revoke_all_tokens();
+        self.persist();
+        makepad_widgets::makepad_platform::thread::SignalToUI::set_ui_signal();
+        next
+    }
+
+    pub fn persist(&self) {
+        persist_now(
+            &self.handle.api_token,
+            &self.handle.outbox,
+            &self.handle.persist_meta,
+            &self.handle.clients,
+        );
     }
 
     /// Update relay pairing and persist. Restarts are picked up by the relay loop.
@@ -130,22 +168,11 @@ impl Gateway {
             meta.relay_device_secret = device_secret.clone();
         }
         self.handle.relay.update_config(RelayConfig {
-            url: url.clone(),
-            device_id: device_id.clone(),
-            device_secret: device_secret.clone(),
+            url,
+            device_id,
+            device_secret,
         });
-        persist::save_from_outbox(
-            &self.handle.api_token,
-            &self.handle.outbox,
-            &url,
-            &device_id,
-            &device_secret,
-            self.handle
-                .persist_meta
-                .lock()
-                .expect("meta")
-                .bluetooth_enabled,
-        );
+        self.persist();
     }
 
     pub fn summary_line(&self) -> String {
@@ -166,7 +193,7 @@ impl Gateway {
     pub fn persisted_snapshot(&self) -> PersistedState {
         let meta = self.handle.persist_meta.lock().expect("meta").clone();
         PersistedState {
-            api_token: self.handle.api_token.clone(),
+            api_token: self.operator_token(),
             messages: {
                 let mut m = self.handle.outbox.list(500);
                 m.reverse();
@@ -176,8 +203,28 @@ impl Gateway {
             relay_device_id: meta.relay_device_id,
             relay_device_secret: meta.relay_device_secret,
             bluetooth_enabled: meta.bluetooth_enabled,
+            clients: self.handle.clients.snapshot(),
         }
     }
+}
+
+fn persist_now(
+    api_token: &Arc<Mutex<String>>,
+    outbox: &Outbox,
+    meta: &Arc<Mutex<PersistMeta>>,
+    clients: &Clients,
+) {
+    let token = api_token.lock().expect("token").clone();
+    let meta = meta.lock().expect("persist meta").clone();
+    persist::save_from_outbox(
+        &token,
+        outbox,
+        &meta.relay_url,
+        &meta.relay_device_id,
+        &meta.relay_device_secret,
+        meta.bluetooth_enabled,
+        &clients.snapshot(),
+    );
 }
 
 fn drain_loop(outbox: Outbox, radio: Arc<dyn SmsRadio>) {
@@ -192,7 +239,6 @@ fn drain_loop(outbox: Outbox, radio: Arc<dyn SmsRadio>) {
                     outbox.set_status(&msg.id, Status::Failed, Some(humanize_send_error(&e)));
                 }
             }
-            // Drain the rest of the queue without sleeping between jobs.
             continue;
         }
         thread::sleep(Duration::from_millis(50));

@@ -4,11 +4,13 @@ info:
   version: "1.0.0"
   description: |
     Local HTTP API exposed by the Android/desktop **sms-gateway** app.
-    Third parties and Gotigin apps use the same surface. Auth with
-    `X-Api-Key` or `Authorization: Bearer`.
+    Brand apps should **discover** the phone on Wi‑Fi (UDP `:18767`) and
+    `POST /v1/pair` with the Allow code — users must not type IP addresses.
+    Auth with per-app token from pair, or operator `X-Api-Key` /
+    `Authorization: Bearer` (advanced).
 
     Remote (internet) clients should prefer the **sms-relay** API instead;
-    message paths and JSON shapes match.
+    message paths and JSON shapes match. See docs/TRANSPORTS.md.
 servers:
   - url: http://{host}:18765
     variables:
@@ -42,6 +44,39 @@ paths:
                 $ref: "#/components/schemas/Capabilities"
         "401":
           $ref: "#/components/responses/Unauthorized"
+  /v1/pair:
+    post:
+      summary: Exchange Allow code for a per-app token (no prior auth)
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [code, label]
+              properties:
+                code:
+                  type: string
+                  description: 6-digit code from SMS Gateway → Allow a new app
+                label:
+                  type: string
+                  description: Human name for this app (shown on the phone)
+      responses:
+        "200":
+          description: Paired — store token; use as X-Api-Key
+        "400":
+          description: bad_code / code_expired / no_pairing
+  /v1/clients:
+    get:
+      summary: Operator — list connected apps and send counts
+      responses:
+        "200":
+          description: Client list
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          description: operator_only
   /v1/messages:
     get:
       summary: List recent messages (newest first)

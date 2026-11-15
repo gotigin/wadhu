@@ -1,6 +1,8 @@
 //! SMS Gateway service: outbox, radio, LAN HTTP, Bluetooth framing, optional relay.
 
 pub mod bluetooth;
+pub mod clients;
+pub mod discover;
 pub mod frame;
 pub mod http;
 pub mod message;

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wadhu Connect · Cloud messaging onboarding</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="brand">Wadhu Connect</p>
+        <h1>Business messaging coexistence</h1>
+        <p class="lede">
+          Connect your WhatsApp Business number to Cloud API without
+          disconnecting the WhatsApp Business mobile app. By Gotigin —
+          <em>Tools · Apps · More</em>.
+        </p>
+      </header>
+
+      <section id="status-card" class="panel">
+        <h2>Connection status</h2>
+        <pre id="status">Loading…</pre>
+      </section>
+
+      <section class="panel">
+        <h2>Onboard</h2>
+        <p class="hint">
+          When Meta’s popup appears, choose the existing WhatsApp Business App
+          number — do <em>not</em> register a new number or migrate to API-only.
+        </p>
+        <div class="actions">
+          <button id="launch" type="button" disabled>
+            Launch Embedded Signup (coexistence)
+          </button>
+          <button id="refresh" type="button">Refresh status</button>
+        </div>
+        <p id="ready-msg" class="hint"></p>
+      </section>
+
+      <section class="panel">
+        <h2>Send test message</h2>
+        <form id="send-form">
+          <label>
+            Recipient (digits, country code, no +)
+            <input
+              name="to"
+              inputmode="numeric"
+              placeholder="91XXXXXXXXXX"
+              required
+            />
+          </label>
+          <label>
+            Message
+            <input name="text" value="Wadhu Connect Cloud API test" />
+          </label>
+          <button type="submit">Send via Cloud API</button>
+        </form>
+        <pre id="send-result"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>Session / error log</h2>
+        <pre id="log"></pre>
+      </section>
+
+      <footer class="hint">
+        Production: <a href="https://connect.wadhu.com">connect.wadhu.com</a> ·
+        Brand: <a href="https://wadhu.com">wadhu.com</a> ·
+        Privacy: <a href="https://wadhu.com/privacy">wadhu.com/privacy</a>
+      </footer>
+    </main>
+
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

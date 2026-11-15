@@ -98,6 +98,7 @@ else
   fi
   ensure_import 'import android.bluetooth.BluetoothAdapter;'
   ensure_import 'import android.bluetooth.BluetoothDevice;'
+  ensure_import 'import android.bluetooth.BluetoothManager;'
   ensure_import 'import android.bluetooth.BluetoothSocket;'
   ensure_import 'import android.hardware.usb.UsbConstants;'
   ensure_import 'import android.hardware.usb.UsbDevice;'
@@ -124,12 +125,31 @@ else
   echo "Inserted sendSms / smsRadioStatus into $JAVA"
 fi
 
+SMS_BT_MARK='    // Wadhu SMS Gateway: Classic RFCOMM SPP server for offline SMS jobs.'
+if grep -q 'wadhuSmsBtPieceEnds' "$JAVA"; then
+  echo "Android SMS Bluetooth RFCOMM bridge already present."
+elif grep -qF "$SMS_BT_MARK" "$JAVA"; then
+  echo "Android SMS BT bridge marker present without end marker — check $JAVA" >&2
+else
+  ensure_import 'import android.bluetooth.BluetoothAdapter;'
+  ensure_import 'import android.bluetooth.BluetoothDevice;'
+  ensure_import 'import android.bluetooth.BluetoothServerSocket;'
+  ensure_import 'import android.bluetooth.BluetoothSocket;'
+  insert_snippet "$ROOT/patches/makepad/MakepadActivity-sms-bt.java"
+  echo "Inserted btRfcomm* RFCOMM SPP server into $JAVA"
+fi
+
 # Soft keyboard retap (API 26 / OEM): SHOW_IMPLICIT (flag 0) is ignored after
 # the user dismissed the IME — first tap works, later taps do not. Prefer
-# WindowInsetsController.show(ime) on API 30+; SHOW_FORCED below that.
-# Docs: DEV.md bug 6d. Idempotent.
-if grep -qF 'SHOW_FORCED' "$JAVA" && grep -qF 'WindowInsets.Type.ime()' "$JAVA"; then
-  echo "Android IME retap showSoftInput (SHOW_FORCED / InsetsController) already present."
+# WindowInsetsController.show(ime) on API 30+; flag value 2 (historically
+# SHOW_FORCED) below that — use the int literal so compile SDKs do not warn
+# about the deprecated SHOW_FORCED field. Docs: DEV.md bug 6d. Idempotent.
+if grep -qF 'showSoftInput(view, 2' "$JAVA" && grep -qF 'WindowInsets.Type.ime()' "$JAVA"; then
+  echo "Android IME retap showSoftInput (flag 2 / InsetsController) already present."
+elif grep -qF 'InputMethodManager.SHOW_FORCED' "$JAVA" && grep -qF 'WindowInsets.Type.ime()' "$JAVA"; then
+  # Migrate older bridge form that referenced the deprecated field name.
+  sed -i 's/InputMethodManager\.SHOW_FORCED/2 \/* historically SHOW_FORCED *\//g' "$JAVA"
+  echo "Migrated IME retap showSoftInput from SHOW_FORCED field to flag value 2."
 elif grep -qF 'imm.showSoftInput(view, 0);' "$JAVA"; then
   python3 - "$JAVA" <<'PY'
 from pathlib import Path
@@ -143,21 +163,21 @@ new = """                    view.requestFocus();
                     InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                     // API 26–29: SHOW_IMPLICIT (0) is ignored after the user
                     // dismissed the IME — retaps never brought the keyboard
-                    // back on tablets (Huawei AGS2 / API 26). SHOW_FORCED
-                    // re-opens it. API 30+ prefers WindowInsetsController.
-                    // Docs: DEV.md bug 6d.
+                    // back on tablets (Huawei AGS2 / API 26). Flag value 2
+                    // (historically SHOW_FORCED) re-opens it. API 30+ prefers
+                    // WindowInsetsController. Docs: DEV.md bug 6d.
                     if (Build.VERSION.SDK_INT >= 30) {
                         android.view.WindowInsetsController controller = getWindow().getInsetsController();
                         if (controller != null) {
                             controller.show(WindowInsets.Type.ime());
                         } else if (imm != null) {
-                            imm.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+                            imm.showSoftInput(view, 2 /* historically SHOW_FORCED */);
                         }
                     } else if (imm != null) {
-                        imm.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+                        imm.showSoftInput(view, 2 /* historically SHOW_FORCED */);
                     }"""
 if old not in text:
-    if "SHOW_FORCED" in text:
+    if "showSoftInput(view, 2)" in text or "SHOW_FORCED" in text:
         raise SystemExit(0)
     raise SystemExit(f"showSoftInput(view, 0) pattern not found in {path}")
 path.write_text(text.replace(old, new, 1))

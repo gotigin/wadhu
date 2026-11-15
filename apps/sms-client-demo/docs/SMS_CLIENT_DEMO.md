@@ -1,7 +1,7 @@
 # SMS Client Demo
 
-Living example of [`wadhu-sms-client`](../../../crates/sms-client): a Makepad
-desktop shell that only calls the HTTP `/v1` helpers.
+Living example of [`wadhu-sms-client`](../../../crates/sms-client): desktop shell
+for **easy LAN connect**, HTTP `/v1`, and framed TCP (Bluetooth lab).
 
 | Piece | Role |
 |-------|------|
@@ -10,20 +10,24 @@ desktop shell that only calls the HTTP `/v1` helpers.
 | `sms-gateway` | SIM execution device (phone) |
 | `sms-relay` | Optional internet plane |
 
-## Connect
+## Connect (normal path — no IP typing)
 
-| Mode | Base URL to paste |
-|------|-------------------|
-| **LAN (primary)** | Listen URL from the gateway app on the phone — `http://<phone-lan-ip>:18765` (same Wi‑Fi) |
-| **Relay** | Your sms-relay bind — e.g. `http://<relay-host>:9876` |
-| **Desktop dry-run only** | `http://127.0.0.1:18765` if gateway runs on this PC (no SIM) |
-| **Bluetooth** | Not HTTP — see gateway `docs/BLUETOOTH.md` |
+1. On the phone: SMS Gateway → **Allow a new app** → note the 6-digit code.
+2. Same Wi‑Fi as the phone.
+3. In this demo: enter the code → **Find phone & connect**.
+4. Check health / send. URL and token fields fill in automatically.
 
-1. Start SMS Gateway on Android; grant SMS; copy Listen URL + API key.
-2. `cargo sms-client-demo-dev` on a desktop on the same LAN.
-3. Paste URL + key → Check health → send a test SMS → watch status.
+See [`docs/TRANSPORTS.md`](../../../docs/TRANSPORTS.md).
+
+## Other modes
+
+| Mode | When |
+|------|------|
+| **Advanced / relay** | Paste relay URL + key (or inspect auto-filled LAN fields) |
+| **Framed TCP (BT lab)** | Gateway on this PC → `:18766` framing |
+| **Phone RFCOMM** | Brand apps / native BT — [`BLUETOOTH.md`](../../sms-gateway/docs/BLUETOOTH.md) |
 
 ## Not in this demo
 
-- Android / iOS / browser packaging of *this* app (library still targets them)
-- Bluetooth client UI (library/docs point at framing; HTTP demo stays HTTP)
+- Shipping Android/iOS packaging of *this* shell (library still targets them)
+- Production RFCOMM UI (lab framing only here)

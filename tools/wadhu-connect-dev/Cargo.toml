@@ -1,0 +1,9 @@
+[package]
+name = "wadhu-connect-dev"
+version = "0.1.0"
+edition.workspace = true
+publish = false
+
+[[bin]]
+name = "wadhu-connect-dev"
+path = "main.rs"

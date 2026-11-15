@@ -42,6 +42,17 @@ mod native;
 #[cfg(target_arch = "wasm32")]
 mod wasm;
 
+/// Length-prefixed JSON framing for Bluetooth lab TCP (`:18766`) / RFCOMM protocol.
+///
+/// Not available on `wasm32` (no Classic RFCOMM in browsers). Brand apps that need
+/// production nearby-device BT implement native RFCOMM with the same framing.
+#[cfg(not(target_arch = "wasm32"))]
+pub mod framed;
+
+/// Find the SMS Gateway on Wi‑Fi without typing an IP (UDP discover).
+#[cfg(not(target_arch = "wasm32"))]
+pub mod discover;
+
 /// Why a client call failed.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ClientError {
@@ -214,6 +225,38 @@ impl Client {
     pub fn list_messages(&self) -> Result<Vec<Message>, ClientError> {
         let raw = self.request("GET", "/v1/messages", None)?;
         Ok(parse_message_list(&raw))
+    }
+
+    /// Finish **Allow a new app**: exchange the phone’s 6-digit code for a per-app token.
+    ///
+    /// `base` should come from [`discover::discover_one`] — the user never types an IP.
+    /// On success, use the returned client (token already set).
+    pub fn pair(base: &str, code: &str, app_label: &str) -> Result<Self, ClientError> {
+        let mut base = base.to_string();
+        while base.ends_with('/') {
+            base.pop();
+        }
+        // Pairing endpoint does not require a prior token.
+        let probe = Self::new(&base, "");
+        let body = format!(
+            r#"{{"code":{},"label":{}}}"#,
+            json_str(code.trim()),
+            json_str(app_label.trim()),
+        );
+        let raw = probe.request("POST", "/v1/pair", Some(&body))?;
+        let token = json_get(&raw, "token").ok_or_else(|| ClientError::Api {
+            status: 0,
+            body: raw.clone(),
+        })?;
+        let base_url = json_get(&raw, "base_url").unwrap_or(base);
+        Ok(Self::new(base_url, token))
+    }
+
+    /// Discover the phone on Wi‑Fi, then pair with the Allow code (no IP entry).
+    #[cfg(not(target_arch = "wasm32"))]
+    pub fn connect_on_lan(code: &str, app_label: &str) -> Result<Self, ClientError> {
+        let gw = discover::discover_one(Duration::from_secs(2))?;
+        Self::pair(&gw.base_url, code, app_label)
     }
 
     fn request(&self, method: &str, path: &str, body: Option<&str>) -> Result<String, ClientError> {

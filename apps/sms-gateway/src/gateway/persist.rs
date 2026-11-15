@@ -3,6 +3,7 @@
 use std::fs;
 use std::path::PathBuf;
 
+use super::clients::RegisteredClient;
 use super::message::{Message, Status};
 use super::outbox::Outbox;
 use crate::identity::APP_ID;
@@ -18,6 +19,7 @@ pub struct PersistedState {
     pub relay_device_id: String,
     pub relay_device_secret: String,
     pub bluetooth_enabled: bool,
+    pub clients: Vec<RegisteredClient>,
 }
 
 impl Default for PersistedState {
@@ -29,6 +31,7 @@ impl Default for PersistedState {
             relay_device_id: String::new(),
             relay_device_secret: String::new(),
             bluetooth_enabled: true,
+            clients: Vec::new(),
         }
     }
 }
@@ -98,6 +101,7 @@ pub fn save_from_outbox(
     relay_device_id: &str,
     relay_device_secret: &str,
     bluetooth_enabled: bool,
+    clients: &[RegisteredClient],
 ) {
     let mut messages = outbox.list(MAX_PERSISTED);
     messages.reverse(); // list() is newest-first; store oldest-first
@@ -108,6 +112,7 @@ pub fn save_from_outbox(
         relay_device_id: relay_device_id.to_string(),
         relay_device_secret: relay_device_secret.to_string(),
         bluetooth_enabled,
+        clients: clients.to_vec(),
     };
     if let Err(e) = save(&state) {
         eprintln!("sms-gateway persist: {e}");
@@ -122,13 +127,32 @@ fn serialize_state(state: &PersistedState) -> String {
         }
         msgs.push_str(&message_json(m));
     }
+    let mut clients = String::new();
+    for (i, c) in state.clients.iter().enumerate() {
+        if i > 0 {
+            clients.push(',');
+        }
+        clients.push_str(&client_json(c));
+    }
     format!(
-        "{{\n  \"api_token\":{},\n  \"relay_url\":{},\n  \"relay_device_id\":{},\n  \"relay_device_secret\":{},\n  \"bluetooth_enabled\":{},\n  \"messages\":[{msgs}]\n}}\n",
+        "{{\n  \"api_token\":{},\n  \"relay_url\":{},\n  \"relay_device_id\":{},\n  \"relay_device_secret\":{},\n  \"bluetooth_enabled\":{},\n  \"clients\":[{clients}],\n  \"messages\":[{msgs}]\n}}\n",
         json_str(&state.api_token),
         json_str(&state.relay_url),
         json_str(&state.relay_device_id),
         json_str(&state.relay_device_secret),
         state.bluetooth_enabled,
+    )
+}
+
+fn client_json(c: &RegisteredClient) -> String {
+    format!(
+        "{{\"id\":{},\"label\":{},\"token\":{},\"blocked\":{},\"sent_count\":{},\"created_at_ms\":{}}}",
+        json_str(&c.id),
+        json_str(&c.label),
+        json_str(&c.token),
+        c.blocked,
+        c.sent_count,
+        c.created_at_ms
     )
 }
 
@@ -157,6 +181,7 @@ fn parse_state(raw: &str) -> Option<PersistedState> {
     let bluetooth_enabled = raw.contains("\"bluetooth_enabled\":true")
         || !raw.contains("\"bluetooth_enabled\":false");
     let messages = parse_messages_array(raw);
+    let clients = parse_clients_array(raw);
     Some(PersistedState {
         api_token,
         messages,
@@ -164,6 +189,80 @@ fn parse_state(raw: &str) -> Option<PersistedState> {
         relay_device_id,
         relay_device_secret,
         bluetooth_enabled,
+        clients,
+    })
+}
+
+fn parse_clients_array(raw: &str) -> Vec<RegisteredClient> {
+    let Some(start) = raw.find("\"clients\"") else {
+        return Vec::new();
+    };
+    let rest = &raw[start..];
+    let Some(bracket) = rest.find('[') else {
+        return Vec::new();
+    };
+    let mut depth = 0i32;
+    let bytes = rest.as_bytes();
+    let mut end = bracket;
+    for i in bracket..rest.len() {
+        match bytes[i] {
+            b'[' => depth += 1,
+            b']' => {
+                depth -= 1;
+                if depth == 0 {
+                    end = i;
+                    break;
+                }
+            }
+            _ => {}
+        }
+    }
+    let arr = &rest[bracket + 1..end];
+    let mut out = Vec::new();
+    let mut obj_start: Option<usize> = None;
+    let mut obj_depth = 0i32;
+    for (i, b) in arr.bytes().enumerate() {
+        match b {
+            b'{' => {
+                if obj_depth == 0 {
+                    obj_start = Some(i);
+                }
+                obj_depth += 1;
+            }
+            b'}' => {
+                obj_depth -= 1;
+                if obj_depth == 0 {
+                    if let Some(s) = obj_start.take() {
+                        if let Some(c) = parse_client(&arr[s..=i]) {
+                            out.push(c);
+                        }
+                    }
+                }
+            }
+            _ => {}
+        }
+    }
+    out
+}
+
+fn parse_client(raw: &str) -> Option<RegisteredClient> {
+    let id = json_get(raw, "id")?;
+    let label = json_get(raw, "label")?;
+    let token = json_get(raw, "token")?;
+    let blocked = raw.contains("\"blocked\":true");
+    let sent_count = json_get(raw, "sent_count")
+        .and_then(|s| s.parse().ok())
+        .unwrap_or(0);
+    let created_at_ms = json_get(raw, "created_at_ms")
+        .and_then(|s| s.parse().ok())
+        .unwrap_or(0);
+    Some(RegisteredClient {
+        id,
+        label,
+        token,
+        blocked,
+        sent_count,
+        created_at_ms,
     })
 }
 

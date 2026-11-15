@@ -98,6 +98,7 @@ PATCHES=(
   android_write_content_uri         # Android: Cx::write_content_uri for "Save a backup copy" (MakepadActivity-write.java)
   android_print                     # Android: PrintManager + Bluetooth SPP + USB host (MakepadActivity-print.java)
   android_sms                       # Android: SmsManager SIM send (MakepadActivity-sms.java) for SMS Gateway
+  android_sms_bt                    # Android: Classic RFCOMM SPP server for SMS Gateway offline jobs
   mouse_cursor_state                # Wayland Arrow=Default; edge resize keeps cursor; HoverOver re-asserts Text/Hand/View cursor
   scroll_bar_orphan_unblock         # wheel: clear stuck TextFlow Empty scroll-block (thumb drag still worked)
   scroll_touch_orphan_unblock       # Android: same Empty orphan clear on touch drag (no wheel)

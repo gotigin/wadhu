@@ -48,7 +48,8 @@
 
     public String[] listBluetoothPrinters() {
         try {
-            BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+            BluetoothManager btMgr = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
+            BluetoothAdapter adapter = btMgr != null ? btMgr.getAdapter() : null;
             if (adapter == null) {
                 return new String[0];
             }
@@ -80,7 +81,8 @@
         }
         BluetoothSocket socket = null;
         try {
-            BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+            BluetoothManager btMgr = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
+            BluetoothAdapter adapter = btMgr != null ? btMgr.getAdapter() : null;
             if (adapter == null) {
                 return false;
             }

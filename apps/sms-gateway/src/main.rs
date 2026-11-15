@@ -503,7 +503,7 @@ script_mod! {
                                     }
                                 }
 
-                                // —— Connect clients ——
+                                // —— Allow apps (non-expert LAN pair) ——
                                 SolidView{
                                     width: Fill
                                     height: Fit
@@ -512,7 +512,7 @@ script_mod! {
                                     Label{
                                         width: Fill
                                         height: Fit
-                                        text: "CONNECT A CLIENT"
+                                        text: "ALLOW AN APP (SAME WI‑FI)"
                                         draw_text.color: #x9fb4d0
                                         draw_text.text_style.font_size: 11
                                     }
@@ -520,61 +520,101 @@ script_mod! {
                                         width: Fill
                                         height: Fit
                                         flow: Down
-                                        spacing: 16
+                                        spacing: 12
                                         padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
                                         draw_bg +: {
                                             color: #x161252
                                             border_radius: 20.
                                         }
-                                        SolidView{
+                                        BodyCopySm{
+                                            body: "In the brand app tap Connect to SMS phone, then enter this code. No IP typing."
+                                        }
+                                        allow_app_button := PrimaryBtn{
+                                            text: "Allow a new app"
+                                        }
+                                        pair_code_label := Label{
                                             width: Fill
                                             height: Fit
-                                            flow: Down
-                                            spacing: 6
-                                            Label{
-                                                width: Fill
-                                                height: Fit
-                                                text: "Listen URL (same Wi‑Fi)"
-                                                draw_text.color: #x9fb4d0
-                                                draw_text.text_style.font_size: 11
-                                            }
-                                            listen_label := BodyCopy{
-                                                body: ""
-                                                font_size: 15.
-                                                font_color: #xfcfbfb
-                                                draw_text +: {color: #xfcfbfb}
-                                            }
+                                            text: "————"
+                                            draw_text.color: #xadfb15
+                                            draw_text.text_style.font_size: 32
                                         }
-                                        SolidView{
+                                        pair_hint_label := BodyCopySm{
+                                            body: "Code appears here for about 5 minutes."
+                                            font_size: 12.
+                                        }
+                                        Label{
                                             width: Fill
                                             height: Fit
-                                            flow: Down
-                                            spacing: 6
-                                            Label{
-                                                width: Fill
-                                                height: Fit
-                                                text: "API key"
-                                                draw_text.color: #x9fb4d0
-                                                draw_text.text_style.font_size: 11
-                                            }
-                                            token_label := BodyCopySm{
-                                                body: ""
-                                                font_color: #x00c8fc
-                                                draw_text +: {color: #x00c8fc}
-                                            }
+                                            margin: Inset{top: 8. bottom: 0.}
+                                            text: "CONNECTED APPS"
+                                            draw_text.color: #x9fb4d0
+                                            draw_text.text_style.font_size: 11
                                         }
-                                        share_curl_button := PrimaryBtn{
-                                            text: "Share curl example"
+                                        clients_label := BodyCopySm{
+                                            body: "No apps connected yet."
+                                            font_size: 13.
+                                        }
+                                        client_name_input := FieldInput{
+                                            empty_text: "App name to block / unblock"
+                                        }
+                                        block_client_button := GhostBtn{
+                                            text: "Block app"
+                                        }
+                                        unblock_client_button := GhostBtn{
+                                            text: "Unblock app"
+                                        }
+                                        rotate_key_button := GhostBtn{
+                                            text: "Change access key (disconnects all apps)"
+                                        }
+                                    }
+                                }
+
+                                // —— Advanced (developers) ——
+                                SolidView{
+                                    width: Fill
+                                    height: Fit
+                                    flow: Down
+                                    spacing: 12
+                                    Label{
+                                        width: Fill
+                                        height: Fit
+                                        text: "ADVANCED (OPTIONAL)"
+                                        draw_text.color: #x9fb4d0
+                                        draw_text.text_style.font_size: 11
+                                    }
+                                    RoundedView{
+                                        width: Fill
+                                        height: Fit
+                                        flow: Down
+                                        spacing: 12
+                                        padding: Inset{left: 22. right: 22. top: 22. bottom: 22.}
+                                        draw_bg +: {
+                                            color: #x161252
+                                            border_radius: 20.
+                                        }
+                                        BodyCopySm{
+                                            body: "Only if a tool asks for a raw URL. Shop staff should use Allow a new app above."
+                                        }
+                                        listen_label := BodyCopy{
+                                            body: ""
+                                            font_size: 14.
+                                            font_color: #xfcfbfb
+                                            draw_text +: {color: #xfcfbfb}
+                                        }
+                                        token_label := BodyCopySm{
+                                            body: ""
+                                            font_color: #x00c8fc
+                                            draw_text +: {color: #x00c8fc}
                                         }
                                         share_url_button := GhostBtn{
-                                            text: "Share URL + API key"
+                                            text: "Share URL + operator key"
+                                        }
+                                        share_curl_button := GhostBtn{
+                                            text: "Share curl example"
                                         }
                                         copy_key_button := GhostBtn{
-                                            text: "Copy API key"
-                                        }
-                                        hint_label := BodyCopySm{
-                                            body: "POST /v1/messages · GET /v1/health · BT TCP :18766"
-                                            font_size: 12.
+                                            text: "Copy operator key"
                                         }
                                     }
                                 }
@@ -740,7 +780,84 @@ impl MatchEvent for App {
             permissions::request_sms_permission();
             self.ui.label(cx, ids!(result_label)).set_text(
                 cx,
-                "Permission dialog requested — allow SMS, then wait for SIM → Ready",
+                "Permission dialog requested — allow SMS + Bluetooth, then wait for SIM → Ready / BT → On",
+            );
+            self.ui
+                .label(cx, ids!(result_label))
+                .set_text_color(cx, color_lime());
+            self.refresh_all(cx);
+        }
+        if self.ui.button(cx, ids!(allow_app_button)).clicked(actions) {
+            let Some(gw) = &self.gateway else { return };
+            let code = gw.begin_pairing();
+            self.ui
+                .label(cx, ids!(pair_code_label))
+                .set_text(cx, &code);
+            self.ui.markdown(cx, ids!(pair_hint_label)).set_text(
+                cx,
+                "Show this code to the other phone/app. Expires in about 5 minutes.",
+            );
+            self.ui.label(cx, ids!(result_label)).set_text(
+                cx,
+                "Allow code ready — enter it in the brand app on the same Wi‑Fi",
+            );
+            self.ui
+                .label(cx, ids!(result_label))
+                .set_text_color(cx, color_lime());
+            self.refresh_all(cx);
+        }
+        if self.ui.button(cx, ids!(block_client_button)).clicked(actions) {
+            let Some(gw) = &self.gateway else { return };
+            let name = self.ui.text_input(cx, ids!(client_name_input)).text();
+            match gw.set_client_blocked(name.trim(), true) {
+                Ok(()) => {
+                    self.ui
+                        .label(cx, ids!(result_label))
+                        .set_text(cx, &format!("Blocked “{}” — it can no longer send SMS", name.trim()));
+                    self.ui
+                        .label(cx, ids!(result_label))
+                        .set_text_color(cx, color_lime());
+                }
+                Err(e) => {
+                    self.ui
+                        .label(cx, ids!(result_label))
+                        .set_text(cx, &format!("Could not block: {e}"));
+                    self.ui
+                        .label(cx, ids!(result_label))
+                        .set_text_color(cx, color_fail());
+                }
+            }
+            self.refresh_all(cx);
+        }
+        if self.ui.button(cx, ids!(unblock_client_button)).clicked(actions) {
+            let Some(gw) = &self.gateway else { return };
+            let name = self.ui.text_input(cx, ids!(client_name_input)).text();
+            match gw.set_client_blocked(name.trim(), false) {
+                Ok(()) => {
+                    self.ui
+                        .label(cx, ids!(result_label))
+                        .set_text(cx, &format!("Unblocked “{}”", name.trim()));
+                    self.ui
+                        .label(cx, ids!(result_label))
+                        .set_text_color(cx, color_lime());
+                }
+                Err(e) => {
+                    self.ui
+                        .label(cx, ids!(result_label))
+                        .set_text(cx, &format!("Could not unblock: {e}"));
+                    self.ui
+                        .label(cx, ids!(result_label))
+                        .set_text_color(cx, color_fail());
+                }
+            }
+            self.refresh_all(cx);
+        }
+        if self.ui.button(cx, ids!(rotate_key_button)).clicked(actions) {
+            let Some(gw) = &self.gateway else { return };
+            let _ = gw.rotate_operator_key();
+            self.ui.label(cx, ids!(result_label)).set_text(
+                cx,
+                "Access key changed — all apps must connect again with a new Allow code",
             );
             self.ui
                 .label(cx, ids!(result_label))
@@ -752,7 +869,7 @@ impl MatchEvent for App {
         {
             let Some(gw) = &self.gateway else { return };
             let base = lan::listen_base_url(gw.handle.listen.port());
-            let token = gw.handle.api_token.clone();
+            let token = gw.operator_token();
             let curl = format!(
                 "curl -s -H \"X-Api-Key: {token}\" -H 'Content-Type: application/json' \\\n  -d '{{\"to\":\"+15551212\",\"body\":\"hello\",\"idempotency_key\":\"demo-1\"}}' \\\n  {base}/v1/messages"
             );
@@ -761,7 +878,7 @@ impl MatchEvent for App {
                 format!("Wadhu SMS Gateway\n\n{curl}")
             } else {
                 format!(
-                    "Wadhu SMS Gateway\n\nURL: {base}\nAPI key: {token}\n\nGET {base}/v1/health\nPOST {base}/v1/messages\nHeader: X-Api-Key: {token}"
+                    "Wadhu SMS Gateway (advanced)\n\nURL: {base}\nOperator key: {token}\n\nPrefer: Allow a new app + code on the phone."
                 )
             };
             cx.share_text(&text);
@@ -771,7 +888,7 @@ impl MatchEvent for App {
                 if share_curl {
                     "Shared curl example (also copied)"
                 } else {
-                    "Shared URL + API key (also copied)"
+                    "Shared advanced URL + key (also copied)"
                 },
             );
             self.ui
@@ -780,12 +897,12 @@ impl MatchEvent for App {
         }
         if self.ui.button(cx, ids!(copy_key_button)).clicked(actions) {
             let Some(gw) = &self.gateway else { return };
-            let token = gw.handle.api_token.clone();
+            let token = gw.operator_token();
             cx.copy_to_clipboard(&token);
             cx.share_text(&token);
             self.ui
                 .label(cx, ids!(result_label))
-                .set_text(cx, "API key copied / shared");
+                .set_text(cx, "Operator key copied / shared");
             self.ui
                 .label(cx, ids!(result_label))
                 .set_text_color(cx, color_lime());
@@ -858,7 +975,7 @@ impl App {
         let caps = gw.handle.radio.capabilities();
         let (pending, submitted, failed) = gw.handle.outbox.counts();
         let listen = gw.handle.listen;
-        let token = &gw.handle.api_token;
+        let token = gw.operator_token();
         let base = lan::listen_base_url(listen.port());
 
         self.ui.label(cx, ids!(live_badge)).set_text(cx, "LIVE");
@@ -898,6 +1015,10 @@ impl App {
         let bt = gw.handle.bluetooth.snapshot();
         let (bt_text, bt_color) = if bt.listening {
             ("On", color_ok())
+        } else if bt.detail.contains("permission") {
+            ("Need BT", color_warn())
+        } else if bt.detail.contains("adapter_off") {
+            ("BT off", color_warn())
         } else if bt.enabled {
             ("Starting", color_warn())
         } else {
@@ -949,7 +1070,32 @@ impl App {
         );
 
         self.ui.markdown(cx, ids!(listen_label)).set_text(cx, &base);
-        self.ui.markdown(cx, ids!(token_label)).set_text(cx, token);
+        self.ui
+            .markdown(cx, ids!(token_label))
+            .set_text(cx, &format!("Operator key: {token}"));
+
+        if let Some((code, _)) = gw.handle.clients.pairing_code() {
+            self.ui
+                .label(cx, ids!(pair_code_label))
+                .set_text(cx, &code);
+        }
+
+        let clients = gw.handle.clients.snapshot();
+        let clients_text = if clients.is_empty() {
+            "No apps connected yet.".into()
+        } else {
+            clients
+                .iter()
+                .map(|c| {
+                    let state = if c.blocked { "Blocked" } else { "Allowed" };
+                    format!("• {} — {} SMS — {state}", c.label, c.sent_count)
+                })
+                .collect::<Vec<_>>()
+                .join("\n")
+        };
+        self.ui
+            .markdown(cx, ids!(clients_label))
+            .set_text(cx, &clients_text);
 
         let lines: Vec<String> = gw
             .handle
