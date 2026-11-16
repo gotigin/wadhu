@@ -42,9 +42,11 @@ set +a
 : "${WEBHOOK_VERIFY_TOKEN:?WEBHOOK_VERIFY_TOKEN required in .env}"
 
 PUBLIC_ORIGIN="${PUBLIC_ORIGIN:-https://connect.wadhu.com}"
-META_GRAPH_VERSION="${META_GRAPH_VERSION:-v22.0}"
+META_GRAPH_VERSION="${META_GRAPH_VERSION:-v27.0}"
+DATA_BUCKET="${CONNECT_DATA_BUCKET:-${PROJECT}-connect-data}"
+DATA_DIR="${DATA_DIR_MOUNT:-/data}"
 
-echo "1/5 Ensure Artifact Registry + auth"
+echo "1/6 Ensure Artifact Registry + auth"
 gcloud config set project "$PROJECT" >/dev/null
 gcloud config set run/region "$REGION" >/dev/null
 gcloud artifacts repositories describe "$REPO" --location="$REGION" >/dev/null 2>&1 \
@@ -53,7 +55,7 @@ gcloud artifacts repositories describe "$REPO" --location="$REGION" >/dev/null 2
        --description='Wadhu container images'
 gcloud auth configure-docker "${REGION}-docker.pkg.dev" --quiet
 
-echo "2/5 Upsert Secret Manager secrets (from .env)"
+echo "2/6 Upsert Secret Manager secrets (from .env)"
 upsert_secret() {
   local name="$1" value="$2"
   if gcloud secrets describe "$name" --project="$PROJECT" >/dev/null 2>&1; then
@@ -66,11 +68,18 @@ upsert_secret META_APP_ID "$META_APP_ID"
 upsert_secret META_APP_SECRET "$META_APP_SECRET"
 upsert_secret META_CONFIG_ID "$META_CONFIG_ID"
 upsert_secret WEBHOOK_VERIFY_TOKEN "$WEBHOOK_VERIFY_TOKEN"
+# Only mount a system-user token when it is set in .env (not a stale shell export).
+# Empty / commented .env values must win over ambient env.
+if grep -qE '^META_SYSTEM_USER_TOKEN=.+' "$ENV_FILE" 2>/dev/null; then
+  : # keep value loaded from .env above
+else
+  unset META_SYSTEM_USER_TOKEN || true
+fi
 if [[ -n "${META_SYSTEM_USER_TOKEN:-}" ]]; then
   upsert_secret META_SYSTEM_USER_TOKEN "$META_SYSTEM_USER_TOKEN"
 fi
 
-echo "3/5 Docker build → $IMAGE:latest"
+echo "3/6 Docker build → $IMAGE:latest"
 cd "$ROOT"
 docker build -f apps/wadhu-connect/Dockerfile -t "${IMAGE}:latest" .
 docker push "${IMAGE}:latest"
@@ -90,13 +99,28 @@ for s in "${SECRET_NAMES[@]}"; do
     --project="$PROJECT" >/dev/null
 done
 
-echo "4/5 Deploy Cloud Run service $SERVICE"
-ENV_VARS="HOST=0.0.0.0,PUBLIC_ORIGIN=${PUBLIC_ORIGIN},META_GRAPH_VERSION=${META_GRAPH_VERSION},WADHU_CONNECT_ROOT=/app,PUBLIC_DIR=/app/public,DATA_DIR=/tmp/wadhu-connect-data"
+echo "4/6 Persist DATA_DIR on GCS bucket gs://${DATA_BUCKET}"
+if ! gcloud storage buckets describe "gs://${DATA_BUCKET}" --project="$PROJECT" >/dev/null 2>&1; then
+  gcloud storage buckets create "gs://${DATA_BUCKET}" \
+    --project="$PROJECT" \
+    --location="$REGION" \
+    --uniform-bucket-level-access
+fi
+gcloud storage buckets add-iam-policy-binding "gs://${DATA_BUCKET}" \
+  --member="serviceAccount:${RUNTIME_SA}" \
+  --role="roles/storage.objectAdmin" \
+  --project="$PROJECT" >/dev/null
+
+echo "5/6 Deploy Cloud Run service $SERVICE"
+ENV_VARS="HOST=0.0.0.0,PUBLIC_ORIGIN=${PUBLIC_ORIGIN},META_GRAPH_VERSION=${META_GRAPH_VERSION},WADHU_CONNECT_ROOT=/app,PUBLIC_DIR=/app/public,DATA_DIR=${DATA_DIR}"
 if [[ -n "${META_PHONE_NUMBER_ID:-}" ]]; then
   ENV_VARS+=",META_PHONE_NUMBER_ID=${META_PHONE_NUMBER_ID}"
 fi
 if [[ -n "${META_WABA_ID:-}" ]]; then
   ENV_VARS+=",META_WABA_ID=${META_WABA_ID}"
+fi
+if [[ -n "${META_PAGE_ID:-}" ]]; then
+  ENV_VARS+=",META_PAGE_ID=${META_PAGE_ID}"
 fi
 gcloud run deploy "$SERVICE" \
   --project="$PROJECT" \
@@ -106,20 +130,24 @@ gcloud run deploy "$SERVICE" \
   --port=8080 \
   --memory=512Mi \
   --cpu=1 \
-  --min-instances=0 \
+  --min-instances=1 \
   --max-instances=3 \
   --timeout=300 \
   --set-env-vars="$ENV_VARS" \
-  --set-secrets="$SECRET_MOUNTS"
+  --set-secrets="$SECRET_MOUNTS" \
+  --add-volume="name=connect-data,type=cloud-storage,bucket=${DATA_BUCKET}" \
+  --add-volume-mount="volume=connect-data,mount-path=${DATA_DIR}" \
+  --execution-environment=gen2
 
 URL="$(gcloud run services describe "$SERVICE" --project="$PROJECT" --region="$REGION" --format='value(status.url)')"
-echo "5/5 Smoke"
+echo "6/6 Smoke"
 curl -sS -o /dev/null -w "onboard %{http_code}\n" "$URL/onboard"
+curl -sS -o /dev/null -w "deauthorize POST %{http_code}\n" -X POST "$URL/deauthorize" -H 'Content-Type: application/x-www-form-urlencoded' --data 'signed_request=test'
 curl -sS -o /dev/null -w "privacy %{http_code}\n" "$URL/privacy"
 curl -sS "$URL/api/config" | head -c 400; echo
 curl -sS "$URL/v1/health"; echo
 
 echo
 echo "Cloud Run URL: $URL"
-echo "Next: map custom domain connect.wadhu.com → this service, then Meta webhook Verify."
-echo "  gcloud beta run domain-mappings create --service=$SERVICE --domain=connect.wadhu.com --region=$REGION"
+echo "Custom domain: https://connect.wadhu.com (mapping already expected)."
+echo "DATA_DIR=${DATA_DIR} on gs://${DATA_BUCKET}"

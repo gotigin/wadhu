@@ -110,8 +110,12 @@ async function init() {
     return;
   }
 
-  readyMsg.textContent =
-    'Ready. Launch opens Meta Embedded Signup (coexistence / Business app number).';
+  const coexistence =
+    new URLSearchParams(location.search).get('coexistence') === '1';
+  readyMsg.textContent = coexistence
+    ? 'Ready. Launch opens coexistence Embedded Signup (WhatsApp Business app number).'
+    : 'Ready. Launch opens Cloud API Embedded Signup. Use business number +91 75740 67702 — not the personal WhatsApp Business app number.';
+  config.coexistenceEnabled = coexistence;
   launchBtn.disabled = false;
 
   window.fbAsyncInit = function fbAsyncInit() {
@@ -181,11 +185,17 @@ function launchWhatsAppSignup() {
       config_id: config.configId,
       response_type: 'code',
       override_default_response_type: true,
-      extras: {
-        setup: {},
-        featureType: 'whatsapp_business_app_onboarding',
-        sessionInfoVersion: '3',
-      },
+      extras: (() => {
+        const extras = {
+          setup: {},
+          sessionInfoVersion: '3',
+        };
+        // Only when ?coexistence=1 — Meta #3441107 until Tech Provider clears biz-app numbers.
+        if (config?.coexistenceEnabled) {
+          extras.featureType = 'whatsapp_business_app_onboarding';
+        }
+        return extras;
+      })(),
     },
   );
 }

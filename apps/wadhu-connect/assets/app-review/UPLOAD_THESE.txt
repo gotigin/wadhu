@@ -1,13 +1,22 @@
-Upload these in App Review → Allowed usage (screen recording fields):
+Upload ONLY from this folder (workspace assets):
 
-1) business_management.mp4          ← permission business_management
-2) whatsapp_business_messaging.mp4  ← permission whatsapp_business_messaging
-3) whatsapp_business_management.mp4 ← permission whatsapp_business_management
+  apps/wadhu-connect/assets/app-review/
 
-Canonical (repo): apps/wadhu-connect/assets/app-review/
-Upload from:     ~/Downloads/  (same filenames)
+Absolute path:
 
-Do not cross-upload WhatsApp videos onto business_management (or the reverse).
+  /home/four/Gotigin/Wadhu/wadhu-workspace/apps/wadhu-connect/assets/app-review/
 
-Stills: ~/Downloads/wadhu_app_review_*.png
+| File | Permission |
+| --- | --- |
+| business_management.mp4 | business_management |
+| pages_show_list.mp4 | pages_show_list |
+| pages_read_engagement.mp4 | pages_read_engagement |
+| whatsapp_business_messaging.mp4 | whatsapp_business_messaging |
+| whatsapp_business_management.mp4 | whatsapp_business_management |
 
+Do not use ~/Downloads for these.
+
+Submission receipt (keep for tracking):
+
+  Meta_App_Review_Submitted_2026-11-16.pdf
+  (Meta “download submission” PDF; also noted in docs/STATUS.md)

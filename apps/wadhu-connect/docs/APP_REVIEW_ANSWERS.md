@@ -2,6 +2,9 @@
 
 Reviewer / Data handling paste: [`DATA_HANDLING_AND_REVIEWER.md`](DATA_HANDLING_AND_REVIEWER.md).
 
+Submission receipt:
+[`assets/app-review/Meta_App_Review_Submitted_2026-11-16.pdf`](../assets/app-review/Meta_App_Review_Submitted_2026-11-16.pdf).
+
 | | |
 | --- | --- |
 | Meta app display name | **Wadhu Connect** |
@@ -54,25 +57,54 @@ It is necessary: without this permission Connect cannot finish handoff, keep
 webhooks subscribed, or manage templates for onboarded accounts — required for
 a Tech Provider WhatsApp bridge.
 
-## business_management
+## pages_show_list (submitted)
 
-We use business_management with Facebook Login for Business / Embedded Signup so
-a client business can grant Wadhu Connect access to their Meta Business
-portfolio and related assets. After login we read the granted business identity
-and asset links needed to finish WhatsApp Cloud API onboarding (associate the
-client business with the WABA / phone handoff). We do not use it for ads, Pages
-publishing, or consumer Facebook profile features.
+Kept in the 2026-11-16 submission because Meta Already Allowed usage / Testing
+had progressed for this permission, and Login for Business may expose managed
+Page list metadata during portfolio grant.
 
-This adds value because the person onboards in one guided flow: grant business
-access, keep their number, and connect Cloud API to their software without
-manual Business Manager wiring.
+Wadhu Connect’s product is WhatsApp Tech Provider onboarding via Embedded
+Signup. We do not build a consumer Pages directory, Page picker, or Page
+publishing UI. Any Page list access is incidental to Login / portfolio grant,
+not a standalone Pages product.
 
-It is necessary for Tech Provider client-business onboarding: without
-business_management Connect cannot identify the granting business portfolio and
-complete asset association for WhatsApp Embedded Signup.
+## Deferred — not in this App Review submission
+
+### Why `business_management` was omitted
+
+Meta documents `business_management` as **optional** on the WhatsApp use case
+(only needed if the app reads the business portfolio programmatically via the
+Business Manager API). Wadhu Connect’s required Tech Provider Advanced Access
+is `whatsapp_business_messaging` + `whatsapp_business_management` (+
+`public_profile`). Embedded Signup already returns `business_id` / WABA / phone
+IDs in the session payload; runtime onboarding uses WhatsApp permissions, not
+`GET /me/businesses`.
+
+Review → Testing also stayed at **0 of 1** for `business_management` despite
+valid Graph **200** responses (known Meta attribution flake for BM/Pages vs
+WhatsApp product tests). Shipping unused permissions risks rejection; we
+removed it so this review covers only what the product uses today.
+
+### Why `pages_read_engagement` was omitted
+
+`pages_read_engagement` is for reading Page posts / engagement (or CTWA-style
+ads products). Connect does not display Page posts, insights, or Page
+moderation. It was only on the app because Meta attaches it as a dependency
+when `business_management` / the Pages use case is present. Without a Pages
+product and without BM in this submission, it is not needed.
+
+### After this review passes
+
+Once WhatsApp Advanced Access is approved, we will **try to integrate**
+`business_management` and `pages_read_engagement` in a later App Review
+(Allowed usage + Testing + product wiring), if portfolio/Page Graph access
+proves useful beyond Embedded Signup’s session fields. Until then they stay
+out of production scope and out of this submission.
 
 ## Coexistence
 
-Production goal is coexistence (`featureType=whatsapp_business_app_onboarding`)
-for +91 99677 17702. Demo / review uses Meta test number +1 555-156-0957 until
-advanced access is approved.
+Production goal is coexistence (`featureType=whatsapp_business_app_onboarding`).
+Own-business Cloud API number: +91 75740 67702. Personal +91 99677 17702 is not
+the Cloud API sender. Meta test numbers may appear in dashboard for review.
+Default Connect launch is Cloud API ES; coexistence is `?coexistence=1` after
+Meta clears partner biz-app onboarding (#3441107).

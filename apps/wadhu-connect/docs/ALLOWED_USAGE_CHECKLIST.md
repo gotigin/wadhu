@@ -1,41 +1,38 @@
-# Allowed usage — what’s left before Next unlocks
+# Allowed usage — App Review status
 
-## 0) `business_management` — 1 API test call required
+## Submitted 2026-11-16
 
-Meta tracks this from **Review → Testing** (not random curl alone).
+Receipt:
+[`assets/app-review/Meta_App_Review_Submitted_2026-11-16.pdf`](../assets/app-review/Meta_App_Review_Submitted_2026-11-16.pdf).
 
-1. On the Allowed usage form: **Save** description + `business_management.mp4` + Agree.
-2. Sidebar **Review → Testing** (or the “go to Testing” link on that form).
-3. **Generate token** / Graph API Explorer for this app, include permission
-   `business_management`.
-4. Run one call, e.g.  
-   `GET https://graph.facebook.com/v22.0/me/businesses`  
-   or  
-   `GET https://graph.facebook.com/v22.0/1076913081550690?fields=id,name`
-5. Return to Allowed usage — counter can take minutes–**24h** to show `1 of 1`.
+| Permission | In this submission |
+| --- | --- |
+| `whatsapp_business_messaging` | Yes |
+| `whatsapp_business_management` | Yes |
+| `public_profile` | Yes |
+| `pages_show_list` | Yes (already checked; kept) |
+| `email` | Yes |
+| `business_management` | **No** — deferred |
+| `pages_read_engagement` | **No** — deferred |
 
-Do **not** wait on the form with `0 of 1` forever; save and leave after the call.
+Why deferred + plan to integrate after approval:
+[`APP_REVIEW_ANSWERS.md`](APP_REVIEW_ANSWERS.md) § Deferred.
 
-## 1) `whatsapp_business_messaging` — only API test calls left
+## After approval (follow-up)
 
-Meta needs a tracked call from **their** Try it out UI (curl alone often doesn’t tick this).
+1. Add `business_management` + `pages_read_engagement` only if product needs
+   portfolio/Page Graph beyond Embedded Signup session fields.
+2. Allowed usage text + videos + Agree; Review → Testing until counters move
+   (or Meta Ask-a-question if 200s still show 0).
+3. New App Review request for those two (do not block WhatsApp Advanced Access
+   on them again).
 
-1. Open: https://developers.facebook.com/apps/1606021637403895/use_cases/customize/api-testing-v2/?product_route=whatsapp-business&business_id=1076913081550690&use_case_enum=WHATSAPP_BUSINESS_MESSAGING&selected_tab=api-testing-v2
-2. **Generate token**
-3. **To** → select `+91 99677 17702`
-4. Click **Send message**
-5. Return to Allowed usage → messaging **Get started** — wait until it shows `1 of 1` API calls (can take minutes–24h)
+## Historical notes (WhatsApp testing)
 
-## 2) `whatsapp_business_management` — all four items
+WhatsApp Try-it-out path (for messaging) used Cloud API `+91 75740 67702`,
+never the personal WhatsApp Business app number.
 
-1. Business description (one line), then **Get started**
-2. Paste the long description (see `APP_REVIEW_ANSWERS.md`)
-3. Upload: `/home/mearaj/Downloads/whatsapp_business_management.mp4`
-4. Tick agree → **Save**
-5. Same API-test wait if Meta lists required management calls
-
-## 3) `public_profile`
-
-**Get started** → tick agree → **Save**
-
-Only then **Next** enables.
+Connect can still run Graph probes after ES via
+`POST /api/ops/graph-precheck` (`X-Wadhu-Ops-Token`) when a connection token
+exists — useful for a future BM/Pages follow-up, not required for the current
+WhatsApp-only submission.

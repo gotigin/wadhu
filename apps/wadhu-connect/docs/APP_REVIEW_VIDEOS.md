@@ -35,8 +35,8 @@ Rebuilt demos (live Connect UI + Graph panels) in `assets/app-review/`:
 - `whatsapp_business_management.mp4` — ES UI → WABA/phone IDs → templates/webhooks
 
 Uses **Wadhu Connect** branding and production IDs (`+91 75740 67702`,
-WABA `1897764578101148`). Copies also under `~/Downloads/`. Prefer a real
-phone + browser recording later if Meta asks.
+WABA `1897764578101148`). Upload from `apps/wadhu-connect/assets/app-review/`
+only. Prefer a real phone + browser recording later if Meta asks.
 
 ## Upload where
 

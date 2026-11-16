@@ -96,6 +96,94 @@ impl MetaClient {
             }),
         )
     }
+
+    /// App Review / Allowed usage Graph probes (User token).
+    pub fn me_businesses(&self, token: &str) -> GraphResult {
+        let url = format!("{}/me/businesses?fields=id,name", self.base());
+        get_json(&url, Some(token))
+    }
+
+    pub fn me_accounts(&self, token: &str) -> GraphResult {
+        let url = format!("{}/me/accounts?fields=id,name,access_token", self.base());
+        get_json(&url, Some(token))
+    }
+
+    pub fn page_posts(&self, page_id: &str, page_token: &str) -> GraphResult {
+        let url = format!(
+            "{}/{}/posts?fields=id,created_time&limit=3",
+            self.base(),
+            page_id
+        );
+        get_json(&url, Some(page_token))
+    }
+
+    /// Run BM + Pages list + Page posts. Returns status codes only (no tokens).
+    pub fn app_review_precheck(&self, user_token: &str, preferred_page_id: Option<&str>) -> Value {
+        let bm = self.me_businesses(user_token);
+        let accounts = self.me_accounts(user_token);
+
+        let mut page_id = preferred_page_id.map(|s| s.to_string());
+        let mut page_token: Option<String> = None;
+        if let Some(data) = accounts.json.get("data").and_then(|d| d.as_array()) {
+            if page_id.is_none() {
+                if let Some(first) = data.first() {
+                    page_id = first.get("id").and_then(|v| v.as_str()).map(|s| s.to_string());
+                }
+            }
+            if let Some(want) = &page_id {
+                for p in data {
+                    if p.get("id").and_then(|v| v.as_str()) == Some(want.as_str()) {
+                        page_token = p
+                            .get("access_token")
+                            .and_then(|v| v.as_str())
+                            .map(|s| s.to_string());
+                        break;
+                    }
+                }
+            }
+            if page_token.is_none() {
+                if let Some(first) = data.first() {
+                    page_id = first.get("id").and_then(|v| v.as_str()).map(|s| s.to_string());
+                    page_token = first
+                        .get("access_token")
+                        .and_then(|v| v.as_str())
+                        .map(|s| s.to_string());
+                }
+            }
+        }
+
+        let posts = match (&page_id, &page_token) {
+            (Some(pid), Some(pt)) => self.page_posts(pid, pt),
+            _ => GraphResult {
+                ok: false,
+                status: 0,
+                json: json!({ "error": "no_page_token_from_me_accounts" }),
+            },
+        };
+
+        json!({
+            "business_management": {
+                "endpoint": "GET /me/businesses",
+                "http": bm.status,
+                "ok": bm.ok,
+                "error": bm.json.get("error").cloned().unwrap_or(Value::Null),
+            },
+            "pages_show_list": {
+                "endpoint": "GET /me/accounts",
+                "http": accounts.status,
+                "ok": accounts.ok,
+                "pageCount": accounts.json.get("data").and_then(|d| d.as_array()).map(|a| a.len()).unwrap_or(0),
+                "error": accounts.json.get("error").cloned().unwrap_or(Value::Null),
+            },
+            "pages_read_engagement": {
+                "endpoint": "GET /{page-id}/posts",
+                "pageId": page_id,
+                "http": posts.status,
+                "ok": posts.ok,
+                "error": posts.json.get("error").cloned().unwrap_or(Value::Null),
+            },
+        })
+    }
 }
 
 #[derive(Debug)]

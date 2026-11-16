@@ -33,10 +33,23 @@ There is **no** `apps/gotigin-connect`. Meta display name must be **Wadhu Connec
    - Valid OAuth Redirect URIs → `https://connect.wadhu.com/onboard`
    - Deauthorize callback URL → `https://connect.wadhu.com/deauthorize`
    - Data Deletion Request URL → `https://wadhu.com/data-deletion`
-5. Allowed usage / App Review:
+   - Login with JavaScript SDK → Yes; Allowed Domains → `connect.wadhu.com`
+5. Cloud Run: `DATA_DIR=/data` on `gs://wadhu-ac8dc-connect-data` (survives redeploy).
+   Current WABA `1592532032562448`, phone `1436067426258883`, Page `1233972929807232`.
+   Default ES is Cloud API (not coexistence). Coexistence: `?coexistence=1` after Tech Provider clears #3441107.
+6. Allowed usage / App Review:
    [`ALLOWED_USAGE_CHECKLIST.md`](ALLOWED_USAGE_CHECKLIST.md),
    [`APP_REVIEW_ANSWERS.md`](APP_REVIEW_ANSWERS.md),
    [`DATA_HANDLING_AND_REVIEWER.md`](DATA_HANDLING_AND_REVIEWER.md)
+7. **Submitted** App Review (Meta download 2026-11-16 12:17 PM PST):
+   [`assets/app-review/Meta_App_Review_Submitted_2026-11-16.pdf`](../assets/app-review/Meta_App_Review_Submitted_2026-11-16.pdf)  
+   Included: `email`, `pages_show_list`, `whatsapp_business_messaging`,
+   `whatsapp_business_management`, `public_profile`.  
+   **Not** included: `business_management`, `pages_read_engagement` — optional
+   for WhatsApp Cloud API / not used by Connect runtime; Testing counters
+   stayed at 0 despite Graph 200s. After this review **passes**, we will try
+   to integrate those two in a follow-up submission. Detail:
+   [`APP_REVIEW_ANSWERS.md`](APP_REVIEW_ANSWERS.md) § Deferred.
 
 ## Docs in this folder
 

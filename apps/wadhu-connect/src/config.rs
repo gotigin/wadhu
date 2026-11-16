@@ -16,6 +16,8 @@ pub struct Config {
     pub port: u16,
     pub data_dir: PathBuf,
     pub public_dir: PathBuf,
+    /// Optional Page id for `pages_read_engagement` precheck (Gotigin Page).
+    pub page_id: String,
 }
 
 impl Config {
@@ -40,7 +42,7 @@ impl Config {
             app_id: env::var("META_APP_ID").unwrap_or_default(),
             app_secret: env::var("META_APP_SECRET").unwrap_or_default(),
             config_id: env::var("META_CONFIG_ID").unwrap_or_default(),
-            graph_version: env::var("META_GRAPH_VERSION").unwrap_or_else(|_| "v22.0".into()),
+            graph_version: env::var("META_GRAPH_VERSION").unwrap_or_else(|_| "v27.0".into()),
             verify_token: env::var("WEBHOOK_VERIFY_TOKEN")
                 .unwrap_or_else(|_| "wadhu_connect_verify_change_me".into()),
             public_origin,
@@ -48,6 +50,7 @@ impl Config {
             port,
             data_dir,
             public_dir,
+            page_id: env::var("META_PAGE_ID").unwrap_or_else(|_| "1233972929807232".into()),
         }
     }
 

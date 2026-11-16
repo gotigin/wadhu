@@ -25,11 +25,11 @@ COPY --from=build /src/target/release/wadhu-connect /app/wadhu-connect
 COPY apps/wadhu-connect/public /app/public
 ENV WADHU_CONNECT_ROOT=/app \
     PUBLIC_DIR=/app/public \
-    DATA_DIR=/tmp/wadhu-connect-data \
+    DATA_DIR=/data \
     HOST=0.0.0.0 \
     PORT=8080 \
     PUBLIC_ORIGIN=https://connect.wadhu.com \
-    META_GRAPH_VERSION=v22.0
+    META_GRAPH_VERSION=v27.0
 EXPOSE 8080
 USER nobody
 CMD ["/app/wadhu-connect"]

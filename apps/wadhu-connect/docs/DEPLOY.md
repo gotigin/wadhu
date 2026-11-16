@@ -40,7 +40,9 @@ Then add the DNS records Google prints (usually a CNAME / A for
 | `HOST` | `0.0.0.0` |
 | `PORT` | Set by Cloud Run — do not override |
 | `META_*` / `WEBHOOK_VERIFY_TOKEN` | Secret Manager |
-| `DATA_DIR` | `/tmp/...` (ephemeral until a volume is added) |
+| `DATA_DIR` | `/data` on GCS bucket `{project}-connect-data` (survives redeploys) |
+| `META_WABA_ID` | Current ES WABA (`1592532032562448`) |
+| `META_PAGE_ID` | Gotigin Page for engagement precheck |
 
 ## Local
 

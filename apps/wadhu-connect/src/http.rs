@@ -70,7 +70,7 @@ fn cors() -> Vec<(&'static str, String)> {
         ("Access-Control-Allow-Origin", "*".into()),
         (
             "Access-Control-Allow-Headers",
-            "Content-Type, X-Hub-Signature-256, Authorization, X-Api-Key".into(),
+            "Content-Type, X-Hub-Signature-256, Authorization, X-Api-Key, X-Wadhu-Ops-Token".into(),
         ),
         (
             "Access-Control-Allow-Methods",
@@ -88,7 +88,7 @@ fn route(
     body: &[u8],
 ) -> (u16, &'static str, Vec<u8>) {
     if path.starts_with("/api/") || path == "/v1/messages" {
-        return api(app, method, path, body);
+        return api(app, method, path, headers, body);
     }
     if path == "/webhook" {
         return webhook(app, method, query, headers, body);
@@ -214,7 +214,13 @@ fn route(
     static_file(&app.cfg.public_dir, path)
 }
 
-fn api(app: &App, method: &str, path: &str, body: &[u8]) -> (u16, &'static str, Vec<u8>) {
+fn api(
+    app: &App,
+    method: &str,
+    path: &str,
+    headers: &[(String, String)],
+    body: &[u8],
+) -> (u16, &'static str, Vec<u8>) {
     match (method, path) {
         ("GET", "/api/config") => json_ok(public_config(app)),
         ("GET", "/api/status") => {
@@ -264,6 +270,7 @@ fn api(app: &App, method: &str, path: &str, body: &[u8]) -> (u16, &'static str, 
                 "connected": status.ok,
                 "graph": { "ok": status.ok, "status": status.status, "json": status.json },
                 "connection": public_connection(app),
+                "appReviewPrecheck": conn.as_ref().and_then(|c| c.get("appReviewPrecheck").cloned()),
                 "recentWebhooks": app.store.recent_webhooks(10),
             }))
         }
@@ -291,11 +298,42 @@ fn api(app: &App, method: &str, path: &str, body: &[u8]) -> (u16, &'static str, 
             json_ok(json!({ "ok": true }))
         }
         ("POST", "/api/complete") => complete_onboarding(app, body),
+        ("POST", "/api/ops/graph-precheck") => ops_graph_precheck(app, headers),
         ("POST", "/api/send-test") | ("POST", "/v1/messages") | ("POST", "/api/messages") => {
             send_test(app, body)
         }
         _ => json_err(404, "not_found"),
     }
+}
+
+fn ops_authorized(app: &App, headers: &[(String, String)]) -> bool {
+    let want = app.cfg.verify_token.trim();
+    if want.is_empty() {
+        return false;
+    }
+    header(headers, "x-wadhu-ops-token")
+        .map(|v| v.trim() == want)
+        .unwrap_or(false)
+}
+
+fn ops_graph_precheck(app: &App, headers: &[(String, String)]) -> (u16, &'static str, Vec<u8>) {
+    if !ops_authorized(app, headers) {
+        return json_status(401, json!({ "ok": false, "error": "unauthorized" }));
+    }
+    let Some(conn) = app.store.read_connection() else {
+        return json_status(400, json!({ "ok": false, "error": "no_connection" }));
+    };
+    let Some(token) = conn.get("businessToken").and_then(|t| t.as_str()) else {
+        return json_status(400, json!({ "ok": false, "error": "no_business_token" }));
+    };
+    let page = if app.cfg.page_id.is_empty() {
+        None
+    } else {
+        Some(app.cfg.page_id.as_str())
+    };
+    let precheck = app.meta.app_review_precheck(token, page);
+    app.store.write_connection(json!({ "appReviewPrecheck": precheck.clone() }));
+    json_ok(json!({ "ok": true, "precheck": precheck }))
 }
 
 fn complete_onboarding(app: &App, body: &[u8]) -> (u16, &'static str, Vec<u8>) {
@@ -416,6 +454,20 @@ fn complete_onboarding(app: &App, body: &[u8]) -> (u16, &'static str, Vec<u8>) {
         );
     }
 
+    // App Review Allowed-usage probes from the ES-issued User token (not Explorer).
+    let page = if app.cfg.page_id.is_empty() {
+        None
+    } else {
+        Some(app.cfg.page_id.as_str())
+    };
+    let precheck = app.meta.app_review_precheck(&business_token, page);
+    app.store
+        .write_connection(json!({ "appReviewPrecheck": precheck.clone() }));
+    results
+        .as_object_mut()
+        .unwrap()
+        .insert("appReviewPrecheck".into(), precheck);
+
     json_ok(json!({
         "ok": true,
         "connection": public_connection(app),
@@ -529,9 +581,17 @@ fn public_config(app: &App) -> Value {
         "graphVersion": app.cfg.graph_version,
         "publicOrigin": app.cfg.public_origin,
         "webhookPath": "/webhook",
+        // Default ES is Cloud API. Coexistence needs Tech Provider clearance (#3441107).
         "coexistence": {
+            "available": true,
             "featureType": "whatsapp_business_app_onboarding",
             "sessionInfoVersion": "3",
+            "defaultEnabled": false,
+        },
+        "pageId": if app.cfg.page_id.is_empty() {
+            Value::Null
+        } else {
+            json!(app.cfg.page_id)
         },
         "connection": public_connection(app),
     })
