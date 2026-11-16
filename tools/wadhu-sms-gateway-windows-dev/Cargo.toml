@@ -1,0 +1,11 @@
+[package]
+name = "wadhu-sms-gateway-windows-dev"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+publish = false
+
+[[bin]]
+name = "wadhu-sms-gateway-windows-dev"
+path = "main.rs"

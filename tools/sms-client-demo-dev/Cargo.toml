@@ -1,9 +1,0 @@
-[package]
-name = "sms-client-demo-dev"
-version = "0.1.0"
-edition.workspace = true
-publish = false
-
-[[bin]]
-name = "sms-client-demo-dev"
-path = "main.rs"

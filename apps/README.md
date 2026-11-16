@@ -20,9 +20,9 @@ how-to: [`../docs/DEV.md`](../docs/DEV.md).
 
 | App | Product | What |
 |---|---|---|
-| [`sms-gateway/`](sms-gateway/README.md) | **SMS Gateway** | Android-first SIM gateway (LAN + Bluetooth + optional relay) |
-| [`sms-relay/`](sms-relay/README.md) | **SMS Relay** | Self-hostable remote plane: internet clients → paired gateways |
+| [`wadhu-sms-gateway/`](wadhu-sms-gateway/README.md) | **SMS Gateway** | Android-first SIM gateway (LAN + Bluetooth + optional relay) |
+| [`wadhu-sms-relay/`](wadhu-sms-relay/README.md) | **SMS Relay** | Self-hostable remote plane: internet clients → paired gateways |
 | [`wadhu-connect/`](wadhu-connect/README.md) | **Wadhu Connect** | WhatsApp Cloud API Tech Provider bridge (Rust) · https://connect.wadhu.com |
-| [`sms-client-demo/`](sms-client-demo/README.md) | (demo) | Desktop demo for `wadhu-sms-client` |
+| [`wadhu-sms-client-demo/`](wadhu-sms-client-demo/README.md) | (demo) | Desktop demo for `wadhu-sms-client` |
 
 There is **no** `gotigin-connect` app. The Meta product name is **Wadhu Connect**.

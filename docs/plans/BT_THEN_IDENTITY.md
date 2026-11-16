@@ -30,7 +30,7 @@ flowchart LR
 | Permissions | `BLUETOOTH_*` + runtime batch request from `btRfcommStart` |
 | Lab TCP | Desktop `127.0.0.1:18766` same framing |
 | Client / demo | `wadhu-sms-client::framed::FramedClient` + demo “Framed TCP (BT lab)” |
-| Docs | [`apps/sms-gateway/docs/BLUETOOTH.md`](../../apps/sms-gateway/docs/BLUETOOTH.md) |
+| Docs | [`apps/wadhu-sms-gateway/docs/BLUETOOTH.md`](../../apps/wadhu-sms-gateway/docs/BLUETOOTH.md) |
 
 **Non-goals:** BLE GATT, Web Bluetooth, cloud/identity/billing.
 
@@ -39,7 +39,7 @@ flowchart LR
 **Android build tip:** pin the device with env prefix (not `export … cargo`):
 
 ```bash
-ANDROID_SERIAL=10BD9M1FRJ000B2 cargo sms-gateway-android-dev
+ANDROID_SERIAL=10BD9M1FRJ000B2 cargo wadhu-sms-gateway-android-dev
 ```
 
 ---

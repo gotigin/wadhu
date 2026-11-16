@@ -18,4 +18,4 @@ workspace: [`../docs/DEV.md`](../docs/DEV.md) § Consuming Wadhu from another wo
 
 | Crate | What |
 |---|---|
-| [`sms-client/`](sms-client/README.md) | HTTP helpers for SMS Gateway / SMS Relay `/v1` (native sync + wasm async). Demo: [`apps/sms-client-demo`](../apps/sms-client-demo) |
+| [`wadhu-sms-client/`](wadhu-sms-client/README.md) | HTTP helpers for SMS Gateway / SMS Relay `/v1` (native sync + wasm async). Demo: [`apps/wadhu-sms-client-demo`](../apps/wadhu-sms-client-demo) |

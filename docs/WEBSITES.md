@@ -44,4 +44,4 @@ Connect is **not** Firebase Hosting — run the Rust binary behind TLS.
 
 Auth / monetization: [`IDENTITY_AND_MONETIZATION_ALIGNMENT.md`](IDENTITY_AND_MONETIZATION_ALIGNMENT.md).
 Brand apps integrate Connect via [`apps/wadhu-connect/docs/INTEGRATOR.md`](../apps/wadhu-connect/docs/INTEGRATOR.md).
-SMS Gateway store paste: [`apps/sms-gateway/docs/PUBLISH_PLAY_STORE.md`](../apps/sms-gateway/docs/PUBLISH_PLAY_STORE.md).
+SMS Gateway store paste: [`apps/wadhu-sms-gateway/docs/PUBLISH_PLAY_STORE.md`](../apps/wadhu-sms-gateway/docs/PUBLISH_PLAY_STORE.md).

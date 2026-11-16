@@ -14,16 +14,16 @@
 # - tools/<app>-dev — thin cargo-alias shims, one per app, never shared.
 [workspace]
 members = [
-    "apps/sms-client-demo",
-    "tools/sms-client-demo-dev",
-    "crates/sms-client",
-    "apps/sms-gateway",
-    "apps/sms-relay",
+    "apps/wadhu-sms-client-demo",
+    "tools/wadhu-sms-client-demo-dev",
+    "crates/wadhu-sms-client",
+    "apps/wadhu-sms-gateway",
+    "apps/wadhu-sms-relay",
     "apps/wadhu-connect",
-    "tools/sms-gateway-dev",
-    "tools/sms-gateway-android-dev",
-    "tools/sms-gateway-windows-dev",
-    "tools/sms-relay-dev",
+    "tools/wadhu-sms-gateway-dev",
+    "tools/wadhu-sms-gateway-android-dev",
+    "tools/wadhu-sms-gateway-windows-dev",
+    "tools/wadhu-sms-relay-dev",
     "tools/wadhu-connect-dev",
     "sites/wadhu",
     "templates/app",
@@ -40,9 +40,6 @@ exclude = [
 ]
 resolver = "3"
 
-# Defaults every member inherits with `field.workspace = true`. A member may
-# still set its own value (e.g. its own `version`), since crates release
-# independently (docs/CRATES.md § Versioning).
 [workspace.package]
 edition = "2024"
 license = "MIT OR Apache-2.0"

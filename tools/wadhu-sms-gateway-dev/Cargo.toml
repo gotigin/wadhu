@@ -1,0 +1,9 @@
+[package]
+name = "wadhu-sms-gateway-dev"
+version = "0.1.0"
+edition.workspace = true
+publish = false
+
+[[bin]]
+name = "wadhu-sms-gateway-dev"
+path = "main.rs"

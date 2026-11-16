@@ -19,7 +19,7 @@ workspaces.
 
 | Path | What |
 |---|---|
-| [`apps/`](apps/README.md) | Independent apps and tools (package `wadhu-<app>`) — first: [`sms-gateway`](apps/sms-gateway/README.md) |
+| [`apps/`](apps/README.md) | Independent apps and tools (package `wadhu-<app>`) — first: [`sms-gateway`](apps/wadhu-sms-gateway/README.md) |
 | [`crates/`](crates/README.md) | Reusable, self-contained libraries (package `wadhu-<crate>`) |
 | [`sites/`](sites/README.md) | Makepad 2 fullpage sites |
 | [`tools/`](tools/README.md) | One `cargo <app>-dev` shim per app |

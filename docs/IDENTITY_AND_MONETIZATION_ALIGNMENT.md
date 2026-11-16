@@ -28,11 +28,11 @@ Wadhu for short-lived relay credentials. No permanent org secrets in APKs.
 
 | ChatGPT idea | Reality today |
 |--------------|---------------|
-| Independent SMS gateway | [`apps/sms-gateway`](../apps/sms-gateway) + [`crates/sms-client`](../crates/sms-client) |
+| Independent SMS gateway | [`apps/wadhu-sms-gateway`](../apps/wadhu-sms-gateway) + [`crates/wadhu-sms-client`](../crates/wadhu-sms-client) |
 | One job pipeline, multi-transport | Outbox + LAN HTTP + Classic RFCOMM + lab TCP framing |
-| LAN/BT free; cloud optional | This doctrine + [`BLUETOOTH.md`](../apps/sms-gateway/docs/BLUETOOTH.md) |
+| LAN/BT free; cloud optional | This doctrine + [`BLUETOOTH.md`](../apps/wadhu-sms-gateway/docs/BLUETOOTH.md) |
 | No shared core across brand apps | Vision §3 |
-| Relay for internet | [`apps/sms-relay`](../apps/sms-relay) (admin keys / pairing — **not** full org billing) |
+| Relay for internet | [`apps/wadhu-sms-relay`](../apps/wadhu-sms-relay) (admin keys / pairing — **not** full org billing) |
 
 ------------------------------------------------------------------------
 

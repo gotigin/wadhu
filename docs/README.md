@@ -11,7 +11,7 @@ part independent of its siblings**.
 | [`DEV.md`](DEV.md) | Developer how-to: layout, setup, commands, new app/crate, env and ids, icons, packaging, Makepad 2 (patches, agent notes), consuming Wadhu from another workspace, screenshots |
 | [`CRATES.md`](CRATES.md) | Rules for reusable crates: shape, independence, features, API, versioning, MSRV, tests, publishing |
 | [`DESIGN.md`](DESIGN.md) | Wadhu brand tokens (colours sampled from the logo), type, voice, icons |
-| [`LOCAL_SMS.md`](LOCAL_SMS.md) | Local SMS: **gateway (provider) vs client** roles, API/status contract; gateway app is [`apps/sms-gateway/`](../apps/sms-gateway/README.md) |
+| [`LOCAL_SMS.md`](LOCAL_SMS.md) | Local SMS: **gateway (provider) vs client** roles, API/status contract; gateway app is [`apps/wadhu-sms-gateway/`](../apps/wadhu-sms-gateway/README.md) |
 | [`IDENTITY_AND_MONETIZATION_ALIGNMENT.md`](IDENTITY_AND_MONETIZATION_ALIGNMENT.md) | Post-BT alignment: monetize relay/platform only; IdP/orgs staged after LAN+BT (not a same-day build) |
 | [`WEBSITES.md`](WEBSITES.md) | wadhu.com (one Hosting tree: Makepad SPA + legal) and connect.wadhu.com |
 | [`BRAND.md`](BRAND.md) | **Names:** Wadhu=brand, Gotigin=trademark, company=legal entity, products under Wadhu |

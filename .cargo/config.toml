@@ -15,31 +15,31 @@ template-app-android-dev = ["run", "-p", "template-app-android-dev", "--"]
 # Usage: cargo template-app-windows-dev
 template-app-windows-dev = ["run", "-p", "template-app-windows-dev", "--"]
 
-# SMS Gateway desktop live-dev (apps/sms-gateway, com.wadhu.smsgateway.debug).
-# Usage: cargo sms-gateway-dev
-sms-gateway-dev = ["run", "-p", "sms-gateway-dev", "--"]
+# SMS Gateway desktop live-dev (apps/wadhu-sms-gateway, com.wadhu.smsgateway.debug).
+# Usage: cargo wadhu-sms-gateway-dev
+wadhu-sms-gateway-dev = ["run", "-p", "wadhu-sms-gateway-dev", "--"]
 
-# SMS Gateway Android live-dev (apps/sms-gateway, com.wadhu.smsgateway.debug).
-# Usage: cargo sms-gateway-android-dev
-sms-gateway-android-dev = ["run", "-p", "sms-gateway-android-dev", "--"]
+# SMS Gateway Android live-dev (apps/wadhu-sms-gateway, com.wadhu.smsgateway.debug).
+# Usage: cargo wadhu-sms-gateway-android-dev
+wadhu-sms-gateway-android-dev = ["run", "-p", "wadhu-sms-gateway-android-dev", "--"]
 
-# SMS Gateway Windows package (apps/sms-gateway, com.wadhu.smsgateway.debug).
-# Usage: cargo sms-gateway-windows-dev
-sms-gateway-windows-dev = ["run", "-p", "sms-gateway-windows-dev", "--"]
+# SMS Gateway Windows package (apps/wadhu-sms-gateway, com.wadhu.smsgateway.debug).
+# Usage: cargo wadhu-sms-gateway-windows-dev
+wadhu-sms-gateway-windows-dev = ["run", "-p", "wadhu-sms-gateway-windows-dev", "--"]
 
-# SMS Relay headless server (apps/sms-relay).
-# Usage: cargo sms-relay-dev
+# SMS Relay headless server (apps/wadhu-sms-relay).
+# Usage: cargo wadhu-sms-relay-dev
 # Env: SMS_RELAY_BIND SMS_RELAY_DATA SMS_RELAY_ADMIN_TOKEN
-sms-relay-dev = ["run", "-p", "sms-relay-dev", "--"]
+wadhu-sms-relay-dev = ["run", "-p", "wadhu-sms-relay-dev", "--"]
 
 # Wadhu Connect (WhatsApp Cloud API bridge) — http://127.0.0.1:3847
 # Usage: cargo wadhu-connect-dev
 # Env: META_APP_ID META_APP_SECRET META_CONFIG_ID PUBLIC_ORIGIN …
 wadhu-connect-dev = ["run", "-p", "wadhu-connect-dev", "--"]
 
-# SMS Client Demo desktop live-dev (apps/sms-client-demo, com.wadhu.smsclientdemo.debug).
-# Usage: cargo sms-client-demo-dev — desktop only; library covers other platforms.
-sms-client-demo-dev = ["run", "-p", "sms-client-demo-dev", "--"]
+# SMS Client Demo desktop live-dev (apps/wadhu-sms-client-demo, com.wadhu.smsclientdemo.debug).
+# Usage: cargo wadhu-sms-client-demo-dev — desktop only; library covers other platforms.
+wadhu-sms-client-demo-dev = ["run", "-p", "wadhu-sms-client-demo-dev", "--"]
 
 # Cross-link the Windows GNU target from Arch (pacman -S mingw-w64-gcc).
 [target.x86_64-pc-windows-gnu]

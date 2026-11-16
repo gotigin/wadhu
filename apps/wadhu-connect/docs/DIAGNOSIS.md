@@ -41,11 +41,13 @@ No IDs or approval statuses invented.
 
 ## Implementation in this repo
 
-`/home/four/Gotigin/Meta` — Node server + Embedded Signup launcher with coexistence `featureType`, secure code exchange, webhook verify + signature check, connection persistence under `./data` (gitignored).
+[`apps/wadhu-connect`](../../wadhu-connect/README.md) — Rust Connect (Embedded Signup
+UI, server-side code exchange, webhook verify + signature check, persistence under
+`./data`). Production host: `https://connect.wadhu.com`.
 
 ## 2026-11-15 update — coexistence hard gate
 
 Embedded Signup with `whatsapp_business_app_onboarding` launches, but Meta rejects
 `+919967717702` with: partner app isn't set up yet to connect WhatsApp Business app
-numbers. Business verification is Approved; App Review is In review and still lists
-video documentation. Webhook URL verified via ngrok.
+numbers. Business verification is Approved; App Review still needs Allowed usage /
+videos. Webhook must be `https://connect.wadhu.com/webhook` once Connect is deployed.

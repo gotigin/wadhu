@@ -75,7 +75,7 @@ Killing relay or letting a cloud subscription expire **must not** break LAN or B
 ### Under the hood
 
 - Classic RFCOMM SPP UUID `00001101-0000-1000-8000-00805F9B34FB`
-- Length-prefixed JSON — see [`apps/sms-gateway/docs/BLUETOOTH.md`](../apps/sms-gateway/docs/BLUETOOTH.md)
+- Length-prefixed JSON — see [`apps/wadhu-sms-gateway/docs/BLUETOOTH.md`](../apps/wadhu-sms-gateway/docs/BLUETOOTH.md)
 - Desktop lab: TCP `:18766` with the same framing (integrators / CI only)
 
 ------------------------------------------------------------------------

@@ -1,7 +1,7 @@
     // Wadhu SMS Gateway: Classic RFCOMM SPP server for offline SMS jobs.
     // Inserted by scripts/apply-android-activity-bridge.sh — do not edit in vendor.
     // Marker: wadhuSmsBtPieceEnds
-    // SPP UUID 00001101-0000-1000-8000-00805F9B34FB — see apps/sms-gateway/docs/BLUETOOTH.md
+    // SPP UUID 00001101-0000-1000-8000-00805F9B34FB — see apps/wadhu-sms-gateway/docs/BLUETOOTH.md
 
     private static final java.util.UUID WADHU_SMS_SPP_UUID =
             java.util.UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");

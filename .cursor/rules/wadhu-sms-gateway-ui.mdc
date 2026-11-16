@@ -1,0 +1,33 @@
+---
+description: SMS Gateway operator UI — no cropped text, real padding
+globs: apps/wadhu-sms-gateway/**/*
+---
+
+# SMS Gateway UI (do not regress)
+
+Android-first operator shell. Cropped text and zero padding are **bugs**, not style.
+
+## Hard rules
+
+1. **Multi-word / dynamic body copy** uses shared `BodyCopy` / `Markdown` (`flow: Right{wrap: true}`, `selectable: false`). Stock `Label{width: Fill}` is for short chips only — long Label prose crops. Never put long Fit-width labels in a `flow: Right` row beside a badge/chip.
+2. **Page margins** live on an **inner** `SolidView` under `ScrollYView` (`padding: Inset{…}` ≥ 24 left/right). Do not rely on ScrollYView padding alone.
+3. **Cards** keep their own `padding: Inset{…}` ≥ 20–24 on all sides; section spacing ≥ 32–36.
+3b. **Always** write `padding: Inset{…}`, `margin: Inset{…}`, `align: Align{…}`. Bare `{left:…}` / `{y:…}` objects are **type-rejected at runtime** (log: `expected Inset, got object`) and the inset is silently zero — that is how “no whitespace” happens.
+4. **TextInput wells** must use the shared `FieldInput` (or equivalent): Fixed height ≥ 56, `padding: Inset{left/right ≥ 14, top/bottom ≥ 14}`, `flow: Right`, `max_lines: 1`. Do **not** use `height: Fit` + bare `{left:…}` padding — empty_text wraps/clips and inset is lost.
+5. **Buttons** Fixed height ≥ 52 with `padding: Inset{…}`; leave margin above primary actions so they are not glued to the field above.
+6. **Status chips** (Ready / On / Idle) stay short `width: Fit`. In a `flow: Right` row use **Fit key + Fill spacer + Fit chip** — never `Fill` then `Fit` (Fill starves the chip and clips it).
+7. After UI changes: screenshot under a private Xvfb (never `:0`) and confirm field text has clear inset and gaps between fields/buttons (`docs/DEV.md` § Look at the screen).
+
+## Intent
+
+Phones, tablets, and other Android OS devices with a SIM. Desktop is dry-run only.
+
+## Action-first (not a brochure)
+
+The shell must make the gateway *do* something visible:
+
+1. **Do Next** banner with the single current blocker (permission / SIM / send test / share).
+2. **Real listen URL** via `lan::listen_base_url` — never `http://<this-device-ip>:…`.
+3. **Share / copy** URL + API key + curl (`cx.share_text` / `copy_to_clipboard`).
+4. **Send a real SMS** above optional relay docs; live-update the test result from outbox status.
+5. Cut marketing paragraphs — status chips + actions, not clustered explanatory text.

@@ -1,16 +1,16 @@
 # Local SMS — Wadhu-wide doctrine
 
 > **Gateway (SIM execution device):**
-> [`apps/sms-gateway/`](../apps/sms-gateway/README.md)
-> ([brief](../apps/sms-gateway/docs/SMS_GATEWAY.md),
-> [OpenAPI](../apps/sms-gateway/docs/openapi-v1.yaml),
-> [Bluetooth](../apps/sms-gateway/docs/BLUETOOTH.md)).\
+> [`apps/wadhu-sms-gateway/`](../apps/wadhu-sms-gateway/README.md)
+> ([brief](../apps/wadhu-sms-gateway/docs/SMS_GATEWAY.md),
+> [OpenAPI](../apps/wadhu-sms-gateway/docs/openapi-v1.yaml),
+> [Bluetooth](../apps/wadhu-sms-gateway/docs/BLUETOOTH.md)).\
 > **Relay (optional remote plane):**
-> [`apps/sms-relay/`](../apps/sms-relay/README.md)
-> ([brief](../apps/sms-relay/docs/SMS_RELAY.md),
-> [self-host](../apps/sms-relay/docs/SELF_HOST.md),
-> [OpenAPI](../apps/sms-relay/docs/openapi-v1.yaml)).\
-> **Client helpers:** [`crates/sms-client/`](../crates/sms-client/README.md).\
+> [`apps/wadhu-sms-relay/`](../apps/wadhu-sms-relay/README.md)
+> ([brief](../apps/wadhu-sms-relay/docs/SMS_RELAY.md),
+> [self-host](../apps/wadhu-sms-relay/docs/SELF_HOST.md),
+> [OpenAPI](../apps/wadhu-sms-relay/docs/openapi-v1.yaml)).\
+> **Client helpers:** [`crates/wadhu-sms-client/`](../crates/wadhu-sms-client/README.md).\
 > **Research:**
 > [`reports/Local SMS gateway solutions.md`](../reports/Local SMS gateway solutions.md).\
 > **Independence:** [`WADHU_VISION_AND_PRINCIPLES.md`](WADHU_VISION_AND_PRINCIPLES.md) §3.
@@ -21,9 +21,9 @@
 
 | Role | Meaning | In Wadhu |
 |---|---|---|
-| **Gateway** | Android-first app (phones, tablets, other Android OS devices with a SIM). Owns the radio. Accepts jobs over **LAN**, **Bluetooth**, and optional **relay**. | [`apps/sms-gateway`](../apps/sms-gateway/README.md) |
-| **Relay** | Optional self-hosted remote plane. Device registry, client keys, internet `POST /v1/messages`, push to phones over outbound WebSocket. **Does not own a radio.** | [`apps/sms-relay`](../apps/sms-relay/README.md) |
-| **Client** | Any app that needs SMS — calls the gateway (LAN/BT) or the relay (internet). | Other Gotigin brands / third parties + [`crates/sms-client`](../crates/sms-client/README.md) + desktop demo [`apps/sms-client-demo`](../apps/sms-client-demo/README.md) |
+| **Gateway** | Android-first app (phones, tablets, other Android OS devices with a SIM). Owns the radio. Accepts jobs over **LAN**, **Bluetooth**, and optional **relay**. | [`apps/wadhu-sms-gateway`](../apps/wadhu-sms-gateway/README.md) |
+| **Relay** | Optional self-hosted remote plane. Device registry, client keys, internet `POST /v1/messages`, push to phones over outbound WebSocket. **Does not own a radio.** | [`apps/wadhu-sms-relay`](../apps/wadhu-sms-relay/README.md) |
+| **Client** | Any app that needs SMS — calls the gateway (LAN/BT) or the relay (internet). | Other Gotigin brands / third parties + [`crates/wadhu-sms-client`](../crates/wadhu-sms-client/README.md) + desktop demo [`apps/wadhu-sms-client-demo`](../apps/wadhu-sms-client-demo/README.md) |
 
 Local LAN/BT send **never** requires the relay. Killing the relay must not break local send.
 Hosted identity / org billing (when built) monetizes **relay/platform only** —

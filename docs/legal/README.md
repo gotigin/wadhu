@@ -26,7 +26,7 @@ these files) and serves `/privacy`, `/terms`, `/data-deletion`, `/support`,
 `/about`.
 
 SMS Gateway store paste docs:
-[`apps/sms-gateway/docs/PLAY_STORE_LISTING.md`](../../apps/sms-gateway/docs/PLAY_STORE_LISTING.md),
-[`DATA_SAFETY.md`](../../apps/sms-gateway/docs/DATA_SAFETY.md),
-[`PUBLISH_PLAY_STORE.md`](../../apps/sms-gateway/docs/PUBLISH_PLAY_STORE.md),
-[`PUBLISH_WINDOWS_STORE.md`](../../apps/sms-gateway/docs/PUBLISH_WINDOWS_STORE.md).
+[`apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md`](../../apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md),
+[`DATA_SAFETY.md`](../../apps/wadhu-sms-gateway/docs/DATA_SAFETY.md),
+[`PUBLISH_PLAY_STORE.md`](../../apps/wadhu-sms-gateway/docs/PUBLISH_PLAY_STORE.md),
+[`PUBLISH_WINDOWS_STORE.md`](../../apps/wadhu-sms-gateway/docs/PUBLISH_WINDOWS_STORE.md).

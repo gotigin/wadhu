@@ -76,3 +76,4 @@ Desktop.ini
 **/coverage/
 **/*.profraw
 **/flamegraph.svg
+.tmp/

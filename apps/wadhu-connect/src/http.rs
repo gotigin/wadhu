@@ -120,8 +120,8 @@ fn route(
             "data_deletion": "/data-deletion",
             "support": "/support",
             "about": "/about",
-            "docs": "https://wadhu.com/docs/connect",
-            "integrate": "https://wadhu.com — see brand integrator guide"
+            "docs": "https://wadhu.com",
+            "integrate": "https://wadhu.com — see apps/wadhu-connect/docs/INTEGRATOR.md"
         }));
     }
     // Same docs/legal/*.md the site presents — formatted HTML, not a dump.
