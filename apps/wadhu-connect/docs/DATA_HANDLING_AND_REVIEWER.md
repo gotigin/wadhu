@@ -18,21 +18,17 @@ Single source for Data handling + Reviewer instructions.
 | Test phone | `+1 555-156-0957` · ID `1408752645660951` · WABA `1324845626382929` |
 | Allowlisted recipient | `919967717702` |
 
-Until `wadhu.com` / `connect.wadhu.com` DNS are live, local review may use a
-tunnel pointed at `cargo wadhu-connect-dev` — replace with production URLs
-before submit.
-
 ---
 
 ## Data handling
 
 | Field | Answer |
 | --- | --- |
-| Data processors / service providers? | No |
-| Controller | GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED |
-| Country | India |
-| National security disclosures (12 months)? | No |
-| Policies for authority requests | None of the above |
+| Data processors / service providers? | **No** |
+| Controller (responsible entity) | **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** |
+| Country | **India** |
+| National security disclosures (12 months)? | **No** |
+| Policies for authority requests | **None of the above** |
 
 ---
 
@@ -44,31 +40,56 @@ before submit.
 | Facebook Login integrated? | **Yes** (Login for Business / Embedded Signup) |
 | Access / gift / geo | *(leave empty)* |
 
+### Site URL
+
+`https://wadhu.com/`
+
+### fblogin-web-1
+
+**Yes** (Facebook Login for Business / Embedded Signup)
+
+### accesscode-web-1
+
+```
+No payment or membership required. Free to open and test at https://connect.wadhu.com/onboard. Use a Facebook account that is a developer/tester/admin on this app (or a Facebook Test User with a role).
+```
+
+### accesscode-web-2
+
+```
+N/A — web app, not distributed via app stores.
+```
+
+### geo-web-5
+
+```
+No geo-blocking. Reviewers worldwide can open https://connect.wadhu.com/onboard.
+```
+
+### documents-web-1 (optional)
+
+Upload from `~/Downloads/`: `business_management.mp4`, `whatsapp_business_messaging.mp4`, `whatsapp_business_management.mp4` (same as Allowed usage).
+
 ### Paste for instructions-web-2
 
 ```
 Brand site: https://wadhu.com
-Connect product UI: https://connect.wadhu.com
+Connect UI: https://connect.wadhu.com/onboard
 Privacy: https://wadhu.com/privacy
 Data deletion: https://wadhu.com/data-deletion
 Terms: https://wadhu.com/terms
 Support: https://wadhu.com/support
 Contact: mearaj@gotigin.com
 
-Wadhu Connect (GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED) is a Tech Provider
-connector: businesses grant access to their WhatsApp Business Account via
-Facebook Login for Business / Embedded Signup. Permissions under review:
-whatsapp_business_messaging, whatsapp_business_management, public_profile.
-We do not use consumer Facebook Login APIs (user_friends, user_birthday, etc.).
+Wadhu Connect (GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED) is a WhatsApp Cloud API Tech Provider connector. Businesses grant access to their WhatsApp Business Account via Facebook Login for Business / Embedded Signup. Permissions under review: business_management, whatsapp_business_messaging, whatsapp_business_management, public_profile. We do not use consumer Facebook Login APIs (user_friends, user_birthday, etc.).
 
 How to test:
-1. Open https://connect.wadhu.com/
-2. Click “Launch Embedded Signup (coexistence)”.
-3. Complete Facebook Login for Business; keep an existing WhatsApp Business app number if prompted.
+1. Open https://connect.wadhu.com/onboard
+2. Click “Launch Embedded Signup”.
+3. Complete Facebook Login for Business; keep an existing WhatsApp Business app number if prompted (coexistence).
 4. Click “Refresh status” and confirm WABA / phone IDs.
-5. Send a test message to allowlisted recipient 919967717702.
+5. Send a test message to allowlisted recipient 919967717702 (or another app-role tester).
 6. Confirm delivery on WhatsApp.
 
-Test Cloud API number: +1 555-156-0957 (1408752645660951), WABA 1324845626382929.
-Screencasts of messaging and management flows are attached.
+Own-business Cloud API: +91 75740 67702 (Phone Number ID 1436067426258883), WABA 1897764578101148. Screencasts attached under Allowed usage / documents.
 ```

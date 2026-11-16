@@ -54,7 +54,8 @@ Brands / products (do not call a brand a product or vice versa):
 | --- | --- |
 | Business / legal email | mearaj@gotigin.com |
 | Meta login email (historical) | mearajbhagad@gmail.com |
-| Business WhatsApp | +91 99677 17702 |
+| Business WhatsApp (Cloud API / Wadhu Connect) | +91 75740 67702 |
+| Personal mobile (do not use for Cloud API) | +91 99677 17702 |
 
 ## Meta portfolio
 

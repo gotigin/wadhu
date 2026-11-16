@@ -23,16 +23,53 @@ templates, and processes webhooks.
 
 ## whatsapp_business_messaging
 
-We use this permission to send customer-facing WhatsApp messages on behalf of
-onboarded Messaging accounts: session replies within the customer care window,
-and approved template messages for notifications. Messages are created via
-Wadhu Connect / Graph API and delivered to the end user’s WhatsApp client.
+We use whatsapp_business_messaging to send and receive customer-facing WhatsApp
+messages for businesses onboarded to Cloud API through Wadhu Connect. After
+Embedded Signup, Connect calls Graph API to deliver session replies inside the
+24-hour customer care window and approved template messages for notifications
+(order updates, alerts). Inbound messages arrive on our webhook
+(https://connect.wadhu.com/webhook) so the business’s software can respond.
+
+This adds value because the business keeps their WhatsApp number while their
+own apps (or Wadhu Connect’s test UI) can message customers reliably over Cloud
+API instead of manual phone-only chat.
+
+It is necessary: without this permission Wadhu Connect cannot send or receive
+WhatsApp messages for onboarded Messaging accounts, which is the core product
+function of this Tech Provider bridge.
 
 ## whatsapp_business_management
 
-We use this permission to complete Embedded Signup handoff, read WABA / phone
-number IDs, subscribe webhooks, and create/manage WhatsApp message templates for
-onboarded accounts.
+We use whatsapp_business_management to complete WhatsApp Cloud API onboarding
+and operate Messaging accounts connected through Wadhu Connect: read WABA and
+phone number IDs after Embedded Signup, subscribe the app to webhooks
+(https://connect.wadhu.com/webhook), and create or manage WhatsApp message
+templates for the onboarded business.
+
+This adds value by letting the business finish setup once and then manage
+templates and account wiring from their software / Connect, without repeating
+manual steps in WhatsApp Manager for every change.
+
+It is necessary: without this permission Connect cannot finish handoff, keep
+webhooks subscribed, or manage templates for onboarded accounts — required for
+a Tech Provider WhatsApp bridge.
+
+## business_management
+
+We use business_management with Facebook Login for Business / Embedded Signup so
+a client business can grant Wadhu Connect access to their Meta Business
+portfolio and related assets. After login we read the granted business identity
+and asset links needed to finish WhatsApp Cloud API onboarding (associate the
+client business with the WABA / phone handoff). We do not use it for ads, Pages
+publishing, or consumer Facebook profile features.
+
+This adds value because the person onboards in one guided flow: grant business
+access, keep their number, and connect Cloud API to their software without
+manual Business Manager wiring.
+
+It is necessary for Tech Provider client-business onboarding: without
+business_management Connect cannot identify the granting business portfolio and
+complete asset association for WhatsApp Embedded Signup.
 
 ## Coexistence
 

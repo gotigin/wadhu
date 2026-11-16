@@ -1,6 +1,20 @@
 # Allowed usage — what’s left before Next unlocks
 
-From your screenshot (messaging video done):
+## 0) `business_management` — 1 API test call required
+
+Meta tracks this from **Review → Testing** (not random curl alone).
+
+1. On the Allowed usage form: **Save** description + `business_management.mp4` + Agree.
+2. Sidebar **Review → Testing** (or the “go to Testing” link on that form).
+3. **Generate token** / Graph API Explorer for this app, include permission
+   `business_management`.
+4. Run one call, e.g.  
+   `GET https://graph.facebook.com/v22.0/me/businesses`  
+   or  
+   `GET https://graph.facebook.com/v22.0/1076913081550690?fields=id,name`
+5. Return to Allowed usage — counter can take minutes–**24h** to show `1 of 1`.
+
+Do **not** wait on the form with `0 of 1` forever; save and leave after the call.
 
 ## 1) `whatsapp_business_messaging` — only API test calls left
 

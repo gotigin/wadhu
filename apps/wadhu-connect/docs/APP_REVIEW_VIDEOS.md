@@ -28,14 +28,15 @@ That proves the permission is used to manage WABA, phones, templates, webhooks.
 
 ## What we already prepared
 
-Placeholder demos (slides → MP4) are in `assets/app-review/`:
+Rebuilt demos (live Connect UI + Graph panels) in `assets/app-review/`:
 
-- `whatsapp_business_messaging.mp4`
-- `whatsapp_business_management.mp4`
+- `business_management.mp4` — ES / Login for Business grant → why Business Manager API
+- `whatsapp_business_messaging.mp4` — onboard UI → send UI → Graph send panel
+- `whatsapp_business_management.mp4` — ES UI → WABA/phone IDs → templates/webhooks
 
-Also copied to `~/Downloads/` for easy upload. Prefer replacing these with a
-real phone + browser recording when you can (OBS / phone screen record). Meta
-accepts API Setup cURL send recordings if the phone capture is hard.
+Uses **Wadhu Connect** branding and production IDs (`+91 75740 67702`,
+WABA `1897764578101148`). Copies also under `~/Downloads/`. Prefer a real
+phone + browser recording later if Meta asks.
 
 ## Upload where
 

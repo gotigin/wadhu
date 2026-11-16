@@ -1,42 +1,58 @@
 # Deploy Wadhu Connect → connect.wadhu.com
 
-## Binary
+## Production (Google Cloud Run)
+
+Project **`wadhu-ac8dc`**, region **`us-central1`** (domain mapping + fullest
+Cloud Run feature set). One service serves onboard UI + API + webhook.
 
 ```bash
-cargo build -p wadhu-connect --release
-# binary: target/release/wadhu-connect
+# Needs apps/wadhu-connect/.env with Meta credentials (never commit).
+./apps/wadhu-connect/scripts/deploy-cloudrun.sh
 ```
 
-Env (systemd / container):
+That builds the Docker image, pushes to Artifact Registry, stores secrets in
+Secret Manager, and deploys service `wadhu-connect`.
+
+Temporary URL (always works before DNS):
+
+`https://wadhu-connect-349667335886.us-central1.run.app`
+
+### Custom domain
 
 ```bash
-META_APP_ID=…
-META_APP_SECRET=…
-META_CONFIG_ID=…
-WEBHOOK_VERIFY_TOKEN=…
-PUBLIC_ORIGIN=https://connect.wadhu.com
-HOST=0.0.0.0
-PORT=3847
-DATA_DIR=/var/lib/wadhu-connect
-WADHU_CONNECT_ROOT=/opt/wadhu-connect   # directory containing public/
+gcloud beta run domain-mappings create \
+  --service=wadhu-connect \
+  --domain=connect.wadhu.com \
+  --region=us-central1
 ```
 
-Copy `apps/wadhu-connect/public/` next to the configured root.
+Then add the DNS records Google prints (usually a CNAME / A for
+`connect.wadhu.com`). After DNS propagates:
 
-Put nginx/caddy TLS in front (or platform HTTPS) for `connect.wadhu.com`.
+- Meta webhook: `https://connect.wadhu.com/webhook`
+- Onboard: `https://connect.wadhu.com/onboard`
 
-## DNS
+### Env (Cloud Run)
 
-| Name | Target |
+| Var | Notes |
 | --- | --- |
-| `connect.wadhu.com` | Connect host (A/AAAA or CNAME) |
-| `wadhu.com` | Firebase Hosting |
+| `PUBLIC_ORIGIN` | `https://connect.wadhu.com` |
+| `HOST` | `0.0.0.0` |
+| `PORT` | Set by Cloud Run — do not override |
+| `META_*` / `WEBHOOK_VERIFY_TOKEN` | Secret Manager |
+| `DATA_DIR` | `/tmp/...` (ephemeral until a volume is added) |
 
-## Brand site
+## Local
+
+```bash
+cargo wadhu-connect-dev
+# → http://127.0.0.1:3847/onboard
+```
+
+## Brand site (separate)
 
 ```bash
 ./sites/wadhu/scripts/deploy-firebase.sh
 ```
 
-One Hosting tree (Khaynjo pattern): Makepad SPA at `/` + `/privacy` etc. +
-Analytics. Project `wadhu-ac8dc` (`sites/wadhu/.firebaserc`).
+`wadhu.com` = Firebase Hosting (Makepad SPA + legal). Not the Connect binary.

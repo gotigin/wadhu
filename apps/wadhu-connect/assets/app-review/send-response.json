@@ -1,1 +1,1 @@
-{"messaging_product":"whatsapp","contacts":[{"input":"919967717702","wa_id":"919967717702"}],"messages":[{"id":"wamid.HBgMOTE5OTY3NzE3NzAyFQIAERgSQzNDMTE5QUUwMTJCRUIxMjVEAA==","message_status":"accepted"}]}
+{"error":{"message":"Authentication Error","code":190,"type":"OAuthException","fbtrace_id":"A31LPjTOUxl6fwgGrFxPkaA"}}

@@ -93,6 +93,17 @@ fn route(
     if path == "/webhook" {
         return webhook(app, method, query, headers, body);
     }
+    // Meta Facebook Login → Deauthorize callback (POST signed_request).
+    if path == "/deauthorize" || path == "/deauthorize/" {
+        if method.eq_ignore_ascii_case("POST") {
+            app.store.log_session(json!({
+                "event": "facebook_login_deauthorize",
+                "bodyLen": body.len(),
+            }));
+            return json_ok(json!({ "ok": true }));
+        }
+        return json_status(405, json!({ "ok": false, "error": "POST only" }));
+    }
     if path == "/v1/health" {
         return json_ok(json!({
             "ok": true,
