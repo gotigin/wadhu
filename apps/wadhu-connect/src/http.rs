@@ -13,6 +13,9 @@ use sha2::Sha256;
 
 use crate::config::Config;
 use crate::meta::MetaClient;
+use crate::privacy_policy::{
+    self, ABOUT_MD, DATA_DELETION_MD, PRIVACY_MD, SUPPORT_MD, TERMS_MD,
+};
 use crate::store::Store;
 
 type HmacSha256 = Hmac<Sha256>;
@@ -112,9 +115,90 @@ fn route(
                 "/api/send-test",
                 "/webhook"
             ],
+            "privacy": "/privacy",
+            "terms": "/terms",
+            "data_deletion": "/data-deletion",
+            "support": "/support",
+            "about": "/about",
             "docs": "https://wadhu.com/docs/connect",
             "integrate": "https://wadhu.com — see brand integrator guide"
         }));
+    }
+    // Same docs/legal/*.md the site presents — formatted HTML, not a dump.
+    if method.eq_ignore_ascii_case("GET") {
+        match path {
+            "/privacy" | "/privacy/" => {
+                return (
+                    200,
+                    "text/html; charset=utf-8",
+                    privacy_policy::privacy_html().into_bytes(),
+                );
+            }
+            "/terms" | "/terms/" => {
+                return (
+                    200,
+                    "text/html; charset=utf-8",
+                    privacy_policy::terms_html().into_bytes(),
+                );
+            }
+            "/data-deletion" | "/data-deletion/" => {
+                return (
+                    200,
+                    "text/html; charset=utf-8",
+                    privacy_policy::data_deletion_html().into_bytes(),
+                );
+            }
+            "/support" | "/support/" => {
+                return (
+                    200,
+                    "text/html; charset=utf-8",
+                    privacy_policy::support_html().into_bytes(),
+                );
+            }
+            "/about" | "/about/" => {
+                return (
+                    200,
+                    "text/html; charset=utf-8",
+                    privacy_policy::about_html().into_bytes(),
+                );
+            }
+            "/privacy.md" => {
+                return (
+                    200,
+                    "text/markdown; charset=utf-8",
+                    PRIVACY_MD.as_bytes().to_vec(),
+                );
+            }
+            "/terms.md" => {
+                return (
+                    200,
+                    "text/markdown; charset=utf-8",
+                    TERMS_MD.as_bytes().to_vec(),
+                );
+            }
+            "/data-deletion.md" => {
+                return (
+                    200,
+                    "text/markdown; charset=utf-8",
+                    DATA_DELETION_MD.as_bytes().to_vec(),
+                );
+            }
+            "/support.md" => {
+                return (
+                    200,
+                    "text/markdown; charset=utf-8",
+                    SUPPORT_MD.as_bytes().to_vec(),
+                );
+            }
+            "/about.md" => {
+                return (
+                    200,
+                    "text/markdown; charset=utf-8",
+                    ABOUT_MD.as_bytes().to_vec(),
+                );
+            }
+            _ => {}
+        }
     }
     static_file(&app.cfg.public_dir, path)
 }
@@ -456,16 +540,20 @@ fn public_connection(app: &App) -> Value {
         "finishEvent": c.get("finishEvent"),
         "updatedAt": c.get("updatedAt"),
         "hasBusinessToken": c.get("businessToken").and_then(|t| t.as_str()).map(|s| !s.is_empty()).unwrap_or(false),
-        "displayPhoneNumber": c.get("displayPhoneNumber"),
+        // Never expose the business phone on the public status card.
+        "hasDisplayPhone": c
+            .get("displayPhoneNumber")
+            .and_then(|v| v.as_str())
+            .map(|s| !s.is_empty())
+            .unwrap_or(false),
         "verifiedName": c.get("verifiedName"),
     })
 }
 
 fn static_file(public_dir: &Path, path: &str) -> (u16, &'static str, Vec<u8>) {
-    let rel = if path == "/" {
-        "index.html"
-    } else {
-        path.trim_start_matches('/')
+    let rel = match path {
+        "/" | "/onboard" | "/onboard/" => "index.html",
+        other => other.trim_start_matches('/'),
     };
     if rel.contains("..") {
         return (400, "text/plain", b"Bad path".to_vec());

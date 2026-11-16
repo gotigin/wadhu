@@ -1,34 +1,37 @@
 # Wadhu Connect — status
 
-Updated: 2026-11-15  
-Home: `apps/wadhu-connect` (Rust). Legacy Node: `apps/gotigin-connect`.
-
-## Hosts
-
 | | |
 | --- | --- |
-| Brand / privacy | https://wadhu.com · https://wadhu.com/privacy |
-| Connect | https://connect.wadhu.com |
-| Local | `cargo wadhu-connect-dev` → http://127.0.0.1:3847 |
+| Product | **Wadhu Connect** (under brand **Wadhu**) |
+| Folder | `apps/wadhu-connect` only |
+| Company | GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED |
+| Trademark | Gotigin |
+| Brand site | https://wadhu.com |
+| Privacy | https://wadhu.com/privacy ← `docs/legal/PRIVACY.md` |
+| Data deletion | https://wadhu.com/data-deletion |
+| Connect host | https://connect.wadhu.com |
+| Local | `cargo wadhu-connect-dev` → `:3847` |
+| Naming | [`docs/BRAND.md`](../../../docs/BRAND.md) |
 
-## Meta App Review
+There is **no** `apps/gotigin-connect`. Meta display name must be **Wadhu Connect**.
 
-Paste answers: [`DATA_HANDLING_AND_REVIEWER.md`](DATA_HANDLING_AND_REVIEWER.md)
+## Meta checklist (operator)
 
-**Do in Meta dashboard (manual):**
+1. App settings → Basic: display name **Wadhu Connect**; Site URL → `https://wadhu.com`
+2. Privacy → `https://wadhu.com/privacy`; data deletion → `https://wadhu.com/data-deletion`
+3. Webhook → `https://connect.wadhu.com/webhook`
+4. Allowed usage / App Review:
+   [`ALLOWED_USAGE_CHECKLIST.md`](ALLOWED_USAGE_CHECKLIST.md),
+   [`APP_REVIEW_ANSWERS.md`](APP_REVIEW_ANSWERS.md),
+   [`DATA_HANDLING_AND_REVIEWER.md`](DATA_HANDLING_AND_REVIEWER.md)
 
-1. App settings → Basic → rename display name to **Wadhu Connect**
-2. Privacy + data deletion → `https://wadhu.com/privacy` (after Firebase deploy)
-3. Website Site URL → `https://wadhu.com`
-4. WhatsApp webhook → `https://connect.wadhu.com/webhook` (when TLS host is up)
-5. Complete Allowed usage + Data handling + Reviewer instructions from the paste doc
-6. Submit submission `1606022664070459`
+## Docs in this folder
 
-Until DNS is live, temporary tunnels may point at local `:3847` for webhook/ES only — never use khaynjo privacy as the Wadhu product URL.
-
-## IDs (unchanged)
-
-- App `1606021637403895`
-- Config `1895670411865695`
-- Test phone `+1 555-156-0957` / `1408752645660951`
-- WABA `1324845626382929`
+| File | Role |
+| --- | --- |
+| `INTEGRATOR.md` | Brand-app integration |
+| `DEPLOY.md` | Hosting connect.wadhu.com |
+| `DATA_HANDLING_AND_REVIEWER.md` | Meta form paste |
+| `APP_REVIEW_*.md` | Permission text + video notes |
+| `ALLOWED_USAGE_CHECKLIST.md` | What’s left before Next |
+| `PRIVACY.md` / `TERMS.md` | Pointers → `docs/legal/` |

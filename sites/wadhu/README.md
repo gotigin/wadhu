@@ -1,13 +1,25 @@
 # wadhu.com — Makepad 2 brand site
 
-Package `wadhu-site`. Legal HTML under `static/` deploys with Firebase even
-before wasm is published.
+Package `wadhu-site`. One **scrolling** page (`ScrollYView`), not a slide deck —
+wheel / touch scroll through hero → products → Connect → about → close.
+
+Text selection is **page-level** (`selection_root` + `select_from_gaps` on
+`page`) via the workspace Makepad `text_selection` patch — drag across
+blocks, Ctrl/Cmd+A, Copy, right-click / long-press menu. Do not re-add
+select per label.
+
+Legal pages come from [`docs/legal/`](../../docs/legal/README.md) (privacy,
+terms, data-deletion, support, about). Connect embeds the same files. Present
+with `./sites/wadhu/scripts/present-legal.sh` (also run by deploy). Do not
+hand-edit `static/privacy/` (or other generated legal HTML).
 
 ## Run
 
 ```bash
 ./sites/wadhu/scripts/run-desktop.sh   # native
-./sites/wadhu/scripts/run-web.sh       # wasm → :8020
+./sites/wadhu/scripts/run-web.sh       # Makepad wasm + legal routes → :8020
+# Builds wasm, presents docs/legal, overlays /privacy etc. WITHOUT replacing
+# the Makepad index.html (that bug made the home look like a squeezed legal page).
 ```
 
 ## Deploy
@@ -25,7 +37,9 @@ custom domain **wadhu.com**.
 | Path | What |
 | --- | --- |
 | `/` | Brand story (static shell and/or Makepad) |
-| `/privacy` | Privacy policy |
-| `/terms` | Terms |
-| `/about` | Etymology + company |
+| `/privacy` | Privacy — `docs/legal/PRIVACY.md` (Play / Store / Meta) |
+| `/terms` | Terms — `docs/legal/TERMS.md` |
+| `/data-deletion` | Data deletion — Play / Meta instructions |
+| `/support` | Support contact |
+| `/about` | Company + etymology — `docs/legal/ABOUT.md` |
 | connect.wadhu.com | Wadhu Connect API / ES UI (separate host) |

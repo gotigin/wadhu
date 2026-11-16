@@ -21,3 +21,7 @@ Non-negotiables:
 6. Before finishing: `cargo build --workspace --all-targets`,
    `cargo test --workspace`, the independence check, and for UI changes a
    screenshot on a private Xvfb (never `:0`).
+7. **Warnings are errors in practice:** fix them on every platform we build
+   for (Linux, Windows, Android lib, wasm). Never `#[allow]` / suppress to
+   hide them. Run `./scripts/check-warnings.sh`. Canonical:
+   `docs/WARNINGS.md`.

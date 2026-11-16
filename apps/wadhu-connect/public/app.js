@@ -5,13 +5,81 @@ const launchBtn = document.getElementById('launch');
 const refreshBtn = document.getElementById('refresh');
 const sendForm = document.getElementById('send-form');
 const sendResult = document.getElementById('send-result');
+const pathLabel = document.getElementById('path-label');
 
 let config = null;
 let lastSession = null;
 
+/** Never paint phone numbers or tokens into the on-page dumps. */
+function redact(value) {
+  const json = JSON.parse(JSON.stringify(value ?? null));
+  const phoneKeys = new Set([
+    'displayPhoneNumber',
+    'phoneE164',
+    'phone_number',
+    'phoneNumber',
+    'to',
+    'wa_id',
+    'recipient',
+  ]);
+  const secretKeys = new Set([
+    'businessToken',
+    'accessToken',
+    'token',
+    'code',
+    'appSecret',
+  ]);
+  const walk = (node) => {
+    if (!node || typeof node !== 'object') return;
+    if (Array.isArray(node)) {
+      node.forEach(walk);
+      return;
+    }
+    for (const [k, v] of Object.entries(node)) {
+      if (phoneKeys.has(k) && v != null && v !== '') {
+        node[k] = '[redacted]';
+      } else if (secretKeys.has(k) && v != null && v !== '') {
+        node[k] = '[redacted]';
+      } else if (typeof v === 'string' && /^\+?\d{8,15}$/.test(v.replace(/[\s-]/g, ''))) {
+        node[k] = '[redacted]';
+      } else {
+        walk(v);
+      }
+    }
+  };
+  walk(json);
+  return json;
+}
+
+function showStatus(value) {
+  statusEl.textContent = JSON.stringify(redact(value), null, 2);
+}
+
 function log(label, value) {
-  const line = `[${new Date().toISOString()}] ${label}\n${typeof value === 'string' ? value : JSON.stringify(value, null, 2)}\n\n`;
+  const line = `[${new Date().toISOString()}] ${label}\n${
+    typeof value === 'string' ? value : JSON.stringify(redact(value), null, 2)
+  }\n\n`;
   logEl.textContent = line + logEl.textContent;
+}
+
+function setPathLabel() {
+  if (!pathLabel) return;
+  const host = location.host || 'connect.wadhu.com';
+  const path = location.pathname === '/' ? '/onboard' : location.pathname;
+  pathLabel.textContent = `${host}${path}`;
+  // Keep the address bar on /onboard when opened at /
+  if (location.pathname === '/' || location.pathname === '') {
+    history.replaceState(null, '', '/onboard');
+    pathLabel.textContent = `${host}/onboard`;
+  }
+  const back = document.getElementById('back-wadhu');
+  if (back) {
+    if (location.hostname === '127.0.0.1' || location.hostname === 'localhost') {
+      back.href = `${location.protocol}//${location.hostname}:8020/`;
+    } else {
+      back.href = 'https://wadhu.com/';
+    }
+  }
 }
 
 async function api(path, options) {
@@ -25,22 +93,25 @@ async function api(path, options) {
 
 async function refreshStatus() {
   const { json } = await api('/api/status');
-  statusEl.textContent = JSON.stringify(json, null, 2);
+  showStatus(json);
 }
 
 async function init() {
+  setPathLabel();
+  document.title = 'Wadhu Connect · Onboard';
+
   const { json } = await api('/api/config');
   config = json;
-  statusEl.textContent = JSON.stringify(json, null, 2);
+  showStatus(json);
 
   if (!json.ready) {
-    readyMsg.textContent = `Server needs ${json.missing.join(', ')} in .env before launch.`;
+    readyMsg.textContent = `Server needs ${(json.missing || []).join(', ')} in .env before launch.`;
     launchBtn.disabled = true;
     return;
   }
 
   readyMsg.textContent =
-    'SDK will launch coexistence Embedded Signup (featureType=whatsapp_business_app_onboarding).';
+    'Ready. Launch opens Meta Embedded Signup (coexistence / Business app number).';
   launchBtn.disabled = false;
 
   window.fbAsyncInit = function fbAsyncInit() {
@@ -52,7 +123,6 @@ async function init() {
     });
   };
 
-  // If SDK already loaded before this assignment, init now.
   if (window.FB) window.fbAsyncInit();
 }
 
@@ -82,7 +152,7 @@ async function completeOnboarding(code) {
   };
   log('Exchanging code (server-side)', {
     ...payload,
-    code: '[redacted in UI log length]',
+    code: '[redacted]',
     codeLength: code?.length,
   });
   const { ok, json } = await api('/api/complete', {
@@ -97,8 +167,6 @@ function launchWhatsAppSignup() {
   if (!config?.configId) return;
   window.FB.login(
     (response) => {
-      // Never print full auth payloads with tokens/codes to the visible page long-term;
-      // show only success/failure shape here.
       if (response?.authResponse?.code) {
         log('FB.login authResponse received', { hasCode: true });
         completeOnboarding(response.authResponse.code);
@@ -136,7 +204,7 @@ sendForm.addEventListener('submit', async (e) => {
     method: 'POST',
     body: JSON.stringify(body),
   });
-  sendResult.textContent = JSON.stringify(json, null, 2);
+  sendResult.textContent = JSON.stringify(redact(json), null, 2);
 });
 
 init().catch((err) => {

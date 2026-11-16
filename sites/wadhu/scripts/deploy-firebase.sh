@@ -6,11 +6,14 @@
 #   ./sites/wadhu/scripts/deploy-firebase.sh
 #   ./sites/wadhu/scripts/deploy-firebase.sh --dry-run
 #   ./sites/wadhu/scripts/deploy-firebase.sh --with-wasm   # if wadhu-site wasm built
+#
+# Always regenerates legal pages from docs/legal/*.md (do not hand-edit HTML).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
 SITE="$ROOT/sites/wadhu"
 OUT="$SITE/public"
+LEGAL="$ROOT/docs/legal"
 DRY=0
 WITH_WASM=0
 
@@ -30,10 +33,12 @@ if ! command -v firebase >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "1/2 Stage $OUT from static/ (+ optional Makepad wasm)"
+echo "1/3 Present docs/legal → formatted HTML in static/"
+"$SITE/scripts/present-legal.sh"
+
+echo "2/3 Stage $OUT"
 rm -rf "$OUT"
 mkdir -p "$OUT"
-rsync -a "$SITE/static/" "$OUT/"
 
 if [[ "$WITH_WASM" -eq 1 ]]; then
   WASM_PKG="$ROOT/target/makepad-wasm-app/release/wadhu-site"
@@ -46,21 +51,41 @@ if [[ "$WITH_WASM" -eq 1 ]]; then
     )
   fi
   if [[ -f "$WASM_PKG/index.html" ]]; then
-    # Keep legal routes from static/; wasm becomes the interactive home when present.
     rsync -a "$WASM_PKG/" "$OUT/"
-    rsync -a "$SITE/static/privacy/" "$OUT/privacy/"
-    rsync -a "$SITE/static/terms/" "$OUT/terms/"
-    rsync -a "$SITE/static/about/" "$OUT/about/"
-    rsync -a "$SITE/static/css/" "$OUT/css/"
-    # Prefer static shell index if wasm index is only a canvas stub without legal links —
-    # when both exist, keep wasm index and ensure /privacy still works.
-    echo "Staged Makepad wasm package."
+    # Legal beside Makepad home — never replace index.html with static shell.
+    "$SITE/scripts/overlay-legal-onto-pkg.sh" "$OUT"
+    echo "Staged Makepad wasm + legal routes."
   else
     echo "warn: wasm package missing — deploying static shell only" >&2
+    rsync -a "$SITE/static/" "$OUT/"
   fi
+else
+  # Static-only deploy (no canvas): wide site.css home + legal pages.
+  rsync -a "$SITE/static/" "$OUT/"
 fi
 
-echo "2/2 Deploy Firebase Hosting → wadhu.com (project from .firebaserc)"
+for need in privacy terms data-deletion support about; do
+  if [[ ! -f "$OUT/$need/index.html" ]]; then
+    echo "error: missing /$need after present-legal" >&2
+    exit 1
+  fi
+done
+if ! grep -q "Wadhu privacy policy" "$OUT/privacy/index.html"; then
+  echo "error: /privacy not generated from docs/legal/PRIVACY.md" >&2
+  exit 1
+fi
+if ! grep -q "data deletion" "$OUT/data-deletion/index.html"; then
+  echo "error: /data-deletion not generated from docs/legal/DATA_DELETION.md" >&2
+  exit 1
+fi
+# Ensure we did not stage the stub "Moved" pointers as privacy.md
+if grep -q '^# Moved' "$OUT/privacy.md" 2>/dev/null; then
+  echo "error: privacy.md is a stub — present-legal must copy docs/legal/PRIVACY.md" >&2
+  exit 1
+fi
+test -f "$LEGAL/PRIVACY.md"
+
+echo "3/3 Deploy Firebase Hosting → wadhu.com (project from .firebaserc)"
 cd "$SITE"
 if [[ "$DRY" -eq 1 ]]; then
   firebase deploy --only hosting --dry-run

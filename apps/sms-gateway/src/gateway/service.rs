@@ -1,7 +1,7 @@
 //! Running gateway: outbox + radio + LAN HTTP + Bluetooth + optional relay + drain.
 
 use std::net::SocketAddr;
-use std::sync::atomic::AtomicBool;
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::Duration;
@@ -39,7 +39,6 @@ pub(crate) struct PersistMeta {
 
 pub struct Gateway {
     pub handle: GatewayHandle,
-    #[allow(dead_code)]
     discover_stop: Arc<AtomicBool>,
 }
 
@@ -205,6 +204,19 @@ impl Gateway {
             bluetooth_enabled: meta.bluetooth_enabled,
             clients: self.handle.clients.snapshot(),
         }
+    }
+
+    /// Stop discover / Bluetooth / relay worker loops.
+    pub fn shutdown(&self) {
+        self.discover_stop.store(true, Ordering::Relaxed);
+        self.handle.bluetooth.stop();
+        self.handle.relay.stop();
+    }
+}
+
+impl Drop for Gateway {
+    fn drop(&mut self) {
+        self.shutdown();
     }
 }
 

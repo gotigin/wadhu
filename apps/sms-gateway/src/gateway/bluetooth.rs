@@ -34,13 +34,17 @@ pub struct BluetoothStatus {
 #[derive(Clone)]
 pub struct BluetoothHandle {
     pub status: Arc<std::sync::Mutex<BluetoothStatus>>,
-    #[allow(dead_code)]
     stop: Arc<AtomicBool>,
 }
 
 impl BluetoothHandle {
     pub fn snapshot(&self) -> BluetoothStatus {
         self.status.lock().expect("bt status").clone()
+    }
+
+    /// Signal the listen loop to exit (used on gateway shutdown).
+    pub fn stop(&self) {
+        self.stop.store(true, Ordering::Relaxed);
     }
 }
 
@@ -362,6 +366,3 @@ fn json_get(body: &str, key: &str) -> Option<String> {
     }
     None
 }
-
-#[allow(dead_code)]
-fn _keep_read_write(_: &dyn Read, _: &dyn Write) {}

@@ -79,9 +79,19 @@ customer WABAs.
 
 ## Privacy / store listings
 
-Use **https://wadhu.com/privacy** for Play / Meta privacy URLs for Wadhu
-products. Brand apps (Khaynjo, …) keep **their** brand privacy URLs for their
-own listings; mention WhatsApp only where the brand actually uses Connect.
+Use these URLs for Play / Microsoft Store / Meta for Wadhu products:
+
+| | |
+| --- | --- |
+| Privacy | https://wadhu.com/privacy |
+| Terms | https://wadhu.com/terms |
+| Data deletion | https://wadhu.com/data-deletion |
+| Support | https://wadhu.com/support |
+
+Canonical Markdown: [`docs/legal/`](../../../docs/legal/README.md) (Connect
+serves the same files). Brand apps (Khaynjo, …) keep **their** product privacy
+URLs for their own listings; mention WhatsApp only where the brand actually
+uses Connect.
 
 ## Independence
 

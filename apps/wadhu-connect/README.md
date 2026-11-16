@@ -7,9 +7,20 @@ through Cloud API after Embedded Signup.
 | | |
 | --- | --- |
 | Production | https://connect.wadhu.com |
-| Brand / privacy | https://wadhu.com · https://wadhu.com/privacy |
+| Brand | https://wadhu.com |
+| Privacy | https://wadhu.com/privacy ← [`docs/legal/PRIVACY.md`](../../docs/legal/PRIVACY.md) |
+| Terms | https://wadhu.com/terms |
+| Data deletion | https://wadhu.com/data-deletion |
+| Support | https://wadhu.com/support |
 | Language | Rust (std HTTP + Graph client) |
-| Meta app | Wadhu Connect (rename from Gotigin Connect if still showing) |
+| Meta app display name | **Wadhu Connect** |
+
+## Legal — one Markdown file each (Khaynjo pattern)
+
+Edit only [`docs/legal/`](../../docs/legal/README.md). Connect embeds those
+files and serves formatted `/privacy`, `/terms`, `/data-deletion`,
+`/support`, `/about`. wadhu.com presents the same files via
+`sites/wadhu/scripts/present-legal.sh`.
 
 ## What it does
 
@@ -19,31 +30,23 @@ through Cloud API after Embedded Signup.
 4. Receives signed webhooks at `/webhook`.
 5. Sends test / brand-app messages via `/api/send-test` and `/v1/messages`.
 
-See [`docs/INTEGRATOR.md`](docs/INTEGRATOR.md) for Kumkaj / brand-app integration.
-Auth & monetization doctrine: [`../../docs/IDENTITY_AND_MONETIZATION_ALIGNMENT.md`](../../docs/IDENTITY_AND_MONETIZATION_ALIGNMENT.md).
+See [`docs/INTEGRATOR.md`](docs/INTEGRATOR.md). Meta paste:
+[`docs/DATA_HANDLING_AND_REVIEWER.md`](docs/DATA_HANDLING_AND_REVIEWER.md).
 
 ## Run locally
 
 ```bash
 cd apps/wadhu-connect
-cp -n .env.example .env   # fill META_APP_ID / SECRET / CONFIG_ID
-# from workspace root:
+cp -n .env.example .env
 cargo wadhu-connect-dev
-# → http://127.0.0.1:3847
+# → http://127.0.0.1:3847/privacy
 ```
-
-For Meta webhooks / ES redirect, put HTTPS in front (ngrok/cloudflared) and set
-`PUBLIC_ORIGIN` to that URL. Production `PUBLIC_ORIGIN=https://connect.wadhu.com`.
 
 ## Deploy (connect.wadhu.com)
 
-Run the binary behind TLS (systemd, Docker, Fly, Cloud Run, …) with the same
-env vars. Point DNS `connect.wadhu.com` at that host. Meta App Dashboard:
+Run the binary behind TLS. Meta App Dashboard:
 
 - Website Site URL: `https://wadhu.com` or `https://connect.wadhu.com`
 - Privacy: `https://wadhu.com/privacy`
+- Data deletion: `https://wadhu.com/data-deletion`
 - Webhook: `https://connect.wadhu.com/webhook`
-
-## Legacy
-
-`apps/gotigin-connect` was the Node prototype. Prefer this crate.

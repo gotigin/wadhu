@@ -26,3 +26,7 @@ a { color: var(--link); }
 em { color: var(--ink); }
 strong { color: var(--ink); }
 hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+table { border-collapse: collapse; width: 100%; margin: 0.75rem 0; font-size: 0.95rem; }
+th, td { border: 1px solid var(--rule); padding: 0.35rem 0.5rem; text-align: left; vertical-align: top; color: var(--muted); }
+th { color: var(--ink); }
+.legal-nav { margin-top: 2rem; }

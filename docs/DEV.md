@@ -41,7 +41,10 @@ Each app follows the same internal shape (copied from `templates/app`):
 cargo build --workspace --all-targets
 cargo test --workspace
 ./scripts/check-independence.sh
+./scripts/check-warnings.sh       # no rustc/cargo warnings on host/Windows/Android-lib/wasm
 ```
+
+Warnings: fix them; never `#[allow]` / suppress. See [`WARNINGS.md`](WARNINGS.md).
 
 ## Everyday commands
 
@@ -50,6 +53,7 @@ cargo template-app-dev                              # template app, live dev (--
 cargo run -p wadhu-template-widgets --example demo  # widget crate demo
 cargo test --workspace                              # unit + integration + doc tests
 ./scripts/check-independence.sh                     # §3 rules: no sibling coupling
+./scripts/check-warnings.sh                         # no warnings on host/Windows/Android-lib/wasm
 ```
 
 `--hot` reloads `script_mod!` UI on save; `--remote` enables the tweaker
@@ -93,7 +97,8 @@ WADHU_APP_LABEL="<Label> Dev"                # production: "<Label>"
 - **Ids follow the brand domain, not the company name.** Wadhu’s domain is
   `wadhu.com`, so apps default to `com.wadhu.<app>` (dashes stripped). Same
   rule as other Gotigin brands (`tabiyat.shop` → `com.tabiyat`,
-  `kirano.shop` → `com.kirano`). Gotigin is the company; it is **not** in
+  `kirano.shop` → `com.kirano`). The company is GOTIGIN SOFTWARE & HARDWARE
+  PRIVATE LIMITED; **Gotigin** is the trademark — neither belongs in
   the reverse-DNS id. If an app later owns its own domain, use that
   instead. Set the id once before the first release and never change it.
 - Production Windows builds get the GUI subsystem (`wadhu_hide_console`
@@ -128,6 +133,14 @@ Wadhu mark). An app's `dev.sh` exports its own icons once
   and `scroll_touch_orphan_unblock` had silently put Rust code into
   `scroll_bar.rs`'s script DSL, which raised script errors on every mouse
   event. `drag_scroll_touch_only` also had a hand-miscounted hunk header.)
+- **Text selection (2026-11-16):** sites/apps use **one** page-level model —
+  `View` / `ScrollYView { selection_root: true; select_from_gaps: true }` —
+  via the Kumkaj-aligned `text_selection` patch (plus `press_capture_cancel`,
+  `finger_touch_tap_distance`, `button_press_lifecycle`, `touch_scroll_slop`,
+  and the fuller `web_aux_buttons_stay` for the Copy / Select all menu).
+  Do **not** invent per-widget selection. The old piecemeal
+  `text_flow_selection` / `text_flow_touch_scroll` patches were removed from
+  the apply list in favour of that one model.
 
 ### Changing a patch (never hand-edit hunks)
 

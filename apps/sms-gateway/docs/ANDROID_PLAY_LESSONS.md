@@ -171,5 +171,8 @@ a `.makepad.font-assets.v1` ELF section the app tree does not emit) breaks
 | Device launch smoke | Real phone + ideally API 26 tablet before any listing |
 | SMS Play policy | **Open product decision** — default SMS / exception / private APK |
 
-When this app gets a real Play cut, add `docs/PUBLISH_PLAY_STORE.md` (upload
-steps, listing, Data safety) and link it from the app README.
+Play cut docs (listing, Data safety, upload):
+[`PUBLISH_PLAY_STORE.md`](PUBLISH_PLAY_STORE.md),
+[`PLAY_STORE_LISTING.md`](PLAY_STORE_LISTING.md),
+[`DATA_SAFETY.md`](DATA_SAFETY.md). Legal URLs live under
+[`docs/legal/`](../../../docs/legal/README.md).

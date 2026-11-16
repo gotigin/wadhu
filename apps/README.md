@@ -4,6 +4,10 @@ Independent Wadhu apps and tools: standalone programs that other apps or
 people need (helpers, bridges, services, desktop/mobile apps). Package
 `wadhu-<app>`.
 
+Naming: **Wadhu** = brand; **Gotigin** = trademark; company =
+GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED; products below are under Wadhu.
+See [`../docs/BRAND.md`](../docs/BRAND.md).
+
 - An app **never depends on a sibling app**. It may depend on crates in
   [`../crates/`](../crates/README.md).
 - Each app owns its `env/`, `scripts/`, `docs/` and its
@@ -14,9 +18,11 @@ people need (helpers, bridges, services, desktop/mobile apps). Package
 Rules: [`../docs/WADHU_VISION_AND_PRINCIPLES.md`](../docs/WADHU_VISION_AND_PRINCIPLES.md) §3 ·
 how-to: [`../docs/DEV.md`](../docs/DEV.md).
 
-| App | What |
-|---|---|
-| [`sms-gateway/`](sms-gateway/README.md) | **Android-first SIM gateway** (phones/tablets/…): LAN + Bluetooth + optional relay — [`docs/LOCAL_SMS.md`](../docs/LOCAL_SMS.md) |
-| [`sms-relay/`](sms-relay/README.md) | **Self-hostable remote plane:** internet clients → paired Android gateways |
-| [`wadhu-connect/`](wadhu-connect/README.md) | **Wadhu Connect** — WhatsApp Cloud API Tech Provider bridge (Rust): ES, webhooks, send · https://connect.wadhu.com |
-| [`gotigin-connect/`](gotigin-connect/README.md) | Legacy Node prototype — use `wadhu-connect` |
+| App | Product | What |
+|---|---|---|
+| [`sms-gateway/`](sms-gateway/README.md) | **SMS Gateway** | Android-first SIM gateway (LAN + Bluetooth + optional relay) |
+| [`sms-relay/`](sms-relay/README.md) | **SMS Relay** | Self-hostable remote plane: internet clients → paired gateways |
+| [`wadhu-connect/`](wadhu-connect/README.md) | **Wadhu Connect** | WhatsApp Cloud API Tech Provider bridge (Rust) · https://connect.wadhu.com |
+| [`sms-client-demo/`](sms-client-demo/README.md) | (demo) | Desktop demo for `wadhu-sms-client` |
+
+There is **no** `gotigin-connect` app. The Meta product name is **Wadhu Connect**.

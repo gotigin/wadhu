@@ -1,0 +1,16 @@
+---
+description: Fix compile warnings on every supported platform — never suppress
+alwaysApply: true
+---
+
+# Warnings — fix, never suppress
+
+Canonical: `docs/WARNINGS.md`.
+
+- Builds for **Linux host, Windows GNU, Android (lib/cdylib), wasm** must be
+  warning-clean.
+- **Fix** unused / dead code / Cargo.toml noise. Do **not** add `#[allow]`,
+  `#![allow]`, `@SuppressWarnings`, or config that hides warnings.
+- Before finishing a change that touches Rust/Android/wasm: run
+  `./scripts/check-warnings.sh` (or the equivalent checks in that doc).
+- Do not mark warning work done until that check passes.

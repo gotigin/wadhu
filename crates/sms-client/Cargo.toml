@@ -8,7 +8,6 @@ authors.workspace = true
 rust-version = "1.85"
 description = "HTTP client helpers for Wadhu SMS Gateway and SMS Relay"
 publish = false
-readme = "README.md"
 keywords = []
 categories = []
 

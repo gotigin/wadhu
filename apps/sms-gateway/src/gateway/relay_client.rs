@@ -41,7 +41,6 @@ impl Default for RelayStatus {
 pub struct RelayHandle {
     pub status: Arc<Mutex<RelayStatus>>,
     config: Arc<Mutex<RelayConfig>>,
-    #[allow(dead_code)]
     stop: Arc<AtomicBool>,
 }
 
@@ -56,6 +55,11 @@ impl RelayHandle {
 
     pub fn update_config(&self, cfg: RelayConfig) {
         *self.config.lock().expect("relay config") = cfg;
+    }
+
+    /// Signal relay worker threads to exit (used on gateway shutdown).
+    pub fn stop(&self) {
+        self.stop.store(true, Ordering::Relaxed);
     }
 }
 

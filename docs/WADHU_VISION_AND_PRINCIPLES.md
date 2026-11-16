@@ -1,9 +1,12 @@
 # Wadhu — Vision & Principles
 
-> **Brand:** Wadhu, by Gotigin — *Tools · Apps · More*.\
-> **What it is:** Gotigin's home for **reusable code**: the libraries, tools
-> and apps that other Gotigin brands' apps need, built so that anyone else
-> can use them too.\
+> **Brand:** Wadhu — *Tools · Apps · More*.\
+> **Trademark:** Gotigin.\
+> **Company:** GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED.\
+> **What it is:** the Wadhu brand’s home for **reusable code**: libraries, tools
+> and apps that other Gotigin brands’ apps need, built so that anyone else
+> can use them too. Naming: [`BRAND.md`](BRAND.md).\
+
 > **Document purpose:** the canonical statement of what belongs in Wadhu,
 > how its parts relate, and the rules that keep each part independent.
 > Other docs link here instead of restating it.\

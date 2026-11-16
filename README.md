@@ -56,5 +56,6 @@ cargo run -p wadhu-template-widgets --example demo  # run the widget-crate demo
 
 License: [`MIT`](LICENSE-MIT) OR [`Apache-2.0`](LICENSE-APACHE) (dual,
 per crate manifest). App ids follow `wadhu.com` → `com.wadhu.<app>`
-(`.debug` in development); Gotigin is the company, not the id root
-([`docs/DEV.md`](docs/DEV.md) § Env and app ids).
+(`.debug` in development). Naming: Wadhu=brand, Gotigin=trademark, company=
+GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED — see [`docs/BRAND.md`](docs/BRAND.md).
+App ids: [`docs/DEV.md`](docs/DEV.md) § Env and app ids.

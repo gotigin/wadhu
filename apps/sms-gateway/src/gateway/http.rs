@@ -6,8 +6,6 @@ use std::sync::Arc;
 use std::thread;
 
 use super::clients::{AuthFail, AuthKind};
-use super::outbox::Outbox;
-use super::radio::SmsRadio;
 use super::service::GatewayHandle;
 
 const MAX_BODY: usize = 64 * 1024;
@@ -462,9 +460,3 @@ fn json_get(body: &str, key: &str) -> Option<String> {
         None
     }
 }
-
-#[allow(dead_code)]
-fn _radio_type_use(_: &dyn SmsRadio) {}
-
-#[allow(dead_code)]
-fn _outbox_use(_: &Outbox) {}

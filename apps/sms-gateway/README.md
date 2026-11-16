@@ -19,6 +19,17 @@ Docs: [`docs/SMS_GATEWAY.md`](docs/SMS_GATEWAY.md) ·
 [`docs/LOCAL_SMS.md`](../../docs/LOCAL_SMS.md) ·
 [`docs/ANDROID_PLAY_LESSONS.md`](docs/ANDROID_PLAY_LESSONS.md) (Android / Play do-not-regress)
 
+**Store / legal (required URLs):** privacy
+[wadhu.com/privacy](https://wadhu.com/privacy) · terms
+[wadhu.com/terms](https://wadhu.com/terms) · support
+[wadhu.com/support](https://wadhu.com/support) · data deletion
+[wadhu.com/data-deletion](https://wadhu.com/data-deletion) —
+sources in [`docs/legal/`](../../docs/legal/README.md). Play paste:
+[`docs/PLAY_STORE_LISTING.md`](docs/PLAY_STORE_LISTING.md) ·
+[`docs/DATA_SAFETY.md`](docs/DATA_SAFETY.md) ·
+[`docs/PUBLISH_PLAY_STORE.md`](docs/PUBLISH_PLAY_STORE.md) ·
+Windows: [`docs/PUBLISH_WINDOWS_STORE.md`](docs/PUBLISH_WINDOWS_STORE.md).
+
 Integrator SDK: [`crates/sms-client`](../../crates/sms-client) · desktop demo:
 [`apps/sms-client-demo`](../sms-client-demo) (`cargo sms-client-demo-dev`).
 

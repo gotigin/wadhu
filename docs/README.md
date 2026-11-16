@@ -14,6 +14,10 @@ part independent of its siblings**.
 | [`LOCAL_SMS.md`](LOCAL_SMS.md) | Local SMS: **gateway (provider) vs client** roles, API/status contract; gateway app is [`apps/sms-gateway/`](../apps/sms-gateway/README.md) |
 | [`IDENTITY_AND_MONETIZATION_ALIGNMENT.md`](IDENTITY_AND_MONETIZATION_ALIGNMENT.md) | Post-BT alignment: monetize relay/platform only; IdP/orgs staged after LAN+BT (not a same-day build) |
 | [`WEBSITES.md`](WEBSITES.md) | wadhu.com (Makepad + Firebase) and connect.wadhu.com (Rust Connect) |
+| [`BRAND.md`](BRAND.md) | **Names:** Wadhu=brand, Gotigin=trademark, company=legal entity, products under Wadhu |
+| [`GOTIGIN_COMPANY_IDENTITY.md`](GOTIGIN_COMPANY_IDENTITY.md) | Company / Meta form values (CIN, portfolio, Wadhu Connect app ids) |
+| [`legal/`](legal/README.md) | **Store / Meta legal:** privacy, terms, data deletion, support, about (one MD each → wadhu.com) |
+| [`WARNINGS.md`](WARNINGS.md) | **Strict:** fix compile warnings on all platforms; never suppress |
 | [`plans/BT_THEN_IDENTITY.md`](plans/BT_THEN_IDENTITY.md) | Readable plan: finish Classic RFCOMM first, then identity/monetization direction |
 | [`TRANSPORTS.md`](TRANSPORTS.md) | LAN / Bluetooth / relay: user-facing behaviour + gateway security controls |
 

@@ -6,6 +6,7 @@
 mod config;
 mod http;
 mod meta;
+mod privacy_policy;
 mod store;
 
 use std::env;

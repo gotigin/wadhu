@@ -45,7 +45,6 @@ pub fn spawn(http_port: u16, stop: Arc<AtomicBool>) {
 
 /// Client-side: find gateways on the LAN (used by tests / docs; brand crates
 /// also implement the same probe in `wadhu-sms-client`).
-#[allow(dead_code)]
 pub fn probe_once(timeout: Duration) -> Vec<(String, u16)> {
     let Ok(sock) = UdpSocket::bind("0.0.0.0:0") else {
         return Vec::new();
@@ -80,4 +79,20 @@ fn json_u16(body: &str, key: &str) -> Option<u16> {
         .find(|c: char| !c.is_ascii_digit())
         .unwrap_or(rest.len());
     rest[..end].parse().ok()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn probe_once_returns_without_panic() {
+        // No gateway required — empty result is fine; exercises the UDP path.
+        let _ = probe_once(Duration::from_millis(50));
+    }
+
+    #[test]
+    fn json_u16_parses_port() {
+        assert_eq!(json_u16(r#"{"name":"x","port":18765}"#, "port"), Some(18765));
+    }
 }

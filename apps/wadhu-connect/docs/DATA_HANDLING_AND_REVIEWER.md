@@ -4,11 +4,15 @@ Single source for Data handling + Reviewer instructions.
 
 | Item | Value |
 | --- | --- |
-| Meta app display name | **Wadhu Connect** (rename in App settings → Basic if still “Gotigin Connect”) |
+| Meta app display name | **Wadhu Connect** |
+| Privacy source file | `docs/legal/PRIVACY.md` |
 | App ID | `1606021637403895` |
 | Site URL | `https://wadhu.com` |
 | Connect / ES UI | `https://connect.wadhu.com` |
-| Privacy / data deletion | `https://wadhu.com/privacy` |
+| Privacy policy URL | `https://wadhu.com/privacy` |
+| Data deletion instructions URL | `https://wadhu.com/data-deletion` |
+| Terms | `https://wadhu.com/terms` |
+| Support | `https://wadhu.com/support` |
 | Business contact | `mearaj@gotigin.com` |
 | Controller | GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED · India |
 | Test phone | `+1 555-156-0957` · ID `1408752645660951` · WABA `1324845626382929` |
@@ -46,6 +50,9 @@ before submit.
 Brand site: https://wadhu.com
 Connect product UI: https://connect.wadhu.com
 Privacy: https://wadhu.com/privacy
+Data deletion: https://wadhu.com/data-deletion
+Terms: https://wadhu.com/terms
+Support: https://wadhu.com/support
 Contact: mearaj@gotigin.com
 
 Wadhu Connect (GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED) is a Tech Provider

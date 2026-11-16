@@ -81,8 +81,7 @@ PATCHES=(
   view_scroll_pos_getters           # ViewRef scroll position getters (keyboard scroll)
   text_flow_paragraph_align         # RTL prose alignment
   text_input_label_align_pub        # RTL input alignment
-  text_flow_selection               # selectable text: opaque band, owns the drag
-  text_flow_touch_scroll            # Android/touch: swipe scrolls; long-press selects (WrapLabel)
+  # text_flow_selection + text_flow_touch_scroll replaced by unified text_selection (below)
   text_input_touch_scroll           # Android/touch: swipe over fields scrolls page; long-press selects (PIN / pair)
   text_input_caret_and_placeholder  # caret blinks and is visible; wrapped placeholder not clipped
   button_label_center               # fixed-width buttons centre their label; wrap CTAs keep Fit label (Fill+wrap freezes UI)
@@ -109,6 +108,16 @@ PATCHES=(
   slides_view_story_axis            # sites: SlidesView axis Vertical, tap/swipe/wheel flips, presenter keys (PgDn/PgUp/Space/Home/End), goal_slide/slide_count
   web_init_window_order             # sites (wasm): Startup creates window 0 before the init geom is applied (else IdPool panic, stuck on Loading)
   web_aux_buttons_stay              # wasm: mouse side buttons do not navigate the browser away from the app
+  button_honor_grab_key_focus       # grab_key_focus:false must not call set_key_focus
+  # Press / touch / selection stack (ported from Kumkaj — required for one page-level
+  # text selection model; do not invent per-widget select hacks instead).
+  finger_touch_tap_distance         # touch tap slop 24px (finger jitter vs mouse)
+  press_capture_cancel              # scroll takeover delivers FingerCancel (never a click)
+  button_press_lifecycle            # pressed face follows the finger; cancel / heal
+  touch_scroll_slop                 # scroll views take a finger only past slop
+  button_pub_draw_text              # Button.draw_text public (host recolour / sticky nav)
+  # One text-selection model: View { selection_root; select_from_gaps } on the page.
+  text_selection
 )
 for name in "${PATCHES[@]}"; do
   patch -p1 --forward --fuzz=0 --no-backup-if-mismatch --quiet -d "$VENDOR" \
