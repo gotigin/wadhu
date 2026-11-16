@@ -24,7 +24,7 @@ own** privacy policies on their own domains. Naming rules:
 
 | Product | Where | Application / host id |
 | --- | --- | --- |
-| Brand site | [wadhu.com](https://wadhu.com) | Firebase / static + Makepad site |
+| Brand site | [wadhu.com](https://wadhu.com) | Firebase Hosting (Makepad SPA + legal pages) |
 | **SMS Gateway** | Google Play / sideload / desktop packages | `com.wadhu.smsgateway` |
 | SMS Relay | Self-hosted or Gotigin-hosted relay | Operator-configured host |
 | **Wadhu Connect** | [connect.wadhu.com](https://connect.wadhu.com) | Meta Tech Provider bridge |

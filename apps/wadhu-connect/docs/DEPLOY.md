@@ -36,8 +36,7 @@ Put nginx/caddy TLS in front (or platform HTTPS) for `connect.wadhu.com`.
 
 ```bash
 ./sites/wadhu/scripts/deploy-firebase.sh
-# optional Makepad home:
-./sites/wadhu/scripts/deploy-firebase.sh --with-wasm
 ```
 
-Set `.firebaserc` to your real Firebase project id before first deploy.
+One Hosting tree (Khaynjo pattern): Makepad SPA at `/` + `/privacy` etc. +
+Analytics. Project `wadhu-ac8dc` (`sites/wadhu/.firebaserc`).

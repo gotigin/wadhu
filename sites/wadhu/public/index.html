@@ -1,77 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wadhu — Tools · Apps · More</title>
-  <meta name="description" content="Wadhu brand by GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED — products: SMS Gateway, Wadhu Connect." />
-  <link rel="canonical" href="https://wadhu.com/" />
-  <link rel="stylesheet" href="/css/legal.css" />
-  <style>
-    .hero { margin: 2.5rem 0 2rem; }
-    .hero h1 { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; color: #fcfbfb; margin: 0.4rem 0; }
-    .tag { color: #adfb15; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem; font-weight: 700; }
-    .card {
-      border: 1px solid #161252;
-      border-radius: 12px;
-      padding: 1.1rem 1.2rem;
-      margin: 0.85rem 0;
-      background: #161252;
-    }
-    .card h2 { margin: 0 0 0.35rem; color: #00c8fc; font-size: 1.2rem; }
-    .cta { display: inline-block; margin: 0.4rem 0.6rem 0 0; color: #adfb15; font-weight: 700; }
-    nav a { margin-right: 1rem; }
-  </style>
-</head>
-<body>
-  <nav>
-    <a href="/">Wadhu</a>
-    <a href="/about">About</a>
-    <a href="/privacy">Privacy</a>
-    <a href="/terms">Terms</a>
-    <a href="/support">Support</a>
-      <a href="https://connect.wadhu.com/onboard">Wadhu Connect</a>
-  </nav>
 
-  <header class="hero">
-    <p class="tag">Wadhu · Tools · Apps · More</p>
-    <h1>Wadhu means more.</h1>
-    <p>
-      Brand site for Wadhu products from GOTIGIN SOFTWARE &amp; HARDWARE PRIVATE LIMITED.
-      Trademark: Gotigin. Products: SMS Gateway and Wadhu Connect.
-    </p>
-  </header>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
+        <title>wadhu-site</title>
+        
+        <link rel='modulepreload' href='./makepad_platform/web_gl.js'>
+        
+        <script type='module'>
+            const reportBrowserIssue = async (kind, data) => {
+                try {
+                    const payload = JSON.stringify({
+                        kind,
+                        href: location.href,
+                        user_agent: navigator.userAgent,
+                        data
+                    });
+                    const encoded = encodeURIComponent(payload.slice(0, 8192));
+                    await fetch('/$report_error?data=' + encoded, {cache: 'no-store'});
+                } catch (_error) {
+                }
+            };
+            window.makepad_report_browser_issue = reportBrowserIssue;
+            
+            window.addEventListener('error', (event) => {
+                let stack = '';
+                if (event.error && event.error.stack) {
+                    stack = '' + event.error.stack;
+                }
+                reportBrowserIssue('window.error', {
+                    message: event.message || '',
+                    filename: event.filename || '',
+                    lineno: event.lineno || 0,
+                    colno: event.colno || 0,
+                    stack
+                });
+            });
 
-  <section class="card">
-    <h2>SMS Gateway</h2>
-    <p>Android-first SIM gateway. LAN and Bluetooth stay free forever. Optional cloud relay later.</p>
-  </section>
+            window.addEventListener('unhandledrejection', (event) => {
+                let reason_message = '';
+                let reason_stack = '';
+                if (typeof event.reason === 'string') {
+                    reason_message = event.reason;
+                } else if (event.reason) {
+                    reason_message = event.reason.message ? '' + event.reason.message : '' + event.reason;
+                    reason_stack = event.reason.stack ? '' + event.reason.stack : '';
+                }
+                reportBrowserIssue('window.unhandledrejection', {
+                    reason_message,
+                    reason_stack
+                });
+            });
 
-  <section class="card">
-    <h2>Wadhu Connect</h2>
-    <p>
-      Tech Provider bridge for WhatsApp Cloud API. Businesses keep their number;
-      apps send and receive after Embedded Signup.
-    </p>
-    <a class="cta" href="https://connect.wadhu.com/">Open Connect →</a>
-  </section>
-
-  <section class="card">
-    <h2>Names</h2>
-    <p>
-      <strong>Wadhu</strong> — brand ·
-      <strong>Gotigin</strong> — trademark ·
-      <strong>GOTIGIN SOFTWARE &amp; HARDWARE PRIVATE LIMITED</strong> — company
-    </p>
-  </section>
-
-  <p>
-    <a href="/about">About</a> ·
-    <a href="/privacy">Privacy</a> ·
-    <a href="/terms">Terms</a> ·
-    <a href="/data-deletion">Data deletion</a> ·
-    <a href="/support">Support</a> ·
-    <a href="mailto:mearaj@gotigin.com">mearaj@gotigin.com</a>
-  </p>
-</body>
-</html>
+            try {
+                
+            window.makepad_small_font_aliases = true;
+                
+            const {WasmWebGL} = await import('./makepad_platform/web_gl.js');
+            const wasm = await WasmWebGL.fetch_and_instantiate_wasm(
+                './wadhu-site.wasm'
+            );
+            
+                class MyWasmApp {
+                    constructor(wasm) {
+                        let canvas = document.getElementsByClassName('full_canvas')[0];
+                        this.webgl = new WasmWebGL (wasm, this, canvas);
+                    }
+                }
+                let app = new MyWasmApp(wasm);
+            } catch (error) {
+                reportBrowserIssue('startup.exception', {
+                    message: error && error.message ? '' + error.message : '' + error,
+                    stack: error && error.stack ? '' + error.stack : ''
+                });
+                throw error;
+            }
+        </script>
+        
+        <link rel='stylesheet' type='text/css' href='./makepad_platform/full_canvas.css'>
+    </head> 
+    <body>
+        <canvas class='full_canvas'></canvas>
+            <div class='canvas_loader' >
+            <div style=''>
+            Loading..
+            </div>
+        </div>
+        <script src="./js/firebase-init.js?v=20261116112338-54b9007" defer></script>
+    </body>
+    </html>
+    

@@ -5,6 +5,25 @@
 | Brand | https://wadhu.com | `sites/wadhu` (`wadhu-site`) + Firebase |
 | Connect API / ES UI | https://connect.wadhu.com | `apps/wadhu-connect` (Rust) |
 
+## wadhu.com — one Hosting tree
+
+Same model as Khaynjo: **one website**, not “static vs wasm.”
+
+```text
+public/
+  index.html          ← Makepad SPA (scrolling brand page)
+  wadhu-site.wasm
+  /privacy/…          ← same site, formatted legal HTML
+  /terms/ /about/ …
+  /js/firebase-init.js
+```
+
+Deploy: `./sites/wadhu/scripts/deploy-firebase.sh` (project `wadhu-ac8dc`).
+Local: `./sites/wadhu/scripts/run-web.sh`. Details: [`sites/wadhu/README.md`](../sites/wadhu/README.md).
+
+Nav in the SPA opens `/privacy` etc. in a new tab (`OpenUrlInPlace::No`) so
+the home canvas stays loaded. Legal is not an in-app Makepad route.
+
 ## Legal URLs (Play / Microsoft Store / Meta)
 
 Canonical Markdown: [`legal/`](legal/README.md). Present with
@@ -20,9 +39,6 @@ Canonical Markdown: [`legal/`](legal/README.md). Present with
 
 Connect embeds the same files and serves the same paths on
 connect.wadhu.com. Do not hand-edit generated HTML under `sites/wadhu/static/`.
-
-Pattern (same family as Kumkaj / Khaynjo): Makepad 2 fullpage wasm + thin
-static shell. Deploy brand site: `./sites/wadhu/scripts/deploy-firebase.sh`.
 
 Connect is **not** Firebase Hosting — run the Rust binary behind TLS.
 

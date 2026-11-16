@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-# Run wadhu.com (Makepad fullpage) in the browser — same idea as Khaynjo
-# sites/khaynjo/scripts/run-web.sh:
+# Run wadhu.com locally — one tree like deploy (Khaynjo run-web):
 #   1) build debug wasm
-#   2) overlay legal HTML + css WITHOUT replacing Makepad index.html
-#   3) python http.server — / is the canvas; /privacy is formatted policy
+#   2) overlay /privacy /terms /about … beside Makepad home
+#   3) python http.server
 #
 # Serves at http://127.0.0.1:8020
 set -euo pipefail
@@ -44,8 +43,7 @@ elif command -v ss >/dev/null 2>&1; then
 fi
 
 echo "Serving $PKG at http://127.0.0.1:${PORT}/ (Ctrl+C to stop)"
-echo "    /  = Makepad site (full page)"
-echo "    /privacy /terms /about = formatted docs/legal/"
+echo "    One tree: / = Makepad SPA; /privacy /terms /about = same site"
 echo "    Hard-refresh if an old tab still looks cached."
 cd "$PKG"
 exec python3 -m http.server "$PORT" --bind 127.0.0.1
