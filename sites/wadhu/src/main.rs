@@ -16,11 +16,11 @@ const PUBLIC_HOST: &str = "https://wadhu.com";
 const PUBLIC_CONNECT: &str = "https://connect.wadhu.com/";
 const LOCAL_CONNECT_PORT: u16 = 3847;
 
+const HOME_PATH: &str = "/";
 const PRIVACY_PATH: &str = "/privacy";
 const TERMS_PATH: &str = "/terms";
 const ABOUT_PATH: &str = "/about";
 
-const TAG_BESIDE_LOGO_FROM: f64 = 720.0;
 const CARDS_SIDE_BY_SIDE_FROM: f64 = 680.0;
 const MIN_WIDTH: f64 = 320.0;
 const MAX_CONTENT: f64 = 1100.0;
@@ -84,8 +84,19 @@ pub struct App {
     laid_out: Option<(Tier, i64, i64)>,
 }
 
-fn open_link(cx: &mut Cx, url: &str) {
-    // Khaynjo: new tab on web so the home SPA stays loaded.
+fn open_site(cx: &mut Cx, url: &str) {
+    // Same-tab for wadhu.com paths (home SPA + legal HTML) — matches gotigin.com.
+    #[cfg(target_arch = "wasm32")]
+    {
+        cx.open_url(url, OpenUrlInPlace::Yes);
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        open_external(cx, url);
+    }
+}
+
+fn open_external(cx: &mut Cx, url: &str) {
     #[cfg(target_arch = "wasm32")]
     {
         cx.open_url(url, OpenUrlInPlace::No);
@@ -166,14 +177,6 @@ impl App {
             };
         }
 
-        let tag_beside = layout_w >= TAG_BESIDE_LOGO_FROM;
-        self.ui
-            .widget(cx, ids!(brand_tag))
-            .set_visible(cx, tag_beside);
-        self.ui
-            .widget(cx, ids!(hero_tag))
-            .set_visible(cx, !tag_beside);
-
         if let Some(mut cards) = self.ui.view(cx, ids!(cards)).borrow_mut() {
             cards.layout.flow = if layout_w >= CARDS_SIDE_BY_SIDE_FROM {
                 Flow::right()
@@ -193,29 +196,34 @@ impl MatchEvent for App {
     }
 
     fn handle_actions(&mut self, cx: &mut Cx, actions: &Actions) {
+        if self
+            .ui
+            .view(cx, ids!(brand_home))
+            .finger_up(actions)
+            .is_some_and(|e| e.was_tap())
+        {
+            open_site(cx, &Self::site_url(cx, HOME_PATH));
+        }
+
         let privacy = self.ui.button(cx, ids!(nav_privacy)).clicked(actions)
             || self.ui.button(cx, ids!(cta_privacy)).clicked(actions);
         if privacy {
-            let url = Self::site_url(cx, PRIVACY_PATH);
-            open_link(cx, &url);
+            open_site(cx, &Self::site_url(cx, PRIVACY_PATH));
         }
 
         if self.ui.button(cx, ids!(nav_terms)).clicked(actions) {
-            let url = Self::site_url(cx, TERMS_PATH);
-            open_link(cx, &url);
+            open_site(cx, &Self::site_url(cx, TERMS_PATH));
         }
 
         if self.ui.button(cx, ids!(nav_about)).clicked(actions) {
-            let url = Self::site_url(cx, ABOUT_PATH);
-            open_link(cx, &url);
+            open_site(cx, &Self::site_url(cx, ABOUT_PATH));
         }
 
         let connect = self.ui.button(cx, ids!(nav_connect)).clicked(actions)
             || self.ui.button(cx, ids!(cta_connect)).clicked(actions)
             || self.ui.button(cx, ids!(open_connect)).clicked(actions);
         if connect {
-            let url = Self::connect_url(cx);
-            open_link(cx, &url);
+            open_external(cx, &Self::connect_url(cx));
         }
     }
 }

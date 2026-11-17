@@ -146,31 +146,46 @@ script_mod! {
                         width: Fill height: Fill
                         draw_bg +: { color: Night }
                         flow: Down
+                        // Same split as legal HTML `.topbar`: brand left, nav right.
                         top := SolidView{
                             width: Fill height: Fit
                             padding: Inset{left: 24. right: 24. top: 12. bottom: 12.}
                             draw_bg +: { color: Navy }
                             flow: Right
-                            spacing: 10.
+                            spacing: 16.
                             align: Align{y: 0.5}
-                            brand_icon := Image{
-                                width: 40 height: 40
-                                fit: ImageFit.Stretch
-                                src: crate_resource("self:resources/media/wadhu-brand-logo.webp")
-                            }
-                            brand_tag := Label{
-                                width: Fit
-                                text: "WADHU · TOOLS · APPS · MORE"
-                                draw_text +: {
-                                    color: Lime
-                                    text_style: theme.font_bold{font_size: 12.}
+                            // Logo + title; tap → `/`.
+                            brand_home := View{
+                                width: Fit height: Fit
+                                flow: Right
+                                spacing: 10.
+                                align: Align{y: 0.5}
+                                cursor: MouseCursor.Hand
+                                brand_icon := Image{
+                                    width: 40 height: 40
+                                    fit: ImageFit.Stretch
+                                    src: crate_resource("self:resources/media/wadhu-brand-logo.webp")
+                                }
+                                brand_name := Label{
+                                    width: Fit
+                                    text: "Wadhu"
+                                    draw_text +: {
+                                        color: Lime
+                                        text_style: theme.font_bold{font_size: 14.}
+                                    }
                                 }
                             }
-                            <View>{ width: Fill height: 1 }
-                            nav_privacy := GhostBtn{ text: "Privacy" }
-                            nav_terms := GhostBtn{ text: "Terms" }
-                            nav_about := GhostBtn{ text: "About" }
-                            nav_connect := GhostBtn{ text: "Wadhu Connect" }
+                            // Fill remaining width; children hug the right edge.
+                            topnav := View{
+                                width: Fill height: Fit
+                                flow: Right
+                                spacing: 10.
+                                align: Align{x: 1.0 y: 0.5}
+                                nav_privacy := GhostBtn{ text: "Privacy" }
+                                nav_terms := GhostBtn{ text: "Terms" }
+                                nav_about := GhostBtn{ text: "About" }
+                                nav_connect := GhostBtn{ text: "Wadhu Connect" }
+                            }
                         }
                         // One scrolling SPA (Khaynjo). Legal pages are separate HTML
                         // in the same Hosting tree — opened via open_link.
