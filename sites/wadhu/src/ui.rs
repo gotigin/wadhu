@@ -202,7 +202,7 @@ script_mod! {
                                     Eyebrow{ body: "WADHU · TOOLS · APPS · MORE" }
                                 }
                                 Headline{ body: "Wadhu means more." }
-                                Lede{ body: "Reusable tools under the Wadhu brand — from GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED. Trademark: Gotigin. Products: SMS Gateway and Wadhu Connect." }
+                                Lede{ body: "Reusable tools under the Wadhu brand — SMS Gateway and Wadhu Connect." }
                                 cta_row := View{
                                     width: Fill height: Fit
                                     flow: Right
@@ -241,22 +241,62 @@ script_mod! {
                                 Eyebrow{ body: "WADHU CONNECT" }
                                 Headline{ body: "Their number. Your software." }
                                 Body{ body: "Other Gotigin brands (Khaynjo, Moklanjo, and others) call Wadhu Connect so a business can grant access to their WhatsApp Business Account. We provide the Cloud API pipe — we do not take over their chats." }
-                                Body{ body: "Host: connect.wadhu.com · Privacy: wadhu.com/privacy" }
                             }
 
                             about := BandAlt{
                                 Eyebrow{ body: "NAMES" }
-                                Headline{ body: "Brand · Trademark · Company" }
-                                Body{ body: "Wadhu is the brand (more in Gujarati / Kutchi) — Tools · Apps · More." }
-                                Body{ body: "Gotigin is the trademark meaning 'find it' in Memon language and pronounced as 'go-tee-geen'. Slogan: Where Technology Meets Discovery." }
-                                Body{ body: "Company: GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED · mearaj@gotigin.com" }
+                                Headline{ body: "Who we are" }
+                                names := View{
+                                    width: Fill height: Fit
+                                    flow: Down
+                                    spacing: 18.
+                                    View{
+                                        width: Fill height: Fit
+                                        flow: Down
+                                        spacing: 4.
+                                        Eyebrow{ body: "TRADEMARK" }
+                                        CardTitle{ body: "Gotigin" }
+                                        Body{ body: "Memon for “find it” · pronounced go-tee-geen" }
+                                        Body{ body: "Where Technology Meets Discovery" }
+                                    }
+                                    View{
+                                        width: Fill height: Fit
+                                        flow: Down
+                                        spacing: 4.
+                                        Eyebrow{ body: "COMPANY" }
+                                        CardTitle{ body: "GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED" }
+                                        Body{ body: "mearaj@gotigin.com" }
+                                    }
+                                    View{
+                                        width: Fill height: Fit
+                                        flow: Down
+                                        spacing: 4.
+                                        Eyebrow{ body: "BRAND" }
+                                        CardTitle{ body: "Wadhu" }
+                                        Body{ body: "More in Gujarati / Kutchi — Tools · Apps · More" }
+                                    }
+                                    View{
+                                        width: Fill height: Fit
+                                        flow: Down
+                                        spacing: 4.
+                                        Eyebrow{ body: "PRODUCTS" }
+                                        CardTitle{ body: "SMS Gateway · Wadhu Connect" }
+                                        Body{ body: "Local SIM messaging and WhatsApp Cloud API bridge" }
+                                    }
+                                }
                             }
 
                             close := Band{
                                 Eyebrow{ body: "NEXT" }
                                 Headline{ body: "Build with Wadhu." }
                                 Body{ body: "Cloud accounts on wadhu.com are for hosted Wadhu features. Local SMS over LAN and Bluetooth stays free." }
-                                Body{ body: "Privacy, Terms, and About open from the top bar (same site)." }
+                                View{
+                                    width: Fill height: Fit
+                                    flow: Down
+                                    spacing: 4.
+                                    Body{ body: "© 2026 GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED" }
+                                    Body{ body: "Gotigin · Wadhu · wadhu.com" }
+                                }
                             }
                         }
                     }

@@ -49,8 +49,8 @@ ANDROID_SERIAL=10BD9M1FRJ000B2 cargo wadhu-sms-gateway-android-dev
 ```mermaid
 flowchart TB
   subgraph wadhu [Wadhu_platform]
-    id[Identity_adapter]
-    org[Orgs_entitlements]
+    id[Users_IdP_adapter]
+    org[Org_when_multi_purchase]
     relay[Hosted_relay]
   end
   subgraph devices [Customer_phone]
@@ -71,18 +71,21 @@ flowchart TB
 |-------|----------|--------------------|
 | SIM / carrier | SIM owner | No |
 | LAN / Bluetooth | **Free forever** | No |
-| Hosted relay + orgs | Wadhu subscription | Yes |
+| Hosted relay / cloud pipes | Wadhu subscription | Yes (**user**; **org** only when multi-purchase or multi-member) |
 | Brand app | That brand | Connect only if using cloud SMS |
 
 ### Sequencing
 
 ```text
-Done:     Classic RFCOMM + LAN HTTP + client framed lab
-Next:     Freeze OpenAPI + client docs for brand apps
-Later:    Identity → orgs → relay entitlements → Connect UX → Stripe
+Done:     Classic RFCOMM + LAN HTTP + client framed lab; Firebase /account UI
+Parallel: Keep SMS /v1 + OpenAPI aligned for brand LAN/BT
+Cloud:    Users → /account → Connect (test mode) → site WhatsApp → payments
+          → org isolation when a second purchase or teammate appears
 ```
 
-Do **not** block brand SMS on Firebase/Stripe. Full write-up:
+Definitions: [`docs/IDENTITY_MODEL.md`](../IDENTITY_MODEL.md).  
+Do **not** block local brand SMS on Firebase/Stripe; do **not** block cloud
+work on Meta App Review. Full write-up:
 [`docs/IDENTITY_AND_MONETIZATION_ALIGNMENT.md`](../IDENTITY_AND_MONETIZATION_ALIGNMENT.md).
 
 ---

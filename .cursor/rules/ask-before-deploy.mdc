@@ -1,0 +1,12 @@
+---
+description: Ask before any cloud/Firebase deploy — deploys cost money
+alwaysApply: true
+---
+
+# Ask before deploy
+
+Never run Firebase Hosting deploy, `./sites/*/scripts/deploy-firebase.sh`,
+`firebase deploy`, or other cloud deploys unless the user explicitly asks in
+this turn (or clearly answers yes when you ask).
+
+Default: build and verify locally; leave deploy for when they say so.

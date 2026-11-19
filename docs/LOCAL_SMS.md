@@ -26,8 +26,10 @@
 | **Client** | Any app that needs SMS — calls the gateway (LAN/BT) or the relay (internet). | Other Gotigin brands / third parties + [`crates/wadhu-sms-client`](../crates/wadhu-sms-client/README.md) + desktop demo [`apps/wadhu-sms-client-demo`](../apps/wadhu-sms-client-demo/README.md) |
 
 Local LAN/BT send **never** requires the relay. Killing the relay must not break local send.
-Hosted identity / org billing (when built) monetizes **relay/platform only** —
-see [`IDENTITY_AND_MONETIZATION_ALIGNMENT.md`](IDENTITY_AND_MONETIZATION_ALIGNMENT.md).
+Hosted identity / billing (when built) monetizes **relay/platform only**
+(**user** login; **org** only when multi-purchase or multi-member) — see
+[`IDENTITY_MODEL.md`](IDENTITY_MODEL.md) and
+[`IDENTITY_AND_MONETIZATION_ALIGNMENT.md`](IDENTITY_AND_MONETIZATION_ALIGNMENT.md).
 
 **How each approach feels for non-experts** (no IP typing on LAN; gateway
 controls for block / usage / rotate): [`TRANSPORTS.md`](TRANSPORTS.md).

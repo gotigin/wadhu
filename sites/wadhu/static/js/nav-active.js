@@ -6,7 +6,8 @@
     "/privacy": "privacy",
     "/terms": "terms",
     "/support": "about",
-    "/data-deletion": "privacy"
+    "/data-deletion": "privacy",
+    "/account": "account"
   };
   var key = map[path];
   if (!key) return;

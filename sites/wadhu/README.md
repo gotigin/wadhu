@@ -10,7 +10,9 @@ public/
   /privacy/…          ← same site, formatted legal HTML (Play / Meta URL)
   /terms/…
   /about/…
+  /account/…          ← register / sign-in (Firebase Auth)
   /js/firebase-init.js
+  /js/account.js
 ```
 
 The SPA is one **scrolling** page (`ScrollYView`): hero → products → Connect →
@@ -35,16 +37,17 @@ same files.
 
 ## Deploy
 
-One tree: Makepad wasm + `/privacy` `/terms` … + Analytics.
+One tree: Makepad wasm + `/privacy` `/terms` `/account` … + Analytics/Auth.
 
 ```bash
 ./sites/wadhu/scripts/deploy-firebase.sh
 ./sites/wadhu/scripts/deploy-firebase.sh --dry-run
 ```
 
-Firebase project: **`wadhu-ac8dc`** (`.firebaserc`). Analytics:
-`client/firebase-init.js` → bundled `static/js/firebase-init.js`. Custom
-domain **wadhu.com** in Hosting if not already.
+Firebase project: **`wadhu-ac8dc`** (`.firebaserc`). Analytics + Auth:
+`npm run build` in this dir → `static/js/firebase-init.js` and
+`static/js/account.js`. Auth notes: [`docs/FIREBASE_AUTH_SETUP.md`](../../docs/FIREBASE_AUTH_SETUP.md).
+Custom domain **wadhu.com** in Hosting if not already.
 
 ## URLs
 
@@ -56,4 +59,5 @@ domain **wadhu.com** in Hosting if not already.
 | `/data-deletion` | Data deletion — Play / Meta instructions |
 | `/support` | Support contact |
 | `/about` | Company + etymology — `docs/legal/ABOUT.md` |
+| `/account` | Register / sign-in (Firebase Auth) |
 | connect.wadhu.com | Wadhu Connect API / ES UI (separate host) |

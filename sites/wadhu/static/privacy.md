@@ -6,9 +6,9 @@ _Last updated: 16 November 2026_
 
 | | |
 | --- | --- |
-| **Brand** | **Wadhu** (*Tools · Apps · More*) — [wadhu.com](https://wadhu.com) |
 | **Trademark** | **Gotigin** (house mark) |
 | **Company** | **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** (“we”, “us”) |
+| **Brand** | **Wadhu** (*Tools · Apps · More*) — [wadhu.com](https://wadhu.com) |
 | CIN | U62011GJ2026PTC179660 |
 | PAN | AANCG1628G |
 | GSTIN | 24AANCG1628G1ZP |
@@ -24,7 +24,7 @@ own** privacy policies on their own domains. Naming rules:
 
 | Product | Where | Application / host id |
 | --- | --- | --- |
-| Brand site | [wadhu.com](https://wadhu.com) | Firebase Hosting (Makepad SPA + legal pages) |
+| Brand site | [wadhu.com](https://wadhu.com) | Public website and account pages |
 | **SMS Gateway** | Google Play / sideload / desktop packages | `com.wadhu.smsgateway` |
 | SMS Relay | Self-hosted or Gotigin-hosted relay | Operator-configured host |
 | **Wadhu Connect** | [connect.wadhu.com](https://connect.wadhu.com) | Meta Tech Provider bridge |

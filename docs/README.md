@@ -12,7 +12,9 @@ part independent of its siblings**.
 | [`CRATES.md`](CRATES.md) | Rules for reusable crates: shape, independence, features, API, versioning, MSRV, tests, publishing |
 | [`DESIGN.md`](DESIGN.md) | Wadhu brand tokens (colours sampled from the logo), type, voice, icons |
 | [`LOCAL_SMS.md`](LOCAL_SMS.md) | Local SMS: **gateway (provider) vs client** roles, API/status contract; gateway app is [`apps/wadhu-sms-gateway/`](../apps/wadhu-sms-gateway/README.md) |
-| [`IDENTITY_AND_MONETIZATION_ALIGNMENT.md`](IDENTITY_AND_MONETIZATION_ALIGNMENT.md) | Post-BT alignment: monetize relay/platform only; IdP/orgs staged after LAN+BT (not a same-day build) |
+| [`IDENTITY_MODEL.md`](IDENTITY_MODEL.md) | **User vs org vs grouping** — when each applies; org only for multi-purchase / multi-member / billing |
+| [`IDENTITY_AND_MONETIZATION_ALIGNMENT.md`](IDENTITY_AND_MONETIZATION_ALIGNMENT.md) | Post-BT alignment: monetize relay/platform only; cloud track vs local SMS; link identity model |
+| [`FIREBASE_AUTH_SETUP.md`](FIREBASE_AUTH_SETUP.md) | Firebase Auth providers on `wadhu-ac8dc`; Apple Sign in postponed (needs paid Developer Program) |
 | [`WEBSITES.md`](WEBSITES.md) | wadhu.com (one Hosting tree: Makepad SPA + legal) and connect.wadhu.com |
 | [`BRAND.md`](BRAND.md) | **Names:** Wadhu=brand, Gotigin=trademark, company=legal entity, products under Wadhu |
 | [`GOTIGIN_COMPANY_IDENTITY.md`](GOTIGIN_COMPANY_IDENTITY.md) | Company / Meta form values (CIN, portfolio, Wadhu Connect app ids) |

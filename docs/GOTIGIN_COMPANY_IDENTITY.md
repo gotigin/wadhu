@@ -23,8 +23,10 @@ missing.
 
 ## Brand map
 
-**Company:** GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED  
+Order is always **Trademark → Company → Brand → Product**.
+
 **Trademark:** Gotigin  
+**Company:** GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED  
 
 Brands / products (do not call a brand a product or vice versa):
 

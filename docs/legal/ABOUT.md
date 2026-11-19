@@ -4,11 +4,13 @@ _Last updated: 16 November 2026_
 
 ## Names (do not mix)
 
+Order is always **Trademark → Company → Brand → Product**.
+
 | | |
 | --- | --- |
-| **Wadhu** | The **brand** — *Tools · Apps · More*. Site: [wadhu.com](https://wadhu.com) |
 | **Gotigin** | The **trademark** / house mark meaning *find it* in Memon, pronounced *go-tee-geen*. Slogan: *Where Technology Meets Discovery* |
-| **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** | The **company** (legal entity) |
+| **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** | The **company** (legal entity) · [mearaj@gotigin.com](mailto:mearaj@gotigin.com) |
+| **Wadhu** | The **brand** — *Tools · Apps · More*. Site: [wadhu.com](https://wadhu.com) |
 | **SMS Gateway** · **Wadhu Connect** | **Products** under the Wadhu brand |
 
 See also [`docs/BRAND.md`](../BRAND.md).

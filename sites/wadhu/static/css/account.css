@@ -1,0 +1,115 @@
+/* Account / auth — extends legal palette */
+.account-main {
+  max-width: 26rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+.account-main h1 {
+  font-size: 1.75rem;
+  color: var(--lime);
+  margin: 0 0 0.35rem;
+}
+.account-lede {
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+}
+.account-status {
+  color: var(--ink);
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+.auth-error {
+  background: #3a1020;
+  color: #ffb4c0;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.45rem;
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+}
+.auth-card {
+  background: var(--panel);
+  border-radius: 0.55rem;
+  padding: 1rem 1.1rem 1.15rem;
+  margin: 0 0 1rem;
+}
+.auth-card h2 {
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+}
+.auth-card label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0.55rem 0 0.25rem;
+}
+.auth-card input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.4rem;
+  border: 1px solid #2a2870;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+}
+.auth-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.45rem;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--panel);
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--link);
+  color: var(--bg);
+}
+.btn-ghost {
+  background: transparent;
+  border: 1px solid #2a2870;
+}
+.btn-provider {
+  width: 100%;
+  text-align: center;
+  background: #1a1850;
+  margin: 0.35rem 0 0;
+}
+.btn-provider:hover {
+  color: var(--lime);
+}
+.auth-or {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin: 0.85rem 0;
+}
+.session-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  word-break: break-all;
+}
+.session-meta strong {
+  color: var(--ink);
+  display: block;
+  margin-top: 0.65rem;
+}
+#recaptcha-container {
+  min-height: 0;
+}

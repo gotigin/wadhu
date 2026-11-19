@@ -89,6 +89,16 @@ th { color: var(--ink); background: var(--panel); }
 .legal-nav { margin-top: 2rem; }
 .legal-foot {
   margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
   font-size: 0.85rem;
   color: var(--muted);
+}
+.legal-foot-company {
+  color: var(--ink);
+  font-weight: 600;
+}
+.legal-foot-meta {
+  font-size: 0.8rem;
 }

@@ -30,16 +30,20 @@ if ! command -v firebase >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "1/4 Bundle Firebase Analytics → static/js/firebase-init.js"
+echo "1/4 Bundle Firebase Analytics + Auth → static/js/"
 (
   cd "$SITE"
   if [[ ! -d node_modules/firebase ]]; then
     npm install
   fi
-  npm run build:firebase
+  npm run build
 )
-if [[ ! -f "$SITE/static/js/firebase-init.js" ]]; then
-  echo "error: missing $SITE/static/js/firebase-init.js after build:firebase" >&2
+if [[ ! -f "$SITE/static/js/firebase-init.js" || ! -f "$SITE/static/js/account.js" ]]; then
+  echo "error: missing firebase-init.js or account.js after npm run build" >&2
+  exit 1
+fi
+if [[ ! -f "$SITE/static/account/index.html" ]]; then
+  echo "error: missing static/account/index.html" >&2
   exit 1
 fi
 
@@ -54,7 +58,7 @@ if [[ ! -f "$WASM_PKG/index.html" || ! -f "$WASM_PKG/wadhu-site.wasm" ]]; then
   exit 1
 fi
 
-echo "3/4 Stage public/ = one tree (wasm home + legal + Analytics)"
+echo "3/4 Stage public/ = one tree (wasm home + legal + Auth)"
 "$SITE/scripts/present-legal.sh"
 rm -rf "$OUT"
 mkdir -p "$OUT"
@@ -62,6 +66,7 @@ rsync -a "$WASM_PKG/" "$OUT/"
 "$SITE/scripts/overlay-legal-onto-pkg.sh" "$OUT"
 mkdir -p "$OUT/js"
 cp "$SITE/static/js/firebase-init.js" "$OUT/js/firebase-init.js"
+cp "$SITE/static/js/account.js" "$OUT/js/account.js"
 
 BUILD_ID="$(date -u +%Y%m%d%H%M%S)-$(git -C "$ROOT" rev-parse --short HEAD 2>/dev/null || echo local)"
 INDEX="$OUT/index.html"
@@ -79,14 +84,14 @@ if ! grep -q 'firebase-init.js' "$INDEX"; then
   ' "$INDEX" > "$INDEX.tmp" && mv "$INDEX.tmp" "$INDEX"
 fi
 
-for need in privacy terms data-deletion support about; do
+for need in privacy terms data-deletion support about account; do
   if [[ ! -f "$OUT/$need/index.html" ]]; then
     echo "error: missing /$need after overlay" >&2
     exit 1
   fi
 done
-if [[ ! -f "$OUT/js/firebase-init.js" ]]; then
-  echo "error: missing $OUT/js/firebase-init.js" >&2
+if [[ ! -f "$OUT/js/firebase-init.js" || ! -f "$OUT/js/account.js" ]]; then
+  echo "error: missing $OUT/js/firebase-init.js or account.js" >&2
   exit 1
 fi
 if ! grep -q "Wadhu privacy policy" "$OUT/privacy/index.html"; then

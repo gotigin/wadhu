@@ -1,10 +1,13 @@
-// Firebase web app (Analytics) for wadhu.com — bundled into static/js/firebase-init.js.
+// Firebase web app for wadhu.com — Analytics + Auth.
+// Bundled into static/js/firebase-init.js and reused by account.js.
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAD-K5O2xyDY8kQ7mb_xbqFHhlDv8mn4BY",
-  authDomain: "wadhu-ac8dc.firebaseapp.com",
+  // Custom domain so OAuth returns via https://wadhu.com/__/auth/handler
+  authDomain: "wadhu.com",
   projectId: "wadhu-ac8dc",
   storageBucket: "wadhu-ac8dc.firebasestorage.app",
   messagingSenderId: "349667335886",
@@ -13,6 +16,13 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const auth = getAuth(app);
 
-export { app, analytics };
+let analytics = null;
+try {
+  analytics = getAnalytics(app);
+} catch {
+  // Analytics may fail in some local/offline contexts; Auth still works.
+}
+
+export { app, auth, analytics };

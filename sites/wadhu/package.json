@@ -1,9 +1,11 @@
 {
   "name": "wadhu-site",
   "private": true,
-  "description": "wadhu.com — Firebase Analytics client for the Makepad / static site",
+  "description": "wadhu.com — Firebase Analytics + Auth client for the Makepad / static site",
   "scripts": {
-    "build:firebase": "esbuild client/firebase-init.js --bundle --format=iife --outfile=static/js/firebase-init.js --minify"
+    "build:firebase": "esbuild client/firebase-init.js --bundle --format=iife --outfile=static/js/firebase-init.js --minify",
+    "build:account": "esbuild client/account-app.js --bundle --format=iife --outfile=static/js/account.js --minify",
+    "build": "npm run build:firebase && npm run build:account"
   },
   "dependencies": {
     "firebase": "^11.6.0"

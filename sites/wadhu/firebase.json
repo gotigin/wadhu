@@ -1,4 +1,17 @@
 {
+  "auth": {
+    "providers": {
+      "emailPassword": true,
+      "googleSignIn": {
+        "oAuthBrandDisplayName": "Wadhu",
+        "supportEmail": "mearaj@gotigin.com",
+        "authorizedRedirectUris": [
+          "https://wadhu.com/__/auth/handler",
+          "https://wadhu-ac8dc.firebaseapp.com/__/auth/handler"
+        ]
+      }
+    }
+  },
   "hosting": {
     "public": "public",
     "ignore": [
@@ -33,7 +46,7 @@
         ]
       },
       {
-        "source": "/{terms,data-deletion,support,about}/**",
+        "source": "/{terms,data-deletion,support,about,account}/**",
         "headers": [
           { "key": "Cache-Control", "value": "public, max-age=300, must-revalidate" }
         ]
