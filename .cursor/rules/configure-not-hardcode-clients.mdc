@@ -1,0 +1,33 @@
+---
+description: Gotigin product apps configure client faces — never hardcode one client into the product
+alwaysApply: true
+---
+
+# Configure clients; do not hardcode them
+
+Canonical: `docs/GOTIGIN_CONFIGURE_NOT_HARDCODE.md`. Kumkaj detail:
+`kumkaj-workspace/docs/CLIENT_TEMPLATES_AND_SETUP.md` (when that tree is
+available).
+
+## Fact
+
+Gotigin brand apps (Kumkaj and others) implement features **for** many
+client setups. The product stays one app for that trade; **templates,
+Settings, and rights** show or hide chrome so each shop sees what it
+needs (e.g. hide kitchen communication when counter and kitchen are
+adjacent). Agents often forget this and push toward a one-client
+concrete face.
+
+## Do
+
+- Prefer configuration, defaults, and progressive depth over forking or
+  deleting capability.
+- Keep Wadhu crates brand-neutral and optional; never bake a restaurant
+  or courier client layout into a generic crate.
+
+## Do not
+
+- Treat a single client’s request as permanent hardcoding of the only
+  product face.
+- Put brand client packs / shop business logic into Wadhu
+  (`independent-parts.mdc`, vision §4).

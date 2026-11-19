@@ -140,7 +140,17 @@ others:
 - Plain-logic crates stay **Makepad-free**, so non-UI consumers (servers,
   CLIs, tests) never pull in a GUI toolkit.
 
-## 7. The central idea
+## 7. Gotigin product apps (not Wadhu’s job — still for agents)
+
+Brand products (e.g. Kumkaj’s Moklanjo / Khaynjo) implement features **for
+many client setups**, but must **not** become hardcoded to one client.
+Templates, Settings, and rights configure what each shop sees. Wadhu does
+not own those packs; agents in this workspace must still not push
+one-client hardcoding into consumers or into generic crates. Short note:
+[`GOTIGIN_CONFIGURE_NOT_HARDCODE.md`](GOTIGIN_CONFIGURE_NOT_HARDCODE.md).
+Cursor: `.cursor/rules/configure-not-hardcode-clients.mdc`.
+
+## 8. The central idea
 
 > **Write it once, generically, in Wadhu. Every app, at Gotigin or
 > elsewhere, can take exactly the piece it needs, and no piece ever

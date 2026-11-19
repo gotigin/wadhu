@@ -7,7 +7,8 @@ part independent of its siblings**.
 
 | Doc | What |
 |---|---|
-| [`WADHU_VISION_AND_PRINCIPLES.md`](WADHU_VISION_AND_PRINCIPLES.md) | **Canonical doctrine:** what Wadhu is, who it serves, the independence rules (§3), what belongs here (§4), stability (§5) |
+| [`WADHU_VISION_AND_PRINCIPLES.md`](WADHU_VISION_AND_PRINCIPLES.md) | **Canonical doctrine:** what Wadhu is, who it serves, the independence rules (§3), what belongs here (§4), stability (§5), Gotigin configure-not-hardcode pointer (§7) |
+| [`GOTIGIN_CONFIGURE_NOT_HARDCODE.md`](GOTIGIN_CONFIGURE_NOT_HARDCODE.md) | Cross-brand: product apps configure client faces via templates/Settings — do not hardcode one client (agents) |
 | [`DEV.md`](DEV.md) | Developer how-to: layout, setup, commands, new app/crate, env and ids, icons, packaging, Makepad 2 (patches, agent notes), consuming Wadhu from another workspace, screenshots |
 | [`CRATES.md`](CRATES.md) | Rules for reusable crates: shape, independence, features, API, versioning, MSRV, tests, publishing |
 | [`DESIGN.md`](DESIGN.md) | Wadhu brand tokens (colours sampled from the logo), type, voice, icons |
