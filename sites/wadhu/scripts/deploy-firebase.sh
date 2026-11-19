@@ -108,10 +108,12 @@ if grep -q '^# Moved' "$OUT/privacy.md" 2>/dev/null; then
 fi
 test -f "$LEGAL/PRIVACY.md"
 
-echo "4/4 Deploy Firebase Hosting → wadhu-ac8dc (one site: / + /privacy …)"
+PROJECT="$(python3 -c "import json;print(json.load(open('$SITE/.firebaserc'))['projects']['default'])")"
+echo "4/4 Deploy Firebase Hosting → ${PROJECT} (one site: / + /privacy …)"
 cd "$SITE"
+# Always pass --project so a leftover `firebase use` elsewhere cannot hijack this deploy.
 if [[ "$DRY" -eq 1 ]]; then
-  firebase deploy --only hosting --dry-run
+  firebase deploy --only hosting --project "$PROJECT" --dry-run
 else
-  firebase deploy --only hosting
+  firebase deploy --only hosting --project "$PROJECT"
 fi
