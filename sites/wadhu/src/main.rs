@@ -170,7 +170,7 @@ impl App {
             ids!(products),
             ids!(reuse),
             ids!(about),
-            ids!(close),
+            ids!(closing),
         ] {
             if let Some(mut view) = self.ui.view(cx, path).borrow_mut() {
                 view.layout.padding = band_pad;
@@ -201,6 +201,10 @@ impl App {
                 1.0
             };
         }
+        // Phone: four equal tabs in one row instead of wrapping chips.
+        let phone = tier == Tier::Phone;
+        self.ui.view(cx, ids!(topnav)).set_visible(cx, !phone);
+        self.ui.view(cx, ids!(topnav_tabs)).set_visible(cx, phone);
         if let Some(mut cta) = self.ui.view(cx, ids!(cta_row)).borrow_mut() {
             cta.layout.flow = Flow::right_wrap();
         }
@@ -211,6 +215,39 @@ impl App {
             } else {
                 Flow::Down
             };
+        }
+
+        // Type steps down with the window: a 48 px headline takes three
+        // lines of a phone.
+        let (title_px, lede_px) = match tier {
+            Tier::Phone => (30.0, 17.0),
+            Tier::Narrow => (36.0, 18.0),
+            Tier::Tablet => (42.0, 19.0),
+            Tier::Desk | Tier::Wide => (48.0, 19.0),
+        };
+        for id in [
+            ids!(hero_title),
+            ids!(what_title),
+            ids!(reuse_title),
+            ids!(products_title),
+            ids!(about_title),
+            ids!(closing_title),
+        ] {
+            Self::set_md_size(cx, &self.ui, id, title_px);
+        }
+        for id in [ids!(hero_lede), ids!(what_lede), ids!(products_lede)] {
+            Self::set_md_size(cx, &self.ui, id, lede_px);
+        }
+    }
+
+    fn set_md_size(cx: &mut Cx, ui: &WidgetRef, id: &[LiveId], size: f64) {
+        if let Some(mut md) = ui.markdown(cx, id).borrow_mut() {
+            let px = size as f32;
+            md.font_size = px;
+            md.text_style_normal.font_size = px;
+            md.text_style_bold.font_size = px;
+            md.draw_text.text_style.font_size = px;
+            md.redraw(cx);
         }
     }
 }
@@ -234,22 +271,28 @@ impl MatchEvent for App {
         }
 
         let privacy = self.ui.button(cx, ids!(nav_privacy)).clicked(actions)
+            || self.ui.button(cx, ids!(tab_privacy)).clicked(actions)
             || self.ui.button(cx, ids!(cta_privacy)).clicked(actions);
         if privacy {
             open_site(cx, &Self::site_url(cx, PRIVACY_PATH));
         }
 
-        if self.ui.button(cx, ids!(nav_terms)).clicked(actions) {
+        if self.ui.button(cx, ids!(nav_terms)).clicked(actions)
+            || self.ui.button(cx, ids!(tab_terms)).clicked(actions)
+        {
             open_site(cx, &Self::site_url(cx, TERMS_PATH));
         }
 
         let about = self.ui.button(cx, ids!(nav_about)).clicked(actions)
+            || self.ui.button(cx, ids!(tab_about)).clicked(actions)
             || self.ui.button(cx, ids!(cta_about)).clicked(actions);
         if about {
             open_site(cx, &Self::site_url(cx, ABOUT_PATH));
         }
 
-        if self.ui.button(cx, ids!(nav_account)).clicked(actions) {
+        if self.ui.button(cx, ids!(nav_account)).clicked(actions)
+            || self.ui.button(cx, ids!(tab_account)).clicked(actions)
+        {
             open_site(cx, &Self::site_url(cx, ACCOUNT_PATH));
         }
 

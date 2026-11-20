@@ -2,10 +2,9 @@
 
 _Last updated: 20 November 2026_
 
-Wadhu (*more* in Memon — *Tools · Apps · More*) is the brand. This page is
-the **data deletion / account deletion** instructions URL for products under
-that brand (Google Play, Microsoft Store, Meta App Dashboard). Privacy
-policy: [wadhu.com/privacy](https://wadhu.com/privacy).
+Wadhu (*more* in Memon — *Tools · Apps · More*) is the brand. This page
+says how to delete your data, or your account, for each product under it.
+Privacy policy: [wadhu.com/privacy](https://wadhu.com/privacy).
 
 ## SMS Gateway (`com.wadhu.smsgateway`)
 
@@ -55,18 +54,20 @@ must keep for legal / abuse prevention (minimal, time-limited).
 You should also remove the Gotigin / Wadhu Connect app’s access from your
 **Meta Business settings** so new tokens are not issued.
 
+## wadhu.com account
+
+If you registered on [wadhu.com/account](https://wadhu.com/account), email
+[mearaj@gotigin.com](mailto:mearaj@gotigin.com) with subject
+`Wadhu data deletion` from the address on the account (or name the phone
+number you signed in with). We delete the account and its sign-in record
+within **30 days**.
+
 ## Brand site / support mail
 
 Email in our support inbox is handled under ordinary mailbox retention.
 Ask us to delete a specific support thread in the same deletion email.
 
-## Meta “User data deletion” callback
-
-For Meta App Review, the Data deletion instructions URL is:
-
-**https://wadhu.com/data-deletion**
-
-(this page). Status of a request will be confirmed by email reply.
+We confirm every deletion request by email reply when it is done.
 
 ## Contact
 

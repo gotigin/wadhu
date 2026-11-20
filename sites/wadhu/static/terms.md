@@ -14,8 +14,8 @@ represent that you have authority to bind that business.
 reusable tools, utils, and apps. **Gotigin** is the company’s trademark. SMS
 Gateway, SMS Relay, and Wadhu Connect are products under that brand. CIN
 U62011GJ2026PTC179660, registered office Gosiya Manzil,
-Darbargadh, Dhoraji, Rajkot, Gujarat 360410, India. Naming:
-[`docs/BRAND.md`](../BRAND.md).
+Darbargadh, Dhoraji, Rajkot, Gujarat 360410, India. Names:
+[About](/about).
 
 Privacy: [wadhu.com/privacy](https://wadhu.com/privacy)  
 Support: [wadhu.com/support](https://wadhu.com/support)  
@@ -26,8 +26,7 @@ Data deletion: [wadhu.com/data-deletion](https://wadhu.com/data-deletion)
 - Open-source crates and apps in the Wadhu workspace are licensed as stated in
   each package (typically **MIT OR Apache-2.0**) unless a file says otherwise.
 - You may use SMS Gateway locally (LAN / Bluetooth) without a wadhu.com
-  account. Optional hosted features may require an account and separate fees —
-  see Gotigin’s identity and monetization notes in the developer docs.
+  account. Optional hosted features may require an account and separate fees.
 - We grant you a non-exclusive, non-transferable right to use the binaries and
   services for your lawful internal business purposes, subject to these Terms
   and any store licence (Google Play, Microsoft Store) that also applies.

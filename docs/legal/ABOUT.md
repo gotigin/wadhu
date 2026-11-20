@@ -2,7 +2,7 @@
 
 _Last updated: 20 November 2026_
 
-## Names (do not mix)
+## Names
 
 Order is always **Trademark → Company → Brand → Product**.
 
@@ -12,8 +12,6 @@ Order is always **Trademark → Company → Brand → Product**.
 | **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** | The **company** (legal entity) · [mearaj@gotigin.com](mailto:mearaj@gotigin.com) |
 | **Wadhu** | The **brand** — Memon for *more*; tagline *Tools · Apps · More*. Reusable tools, utils, and apps. Site: [wadhu.com](https://wadhu.com) |
 | **SMS Gateway** · **SMS Relay** · **Wadhu Connect** | **Products** under the Wadhu brand |
-
-See also [`docs/BRAND.md`](../BRAND.md).
 
 ## What Wadhu is
 
@@ -47,8 +45,6 @@ products that ship under it.
 | Email | [mearaj@gotigin.com](mailto:mearaj@gotigin.com) |
 
 ## Legal links
-
-Same-host paths (work on wadhu.com and a local static server):
 
 - [Privacy](/privacy)
 - [Terms](/terms)

@@ -64,8 +64,13 @@ script_mod! {
             border_radius: 14.
             border_size: 0.
         }
+        // Dark ink on every face: the theme's hover ink is pale and
+        // vanished on the cyan hover fill.
         draw_text +: {
             color: #x0d0b3a
+            color_hover: #x0d0b3a
+            color_down: #x0d0b3a
+            color_focus: #x0d0b3a
             text_style +: {font_size: 15.}
         }
     }
@@ -83,6 +88,9 @@ script_mod! {
         }
         draw_text +: {
             color: #xfcfbfb
+            color_hover: #xfcfbfb
+            color_down: #xfcfbfb
+            color_focus: #xfcfbfb
             text_style +: {font_size: 14.}
         }
     }
@@ -174,10 +182,10 @@ script_mod! {
                                             border_radius: 20.
                                         }
                                         BodyCopy{
-                                            body: "On the phone: SMS Gateway → Allow a new app → read the code. Same Wi‑Fi. No IP typing."
+                                            body: "On the phone: SMS Gateway → Allow a new app → read the code. Same Wi-Fi. No IP typing."
                                         }
                                         pair_code_input := FieldInput{
-                                            empty_text: "6-digit code from the phone"
+                                            empty_text: "6-digit code"
                                         }
                                         connect_lan_button := PrimaryBtn{
                                             text: "Find phone & connect"
@@ -214,10 +222,10 @@ script_mod! {
                                             body: "Filled automatically after Find phone & connect. Or paste relay URL + key for internet."
                                         }
                                         url_input := FieldInput{
-                                            empty_text: "Filled after connect — or relay http://host:9876"
+                                            empty_text: "Gateway or relay URL"
                                         }
                                         key_input := FieldInput{
-                                            empty_text: "App token after connect — or relay client key"
+                                            empty_text: "App token or relay key"
                                         }
                                         health_button := GhostBtn{
                                             text: "Check health"
@@ -257,7 +265,7 @@ script_mod! {
                                             empty_text: "Message"
                                         }
                                         send_button := PrimaryBtn{
-                                            text: "Send via HTTP (LAN / relay)"
+                                            text: "Send via HTTP"
                                         }
                                         result_label := Label{
                                             width: Fill
@@ -296,13 +304,13 @@ script_mod! {
                                             body: "No cloud. Run SMS Gateway on this PC — it listens on 127.0.0.1:18766 with the same length-prefixed JSON as Classic RFCOMM. Paste the gateway API key above, then ping/send here. Phone RFCOMM uses UUID 00001101-… (see BLUETOOTH.md)."
                                         }
                                         framed_host_input := FieldInput{
-                                            empty_text: "127.0.0.1 (or host exposing :18766)"
+                                            empty_text: "Host (127.0.0.1)"
                                         }
                                         framed_ping_button := GhostBtn{
                                             text: "Framed ping :18766"
                                         }
                                         framed_send_button := PrimaryBtn{
-                                            text: "Send via framed TCP (BT lab)"
+                                            text: "Send via framed TCP"
                                         }
                                         framed_label := Label{
                                             width: Fill
@@ -434,7 +442,7 @@ impl MatchEvent for App {
             }
             self.ui
                 .markdown(cx, ids!(connect_label))
-                .set_text(cx, "Looking for the phone on this Wi‑Fi…");
+                .set_text(cx, "Looking for the phone on this Wi-Fi…");
             match Client::connect_on_lan(code.trim(), "SMS Client Demo") {
                 Ok(client) => {
                     self.ui

@@ -17,8 +17,7 @@ _Last updated: 20 November 2026_
 
 This policy covers **Wadhu brand** products and surfaces listed below. Apps
 under other Gotigin brands (for example Khaynjo under Kumkaj) publish **their
-own** privacy policies on their own domains. Naming rules:
-[`docs/BRAND.md`](../BRAND.md).
+own** privacy policies on their own domains. Names: [About](/about).
 
 ## Products covered
 
@@ -28,11 +27,6 @@ own** privacy policies on their own domains. Naming rules:
 | **SMS Gateway** | Google Play / sideload / desktop packages | `com.wadhu.smsgateway` |
 | SMS Relay | Self-hosted or Gotigin-hosted relay | Operator-configured host |
 | **Wadhu Connect** | [connect.wadhu.com](https://connect.wadhu.com) | Meta Tech Provider bridge |
-
-Store listings for SMS Gateway use this policy at
-[wadhu.com/privacy](https://wadhu.com/privacy). Wadhu Connect and Meta App
-Review use the same URL (and the same file served at
-[connect.wadhu.com/privacy](https://connect.wadhu.com/privacy)).
 
 ## Summary
 
@@ -52,6 +46,11 @@ Review use the same URL (and the same file served at
 - Pages you request; standard server / hosting logs (IP, user agent, time).
 - Optional analytics **only if** enabled on a given deploy (can be omitted).
 - Email or phone you send us for support.
+- **wadhu.com account** (only if you register on [/account](/account)): the
+  email address or phone number you sign in with, your display name, and, if
+  you use Google, Microsoft, or GitHub sign-in, the account id and basic
+  profile that provider shares. Sign-in is run by Firebase Authentication
+  (Google). An account is for hosted features; local tools do not need one.
 
 ### SMS Gateway (`com.wadhu.smsgateway`)
 
@@ -134,6 +133,8 @@ We share data only as needed to run the product:
 | Meta Platforms (WhatsApp Cloud API) | Connect messaging after you grant access |
 | Mobile carriers / device OS | Deliver SMS you initiate |
 | Hosting / infrastructure providers | Run wadhu.com, connect.wadhu.com, or a hosted relay |
+| Google Firebase (Hosting, Authentication, optional Analytics) | Serve wadhu.com and run account sign-in |
+| Sign-in providers you choose (Google, Microsoft, GitHub) | Confirm who you are when you sign in with them |
 | Your own systems | Brand apps and clients you configure to call our APIs |
 
 We do not sell personal data. We may disclose information if required by law
@@ -145,6 +146,7 @@ or to protect users, our rights, or safety.
 | --- | --- |
 | On-device SMS Gateway data | Until you clear storage, uninstall, or delete in-app |
 | Connect tokens & active connection | While the connection is active; remove on your deletion request or disconnect |
+| wadhu.com account | Until you ask us to delete it |
 | Webhook / server logs | Limited period for abuse prevention and debugging, then deleted or aggregated |
 | Support email | As needed to resolve your request, then routine mailbox retention |
 
@@ -175,19 +177,13 @@ Protection Act, 2023), you may request access, correction, or deletion of
 personal data we hold, or withdraw consent where processing is consent-based.
 See [Data deletion](https://wadhu.com/data-deletion) and Contact below.
 
-## This policy — one file
+## Where this policy applies
 
-This file (`docs/legal/PRIVACY.md`) is the **one** privacy policy for **Wadhu
-brand** products listed above and for [wadhu.com](https://wadhu.com). It is
-presented as **formatted Markdown** (not a source dump):
+This is the **one** privacy policy for the **Wadhu brand** products listed
+above and for [wadhu.com](https://wadhu.com). The same text is published at:
 
 - [wadhu.com/privacy](https://wadhu.com/privacy)
-- [connect.wadhu.com/privacy](https://connect.wadhu.com/privacy) (same file,
-  embedded in the Connect binary)
-- Raw source also at `/privacy.md` on those hosts when deployed
-
-Google Play and Microsoft Store listings for SMS Gateway must use
-`https://wadhu.com/privacy`.
+- [connect.wadhu.com/privacy](https://connect.wadhu.com/privacy)
 
 ## Contact / grievance
 

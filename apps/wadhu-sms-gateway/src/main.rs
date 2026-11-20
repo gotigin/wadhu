@@ -75,8 +75,13 @@ script_mod! {
             border_radius: 14.
             border_size: 0.
         }
+        // Dark ink on every face: the theme's hover ink is pale and
+        // vanished on the cyan hover fill.
         draw_text +: {
             color: #x0d0b3a
+            color_hover: #x0d0b3a
+            color_down: #x0d0b3a
+            color_focus: #x0d0b3a
             text_style +: {font_size: 15.}
         }
     }
@@ -95,7 +100,20 @@ script_mod! {
         }
         draw_text +: {
             color: #xfcfbfb
+            color_hover: #x0d0b3a
+            color_down: #xfcfbfb
+            color_focus: #xfcfbfb
             text_style +: {font_size: 15.}
+        }
+    }
+
+    // The Do Next card is the SecondaryBtn blue, so its button takes the
+    // night fill: on the stock face the button had no visible edge.
+    let NextBtn = SecondaryBtn{
+        draw_bg +: {
+            color: #x0d0b3a
+            color_hover: #x00c8fc
+            color_down: #x161252
         }
     }
 
@@ -112,6 +130,9 @@ script_mod! {
         }
         draw_text +: {
             color: #xfcfbfb
+            color_hover: #xfcfbfb
+            color_down: #xfcfbfb
+            color_focus: #xfcfbfb
             text_style +: {font_size: 14.}
         }
     }
@@ -176,14 +197,16 @@ script_mod! {
                                     flow: Right
                                     spacing: 12
                                     align: Align{y: 0.5}
+                                    // Fill, not Fit + spacer: the title gives
+                                    // way first, so the badge stays whole on a
+                                    // 360 px phone (Fit + Fit clipped the badge).
                                     title_label := Label{
-                                        width: Fit
+                                        width: Fill
                                         height: Fit
                                         text: "SMS Gateway"
                                         draw_text.color: #xfcfbfb
-                                        draw_text.text_style.font_size: 26
+                                        draw_text.text_style.font_size: 24
                                     }
-                                    SolidView{ width: Fill height: 1 }
                                     RoundedView{
                                         width: Fit
                                         height: Fit
@@ -250,7 +273,7 @@ script_mod! {
                                         font_color: #xfcfbfb
                                         draw_text +: {color: #xfcfbfb}
                                     }
-                                    perm_button := SecondaryBtn{
+                                    perm_button := NextBtn{
                                         text: "Allow SMS permission"
                                     }
                                 }
@@ -512,7 +535,7 @@ script_mod! {
                                     Label{
                                         width: Fill
                                         height: Fit
-                                        text: "ALLOW AN APP (SAME WI‑FI)"
+                                        text: "ALLOW AN APP (SAME WI-FI)"
                                         draw_text.color: #x9fb4d0
                                         draw_text.text_style.font_size: 11
                                     }
@@ -555,8 +578,10 @@ script_mod! {
                                             body: "No apps connected yet."
                                             font_size: 13.
                                         }
+                                        // Short hints: a 360 px phone leaves the
+                                        // field about 27 characters before "…".
                                         client_name_input := FieldInput{
-                                            empty_text: "App name to block / unblock"
+                                            empty_text: "App name"
                                         }
                                         block_client_button := GhostBtn{
                                             text: "Block app"
@@ -564,8 +589,14 @@ script_mod! {
                                         unblock_client_button := GhostBtn{
                                             text: "Unblock app"
                                         }
+                                        // The consequence is its own line: on one
+                                        // button face it ran off both edges at 360 px.
+                                        BodyCopySm{
+                                            body: "Changing the access key disconnects every app."
+                                            font_size: 12.
+                                        }
                                         rotate_key_button := GhostBtn{
-                                            text: "Change access key (disconnects all apps)"
+                                            text: "Change access key"
                                         }
                                     }
                                 }
@@ -643,10 +674,10 @@ script_mod! {
                                             border_radius: 20.
                                         }
                                         BodyCopySm{
-                                            body: "Internet clients via sms-relay. LAN/BT keep working without it."
+                                            body: "Internet clients via sms-relay. LAN/BT keep working without it. The URL looks like http://host:9876."
                                         }
                                         relay_url_input := FieldInput{
-                                            empty_text: "Relay URL (http://host:9876)"
+                                            empty_text: "Relay URL"
                                         }
                                         SolidView{ width: Fill height: 8 }
                                         relay_device_id_input := FieldInput{
@@ -701,9 +732,8 @@ impl MatchEvent for App {
 
         #[cfg(not(target_os = "android"))]
         {
-            self.ui
-                .button(cx, ids!(perm_button))
-                .set_text(cx, "SMS permission (Android only)");
+            // Nothing to grant on a desktop: no button, the card says why.
+            self.ui.button(cx, ids!(perm_button)).set_visible(cx, false);
             self.ui.markdown(cx, ids!(tagline_label)).set_text(
                 cx,
                 "Desktop preview — run on Android to send real SMS through a SIM",
@@ -799,7 +829,7 @@ impl MatchEvent for App {
             );
             self.ui.label(cx, ids!(result_label)).set_text(
                 cx,
-                "Allow code ready — enter it in the brand app on the same Wi‑Fi",
+                "Allow code ready — enter it in the brand app on the same Wi-Fi",
             );
             self.ui
                 .label(cx, ids!(result_label))
@@ -1000,7 +1030,7 @@ impl App {
         let lan_chip = if lan::local_ipv4().is_some() {
             "Listening"
         } else {
-            "No Wi‑Fi IP"
+            "No Wi-Fi IP"
         };
         self.ui.label(cx, ids!(api_chip)).set_text(cx, lan_chip);
         self.ui.label(cx, ids!(api_chip)).set_text_color(

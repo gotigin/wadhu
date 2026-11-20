@@ -122,7 +122,10 @@ th { color: var(--ink); background: var(--panel); }
 @media (max-width: 720px) {
   .topbar { align-items: flex-start; }
   .topnav { margin-left: 0; width: 100%; }
+  /* 42px tall: a finger-sized target, same as the home page tabs. */
+  .topnav a { padding: 0.7rem 0.75rem; font-size: 0.8rem; }
   .legal-main { padding-left: 1rem; padding-right: 1rem; }
   h1 { font-size: 1.45rem; overflow-wrap: anywhere; }
-  table { width: 100%; }
+  /* A wide table scrolls inside itself; the page never scrolls sideways. */
+  table { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }

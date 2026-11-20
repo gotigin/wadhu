@@ -15,8 +15,7 @@ SMS Relay, Wadhu Connect).
 | Company | GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED |
 | Registered office | Gosiya Manzil, Darbargadh, Dhoraji, Rajkot, Gujarat 360410, India |
 
-Use email for privacy, deletion, and store-listing support contacts (Google
-Play / Microsoft Store “support URL” and email fields).
+Use email for support, privacy, and deletion requests.
 
 ## What we can help with
 
@@ -33,8 +32,6 @@ Play / Microsoft Store “support URL” and email fields).
   support their own products)
 
 ## Legal
-
-Same-host paths (work on wadhu.com and a local static server):
 
 - Privacy: [/privacy](/privacy)
 - Terms: [/terms](/terms)

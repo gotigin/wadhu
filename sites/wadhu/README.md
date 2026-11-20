@@ -17,7 +17,8 @@ public/
 
 The SPA is one **scrolling** page (`ScrollYView`): hero (*means more*) →
 brand → reuse → products → names → close. On a phone the top bar stacks and
-the nav wraps; product cards stack below 960px. Nav opens `/privacy`,
+the nav becomes four equal tabs on one row; headlines step down per tier
+(30 / 36 / 42 / 48 px); product cards stack below 960px. Nav opens `/privacy`,
 `/terms`, `/about`, and `/account` in the same tab on the web
 (`OpenUrlInPlace::Yes`). Legal is **not** an in-app Makepad route. Connect
 opens on connect.wadhu.com.
