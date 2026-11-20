@@ -35,11 +35,14 @@ site before review so reviewers can open the URLs:
 ## Build the Play bundle
 
 ```bash
+./scripts/check-store-readiness.sh
 ./apps/wadhu-sms-gateway/scripts/package-android.sh
 ```
 
-Upload the **AAB** plus native debug symbols / mapping when the package script
-writes them under `dist/sms-gateway-android/` (or equivalent).
+`check-store-readiness.sh` checks brand framing, store URLs, app id, and
+that the package script writes Play crash files. It does not build an APK.
+Upload the **AAB** plus `native-debug-symbols.zip` and `mapping.txt` from
+`dist/sms-gateway-android/` when the release keystore is set.
 
 ## Versioning
 

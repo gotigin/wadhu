@@ -32,7 +32,7 @@ Brands / products (do not call a brand a product or vice versa):
 
 | Brand | Products / notes |
 | --- | --- |
-| **Wadhu** | SMS Gateway, SMS Relay, **Wadhu Connect** (WhatsApp Cloud API); site wadhu.com |
+| **Wadhu** | Memon *more* — *Tools · Apps · More*. Reusable tools, utils, and apps. Products: SMS Gateway, SMS Relay, **Wadhu Connect**; site wadhu.com |
 | **Kumkaj** | BOS apps: Khaynjo, Moklanjo, Kirano, Tabiyat |
 | **Ghal Bol** | — |
 | **GotiginSwap** | — |

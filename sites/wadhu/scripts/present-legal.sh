@@ -48,19 +48,19 @@ present() {
 
 echo "Presenting docs/legal → sites/wadhu/static/"
 present privacy "Privacy — Wadhu" \
-  "How Wadhu (by Gotigin) treats your data — privacy policy for SMS Gateway, Connect, and wadhu.com." \
+  "Privacy policy for the Wadhu brand (Tools · Apps · More), including wadhu.com, SMS Gateway, and Wadhu Connect." \
   "https://wadhu.com/privacy" "PRIVACY.md"
 present terms "Terms — Wadhu" \
-  "Terms of use for Wadhu services, SMS Gateway, and Wadhu Connect." \
+  "Terms of use for the Wadhu brand and its products, including SMS Gateway and Wadhu Connect." \
   "https://wadhu.com/terms" "TERMS.md"
 present data-deletion "Data deletion — Wadhu" \
-  "How to delete Wadhu SMS Gateway and Connect data — Play / Meta deletion instructions." \
+  "How to delete data for Wadhu products, including SMS Gateway and Wadhu Connect." \
   "https://wadhu.com/data-deletion" "DATA_DELETION.md"
 present support "Support — Wadhu" \
-  "Contact and support for Wadhu products." \
+  "Support for the Wadhu brand and its products." \
   "https://wadhu.com/support" "SUPPORT.md"
 present about "About — Wadhu" \
-  "About Wadhu and GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED." \
+  "Wadhu means more in Memon. Tools, utils, and apps by Gotigin — GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED." \
   "https://wadhu.com/about" "ABOUT.md"
 
 echo "Done. Deploy with ./sites/wadhu/scripts/deploy-firebase.sh"

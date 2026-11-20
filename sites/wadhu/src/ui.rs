@@ -1,6 +1,7 @@
 // wadhu.com — one scrolling Makepad brand SPA (Khaynjo pattern).
-// Naming: Wadhu=brand, Gotigin=trademark, company=GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED.
-// Products: SMS Gateway, Wadhu Connect.
+// Wadhu = Memon *more* — Tools · Apps · More. Reusable tools, utils, and apps.
+// Trademark: Gotigin. Company: GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED.
+// Products under the brand: SMS Gateway, SMS Relay, Wadhu Connect.
 // Privacy/Terms/About are pages of the same Hosting tree (HTML), not in-app routes.
 script_mod! {
     use mod.prelude.widgets.*
@@ -166,25 +167,39 @@ script_mod! {
                                     fit: ImageFit.Stretch
                                     src: crate_resource("self:resources/media/wadhu-brand-logo.webp")
                                 }
-                                brand_name := Label{
-                                    width: Fit
-                                    text: "Wadhu"
-                                    draw_text +: {
-                                        color: Lime
-                                        text_style: theme.font_bold{font_size: 14.}
+                                brand_lockup := View{
+                                    width: Fit height: Fit
+                                    flow: Down
+                                    spacing: 1.
+                                    align: Align{x: 0.0 y: 0.5}
+                                    brand_name := Label{
+                                        width: Fit
+                                        text: "Wadhu"
+                                        draw_text +: {
+                                            color: Lime
+                                            text_style: theme.font_bold{font_size: 14.}
+                                        }
+                                    }
+                                    brand_tag := Label{
+                                        width: Fit
+                                        text: "Tools · Apps · More"
+                                        draw_text +: {
+                                            color: Muted
+                                            text_style: theme.font_bold{font_size: 10.}
+                                        }
                                     }
                                 }
                             }
                             // Fill remaining width; children hug the right edge.
                             topnav := View{
                                 width: Fill height: Fit
-                                flow: Right
+                                flow: Right { wrap: true }
                                 spacing: 10.
                                 align: Align{x: 1.0 y: 0.5}
                                 nav_privacy := GhostBtn{ text: "Privacy" }
                                 nav_terms := GhostBtn{ text: "Terms" }
                                 nav_about := GhostBtn{ text: "About" }
-                                nav_connect := GhostBtn{ text: "Wadhu Connect" }
+                                nav_account := GhostBtn{ text: "Account" }
                             }
                         }
                         // One scrolling SPA (Khaynjo). Legal pages are separate HTML
@@ -199,30 +214,47 @@ script_mod! {
                             hero := Band{
                                 hero_tag := View{
                                     width: Fill height: Fit
-                                    Eyebrow{ body: "WADHU · TOOLS · APPS · MORE" }
+                                    Eyebrow{ body: "WADHU · BY GOTIGIN" }
                                 }
                                 Headline{ body: "Wadhu means more." }
-                                Lede{ body: "Reusable tools under the Wadhu brand — SMS Gateway and Wadhu Connect." }
+                                Lede{ body: "Memon for more. Reusable tools, utils, and apps — Tools · Apps · More." }
                                 cta_row := View{
                                     width: Fill height: Fit
-                                    flow: Right
+                                    flow: Right { wrap: true }
                                     spacing: 14.
-                                    cta_connect := LinkBtn{ text: "Open Wadhu Connect" }
+                                    cta_about := LinkBtn{ text: "About Wadhu" }
                                     cta_privacy := GhostBtn{ text: "Privacy policy" }
                                 }
+                            }
+
+                            what := BandAlt{
+                                Eyebrow{ body: "THE BRAND" }
+                                Headline{ body: "Tools, utils, and apps." }
+                                Lede{ body: "Written once, so other Gotigin products and anyone else can take exactly the piece they need." }
+                                Body{ body: "Libraries, small programs, and services live here. Each part stands on its own." }
+                            }
+
+                            reuse := Band{
+                                Eyebrow{ body: "REUSE" }
+                                Headline{ body: "Take one piece." }
+                                Body{ body: "A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change." }
                             }
 
                             products := BandAlt{
                                 Eyebrow{ body: "PRODUCTS" }
                                 Headline{ body: "Under the Wadhu brand" }
-                                Lede{ body: "Two products you can run now." }
+                                Lede{ body: "Products that ship under this brand." }
                                 cards := View{
                                     width: Fill height: Fit
                                     flow: Right
                                     spacing: 18.
                                     sms := Panel{
                                         CardTitle{ body: "SMS Gateway" }
-                                        Body{ body: "Android-first SIM gateway. LAN and Bluetooth stay free forever. Optional hosted relay later — not required for local send." }
+                                        Body{ body: "Android-first SIM gateway. LAN and Bluetooth stay free forever." }
+                                    }
+                                    relay := Panel{
+                                        CardTitle{ body: "SMS Relay" }
+                                        Body{ body: "Optional internet path to a paired gateway. Local send does not need it." }
                                     }
                                     conn := Panel{
                                         conn_mark := Image{
@@ -237,13 +269,7 @@ script_mod! {
                                 }
                             }
 
-                            connect := Band{
-                                Eyebrow{ body: "WADHU CONNECT" }
-                                Headline{ body: "Their number. Your software." }
-                                Body{ body: "Other Gotigin brands (Khaynjo, Moklanjo, and others) call Wadhu Connect so a business can grant access to their WhatsApp Business Account. We provide the Cloud API pipe — we do not take over their chats." }
-                            }
-
-                            about := BandAlt{
+                            about := Band{
                                 Eyebrow{ body: "NAMES" }
                                 Headline{ body: "Who we are" }
                                 names := View{
@@ -273,23 +299,23 @@ script_mod! {
                                         spacing: 4.
                                         Eyebrow{ body: "BRAND" }
                                         CardTitle{ body: "Wadhu" }
-                                        Body{ body: "More in Gujarati / Kutchi — Tools · Apps · More" }
+                                        Body{ body: "Memon for “more” · Tools · Apps · More" }
                                     }
                                     View{
                                         width: Fill height: Fit
                                         flow: Down
                                         spacing: 4.
                                         Eyebrow{ body: "PRODUCTS" }
-                                        CardTitle{ body: "SMS Gateway · Wadhu Connect" }
-                                        Body{ body: "Local SIM messaging and WhatsApp Cloud API bridge" }
+                                        CardTitle{ body: "SMS Gateway · SMS Relay · Wadhu Connect" }
+                                        Body{ body: "SIM gateway, optional relay, and a WhatsApp Cloud API bridge" }
                                     }
                                 }
                             }
 
-                            close := Band{
+                            close := BandAlt{
                                 Eyebrow{ body: "NEXT" }
                                 Headline{ body: "Build with Wadhu." }
-                                Body{ body: "Cloud accounts on wadhu.com are for hosted Wadhu features. Local SMS over LAN and Bluetooth stays free." }
+                                Body{ body: "A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free." }
                                 View{
                                     width: Fill height: Fit
                                     flow: Down

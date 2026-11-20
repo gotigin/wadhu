@@ -15,10 +15,12 @@ public/
   /js/account.js
 ```
 
-The SPA is one **scrolling** page (`ScrollYView`): hero → products → Connect →
-about → close. Nav opens `/privacy`, `/terms`, `/about` with `open_link`
-(`OpenUrlInPlace::No`) so the home SPA stays loaded — legal is **not** an
-in-app Makepad route.
+The SPA is one **scrolling** page (`ScrollYView`): hero (*means more*) →
+brand → reuse → products → names → close. On a phone the top bar stacks and
+the nav wraps; product cards stack below 960px. Nav opens `/privacy`,
+`/terms`, `/about`, and `/account` in the same tab on the web
+(`OpenUrlInPlace::Yes`). Legal is **not** an in-app Makepad route. Connect
+opens on connect.wadhu.com.
 
 Text selection is **page-level** (`selection_root` + `select_from_gaps` on
 `page`) via the workspace Makepad `text_selection` patch.

@@ -1,5 +1,6 @@
 # SMS Gateway — app brief
 
+> **Product** under the Wadhu brand (*more* — Tools · Apps · More), not the brand itself.\
 > **Package:** `wadhu-sms-gateway`\
 > **Primary target:** Android OS devices (phones, tablets, and other form
 > factors with a usable SIM)\

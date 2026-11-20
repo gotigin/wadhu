@@ -83,22 +83,18 @@ if android_release_keystore_set; then
   echo "Play bundle → $OUT/wadhu-template-app.aab"
 fi
 cat > "$STAGE/README.txt" <<EOF
-Wadhu Template for Android phones and tablets
-======================================
+Wadhu template app
+==================
+Starter copied by scripts/new-app.sh. Replace this note with the real
+product. Wadhu is the brand (Memon for more — Tools · Apps · More):
+reusable tools, utils, and apps. This template is not a shipped product.
+
 App id: ${WADHU_APP_ID}
 Label: ${WADHU_APP_LABEL}
 Signed with: ${SIGNED}
 
-Install: copy wadhu-template-app.apk to the device and open it (allow installs
-from this source), or: adb install -r wadhu-template-app.apk
-An update installs over the last one and keeps the books — never uninstall
-to update (that deletes the books on the device).
-
-At launch pick what this device is:
-  Server Mode — it holds the shop's books (keep the app open, plugged in).
-  Client Mode — Find the shop's server → type the pairing code shown on the
-  Server (Settings → Extra tills → Allow extra tills) → sign in with your PIN.
-The Server can be any device running Wadhu Template: Windows, Linux or Android.
+Install: copy wadhu-template-app.apk to a device, or:
+  adb install -r wadhu-template-app.apk
 EOF
 # Atomic replace of the published folder (like MSI overwriting the .msi).
 rm -rf "$OUT"

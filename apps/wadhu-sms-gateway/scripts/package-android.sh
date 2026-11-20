@@ -81,27 +81,44 @@ if android_release_keystore_set; then
   fi
   cp -f "$AAB" "$STAGE/wadhu-sms-gateway.aab"
   echo "Play bundle → $OUT/wadhu-sms-gateway.aab"
+  AAB_LIBS="$TARGET_DIR/android/makepad-android-aab/wadhu_sms_gateway/lib"
+  android_write_play_crash_files "$AAB_LIBS" "$STAGE/wadhu-sms-gateway.aab" "$STAGE"
 fi
 cat > "$STAGE/README.txt" <<EOF
-SMS Gateway for Android phones and tablets
-======================================
+SMS Gateway for Android
+=======================
+Product under Wadhu (Memon for more — Tools · Apps · More).
+Trademark: Gotigin. Company: GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED.
+
 App id: ${WADHU_APP_ID}
 Label: ${WADHU_APP_LABEL}
 Signed with: ${SIGNED}
 
-Install: copy wadhu-sms-gateway.apk to the device and open it (allow installs
-from this source), or: adb install -r wadhu-sms-gateway.apk
-An update installs over the last one and keeps the books — never uninstall
-to update (that deletes the books on the device).
+What it is
+  Android-first SIM gateway. Other apps send SMS over your LAN or Bluetooth.
+  Local send does not need a wadhu.com account. SMS Relay is optional.
 
-At launch pick what this device is:
-  Server Mode — it holds the shop's books (keep the app open, plugged in).
-  Client Mode — Find the shop's server → type the pairing code shown on the
-  Server (Settings → Extra tills → Allow extra tills) → sign in with your PIN.
-The Server can be any device running SMS Gateway: Windows, Linux or Android.
+Install
+  Copy wadhu-sms-gateway.apk to the device and open it (allow installs
+  from this source), or: adb install -r wadhu-sms-gateway.apk
+  An update installs over the previous build and keeps gateway settings,
+  tokens, and the outbox. Uninstalling deletes that on-device data.
+
+Play Console
+  Upload wadhu-sms-gateway.aab together with native-debug-symbols.zip and
+  mapping.txt from this folder when the release keystore produced them.
+  Privacy  https://wadhu.com/privacy
+  Terms    https://wadhu.com/terms
+  Support  https://wadhu.com/support
+  Deletion https://wadhu.com/data-deletion
 EOF
 # Atomic replace of the published folder (like MSI overwriting the .msi).
 rm -rf "$OUT"
 mv "$STAGE" "$OUT"
 trap - EXIT
 echo "APK → $OUT/wadhu-sms-gateway.apk"
+if [[ -f "$OUT/wadhu-sms-gateway.aab" ]]; then
+  echo "AAB → $OUT/wadhu-sms-gateway.aab"
+  [[ -f "$OUT/native-debug-symbols.zip" ]] && echo "Native debug symbols → $OUT/native-debug-symbols.zip"
+  [[ -f "$OUT/mapping.txt" ]] && echo "Deobfuscation mapping → $OUT/mapping.txt"
+fi

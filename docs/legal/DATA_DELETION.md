@@ -1,9 +1,10 @@
 # Wadhu data deletion
 
-_Last updated: 16 November 2026_
+_Last updated: 20 November 2026_
 
-This page is the **data deletion / account deletion** instructions URL for
-Wadhu products (Google Play, Microsoft Store, Meta App Dashboard). Privacy
+Wadhu (*more* in Memon — *Tools · Apps · More*) is the brand. This page is
+the **data deletion / account deletion** instructions URL for products under
+that brand (Google Play, Microsoft Store, Meta App Dashboard). Privacy
 policy: [wadhu.com/privacy](https://wadhu.com/privacy).
 
 ## SMS Gateway (`com.wadhu.smsgateway`)

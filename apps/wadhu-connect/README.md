@@ -1,6 +1,7 @@
 # Wadhu Connect
 
-WhatsApp Cloud API **Tech Provider** bridge for Gotigin brands and integrators.
+**Product** under the Wadhu brand (*more* — Tools · Apps · More). WhatsApp
+Cloud API **Tech Provider** bridge for Gotigin brands and integrators.
 Businesses keep their own WhatsApp Business number; brand apps send/receive
 through Cloud API after Embedded Signup.
 

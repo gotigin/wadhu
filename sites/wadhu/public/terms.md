@@ -1,6 +1,6 @@
 # Wadhu terms of use
 
-_Last updated: 16 November 2026_
+_Last updated: 20 November 2026_
 
 ## Agreement
 
@@ -9,8 +9,10 @@ By installing, accessing, or using Wadhu brand websites, apps, or services
 you agree to these Terms. If you use them on behalf of a business, you
 represent that you have authority to bind that business.
 
-**Wadhu** is a brand of **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** (the
-company; “we”). **Gotigin** is the company’s trademark. CIN
+**Wadhu** (*more* in Memon; tagline *Tools · Apps · More*) is a brand of
+**GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** (the company; “we”) for
+reusable tools, utils, and apps. **Gotigin** is the company’s trademark. SMS
+Gateway, SMS Relay, and Wadhu Connect are products under that brand. CIN
 U62011GJ2026PTC179660, registered office Gosiya Manzil,
 Darbargadh, Dhoraji, Rajkot, Gujarat 360410, India. Naming:
 [`docs/BRAND.md`](../BRAND.md).

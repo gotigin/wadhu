@@ -113,3 +113,7 @@
 #recaptcha-container {
   min-height: 0;
 }
+@media (max-width: 720px) {
+  .account-main { padding-left: 1rem; padding-right: 1rem; }
+  .auth-actions { flex-wrap: wrap; }
+}

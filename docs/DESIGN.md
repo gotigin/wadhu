@@ -38,8 +38,10 @@ paints nothing on this Makepad rev ([`DEV.md`](DEV.md) § Agent notes).
 - The wordmark is a heavy, rounded geometric sans; the taglines are wide
   tracked caps. Until a typeface is licensed and vendored, Wadhu UIs use
   Makepad's default UI font.
-- Tagline: **Tools · Apps · More — by Gotigin**. "Wadhu" is always
-  capitalised and never translated.
+- The name **Wadhu** is Memon for *more*. Tagline: **Tools · Apps · More — by Gotigin**.
+  "Wadhu" is always capitalised and never translated. The brand is reusable
+  tools, utils, and apps. SMS Gateway, SMS Relay, and Wadhu Connect are
+  products under it.
 
 ## Icons
 

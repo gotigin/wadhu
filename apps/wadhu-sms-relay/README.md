@@ -1,6 +1,7 @@
 # SMS Relay
 
-Self-hostable **remote control plane** for [SMS Gateway](../wadhu-sms-gateway/README.md)
+**Product** under the Wadhu brand (*more* — Tools · Apps · More). Optional
+self-hostable **remote control plane** for [SMS Gateway](../wadhu-sms-gateway/README.md)
 devices. Internet clients submit SMS here; the relay pushes jobs to paired
 Android phones over an outbound WebSocket. LAN and Bluetooth on the phone
 never require this service.

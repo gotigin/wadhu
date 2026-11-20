@@ -21,8 +21,7 @@ public/
 Deploy: `./sites/wadhu/scripts/deploy-firebase.sh` (project `wadhu-ac8dc`).
 Local: `./sites/wadhu/scripts/run-web.sh`. Details: [`sites/wadhu/README.md`](../sites/wadhu/README.md).
 
-Nav in the SPA opens `/privacy` etc. in a new tab (`OpenUrlInPlace::No`) so
-the home canvas stays loaded. Legal is not an in-app Makepad route.
+The SPA is one scroll: hero (*Wadhu means more*) → what the brand is → reuse → products (SMS Gateway, SMS Relay, Wadhu Connect) → names → close. Nav opens `/privacy`, `/terms`, `/about`, and `/account` in the same tab on the web (`OpenUrlInPlace::Yes`). Connect stays a separate host. Legal is not an in-app Makepad route.
 
 ## Legal URLs (Play / Microsoft Store / Meta)
 

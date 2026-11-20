@@ -83,22 +83,20 @@ if android_release_keystore_set; then
   echo "Play bundle → $OUT/wadhu-sms-client-demo.aab"
 fi
 cat > "$STAGE/README.txt" <<EOF
-SMS Client Demo for Android phones and tablets
-======================================
+SMS Client Demo
+===============
+Developer demo under the Wadhu brand (Tools · Apps · More). It is not a
+store product and it does not own a SIM. It shows how wadhu-sms-client
+talks to SMS Gateway or SMS Relay.
+
 App id: ${WADHU_APP_ID}
 Label: ${WADHU_APP_LABEL}
 Signed with: ${SIGNED}
 
-Install: copy wadhu-sms-client-demo.apk to the device and open it (allow installs
-from this source), or: adb install -r wadhu-sms-client-demo.apk
-An update installs over the last one and keeps the books — never uninstall
-to update (that deletes the books on the device).
-
-At launch pick what this device is:
-  Server Mode — it holds the shop's books (keep the app open, plugged in).
-  Client Mode — Find the shop's server → type the pairing code shown on the
-  Server (Settings → Extra tills → Allow extra tills) → sign in with your PIN.
-The Server can be any device running SMS Client Demo: Windows, Linux or Android.
+Install: copy wadhu-sms-client-demo.apk to a device, or:
+  adb install -r wadhu-sms-client-demo.apk
+Point it at a gateway Listen URL and API key on the same network.
+Desktop remains the supported demo path (cargo wadhu-sms-client-demo-dev).
 EOF
 # Atomic replace of the published folder (like MSI overwriting the .msi).
 rm -rf "$OUT"

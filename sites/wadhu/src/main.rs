@@ -20,8 +20,10 @@ const HOME_PATH: &str = "/";
 const PRIVACY_PATH: &str = "/privacy";
 const TERMS_PATH: &str = "/terms";
 const ABOUT_PATH: &str = "/about";
+const ACCOUNT_PATH: &str = "/account";
 
-const CARDS_SIDE_BY_SIDE_FROM: f64 = 680.0;
+// Three product cards; stack until there is room for a row.
+const CARDS_SIDE_BY_SIDE_FROM: f64 = 960.0;
 const MIN_WIDTH: f64 = 320.0;
 const MAX_CONTENT: f64 = 1100.0;
 const MAX_CONTENT_WIDE: f64 = 1280.0;
@@ -162,7 +164,14 @@ impl App {
             bottom: pad_v,
         };
 
-        for path in [ids!(hero), ids!(products), ids!(connect), ids!(about), ids!(close)] {
+        for path in [
+            ids!(hero),
+            ids!(what),
+            ids!(products),
+            ids!(reuse),
+            ids!(about),
+            ids!(close),
+        ] {
             if let Some(mut view) = self.ui.view(cx, path).borrow_mut() {
                 view.layout.padding = band_pad;
             }
@@ -175,6 +184,25 @@ impl App {
                 top: 12.0,
                 bottom: 12.0,
             };
+            // Phone/narrow: logo row, then wrapping nav. Wider: one row.
+            if matches!(tier, Tier::Phone | Tier::Narrow) {
+                bar.layout.flow = Flow::Down;
+                bar.layout.spacing = 10.0;
+            } else {
+                bar.layout.flow = Flow::right();
+                bar.layout.spacing = 16.0;
+            }
+        }
+        if let Some(mut nav) = self.ui.view(cx, ids!(topnav)).borrow_mut() {
+            nav.layout.flow = Flow::right_wrap();
+            nav.layout.align.x = if matches!(tier, Tier::Phone | Tier::Narrow) {
+                0.0
+            } else {
+                1.0
+            };
+        }
+        if let Some(mut cta) = self.ui.view(cx, ids!(cta_row)).borrow_mut() {
+            cta.layout.flow = Flow::right_wrap();
         }
 
         if let Some(mut cards) = self.ui.view(cx, ids!(cards)).borrow_mut() {
@@ -215,14 +243,17 @@ impl MatchEvent for App {
             open_site(cx, &Self::site_url(cx, TERMS_PATH));
         }
 
-        if self.ui.button(cx, ids!(nav_about)).clicked(actions) {
+        let about = self.ui.button(cx, ids!(nav_about)).clicked(actions)
+            || self.ui.button(cx, ids!(cta_about)).clicked(actions);
+        if about {
             open_site(cx, &Self::site_url(cx, ABOUT_PATH));
         }
 
-        let connect = self.ui.button(cx, ids!(nav_connect)).clicked(actions)
-            || self.ui.button(cx, ids!(cta_connect)).clicked(actions)
-            || self.ui.button(cx, ids!(open_connect)).clicked(actions);
-        if connect {
+        if self.ui.button(cx, ids!(nav_account)).clicked(actions) {
+            open_site(cx, &Self::site_url(cx, ACCOUNT_PATH));
+        }
+
+        if self.ui.button(cx, ids!(open_connect)).clicked(actions) {
             open_external(cx, &Self::connect_url(cx));
         }
     }

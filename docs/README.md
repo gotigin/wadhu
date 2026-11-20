@@ -5,6 +5,18 @@ code: crates, apps and tools that other Gotigin brands' apps need, and that
 anyone else can use. Rust + Makepad 2, one Cargo workspace, and **every
 part independent of its siblings**.
 
+## Story
+
+Read in this order. Later pages do not replace earlier ones.
+
+1. **Trademark** Gotigin means *find it* in Memon. Slogan: *Where Technology Meets Discovery*.
+2. **Company** GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED owns the brands.
+3. **Brand** Wadhu means *more* in Memon. Tagline: *Tools · Apps · More*. It is reusable tools, utils, and apps. It is not a messaging brand.
+4. **Products** under Wadhu today: **SMS Gateway** (Android SIM gateway), **SMS Relay** (optional internet path), **Wadhu Connect** (WhatsApp Cloud API bridge). **SMS Client Demo** is a developer demo, not a store product. wadhu.com is the brand site.
+5. **Independence** — an app never depends on a sibling app; a crate never depends on a sibling crate. See [`WADHU_VISION_AND_PRINCIPLES.md`](WADHU_VISION_AND_PRINCIPLES.md).
+
+Names table: [`BRAND.md`](BRAND.md). Public about page: [`legal/ABOUT.md`](legal/ABOUT.md).
+
 | Doc | What |
 |---|---|
 | [`WADHU_VISION_AND_PRINCIPLES.md`](WADHU_VISION_AND_PRINCIPLES.md) | **Canonical doctrine:** what Wadhu is, who it serves, the independence rules (§3), what belongs here (§4), stability (§5), Gotigin configure-not-hardcode pointer (§7) |

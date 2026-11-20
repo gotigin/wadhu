@@ -1,5 +1,6 @@
 # SMS Relay — app brief
 
+> **Product** under the Wadhu brand (*more* — Tools · Apps · More), not the brand itself.\
 > **Package:** `wadhu-sms-relay`\
 > **Role:** optional remote plane for Wadhu SMS Gateway\
 > **Doctrine:** [`docs/LOCAL_SMS.md`](../../../docs/LOCAL_SMS.md)

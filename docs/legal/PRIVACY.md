@@ -1,6 +1,6 @@
 # Wadhu privacy policy
 
-_Last updated: 16 November 2026_
+_Last updated: 20 November 2026_
 
 ## Who we are
 
@@ -8,7 +8,7 @@ _Last updated: 16 November 2026_
 | --- | --- |
 | **Trademark** | **Gotigin** (house mark) |
 | **Company** | **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** (“we”, “us”) |
-| **Brand** | **Wadhu** (*Tools · Apps · More*) — [wadhu.com](https://wadhu.com) |
+| **Brand** | **Wadhu** (*more* in Memon — *Tools · Apps · More*) — reusable tools, utils, and apps — [wadhu.com](https://wadhu.com) |
 | CIN | U62011GJ2026PTC179660 |
 | PAN | AANCG1628G |
 | GSTIN | 24AANCG1628G1ZP |

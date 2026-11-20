@@ -1,6 +1,8 @@
 # SMS Client Demo
 
-Desktop integrator UI for [`wadhu-sms-client`](../../crates/wadhu-sms-client).
+Developer demo under the Wadhu brand (*more* — Tools · Apps · More). It is
+not a store product. Desktop integrator UI for
+[`wadhu-sms-client`](../../crates/wadhu-sms-client).
 Shows how a third-party app talks to **SMS Gateway** or **SMS Relay**
 using only the crate — no radio code in this app.
 

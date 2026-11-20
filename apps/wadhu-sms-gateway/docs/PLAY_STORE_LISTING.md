@@ -28,7 +28,7 @@ Turn a phone SIM into a LAN/Bluetooth SMS gateway
 ## Full description (≤4000 characters)
 
 ```
-SMS Gateway (by Wadhu / Gotigin) turns an Android phone or tablet with a SIM into a messaging radio for your own apps and shop systems.
+SMS Gateway is a product under Wadhu (Memon for more — Tools · Apps · More), a brand of Gotigin. It turns an Android phone or tablet with a SIM into an SMS radio for your own apps and shop systems.
 
 Install on a device you control. Client apps send SMS over your LAN or Bluetooth — no cloud account required for local use. An optional SMS Relay can reach internet clients when you choose to enable it.
 

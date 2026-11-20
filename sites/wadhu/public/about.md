@@ -1,6 +1,6 @@
 # About Wadhu
 
-_Last updated: 16 November 2026_
+_Last updated: 20 November 2026_
 
 ## Names (do not mix)
 
@@ -10,16 +10,20 @@ Order is always **Trademark → Company → Brand → Product**.
 | --- | --- |
 | **Gotigin** | The **trademark** / house mark meaning *find it* in Memon, pronounced *go-tee-geen*. Slogan: *Where Technology Meets Discovery* |
 | **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** | The **company** (legal entity) · [mearaj@gotigin.com](mailto:mearaj@gotigin.com) |
-| **Wadhu** | The **brand** — *Tools · Apps · More*. Site: [wadhu.com](https://wadhu.com) |
-| **SMS Gateway** · **Wadhu Connect** | **Products** under the Wadhu brand |
+| **Wadhu** | The **brand** — Memon for *more*; tagline *Tools · Apps · More*. Reusable tools, utils, and apps. Site: [wadhu.com](https://wadhu.com) |
+| **SMS Gateway** · **SMS Relay** · **Wadhu Connect** | **Products** under the Wadhu brand |
 
 See also [`docs/BRAND.md`](../BRAND.md).
 
 ## What Wadhu is
 
-Wadhu is Gotigin’s brand for reusable tools — crates, apps, and services that
-other Gotigin brands (and anyone else) can use. It is not the company name and
-not a substitute for the Gotigin trademark.
+**Wadhu** means *more* in Memon. It is Gotigin’s brand for reusable tools,
+utils, and apps — crates, programs, and services that other Gotigin brands
+(and anyone else) can use. The tagline is *Tools · Apps · More*.
+
+Wadhu is the brand. It is not the company name, and it is not a substitute
+for the Gotigin trademark. SMS Gateway, SMS Relay, and Wadhu Connect are
+products that ship under it.
 
 ## Products
 
