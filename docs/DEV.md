@@ -203,10 +203,10 @@ until Makepad 2 is on crates.io; plain crates can be published any time
 Canonical: [`DESIGN.md`](DESIGN.md) § Always responsive ·
 [`.cursor/rules/responsive-graceful-wide.mdc`](../.cursor/rules/responsive-graceful-wide.mdc).
 Phone-safe stacking must **unlock** on wide screens — Fit chip / short
-paired toolbars that fit one desk line must be one line. User-owned
-columns-per-row / density grids are the exception (do not force more
-columns). Verify 320–390 **and** 1280 / 1920; phone-only screenshots are
-not enough.
+paired toolbars that fit one desk line must be one line. Exceptions exist
+(user-owned density and other intentional stacks — mostly obvious; still
+take care; if unsure leave alone). Verify 320–390 **and** 1280 / 1920;
+phone-only screenshots are not enough.
 
 ## Look at the screen (UI work is not done until seen)
 

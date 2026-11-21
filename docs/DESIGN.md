@@ -64,12 +64,12 @@ leave the desk layout as multi-row Fit stacks are wrong.
 | `apply_responsive` unlocks to `Right` / side-by-side once wide enough | Ship a phone stack unchanged at every width |
 | Check **320–390 and 1280 / 1920** | Ship after phone-only screenshots |
 
-**Exception — user-owned density:** if columns-per-row / grid density is
-under the user’s control (or an explicit pick that wins over width), do
-**not** “fix” it into more columns because the window is wide. Graceful
-growth targets chrome and Fit toolbars, not those grids. Auto / Fit
-modes may still grow with measured width when the user left density on
-Fit / unset.
+**Exceptions (judge intent):** graceful growth targets chrome / Fit
+toolbars that waste horizontal space — not a license to flatten every
+stack on a wide window. User-owned columns-per-row / density is one clear
+class (do not force more columns; Auto/Fit may still grow when unset).
+Other intentional stacks are mostly obvious; still take care — if unsure,
+leave it and check owner intent.
 
 Same law as Kumkaj `docs/DESIGN.md` § Always responsive — keep this file
 in sync when the rule tightens. Site checks: [`WEBSITES.md`](WEBSITES.md).
