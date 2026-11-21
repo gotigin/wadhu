@@ -198,6 +198,14 @@ stays the same. Publishing Makepad-based crates to crates.io must wait
 until Makepad 2 is on crates.io; plain crates can be published any time
 ([`CRATES.md`](CRATES.md) § Publishing).
 
+## Always responsive (every Wadhu app)
+
+Canonical: [`DESIGN.md`](DESIGN.md) § Always responsive ·
+[`.cursor/rules/responsive-graceful-wide.mdc`](../.cursor/rules/responsive-graceful-wide.mdc).
+Phone-safe stacking must **unlock** on wide screens — Fit chip / short
+paired toolbars that fit one desk line must be one line. Verify 320–390
+**and** 1280 / 1920; phone-only screenshots are not enough.
+
 ## Look at the screen (UI work is not done until seen)
 
 Never run test UIs on your desktop session (`:0` / Wayland). Use a

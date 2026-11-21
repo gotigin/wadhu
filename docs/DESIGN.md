@@ -45,8 +45,10 @@ paints nothing on this Makepad rev ([`DEV.md`](DEV.md) § Agent notes).
 
 ## Always responsive (every Wadhu app **and** Makepad website)
 
-Layouts must fit the window they are in — no cropped columns, no controls
-past the right edge, no “designed for one width” grids.
+Applies to **SMS Gateway, SMS Relay, Wadhu Connect**, template apps,
+demos, and wadhu.com — not “sites only.” Layouts must fit the window
+they are in — no cropped columns, no controls past the right edge, no
+“designed for one width” grids.
 
 **Responsive ≠ “looks OK on phone, stays phone on desk.”** Fitting a
 narrow viewport is half the job. The other half is **graceful growth**:

@@ -1,7 +1,7 @@
 ---
-description: Responsive must grow on wide screens — never leave Fit toolbars stuck in phone stacks
+description: Responsive must grow on wide screens — never leave Fit toolbars stuck in phone stacks (every Wadhu app + site)
 globs: "{apps,sites,templates}/**/*.{rs,md}"
-alwaysApply: false
+alwaysApply: true
 ---
 
 # Responsive = narrow fit **and** graceful growth
