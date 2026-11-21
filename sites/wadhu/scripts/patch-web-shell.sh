@@ -53,7 +53,13 @@ trap 'rm -f "$BODY_TMP" "$INDEX.tmp"' EXIT
 sed -f "$BODY_TMP.sed" "$SHELL_SRC/boot.html" > "$BODY_TMP"
 rm -f "$BODY_TMP.sed"
 
-awk -v css="$SHELL_SRC/boot.css" -v body="$BODY_TMP" -v js="$SHELL_SRC/boot.js" '
+GUARD_SRC="$SHELL_SRC/mobile-viewport-guard.js"
+if [[ ! -f "$GUARD_SRC" ]]; then
+  echo "error: missing $GUARD_SRC" >&2
+  exit 1
+fi
+
+awk -v css="$SHELL_SRC/boot.css" -v body="$BODY_TMP" -v js="$SHELL_SRC/boot.js" -v guard="$GUARD_SRC" '
   function cat(file,   line) {
     while ((getline line < file) > 0) print line
     close(file)
@@ -63,10 +69,17 @@ awk -v css="$SHELL_SRC/boot.css" -v body="$BODY_TMP" -v js="$SHELL_SRC/boot.js" 
     if ($0 ~ /<\/div>/) skip--
     next
   }
+  /name="viewport"/ {
+    print "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover\" />"
+    next
+  }
   /<\/head>/ && !styled {
     print "        <style>"
     cat(css)
     print "        </style>"
+    print "        <script>"
+    cat(guard)
+    print "        </script>"
     styled = 1
   }
   /class=.canvas_loader./ && !booted {

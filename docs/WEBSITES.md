@@ -13,7 +13,9 @@ fit on one line at 1280 / 1920 **must** be one line — forever-`Down` with
 empty horizontal space is a bug. Exceptions exist (user-owned density and
 other intentional stacks — mostly obvious; still take care; if unsure
 leave alone). Verify narrow **and** wide when changing `apply_responsive`
-or toolbar DSL.
+or toolbar DSL. **Android Chrome Desktop site / zoom:** layout must clamp
+to phone chrome width (`web_mobile_layout_width` + shell
+`mobile-viewport-guard.js`). Gate: `./scripts/check-web-mobile-layout.sh`.
 
 ## wadhu.com — one Hosting tree
 

@@ -108,6 +108,7 @@ PATCHES=(
   slides_view_story_axis            # sites: SlidesView axis Vertical, tap/swipe/wheel flips, presenter keys (PgDn/PgUp/Space/Home/End), goal_slide/slide_count
   web_init_window_order             # sites (wasm): Startup creates window 0 before the init geom is applied (else IdPool panic, stuck on Loading)
   web_aux_buttons_stay              # wasm: mouse side buttons do not navigate the browser away from the app
+  web_mobile_layout_width         # wasm: Android Chrome Desktop-site / touch clamp layout to outer/screen (not fake innerWidth)
   button_honor_grab_key_focus       # grab_key_focus:false must not call set_key_focus
   # Press / touch / selection stack (ported from Kumkaj — required for one page-level
   # text selection model; do not invent per-widget select hacks instead).
