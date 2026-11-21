@@ -78,12 +78,20 @@ puts them in, so `run-web.sh` and deploy show the same thing.
   loader `?v=<build id>` and the wasm is served `immutable`, so a returning
   visitor downloads it once per release. `/build-id.txt` says what is live.
 
+- **Fonts cut to the page's own characters** — `scripts/subset-fonts.sh`
+  (deploy only; needs `pyftsubset`, skipped without it) rewrites the staged
+  copies of the two IBM Plex Sans faces to the characters in `src/*.rs`
+  plus plain Latin: 355 KB → 90 KB, the same pixels. A character the page
+  starts to use is picked up on the next deploy.
+
 The pictures in `resources/media/` are about 200 px WebP with transparent
 corners because they are drawn at 40–72 px on a dark page; keep new ones
 that small (`Internal/tools/site-shots/clean-icon.sh` made these from the
 square originals). The wasm is 1.3 MB compressed — the Makepad runtime,
-already built for size; `--split` was tried on 2026-11-21 and sends more
-bytes, not fewer.
+already built for size. Two things were tried on it on 2026-11-21 and do
+not help: `--split` sends more bytes, not fewer, and Binaryen's `wasm-opt`
+makes the file smaller raw but 2–3% larger once compressed, with the same
+time to first paint.
 
 ## URLs
 

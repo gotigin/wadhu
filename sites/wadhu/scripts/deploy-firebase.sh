@@ -66,6 +66,8 @@ mkdir -p "$OUT"
 # compresses on its own and never serves those, so they stay out of the tree.
 rsync -a --exclude='*.br' "$WASM_PKG/" "$OUT/"
 "$SITE/scripts/overlay-legal-onto-pkg.sh" "$OUT"
+# Fonts: only the characters this site draws (the originals stay whole).
+"$SITE/scripts/subset-fonts.sh" "$OUT"
 mkdir -p "$OUT/js"
 cp "$SITE/static/js/firebase-init.js" "$OUT/js/firebase-init.js"
 cp "$SITE/static/js/account.js" "$OUT/js/account.js"

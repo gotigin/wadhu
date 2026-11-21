@@ -62,8 +62,11 @@ fi
 
 # Whatever the fold cuts through fades into the page instead of ending in
 # half a line: the last 72 px blend into the most common colour of the last rows.
+# (awk reads the whole histogram: cutting a pipe short with head fails the
+# script under pipefail when the last rows hold many colours.)
 BOTTOM="$(magick "$WORK/shot.png" -crop "${W}x6+0+$((H - 6))" +repage -format '%c' histogram:info: \
-  | sort -rn | head -1 | grep -o '#[0-9A-Fa-f]\{6\}' | head -1)"
+  | awk '{ n = $1 + 0; if (n > max) { max = n; line = $0 } }
+         END { if (match(line, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/)) print substr(line, RSTART, RLENGTH) }')"
 BOTTOM="${BOTTOM:-#000000}"
 magick "$WORK/shot.png" \
   \( -size "${W}x72" "gradient:none-${BOTTOM}" \) -gravity south -composite \
