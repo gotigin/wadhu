@@ -13,6 +13,8 @@ public/
   /account/…          ← register / sign-in (Firebase Auth)
   /js/firebase-init.js
   /js/account.js
+  /media/link-preview.jpg ← picture for link previews (see below)
+  /build-id.txt       ← what is live
 ```
 
 The SPA is one **scrolling** page (`ScrollYView`): hero (*means more*) →
@@ -51,6 +53,37 @@ Firebase project: **`wadhu-ac8dc`** (`.firebaserc`). Analytics + Auth:
 `npm run build` in this dir → `static/js/firebase-init.js` and
 `static/js/account.js`. Auth notes: [`docs/FIREBASE_AUTH_SETUP.md`](../../docs/FIREBASE_AUTH_SETUP.md).
 Custom domain **wadhu.com** in Hosting if not already.
+
+## The shell around the wasm
+
+Three things live in the HTML, because nothing can run before the wasm has
+arrived and link crawlers never run it at all. `overlay-legal-onto-pkg.sh`
+puts them in, so `run-web.sh` and deploy show the same thing.
+
+- **Start-up screen** — `shell/boot.{css,html,js}` and `shell/logo.webp`,
+  inlined into `index.html` by `scripts/patch-web-shell.sh`. The logo sits
+  in a ring that fills with the real wasm download, then the status reads
+  "Starting" until the canvas has painted and the screen fades out. It says
+  so when the connection is slow and offers Reload and the plain pages when
+  the page cannot start.
+- **Link preview** — `static/media/link-preview.jpg`, a 1200×630 JPEG of the
+  real first screen, named by the Open Graph and Twitter tags on the home
+  page and on every legal page. One set of tags serves WhatsApp, X,
+  LinkedIn, Facebook, Telegram, Discord, Slack and iMessage. After the
+  first screen changes: `run-web.sh` in one terminal, then
+  `./sites/wadhu/scripts/make-link-preview.sh http://127.0.0.1:8020/`,
+  commit the picture, deploy. Its address carries a hash of the file, so
+  apps that cache previews fetch the new one.
+- **Addresses that change per build** — deploy gives the wasm and its
+  loader `?v=<build id>` and the wasm is served `immutable`, so a returning
+  visitor downloads it once per release. `/build-id.txt` says what is live.
+
+The pictures in `resources/media/` are about 200 px WebP with transparent
+corners because they are drawn at 40–72 px on a dark page; keep new ones
+that small (`Internal/tools/site-shots/clean-icon.sh` made these from the
+square originals). The wasm is 1.3 MB compressed — the Makepad runtime,
+already built for size; `--split` was tried on 2026-11-21 and sends more
+bytes, not fewer.
 
 ## URLs
 

@@ -19,6 +19,15 @@ if ! command -v pandoc >/dev/null 2>&1; then
   exit 1
 fi
 
+# The link-preview picture's address carries a short hash of the file, so chat
+# apps that cache previews fetch a changed picture.
+PREVIEW="$SITE/static/media/link-preview.jpg"
+if [[ ! -f "$PREVIEW" ]]; then
+  echo "error: missing $PREVIEW — run sites/wadhu/scripts/make-link-preview.sh" >&2
+  exit 1
+fi
+PREVIEW_V="$(sha256sum "$PREVIEW" | cut -c1-10)"
+
 present() {
   local slug="$1" title="$2" description="$3" canonical="$4" md_name="$5"
   local md="$LEGAL/$md_name"
@@ -36,6 +45,7 @@ present() {
     -V lang=en \
     -V description="$description" \
     -V canonical="$canonical" \
+    -V preview_v="$PREVIEW_V" \
     -o "$out_dir/index.html"
   cp "$md" "$SITE/static/${slug}.md"
   if [[ -d "$SITE/public" ]]; then
@@ -60,7 +70,7 @@ present support "Support — Wadhu" \
   "Support for the Wadhu brand and its products." \
   "https://wadhu.com/support" "SUPPORT.md"
 present about "About — Wadhu" \
-  "Wadhu means more in Memon. Tools, utils, and apps by Gotigin — GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED." \
+  "Wadhu means more in Memon. Tools, utils, and apps by Gotigin — GOTIGIN SOFTWARE &amp; HARDWARE PRIVATE LIMITED." \
   "https://wadhu.com/about" "ABOUT.md"
 
 echo "Done. Deploy with ./sites/wadhu/scripts/deploy-firebase.sh"

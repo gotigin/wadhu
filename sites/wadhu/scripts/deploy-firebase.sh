@@ -62,7 +62,9 @@ echo "3/4 Stage public/ = one tree (wasm home + legal + Auth)"
 "$SITE/scripts/present-legal.sh"
 rm -rf "$OUT"
 mkdir -p "$OUT"
-rsync -a "$WASM_PKG/" "$OUT/"
+# cargo-makepad writes a .br twin beside every file. Firebase Hosting
+# compresses on its own and never serves those, so they stay out of the tree.
+rsync -a --exclude='*.br' "$WASM_PKG/" "$OUT/"
 "$SITE/scripts/overlay-legal-onto-pkg.sh" "$OUT"
 mkdir -p "$OUT/js"
 cp "$SITE/static/js/firebase-init.js" "$OUT/js/firebase-init.js"
@@ -74,14 +76,29 @@ if ! grep -qE 'wadhu-site\.wasm|web_gl|full_canvas' "$INDEX"; then
   echo "error: staged index.html is not the Makepad home" >&2
   exit 1
 fi
-if ! grep -q 'firebase-init.js' "$INDEX"; then
-  awk -v bid="$BUILD_ID" '
-    /<\/body>/ && !done {
-      print "        <script src=\"./js/firebase-init.js?v=" bid "\" defer></script>"
-      done=1
-    }
-    { print }
-  ' "$INDEX" > "$INDEX.tmp" && mv "$INDEX.tmp" "$INDEX"
+# A new address per build for the wasm and its loader, so a browser never
+# pairs old wasm with new glue (the wasm itself is served immutable).
+awk -v bid="$BUILD_ID" '
+  {
+    gsub(/\.\/makepad_platform\/web_gl\.js/, "./makepad_platform/web_gl.js?v=" bid)
+    gsub(/\.\/wadhu-site\.wasm/, "./wadhu-site.wasm?v=" bid)
+  }
+  /<meta name="theme-color"/ && !stamped {
+    print "        <meta name=\"wadhu-build\" content=\"" bid "\" />"
+    stamped = 1
+  }
+  /<\/body>/ && !done {
+    print "        <script src=\"./js/firebase-init.js?v=" bid "\" defer></script>"
+    print "        <noscript><p>Wadhu — Tools · Apps · More, by Gotigin. <a href=\"/about\">About</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/terms\">Terms</a> · <a href=\"/support\">Support</a></p></noscript>"
+    done = 1
+  }
+  { print }
+  END { if (!done) exit 2 }
+' "$INDEX" > "$INDEX.tmp" && mv "$INDEX.tmp" "$INDEX"
+printf '%s\n' "$BUILD_ID" > "$OUT/build-id.txt"
+if ! grep -q 'id="boot"' "$INDEX" || ! grep -q 'og:image' "$INDEX"; then
+  echo "error: staged index.html lacks the start-up screen or the link-preview tags" >&2
+  exit 1
 fi
 
 for need in privacy terms data-deletion support about account; do

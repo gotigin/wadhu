@@ -33,25 +33,54 @@ if ! grep -qE 'wadhu-site\.wasm|web_gl|full_canvas|makepad' "$PKG/index.html"; t
   exit 1
 fi
 
-# Reviewers and link unfurls read the wasm shell, which Makepad titles "wadhu-site".
+# Reviewers, search engines and chat apps read the wasm shell and never run
+# the wasm, so the name, the description and the link-preview picture are
+# written into it (Makepad titles it "wadhu-site").
+PREVIEW="$SITE/static/media/link-preview.jpg"
+if [[ ! -f "$PREVIEW" ]]; then
+  echo "error: missing $PREVIEW — run sites/wadhu/scripts/make-link-preview.sh" >&2
+  exit 1
+fi
+# The picture's address changes when the picture does: WhatsApp, Telegram and
+# Facebook keep a preview for days and only fetch again for a new address.
+PREVIEW_URL="https://wadhu.com/media/link-preview.jpg?v=$(sha256sum "$PREVIEW" | cut -c1-10)"
 if ! grep -q 'og:site_name' "$PKG/index.html"; then
-  awk '
+  HEAD_INJECT='        <title>Wadhu — Tools · Apps · More</title>
+        <meta name="description" content="Wadhu means more in Memon. Reusable tools, utils, and apps by Gotigin. SMS Gateway, SMS Relay, and Wadhu Connect are products under the brand." />
+        <link rel="canonical" href="https://wadhu.com/" />
+        <meta name="theme-color" content="#0d0b3a" />
+        <meta name="robots" content="max-image-preview:large" />
+        <link rel="icon" href="./favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="./media/apple-touch-icon.png" />
+        <meta property="og:site_name" content="Wadhu" />
+        <meta property="og:title" content="Wadhu — Tools · Apps · More" />
+        <meta property="og:description" content="Wadhu means more in Memon. Reusable tools, utils, and apps by Gotigin." />
+        <meta property="og:url" content="https://wadhu.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:image" content="'"$PREVIEW_URL"'" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="The wadhu.com home page: Wadhu means more. Tools, apps and more." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Wadhu — Tools · Apps · More" />
+        <meta name="twitter:description" content="Wadhu means more in Memon. Reusable tools, utils, and apps by Gotigin." />
+        <meta name="twitter:image" content="'"$PREVIEW_URL"'" />
+        <meta name="twitter:image:alt" content="The wadhu.com home page: Wadhu means more. Tools, apps and more." />
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Wadhu","alternateName":"Wadhu — Tools · Apps · More","url":"https://wadhu.com/","image":"https://wadhu.com/media/link-preview.jpg","publisher":{"@type":"Organization","name":"Gotigin","legalName":"GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED","url":"https://gotigin.com/"}}</script>'
+  awk -v head="$HEAD_INJECT" '
     /<title>/ && !titled {
-      print "        <title>Wadhu — Tools · Apps · More</title>"
-      print "        <meta name=\"description\" content=\"Wadhu means more in Memon. Reusable tools, utils, and apps by Gotigin. SMS Gateway, SMS Relay, and Wadhu Connect are products under the brand.\" />"
-      print "        <link rel=\"canonical\" href=\"https://wadhu.com/\" />"
-      print "        <meta name=\"theme-color\" content=\"#0d0b3a\" />"
-      print "        <link rel=\"icon\" href=\"./media/wadhu-brand-logo.webp\" type=\"image/webp\" />"
-      print "        <meta property=\"og:site_name\" content=\"Wadhu\" />"
-      print "        <meta property=\"og:title\" content=\"Wadhu — Tools · Apps · More\" />"
-      print "        <meta property=\"og:description\" content=\"Wadhu means more in Memon. Reusable tools, utils, and apps by Gotigin.\" />"
-      print "        <meta property=\"og:url\" content=\"https://wadhu.com/\" />"
-      print "        <meta property=\"og:image\" content=\"https://wadhu.com/media/wadhu-brand-logo.webp\" />"
-      print "        <meta property=\"og:type\" content=\"website\" />"
-      titled=1
+      print head
+      titled = 1
       next
     }
     { print }
+    END { if (!titled) exit 2 }
   ' "$PKG/index.html" > "$PKG/index.html.tmp" && mv "$PKG/index.html.tmp" "$PKG/index.html"
 fi
+
+# The start-up screen (logo, progress ring) replaces cargo-makepad's grey bar.
+"$SITE/scripts/patch-web-shell.sh" "$PKG/index.html"
+
 echo "Overlayed same-site pages onto $PKG (Makepad index preserved)"
