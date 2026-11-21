@@ -5,6 +5,14 @@
 | Brand | https://wadhu.com | `sites/wadhu` (`wadhu-site`) + Firebase |
 | Connect API / ES UI | https://connect.wadhu.com | `apps/wadhu-connect` (Rust) |
 
+## Responsive (graceful growth)
+
+Same law as [`DESIGN.md`](DESIGN.md) § Always responsive: phone-safe
+stacking must unlock on wide viewports. Fit chip / short CTA toolbars that
+fit on one line at 1280 / 1920 **must** be one line — forever-`Down` with
+empty horizontal space is a bug. Verify narrow **and** wide when changing
+`apply_responsive` or toolbar DSL.
+
 ## wadhu.com — one Hosting tree
 
 Same model as Khaynjo: **one website**, not “static vs wasm.”

@@ -1,0 +1,26 @@
+---
+description: Responsive must grow on wide screens — never leave Fit toolbars stuck in phone stacks
+globs: "{apps,sites,templates}/**/*.{rs,md}"
+alwaysApply: false
+---
+
+# Responsive = narrow fit **and** graceful growth
+
+Canonical: `docs/DESIGN.md` § **Always responsive** · `docs/WEBSITES.md`.
+
+## Law
+
+Looking good on mobile is **not** enough. If Fit chips / short paired controls
+fit on one line at the current content width, they **must** be one line.
+Empty horizontal space beside a forever-`Down` toolbar on desk is a bug.
+
+```text
+❌ Hard-code flow: Down for Fit chip toolbars at every width
+❌ Ship after phone-only screenshots
+
+✅ Stack / wrap only when measured width cannot hold the Fit children
+✅ apply_responsive unlocks to Right once wide enough
+✅ Check 320–390 **and** 1280 / 1920
+```
+
+Keep aligned with Kumkaj’s identical rule when either side tightens it.
