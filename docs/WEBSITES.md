@@ -10,8 +10,9 @@
 Same law as [`DESIGN.md`](DESIGN.md) § Always responsive: phone-safe
 stacking must unlock on wide viewports. Fit chip / short CTA toolbars that
 fit on one line at 1280 / 1920 **must** be one line — forever-`Down` with
-empty horizontal space is a bug. Verify narrow **and** wide when changing
-`apply_responsive` or toolbar DSL.
+empty horizontal space is a bug. User-owned columns-per-row / density is
+the documented exception — do not “fix” those. Verify narrow **and** wide
+when changing `apply_responsive` or toolbar DSL.
 
 ## wadhu.com — one Hosting tree
 

@@ -17,10 +17,15 @@ Empty horizontal space beside a forever-`Down` toolbar on desk is a bug.
 ```text
 ❌ Hard-code flow: Down for Fit chip toolbars at every width
 ❌ Ship after phone-only screenshots
+❌ Force more columns on a user-owned density / columns-per-row control
 
 ✅ Stack / wrap only when measured width cannot hold the Fit children
 ✅ apply_responsive unlocks to Right once wide enough
 ✅ Check 320–390 **and** 1280 / 1920
+✅ Leave user/product column picks alone; Auto/Fit may still grow with width
 ```
+
+**Exception:** user-owned columns-per-row / density grids are not the
+Pause/−/Speed bug — do not “fix” them. Law targets chrome / Fit toolbars.
 
 Keep aligned with Kumkaj’s identical rule when either side tightens it.
