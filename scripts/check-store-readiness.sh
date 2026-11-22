@@ -66,9 +66,12 @@ need_file sites/wadhu/static/robots.txt
 need_file sites/wadhu/static/sitemap.xml
 need_grep sites/wadhu/static/robots.txt "Sitemap: https://wadhu.com/sitemap.xml" "robots points at sitemap"
 need_grep sites/wadhu/static/sitemap.xml "https://wadhu.com/cancellation" "sitemap lists cancellation"
+need_grep sites/wadhu/static/cancellation/index.html "Cancellation &amp; refund — Wadhu" "cancellation title is singly escaped"
+forbid_grep sites/wadhu/static/cancellation/index.html "&amp;amp;" "cancellation HTML has no double-escaped amp"
 need_grep sites/wadhu/firebase.json "X-Content-Type-Options" "firebase.json sets nosniff"
 need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "https://wadhu.com/privacy" "Play listing privacy URL"
 need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "https://wadhu.com/data-deletion" "Play listing deletion URL"
+need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "https://wadhu.com/cancellation" "Play listing cancellation URL"
 need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "Tools · Apps · More" "Play listing names the Wadhu brand"
 need_grep apps/wadhu-connect/README.md "https://wadhu.com/privacy" "Connect privacy URL"
 need_grep apps/wadhu-connect/README.md "Product" "Connect README calls itself a product"
