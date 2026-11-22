@@ -52,9 +52,11 @@ Canonical Markdown: [`legal/`](legal/README.md). Present with
 Also deployed from `sites/wadhu/static/`: `robots.txt`, `sitemap.xml`
 (home + legal + account). Safe response headers live in
 `sites/wadhu/firebase.json` (`X-Content-Type-Options`, `Referrer-Policy`,
-`Permissions-Policy`, `X-Frame-Options`). The wasm shell carries a
-crawlable `<noscript>` summary and JSON-LD `Organization` (Wadhu brand,
-`parentOrganization` Gotigin).
+`Permissions-Policy`, `X-Frame-Options`). A Content-Security-Policy is
+**not** set yet — the wasm shell needs inline boot script and
+`'wasm-unsafe-eval'`; prove a CSP in the Hosting emulator before adding
+one. The wasm shell carries a crawlable `<noscript>` summary and JSON-LD
+`Organization` (Wadhu brand, `parentOrganization` Gotigin).
 
 Connect embeds the same legal Markdown and serves the same paths on
 connect.wadhu.com. Do not hand-edit generated HTML under `sites/wadhu/static/`.

@@ -9,6 +9,7 @@
 | Brand site | https://wadhu.com |
 | Privacy | https://wadhu.com/privacy ← `docs/legal/PRIVACY.md` |
 | Data deletion | https://wadhu.com/data-deletion |
+| Cancellation | https://wadhu.com/cancellation |
 | Connect host | https://connect.wadhu.com |
 | Local | `cargo wadhu-connect-dev` → `:3847` |
 | Naming | [`docs/BRAND.md`](../../../docs/BRAND.md) |
