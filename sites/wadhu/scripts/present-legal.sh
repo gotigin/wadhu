@@ -63,6 +63,9 @@ present privacy "Privacy — Wadhu" \
 present terms "Terms — Wadhu" \
   "Terms of use for the Wadhu brand and its products, including SMS Gateway and Wadhu Connect." \
   "https://wadhu.com/terms" "TERMS.md"
+present cancellation "Cancellation &amp; refund — Wadhu" \
+  "Cancellation and refund policy for the Wadhu brand — additional to Gotigin." \
+  "https://wadhu.com/cancellation" "CANCELLATION.md"
 present data-deletion "Data deletion — Wadhu" \
   "How to delete data for Wadhu products, including SMS Gateway and Wadhu Connect." \
   "https://wadhu.com/data-deletion" "DATA_DELETION.md"

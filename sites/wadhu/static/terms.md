@@ -18,6 +18,7 @@ Darbargadh, Dhoraji, Rajkot, Gujarat 360410, India. Names:
 [About](/about).
 
 Privacy: [wadhu.com/privacy](https://wadhu.com/privacy)  
+Cancellation and refund: [wadhu.com/cancellation](https://wadhu.com/cancellation)  
 Support: [wadhu.com/support](https://wadhu.com/support)  
 Data deletion: [wadhu.com/data-deletion](https://wadhu.com/data-deletion)
 

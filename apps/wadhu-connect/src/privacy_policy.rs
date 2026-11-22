@@ -3,6 +3,7 @@
 //! Source of truth (edit only those files):
 //! - `docs/legal/PRIVACY.md`
 //! - `docs/legal/TERMS.md`
+//! - `docs/legal/CANCELLATION.md`
 //! - `docs/legal/DATA_DELETION.md`
 //! - `docs/legal/SUPPORT.md`
 //! - `docs/legal/ABOUT.md`
@@ -12,6 +13,7 @@
 
 pub const PRIVACY_MD: &str = include_str!("../../../docs/legal/PRIVACY.md");
 pub const TERMS_MD: &str = include_str!("../../../docs/legal/TERMS.md");
+pub const CANCELLATION_MD: &str = include_str!("../../../docs/legal/CANCELLATION.md");
 pub const DATA_DELETION_MD: &str = include_str!("../../../docs/legal/DATA_DELETION.md");
 pub const SUPPORT_MD: &str = include_str!("../../../docs/legal/SUPPORT.md");
 pub const ABOUT_MD: &str = include_str!("../../../docs/legal/ABOUT.md");
@@ -31,6 +33,15 @@ pub fn terms_html() -> String {
         "Terms of use for Wadhu services.",
         "https://wadhu.com/terms",
         TERMS_MD,
+    )
+}
+
+pub fn cancellation_html() -> String {
+    present_page(
+        "Cancellation & refund — Wadhu",
+        "Cancellation and refund policy for Wadhu — additional to Gotigin.",
+        "https://wadhu.com/cancellation",
+        CANCELLATION_MD,
     )
 }
 
@@ -100,6 +111,7 @@ fn present_page(title: &str, description: &str, canonical: &str, md: &str) -> St
     <p class="legal-nav">
       <a href="/privacy">Privacy</a> ·
       <a href="/terms">Terms</a> ·
+      <a href="/cancellation">Cancellation</a> ·
       <a href="/data-deletion">Data deletion</a> ·
       <a href="/support">Support</a> ·
       <a href="/about">About</a>
@@ -364,6 +376,7 @@ mod tests {
     #[test]
     fn all_legal_docs_embed() {
         assert!(TERMS_MD.contains("Wadhu terms of use"));
+        assert!(CANCELLATION_MD.contains("Wadhu cancellation and refund policy"));
         assert!(DATA_DELETION_MD.contains("data deletion"));
         assert!(SUPPORT_MD.contains("support@gotigin.com"));
         assert!(ABOUT_MD.contains("GOTIGIN SOFTWARE"));
@@ -371,5 +384,6 @@ mod tests {
         assert!(support_html().contains("<h1>"));
         assert!(about_html().contains("<h1>"));
         assert!(terms_html().contains("<h1>"));
+        assert!(cancellation_html().contains("<h1>"));
     }
 }

@@ -46,7 +46,7 @@
         ]
       },
       {
-        "source": "/{terms,data-deletion,support,about,account}/**",
+        "source": "/{terms,cancellation,data-deletion,support,about,account}/**",
         "headers": [
           { "key": "Cache-Control", "value": "public, max-age=300, must-revalidate" }
         ]

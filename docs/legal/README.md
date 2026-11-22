@@ -11,6 +11,7 @@ as formatted HTML (Khaynjo pattern). Do not hand-edit generated HTML under
 | --- | --- | --- |
 | [`PRIVACY.md`](PRIVACY.md) | https://wadhu.com/privacy | Play, Microsoft Store, Meta privacy URL |
 | [`TERMS.md`](TERMS.md) | https://wadhu.com/terms | Store / site terms |
+| [`CANCELLATION.md`](CANCELLATION.md) | https://wadhu.com/cancellation | Cancellation and refund (additional to Gotigin) |
 | [`DATA_DELETION.md`](DATA_DELETION.md) | https://wadhu.com/data-deletion | Play account deletion / Meta data deletion instructions |
 | [`SUPPORT.md`](SUPPORT.md) | https://wadhu.com/support | Store support URL |
 | [`ABOUT.md`](ABOUT.md) | https://wadhu.com/about | Company / brand |
@@ -22,8 +23,8 @@ Regenerate site HTML:
 ```
 
 Connect embeds the same Markdown (`apps/wadhu-connect` → `include_str!` of
-these files) and serves `/privacy`, `/terms`, `/data-deletion`, `/support`,
-`/about`.
+these files) and serves `/privacy`, `/terms`, `/cancellation`,
+`/data-deletion`, `/support`, `/about`.
 
 SMS Gateway store paste docs:
 [`apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md`](../../apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md),

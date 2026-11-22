@@ -14,7 +14,7 @@ use sha2::Sha256;
 use crate::config::Config;
 use crate::meta::MetaClient;
 use crate::privacy_policy::{
-    self, ABOUT_MD, DATA_DELETION_MD, PRIVACY_MD, SUPPORT_MD, TERMS_MD,
+    self, ABOUT_MD, CANCELLATION_MD, DATA_DELETION_MD, PRIVACY_MD, SUPPORT_MD, TERMS_MD,
 };
 use crate::store::Store;
 
@@ -128,6 +128,7 @@ fn route(
             ],
             "privacy": "/privacy",
             "terms": "/terms",
+            "cancellation": "/cancellation",
             "data_deletion": "/data-deletion",
             "support": "/support",
             "about": "/about",
@@ -150,6 +151,13 @@ fn route(
                     200,
                     "text/html; charset=utf-8",
                     privacy_policy::terms_html().into_bytes(),
+                );
+            }
+            "/cancellation" | "/cancellation/" => {
+                return (
+                    200,
+                    "text/html; charset=utf-8",
+                    privacy_policy::cancellation_html().into_bytes(),
                 );
             }
             "/data-deletion" | "/data-deletion/" => {
@@ -185,6 +193,13 @@ fn route(
                     200,
                     "text/markdown; charset=utf-8",
                     TERMS_MD.as_bytes().to_vec(),
+                );
+            }
+            "/cancellation.md" => {
+                return (
+                    200,
+                    "text/markdown; charset=utf-8",
+                    CANCELLATION_MD.as_bytes().to_vec(),
                 );
             }
             "/data-deletion.md" => {

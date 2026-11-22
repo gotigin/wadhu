@@ -49,5 +49,6 @@ products that ship under it.
 
 - [Privacy](/privacy)
 - [Terms](/terms)
+- [Cancellation](/cancellation)
 - [Support](/support)
 - [Data deletion](/data-deletion)
