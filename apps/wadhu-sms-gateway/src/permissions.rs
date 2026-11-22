@@ -1,5 +1,10 @@
 //! Android runtime permission helpers for SEND_SMS and Classic Bluetooth.
 
+/// MakepadActivity.checkPermission status codes (not PackageManager ints).
+pub const STATUS_NOT_DETERMINED: i32 = 0;
+pub const STATUS_GRANTED: i32 = 1;
+pub const STATUS_DENIED_CAN_RETRY: i32 = 2;
+
 #[cfg(target_os = "android")]
 const SEND_SMS: &str = "android.permission.SEND_SMS";
 
@@ -14,15 +19,27 @@ const REQ_SMS: i32 = 71001;
 
 #[cfg(target_os = "android")]
 fn granted(permission: &str) -> bool {
-    // MakepadActivity.checkPermission returns a *status*, not PackageManager's
-    // PERMISSION_GRANTED/DENIED ints: 0 = not determined, 1 = granted,
-    // 2 = denied (can retry). See vendor/makepad/.../android.rs
-    // check_android_permission_status. Treating 0 as granted left Do Next
-    // stuck on "Allow SMS" after pm grant / the system dialog (emu 2026-11-22).
+    // See STATUS_* above. Treating NOT_DETERMINED (0) as granted left Do Next
+    // stuck on "Allow SMS" after a real grant (Pixel_7 emulator, 2026-11-22).
     unsafe {
         makepad_widgets::makepad_platform::os::linux::android::android_jni::to_java_check_permission(
             permission,
-        ) == 1
+        ) == STATUS_GRANTED
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn makepad_permission_status_codes_are_documented() {
+        // Regression lock: PackageManager.PERMISSION_GRANTED is 0; Makepad's
+        // granted status is 1. Do not "simplify" these back to PM ints.
+        assert_eq!(STATUS_NOT_DETERMINED, 0);
+        assert_eq!(STATUS_GRANTED, 1);
+        assert_eq!(STATUS_DENIED_CAN_RETRY, 2);
+        assert_ne!(STATUS_GRANTED, STATUS_NOT_DETERMINED);
     }
 }
 
