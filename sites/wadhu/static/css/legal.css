@@ -65,7 +65,10 @@ body {
   margin-left: auto;
 }
 .topnav a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  box-sizing: border-box;
   padding: 0.55rem 0.85rem;
   border-radius: 0.45rem;
   text-decoration: none;
