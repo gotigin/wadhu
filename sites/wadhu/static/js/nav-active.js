@@ -1,12 +1,13 @@
 (function () {
   var path = (location.pathname || "/").replace(/\/+$/, "") || "/";
+  // Only highlight a chip that exists in #topnav. Support and data-deletion
+  // live in the legal footer, not the primary chips — do not mark About/Privacy.
   var map = {
     "/": "home",
     "/about": "about",
     "/privacy": "privacy",
     "/terms": "terms",
-    "/support": "about",
-    "/data-deletion": "privacy",
+    "/cancellation": "cancellation",
     "/account": "account"
   };
   var key = map[path];
