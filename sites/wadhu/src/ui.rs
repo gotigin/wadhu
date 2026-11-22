@@ -76,10 +76,11 @@ script_mod! {
         paragraph_spacing: 0.
         pre_code_spacing: 0.
         font_color: Muted
-        font_size: 16.
-        text_style_normal: theme.font_regular{font_size: 16. line_spacing: 1.45}
-        text_style_bold: theme.font_bold{font_size: 16. line_spacing: 1.45}
-        draw_text +: { color: Muted text_style: theme.font_regular{font_size: 16. line_spacing: 1.45} }
+        // Normal body ~15.5 — align with Khaynjo/Moklanjo (phone pass 2026-11-22).
+        font_size: 15.5
+        text_style_normal: theme.font_regular{font_size: 15.5 line_spacing: 1.45}
+        text_style_bold: theme.font_bold{font_size: 15.5 line_spacing: 1.45}
+        draw_text +: { color: Muted text_style: theme.font_regular{font_size: 15.5 line_spacing: 1.45} }
         draw_selection +: { color: Select }
         draw_block +: { selection_color: Select }
     }
