@@ -73,6 +73,7 @@ need_grep sites/wadhu/firebase.json '"/robots.txt"' "firebase.json headers robot
 need_grep sites/wadhu/firebase.json '"/sitemap.xml"' "firebase.json headers sitemap.xml"
 forbid_grep sites/wadhu/static/js/nav-active.js '"/support": "about"' "nav-active does not mark Support as About"
 need_grep sites/wadhu/static/js/nav-active.js '"/cancellation": "cancellation"' "nav-active highlights Cancellation"
+need_file sites/wadhu/static/js/nav-active.js
 need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "https://wadhu.com/privacy" "Play listing privacy URL"
 need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "https://wadhu.com/data-deletion" "Play listing deletion URL"
 need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "https://wadhu.com/cancellation" "Play listing cancellation URL"
