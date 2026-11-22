@@ -31,7 +31,7 @@ Names table: [`BRAND.md`](BRAND.md). Public about page: [`legal/ABOUT.md`](legal
 | [`WEBSITES.md`](WEBSITES.md) | wadhu.com (one Hosting tree: Makepad SPA + legal) and connect.wadhu.com |
 | [`BRAND.md`](BRAND.md) | **Names:** Wadhu=brand, Gotigin=trademark, company=legal entity, products under Wadhu |
 | [`GOTIGIN_COMPANY_IDENTITY.md`](GOTIGIN_COMPANY_IDENTITY.md) | Company / Meta form values (CIN, portfolio, Wadhu Connect app ids) |
-| [`legal/`](legal/README.md) | **Store / Meta legal:** privacy, terms, data deletion, support, about (one MD each → wadhu.com) |
+| [`legal/`](legal/README.md) | **Store / Meta legal:** privacy, terms, cancellation, data deletion, support, about (one MD each → wadhu.com) |
 | [`WARNINGS.md`](WARNINGS.md) | **Strict:** fix compile warnings on all platforms; never suppress |
 | [`plans/BT_THEN_IDENTITY.md`](plans/BT_THEN_IDENTITY.md) | Readable plan: finish Classic RFCOMM first, then identity/monetization direction |
 | [`TRANSPORTS.md`](TRANSPORTS.md) | LAN / Bluetooth / relay: user-facing behaviour + gateway security controls |
