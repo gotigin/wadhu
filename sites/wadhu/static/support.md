@@ -36,4 +36,6 @@ Use email for support, privacy, and deletion requests.
 
 - Privacy: [/privacy](/privacy)
 - Terms: [/terms](/terms)
+- Cancellation: [/cancellation](/cancellation)
+- Data deletion: [/data-deletion](/data-deletion)
 - About: [/about](/about)
