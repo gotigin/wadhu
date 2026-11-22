@@ -12,6 +12,7 @@ Android lessons: [`ANDROID_PLAY_LESSONS.md`](ANDROID_PLAY_LESSONS.md)
 | --- | --- |
 | Privacy policy | https://wadhu.com/privacy |
 | Terms (if asked) | https://wadhu.com/terms |
+| Cancellation / refund (if asked) | https://wadhu.com/cancellation |
 | Support URL | https://wadhu.com/support |
 | Account / data deletion | https://wadhu.com/data-deletion |
 

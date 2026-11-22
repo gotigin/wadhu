@@ -47,6 +47,7 @@
 .auth-card input {
   width: 100%;
   box-sizing: border-box;
+  min-height: 44px;
   padding: 0.65rem 0.75rem;
   border-radius: 0.4rem;
   border: 1px solid #2a2870;
@@ -61,7 +62,11 @@
   margin-top: 0.85rem;
 }
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  box-sizing: border-box;
   padding: 0.55rem 0.9rem;
   border-radius: 0.45rem;
   border: none;
