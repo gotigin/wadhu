@@ -106,17 +106,17 @@ script_mod! {
         draw_bg +: { color: Cyan }
         draw_text +: { color: Night text_style: theme.font_bold{font_size: 14.} }
     }
-    // 44 px tall: a finger-sized target on every tier.
+    // ≥44 px tall: a finger-sized target on every tier.
     let GhostBtn = Button{
         width: Fit height: Fit
-        padding: Inset{left: 14. right: 14. top: 13. bottom: 13.}
+        padding: Inset{left: 14. right: 14. top: 14. bottom: 14.}
         draw_bg +: { color: Indigo }
         draw_text +: { color: Ink text_style: theme.font_bold{font_size: 13.} }
     }
     // Top-bar chip for windows from 480 px up.
     let NavBtn = Button{
         width: Fit height: Fit
-        padding: Inset{left: 12. right: 12. top: 13. bottom: 13.}
+        padding: Inset{left: 12. right: 12. top: 14. bottom: 14.}
         draw_bg +: { color: Indigo }
         draw_text +: { color: Ink text_style: theme.font_bold{font_size: 13.} }
     }
@@ -124,7 +124,7 @@ script_mod! {
     // at any phone width (Fit chips wrapped "Account" under the rest at 360).
     let TabBtn = Button{
         width: Fill height: Fit
-        padding: Inset{left: 2. right: 2. top: 13. bottom: 13.}
+        padding: Inset{left: 2. right: 2. top: 14. bottom: 14.}
         draw_bg +: { color: Indigo }
         draw_text +: { color: Ink text_style: theme.font_bold{font_size: 13.} }
     }
