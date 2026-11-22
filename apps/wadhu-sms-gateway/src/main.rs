@@ -583,11 +583,16 @@ script_mod! {
                                         client_name_input := FieldInput{
                                             empty_text: "App name"
                                         }
-                                        block_client_button := GhostBtn{
-                                            text: "Block app"
-                                        }
-                                        unblock_client_button := GhostBtn{
-                                            text: "Unblock app"
+                                        client_ops := View{
+                                            width: Fill height: Fit
+                                            flow: Down
+                                            spacing: 10.
+                                            block_client_button := GhostBtn{
+                                                text: "Block app"
+                                            }
+                                            unblock_client_button := GhostBtn{
+                                                text: "Unblock app"
+                                            }
                                         }
                                         // The consequence is its own line: on one
                                         // button face it ran off both edges at 360 px.
@@ -638,14 +643,22 @@ script_mod! {
                                             font_color: #x00c8fc
                                             draw_text +: {color: #x00c8fc}
                                         }
-                                        share_url_button := GhostBtn{
-                                            text: "Share URL + operator key"
-                                        }
-                                        share_curl_button := GhostBtn{
-                                            text: "Share curl example"
-                                        }
-                                        copy_key_button := GhostBtn{
-                                            text: "Copy operator key"
+                                        // Short Fit actions — apply_responsive
+                                        // unlocks to Right when the column is wide
+                                        // enough (wrap+Fill is rejected by Makepad).
+                                        share_row := View{
+                                            width: Fill height: Fit
+                                            flow: Down
+                                            spacing: 10.
+                                            share_url_button := GhostBtn{
+                                                text: "Share URL + operator key"
+                                            }
+                                            share_curl_button := GhostBtn{
+                                                text: "Share curl example"
+                                            }
+                                            copy_key_button := GhostBtn{
+                                                text: "Copy operator key"
+                                            }
                                         }
                                     }
                                 }
@@ -706,6 +719,9 @@ script_mod! {
     }
 }
 
+/// Content column width where short Fit action pairs / triples sit on one row.
+const ACTIONS_ONE_ROW_FROM: f64 = 720.0;
+
 #[derive(Script, ScriptHook)]
 pub struct App {
     #[live]
@@ -717,6 +733,8 @@ pub struct App {
     /// Last test-send id — refresh_all updates result_label as status moves.
     #[rust]
     last_test_id: Option<String>,
+    #[rust]
+    laid_out_w: Option<i64>,
 }
 
 impl MatchEvent for App {
@@ -1287,6 +1305,31 @@ fn hex_rgb(rgb: u32) -> Vec4f {
     }
 }
 
+impl App {
+    fn apply_responsive(&mut self, cx: &mut Cx) {
+        let size = self.ui.window(cx, ids!(main_window)).get_inner_size(cx);
+        if size.x < 1.0 {
+            return;
+        }
+        let key = size.x.round() as i64;
+        if self.laid_out_w == Some(key) {
+            return;
+        }
+        self.laid_out_w = Some(key);
+        let one_row = size.x >= ACTIONS_ONE_ROW_FROM;
+        let flow = if one_row {
+            Flow::right()
+        } else {
+            Flow::Down
+        };
+        for path in [ids!(share_row), ids!(client_ops)] {
+            if let Some(mut view) = self.ui.view(cx, path).borrow_mut() {
+                view.layout.flow = flow;
+            }
+        }
+    }
+}
+
 impl AppMain for App {
     fn script_mod(vm: &mut ScriptVm) -> ScriptValue {
         crate::makepad_widgets::script_mod(vm);
@@ -1296,5 +1339,9 @@ impl AppMain for App {
     fn handle_event(&mut self, cx: &mut Cx, event: &Event) {
         self.match_event(cx, event);
         self.ui.handle_event(cx, event, &mut Scope::empty());
+        match event {
+            Event::Startup | Event::WindowGeomChange(_) => self.apply_responsive(cx),
+            _ => {}
+        }
     }
 }
