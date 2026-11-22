@@ -69,6 +69,7 @@ SMS Gateway is part of Wadhu — Tools · Apps · More — by GOTIGIN SOFTWARE &
 | Support email | support@gotigin.com |
 | Support URL | https://wadhu.com/support |
 | Website | https://wadhu.com |
+| Cancellation / refund URL (if asked) | https://wadhu.com/cancellation |
 | Temporary / account deletion URL | https://wadhu.com/data-deletion |
 
 ## Content rating / audiences
