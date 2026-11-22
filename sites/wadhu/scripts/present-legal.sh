@@ -63,7 +63,7 @@ present privacy "Privacy — Wadhu" \
 present terms "Terms — Wadhu" \
   "Terms of use for the Wadhu brand and its products, including SMS Gateway and Wadhu Connect." \
   "https://wadhu.com/terms" "TERMS.md"
-present cancellation "Cancellation &amp; refund — Wadhu" \
+present cancellation "Cancellation & refund — Wadhu" \
   "Cancellation and refund policy for the Wadhu brand — additional to Gotigin." \
   "https://wadhu.com/cancellation" "CANCELLATION.md"
 present data-deletion "Data deletion — Wadhu" \
@@ -72,6 +72,8 @@ present data-deletion "Data deletion — Wadhu" \
 present support "Support — Wadhu" \
   "Support for the Wadhu brand and its products." \
   "https://wadhu.com/support" "SUPPORT.md"
+# description uses -V (raw into the template) so pre-escape &; title uses
+# --metadata and pandoc escapes it — pass a literal & there.
 present about "About — Wadhu" \
   "Wadhu means more in Memon. Tools, utils, and apps by Gotigin — GOTIGIN SOFTWARE &amp; HARDWARE PRIVATE LIMITED." \
   "https://wadhu.com/about" "ABOUT.md"
