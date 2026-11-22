@@ -109,6 +109,18 @@ for need in privacy terms data-deletion support about account; do
     exit 1
   fi
 done
+# Account is hand-written static (not present-legal); stamp the same sha10 as legal/home.
+PREVIEW="$SITE/static/media/link-preview.jpg"
+if [[ ! -f "$PREVIEW" ]]; then
+  echo "error: missing $PREVIEW — run sites/wadhu/scripts/make-link-preview.sh" >&2
+  exit 1
+fi
+PREVIEW_V="$(sha256sum "$PREVIEW" | cut -c1-10)"
+sed -i -E "s#(https://wadhu\\.com/media/link-preview\\.jpg)(\\?v=[0-9a-f]+)?\"#\\1?v=${PREVIEW_V}\"#g" "$OUT/account/index.html"
+if ! grep -q "link-preview.jpg?v=${PREVIEW_V}" "$OUT/account/index.html"; then
+  echo "error: account page missing cache-busted link-preview tags" >&2
+  exit 1
+fi
 if [[ ! -f "$OUT/js/firebase-init.js" || ! -f "$OUT/js/account.js" ]]; then
   echo "error: missing $OUT/js/firebase-init.js or account.js" >&2
   exit 1
