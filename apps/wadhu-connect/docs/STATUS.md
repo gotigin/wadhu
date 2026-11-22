@@ -28,7 +28,8 @@ There is **no** `apps/gotigin-connect`. Meta display name must be **Wadhu Connec
 ## Meta checklist (operator)
 
 1. App settings → Basic: display name **Wadhu Connect**; Site URL → `https://wadhu.com`
-2. Privacy → `https://wadhu.com/privacy`; data deletion → `https://wadhu.com/data-deletion`
+2. Privacy → `https://wadhu.com/privacy`; data deletion → `https://wadhu.com/data-deletion`;
+   cancellation (if asked) → `https://wadhu.com/cancellation`
 3. Webhook → `https://connect.wadhu.com/webhook` (verify token from `.env` / Secret Manager)
 4. **Facebook Login for Business → Settings** (no ngrok):
    - Valid OAuth Redirect URIs → `https://connect.wadhu.com/onboard`
