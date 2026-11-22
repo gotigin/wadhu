@@ -69,6 +69,8 @@ need_grep sites/wadhu/static/sitemap.xml "https://wadhu.com/cancellation" "sitem
 need_grep sites/wadhu/static/cancellation/index.html "Cancellation &amp; refund — Wadhu" "cancellation title is singly escaped"
 forbid_grep sites/wadhu/static/cancellation/index.html "&amp;amp;" "cancellation HTML has no double-escaped amp"
 need_grep sites/wadhu/firebase.json "X-Content-Type-Options" "firebase.json sets nosniff"
+need_grep sites/wadhu/firebase.json '"/robots.txt"' "firebase.json headers robots.txt"
+need_grep sites/wadhu/firebase.json '"/sitemap.xml"' "firebase.json headers sitemap.xml"
 need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "https://wadhu.com/privacy" "Play listing privacy URL"
 need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "https://wadhu.com/data-deletion" "Play listing deletion URL"
 need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "https://wadhu.com/cancellation" "Play listing cancellation URL"
