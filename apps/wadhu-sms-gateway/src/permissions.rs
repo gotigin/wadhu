@@ -14,11 +14,15 @@ const REQ_SMS: i32 = 71001;
 
 #[cfg(target_os = "android")]
 fn granted(permission: &str) -> bool {
-    // PackageManager.PERMISSION_GRANTED == 0
+    // MakepadActivity.checkPermission returns a *status*, not PackageManager's
+    // PERMISSION_GRANTED/DENIED ints: 0 = not determined, 1 = granted,
+    // 2 = denied (can retry). See vendor/makepad/.../android.rs
+    // check_android_permission_status. Treating 0 as granted left Do Next
+    // stuck on "Allow SMS" after pm grant / the system dialog (emu 2026-11-22).
     unsafe {
         makepad_widgets::makepad_platform::os::linux::android::android_jni::to_java_check_permission(
             permission,
-        ) == 0
+        ) == 1
     }
 }
 
