@@ -33,6 +33,11 @@ if ! grep -qE 'wadhu-site\.wasm|web_gl|full_canvas|makepad' "$PKG/index.html"; t
   exit 1
 fi
 
+# cargo-makepad writes bare <html>; crawlers want a language.
+if grep -q '<html>' "$PKG/index.html" && ! grep -q '<html lang=' "$PKG/index.html"; then
+  sed -i 's/<html>/<html lang="en">/' "$PKG/index.html"
+fi
+
 # Reviewers, search engines and chat apps read the wasm shell and never run
 # the wasm, so the name, the description and the link-preview picture are
 # written into it (Makepad titles it "wadhu-site").
