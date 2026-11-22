@@ -4,7 +4,7 @@
       "emailPassword": true,
       "googleSignIn": {
         "oAuthBrandDisplayName": "Wadhu",
-        "supportEmail": "mearaj@gotigin.com",
+        "supportEmail": "support@gotigin.com",
         "authorizedRedirectUris": [
           "https://wadhu.com/__/auth/handler",
           "https://wadhu-ac8dc.firebaseapp.com/__/auth/handler"

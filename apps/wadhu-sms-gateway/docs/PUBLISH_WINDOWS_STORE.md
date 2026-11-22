@@ -8,7 +8,7 @@ Product version: Cargo `version` in [`../Cargo.toml`](../Cargo.toml).
 | Partner Center field | URL |
 | --- | --- |
 | Privacy policy URL | https://wadhu.com/privacy |
-| Support / contact | https://wadhu.com/support · mearaj@gotigin.com |
+| Support / contact | https://wadhu.com/support · support@gotigin.com |
 | Terms of use (if asked) | https://wadhu.com/terms |
 | Website | https://wadhu.com |
 

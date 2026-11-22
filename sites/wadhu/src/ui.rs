@@ -344,7 +344,8 @@ script_mod! {
                                         spacing: 4.
                                         Eyebrow{ body: "COMPANY" }
                                         CardTitle{ body: "GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED" }
-                                        Body{ body: "mearaj@gotigin.com" }
+                                        Body{ body: "support@gotigin.com" }
+                                        Body{ body: "Director · mearaj@gmail.com" }
                                     }
                                     View{
                                         width: Fill height: Fit

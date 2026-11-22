@@ -54,8 +54,9 @@ Brands / products (do not call a brand a product or vice versa):
 
 | Use | Value |
 | --- | --- |
-| Business / legal email | mearaj@gotigin.com |
-| Meta login email (historical) | mearajbhagad@gmail.com |
+| Support (every public site) | support@gotigin.com |
+| Director — official | mearaj@gmail.com |
+| Director — personal (forms that require personal / Meta historical) | mearajbhagad@gmail.com |
 | Business WhatsApp (Cloud API / Wadhu Connect) | +91 75740 67702 |
 | Personal mobile (do not use for Cloud API) | +91 99677 17702 |
 

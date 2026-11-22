@@ -9,7 +9,7 @@ Order is always **Trademark → Company → Brand → Product**.
 | | |
 | --- | --- |
 | **Gotigin** | The **trademark** / house mark meaning *find it* in Memon, pronounced *go-tee-geen*. Slogan: *Where Technology Meets Discovery* |
-| **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** | The **company** (legal entity) · [mearaj@gotigin.com](mailto:mearaj@gotigin.com) |
+| **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** | The **company** (legal entity) · [support@gotigin.com](mailto:support@gotigin.com) |
 | **Wadhu** | The **brand** — Memon for *more*; tagline *Tools · Apps · More*. Reusable tools, utils, and apps. Site: [wadhu.com](https://wadhu.com) |
 | **SMS Gateway** · **SMS Relay** · **Wadhu Connect** | **Products** under the Wadhu brand |
 
@@ -42,7 +42,8 @@ products that ship under it.
 | GSTIN | 24AANCG1628G1ZP |
 | Directors | Mearaj Abdulaziz Bhagad; Bhagad Senila Mearaj |
 | Registered office | Gosiya Manzil, Darbargadh, Dhoraji, Rajkot, Gujarat 360410, India |
-| Email | [mearaj@gotigin.com](mailto:mearaj@gotigin.com) |
+| Support | [support@gotigin.com](mailto:support@gotigin.com) |
+| Director (official) | [mearaj@gmail.com](mailto:mearaj@gmail.com) |
 
 ## Legal links
 

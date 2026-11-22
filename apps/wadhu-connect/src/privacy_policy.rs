@@ -365,7 +365,7 @@ mod tests {
     fn all_legal_docs_embed() {
         assert!(TERMS_MD.contains("Wadhu terms of use"));
         assert!(DATA_DELETION_MD.contains("data deletion"));
-        assert!(SUPPORT_MD.contains("mearaj@gotigin.com"));
+        assert!(SUPPORT_MD.contains("support@gotigin.com"));
         assert!(ABOUT_MD.contains("GOTIGIN SOFTWARE"));
         assert!(data_deletion_html().contains("<h1>"));
         assert!(support_html().contains("<h1>"));

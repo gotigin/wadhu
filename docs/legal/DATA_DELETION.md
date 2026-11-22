@@ -37,7 +37,7 @@ can use Cloud API after Embedded Signup.
 
 **Request deletion**
 
-Email [mearaj@gotigin.com](mailto:mearaj@gotigin.com) with subject:
+Email [support@gotigin.com](mailto:support@gotigin.com) with subject:
 
 `Wadhu data deletion`
 
@@ -57,7 +57,7 @@ You should also remove the Gotigin / Wadhu Connect app’s access from your
 ## wadhu.com account
 
 If you registered on [wadhu.com/account](https://wadhu.com/account), email
-[mearaj@gotigin.com](mailto:mearaj@gotigin.com) with subject
+[support@gotigin.com](mailto:support@gotigin.com) with subject
 `Wadhu data deletion` from the address on the account (or name the phone
 number you signed in with). We delete the account and its sign-in record
 within **30 days**.
@@ -72,5 +72,5 @@ We confirm every deletion request by email reply when it is done.
 ## Contact
 
 GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED  
-[mearaj@gotigin.com](mailto:mearaj@gotigin.com)  
+[support@gotigin.com](mailto:support@gotigin.com)  
 Gosiya Manzil, Darbargadh, Dhoraji, Rajkot, Gujarat 360410, India

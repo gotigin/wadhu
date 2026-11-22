@@ -124,4 +124,4 @@ at [wadhu.com/terms](https://wadhu.com/terms) and
 
 ## Contact
 
-[mearaj@gotigin.com](mailto:mearaj@gotigin.com)
+[support@gotigin.com](mailto:support@gotigin.com)

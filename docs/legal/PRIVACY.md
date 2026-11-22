@@ -13,7 +13,7 @@ _Last updated: 20 November 2026_
 | PAN | AANCG1628G |
 | GSTIN | 24AANCG1628G1ZP |
 | Registered office | Gosiya Manzil, Darbargadh, Dhoraji, Rajkot, Gujarat 360410, India |
-| Contact | [mearaj@gotigin.com](mailto:mearaj@gotigin.com) |
+| Contact | [support@gotigin.com](mailto:support@gotigin.com) |
 
 This policy covers **Wadhu brand** products and surfaces listed below. Apps
 under other Gotigin brands (for example Khaynjo under Kumkaj) publish **their
@@ -189,7 +189,7 @@ above and for [wadhu.com](https://wadhu.com). The same text is published at:
 
 **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED**
 
-- Privacy / support: [mearaj@gotigin.com](mailto:mearaj@gotigin.com)
+- Privacy / support: [support@gotigin.com](mailto:support@gotigin.com)
 - Data deletion subject line: `Wadhu data deletion`
 - Registered office: Gosiya Manzil, Darbargadh, Dhoraji,
   Rajkot, Gujarat 360410, India

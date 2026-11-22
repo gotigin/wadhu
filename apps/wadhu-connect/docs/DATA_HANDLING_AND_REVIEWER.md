@@ -13,7 +13,8 @@ Single source for Data handling + Reviewer instructions.
 | Data deletion instructions URL | `https://wadhu.com/data-deletion` |
 | Terms | `https://wadhu.com/terms` |
 | Support | `https://wadhu.com/support` |
-| Business contact | `mearaj@gotigin.com` |
+| Support / business contact | `support@gotigin.com` |
+| Director (official, if required) | `mearaj@gmail.com` |
 | Controller | GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED · India |
 | Test phone | `+1 555-156-0957` · ID `1408752645660951` · WABA `1324845626382929` |
 | Allowlisted recipient | `919967717702` |
@@ -82,7 +83,7 @@ Privacy: https://wadhu.com/privacy
 Data deletion: https://wadhu.com/data-deletion
 Terms: https://wadhu.com/terms
 Support: https://wadhu.com/support
-Contact: mearaj@gotigin.com
+Contact: support@gotigin.com
 
 Wadhu Connect (GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED) is a WhatsApp Cloud API Tech Provider connector. Businesses grant access to their WhatsApp Business Account via Facebook Login for Business / Embedded Signup. Permissions in this review: whatsapp_business_messaging, whatsapp_business_management, public_profile, pages_show_list, email. We omitted business_management and pages_read_engagement for this round (not required for Cloud API Tech Provider; not used by Connect runtime today). After approval we will try to integrate those two. We do not use consumer Facebook Login APIs (user_friends, user_birthday, etc.).
 

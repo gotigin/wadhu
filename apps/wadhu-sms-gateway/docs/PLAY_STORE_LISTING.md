@@ -51,7 +51,7 @@ PRIVACY & POLICY
 Local LAN/Bluetooth traffic stays on networks you control. See the Privacy policy URL on this listing (same document as wadhu.com/privacy). Data deletion instructions: wadhu.com/data-deletion.
 
 Website: https://wadhu.com
-Support: mearaj@gotigin.com
+Support: support@gotigin.com
 
 SMS Gateway is part of Wadhu — Tools · Apps · More — by GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED.
 ```
@@ -66,7 +66,7 @@ SMS Gateway is part of Wadhu — Tools · Apps · More — by GOTIGIN SOFTWARE &
 | Application id | `com.wadhu.smsgateway` |
 | Category | Tools (or Productivity) |
 | Privacy policy URL | https://wadhu.com/privacy |
-| Support email | mearaj@gotigin.com |
+| Support email | support@gotigin.com |
 | Support URL | https://wadhu.com/support |
 | Website | https://wadhu.com |
 | Temporary / account deletion URL | https://wadhu.com/data-deletion |

@@ -17,8 +17,9 @@
 
 | Role | Value |
 | --- | --- |
-| Personal email | mearajbhagad@gmail.com |
-| Business email | mearaj@gotigin.com |
+| Support (public) | support@gotigin.com |
+| Director — official | mearaj@gmail.com |
+| Director — personal | mearajbhagad@gmail.com |
 | Personal mobile | +91 99677 17702 |
 | **Business mobile (WABA / Cloud API)** | **+91 75740 67702** |
 

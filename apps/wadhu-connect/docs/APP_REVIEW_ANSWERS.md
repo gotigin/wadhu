@@ -10,7 +10,8 @@ Submission receipt:
 | Meta app display name | **Wadhu Connect** |
 | Privacy policy | https://wadhu.com/privacy |
 | Data deletion | https://wadhu.com/data-deletion |
-| Business contact | mearaj@gotigin.com |
+| Support / business contact | support@gotigin.com |
+| Director (official, if a form requires it) | mearaj@gmail.com |
 | Company | GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED |
 | Brand | Wadhu |
 | Target coexistence number | +91 99677 17702 |
