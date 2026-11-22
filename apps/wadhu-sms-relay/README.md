@@ -16,7 +16,7 @@ Env:
 
 | Variable | Default (dev shim) | Purpose |
 |---|---|---|
-| `SMS_RELAY_BIND` | `127.0.0.1:9876` | Listen address |
+| `SMS_RELAY_BIND` | `127.0.0.1:9876` (binary alone: `0.0.0.0:9876`) | Listen address |
 | `SMS_RELAY_DATA` | `target/sms-relay-data` | Durable state directory |
 | `SMS_RELAY_ADMIN_TOKEN` | `dev-admin-token` | Admin API auth |
 
