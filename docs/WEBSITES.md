@@ -33,7 +33,7 @@ public/
 Deploy: `./sites/wadhu/scripts/deploy-firebase.sh` (project `wadhu-ac8dc`).
 Local: `./sites/wadhu/scripts/run-web.sh`. Details: [`sites/wadhu/README.md`](../sites/wadhu/README.md).
 
-The SPA is one scroll: hero (*Wadhu means more*) → what the brand is → reuse → products (SMS Gateway, SMS Relay, Wadhu Connect) → names → close. Nav opens `/privacy`, `/terms`, `/about`, and `/account` in the same tab on the web (`OpenUrlInPlace::Yes`). Connect stays a separate host. Legal is not an in-app Makepad route.
+The SPA is one scroll: hero (*Wadhu means more*) → what the brand is → reuse → products (SMS Gateway, SMS Relay, Wadhu Connect) → names → close. Desktop nav opens `/privacy`, `/terms`, `/cancellation`, `/about`, and `/account` in the same tab on the web (`OpenUrlInPlace::Yes`); phone keeps four short tabs (Privacy · Terms · About · Account) and Cancellation lives in the closing band. Connect stays a separate host. Legal is not an in-app Makepad route.
 
 ## Legal URLs (Play / Microsoft Store / Meta)
 

@@ -22,8 +22,9 @@ brand → reuse → products → names → close. On a phone the top bar stacks 
 the nav becomes four equal tabs on one row; headlines step down per tier
 (30 / 36 / 42 / 48 px); product cards stack below 960px. Nav opens `/privacy`,
 `/terms`, `/about`, and `/account` in the same tab on the web
-(`OpenUrlInPlace::Yes`). Legal is **not** an in-app Makepad route. Connect
-opens on connect.wadhu.com.
+(`OpenUrlInPlace::Yes`; Cancellation is in the desk chips and the closing
+band). Legal is **not** an in-app Makepad route. Connect opens on
+connect.wadhu.com.
 
 Text selection is **page-level** (`selection_root` + `select_from_gaps` on
 `page`) via the workspace Makepad `text_selection` patch.
