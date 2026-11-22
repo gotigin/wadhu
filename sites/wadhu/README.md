@@ -9,8 +9,13 @@ public/
   wadhu-site.wasm
   /privacy/…          ← same site, formatted legal HTML (Play / Meta URL)
   /terms/…
+  /cancellation/…     ← subscription cancellation & refund
+  /data-deletion/…
+  /support/…
   /about/…
   /account/…          ← register / sign-in (Firebase Auth)
+  robots.txt
+  sitemap.xml
   /js/firebase-init.js
   /js/account.js
   /media/link-preview.jpg ← picture for link previews (see below)
