@@ -4,7 +4,9 @@ _Last updated: 20 November 2026_
 
 Wadhu (*more* in Memon — *Tools · Apps · More*) is the brand. This page
 says how to delete your data, or your account, for each product under it.
-Privacy policy: [wadhu.com/privacy](https://wadhu.com/privacy).
+Privacy: [wadhu.com/privacy](https://wadhu.com/privacy) ·
+Cancellation: [wadhu.com/cancellation](https://wadhu.com/cancellation) ·
+Support: [wadhu.com/support](https://wadhu.com/support).
 
 ## SMS Gateway (`com.wadhu.smsgateway`)
 
