@@ -59,9 +59,14 @@ else
 fi
 
 echo "Legal URLs"
-for f in docs/legal/PRIVACY.md docs/legal/TERMS.md docs/legal/DATA_DELETION.md docs/legal/SUPPORT.md docs/legal/ABOUT.md; do
+for f in docs/legal/PRIVACY.md docs/legal/TERMS.md docs/legal/CANCELLATION.md docs/legal/DATA_DELETION.md docs/legal/SUPPORT.md docs/legal/ABOUT.md; do
   need_file "$f"
 done
+need_file sites/wadhu/static/robots.txt
+need_file sites/wadhu/static/sitemap.xml
+need_grep sites/wadhu/static/robots.txt "Sitemap: https://wadhu.com/sitemap.xml" "robots points at sitemap"
+need_grep sites/wadhu/static/sitemap.xml "https://wadhu.com/cancellation" "sitemap lists cancellation"
+need_grep sites/wadhu/firebase.json "X-Content-Type-Options" "firebase.json sets nosniff"
 need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "https://wadhu.com/privacy" "Play listing privacy URL"
 need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "https://wadhu.com/data-deletion" "Play listing deletion URL"
 need_grep apps/wadhu-sms-gateway/docs/PLAY_STORE_LISTING.md "Tools · Apps · More" "Play listing names the Wadhu brand"
