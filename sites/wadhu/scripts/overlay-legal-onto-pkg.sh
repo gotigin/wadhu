@@ -68,7 +68,7 @@ if ! grep -q 'og:site_name' "$PKG/index.html"; then
         <meta name="twitter:description" content="Wadhu means more in Memon. Reusable tools, utils, and apps by Gotigin." />
         <meta name="twitter:image" content="'"$PREVIEW_URL"'" />
         <meta name="twitter:image:alt" content="The wadhu.com home page: Wadhu means more. Tools, apps and more." />
-        <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Wadhu","alternateName":"Wadhu — Tools · Apps · More","url":"https://wadhu.com/","image":"https://wadhu.com/media/link-preview.jpg","publisher":{"@type":"Organization","name":"Gotigin","legalName":"GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED","url":"https://gotigin.com/"}}</script>'
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Wadhu","alternateName":"Wadhu — Tools · Apps · More","url":"https://wadhu.com/","logo":"https://wadhu.com/media/wadhu-brand-logo.webp","image":"https://wadhu.com/media/link-preview.jpg","description":"Memon for more. Reusable tools, utils, and apps — Tools · Apps · More.","brand":{"@type":"Brand","name":"Wadhu","slogan":"Tools · Apps · More"},"parentOrganization":{"@type":"Organization","name":"Gotigin","legalName":"GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED","url":"https://gotigin.com/","logo":"https://gotigin.com/media/gotigin-brand-logo.png","contactPoint":{"@type":"ContactPoint","email":"support@gotigin.com","contactType":"customer support"}},"sameAs":["https://gotigin.com/","https://connect.wadhu.com/"],"contactPoint":{"@type":"ContactPoint","email":"support@gotigin.com","contactType":"customer support"}}</script>'
   awk -v head="$HEAD_INJECT" '
     /<title>/ && !titled {
       print head
@@ -80,7 +80,58 @@ if ! grep -q 'og:site_name' "$PKG/index.html"; then
   ' "$PKG/index.html" > "$PKG/index.html.tmp" && mv "$PKG/index.html.tmp" "$PKG/index.html"
 fi
 
+# Upgrade an older WebSite-only JSON-LD (pre-sprint) to Brand + parentOrganization.
+if grep -q '"@type":"WebSite"' "$PKG/index.html"; then
+  python3 - "$PKG/index.html" <<'PY'
+import re, sys
+path = sys.argv[1]
+text = open(path, encoding="utf-8").read()
+new = (
+    '{"@context":"https://schema.org","@type":"Organization","name":"Wadhu",'
+    '"alternateName":"Wadhu — Tools · Apps · More","url":"https://wadhu.com/",'
+    '"logo":"https://wadhu.com/media/wadhu-brand-logo.webp",'
+    '"image":"https://wadhu.com/media/link-preview.jpg",'
+    '"description":"Memon for more. Reusable tools, utils, and apps — Tools · Apps · More.",'
+    '"brand":{"@type":"Brand","name":"Wadhu","slogan":"Tools · Apps · More"},'
+    '"parentOrganization":{"@type":"Organization","name":"Gotigin",'
+    '"legalName":"GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED",'
+    '"url":"https://gotigin.com/","logo":"https://gotigin.com/media/gotigin-brand-logo.png",'
+    '"contactPoint":{"@type":"ContactPoint","email":"support@gotigin.com","contactType":"customer support"}},'
+    '"sameAs":["https://gotigin.com/","https://connect.wadhu.com/"],'
+    '"contactPoint":{"@type":"ContactPoint","email":"support@gotigin.com","contactType":"customer support"}}'
+)
+text2, n = re.subn(
+    r'<script type="application/ld\+json">\{"@context":"https://schema\.org","@type":"WebSite".*?</script>',
+    f'<script type="application/ld+json">{new}</script>',
+    text,
+    count=1,
+    flags=re.S,
+)
+if n:
+    open(path, "w", encoding="utf-8").write(text2)
+PY
+fi
+
 # The start-up screen (logo, progress ring) replaces cargo-makepad's grey bar.
 "$SITE/scripts/patch-web-shell.sh" "$PKG/index.html"
+
+# Crawlers that never run wasm still need a plain-HTML summary (deploy injects
+# the same block with a cache-busted Analytics script beside it).
+if ! grep -q '<noscript>' "$PKG/index.html"; then
+  awk '
+    /<\/body>/ && !done {
+      print "        <noscript>"
+      print "          <h1>Wadhu — Tools · Apps · More</h1>"
+      print "          <p>Wadhu is Memon for <em>more</em>. Reusable tools, utils, and apps by Gotigin — trademark of GOTIGIN SOFTWARE &amp; HARDWARE PRIVATE LIMITED.</p>"
+      print "          <p>Products: <a href=\"/about\">About</a> · SMS Gateway · SMS Relay · <a href=\"https://connect.wadhu.com/\">Wadhu Connect</a>.</p>"
+      print "          <p>Contact: <a href=\"mailto:support@gotigin.com\">support@gotigin.com</a> · Parent: <a href=\"https://gotigin.com/\">gotigin.com</a>.</p>"
+      print "          <p><a href=\"/privacy\">Privacy</a> · <a href=\"/terms\">Terms</a> · <a href=\"/cancellation\">Cancellation</a> · <a href=\"/data-deletion\">Data deletion</a> · <a href=\"/support\">Support</a> · <a href=\"/account\">Account</a>.</p>"
+      print "        </noscript>"
+      done = 1
+    }
+    { print }
+    END { if (!done) exit 2 }
+  ' "$PKG/index.html" > "$PKG/index.html.tmp" && mv "$PKG/index.html.tmp" "$PKG/index.html"
+fi
 
 echo "Overlayed same-site pages onto $PKG (Makepad index preserved)"

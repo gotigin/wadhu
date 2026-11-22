@@ -100,8 +100,11 @@ time to first paint.
 | `/` | Makepad brand SPA (`wadhu-site`) |
 | `/privacy` | Privacy — `docs/legal/PRIVACY.md` (Play / Store / Meta) |
 | `/terms` | Terms — `docs/legal/TERMS.md` |
+| `/cancellation` | Cancellation / refund — `docs/legal/CANCELLATION.md` |
 | `/data-deletion` | Data deletion — Play / Meta instructions |
 | `/support` | Support contact |
 | `/about` | Company + etymology — `docs/legal/ABOUT.md` |
 | `/account` | Register / sign-in (Firebase Auth) |
+| `/robots.txt` | Crawl allow + sitemap pointer |
+| `/sitemap.xml` | Home + legal + account URLs |
 | connect.wadhu.com | Wadhu Connect API / ES UI (separate host) |

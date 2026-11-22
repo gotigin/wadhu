@@ -47,8 +47,16 @@ Canonical Markdown: [`legal/`](legal/README.md). Present with
 | https://wadhu.com/data-deletion | `docs/legal/DATA_DELETION.md` |
 | https://wadhu.com/support | `docs/legal/SUPPORT.md` |
 | https://wadhu.com/about | `docs/legal/ABOUT.md` |
+| https://wadhu.com/cancellation | `docs/legal/CANCELLATION.md` |
 
-Connect embeds the same files and serves the same paths on
+Also deployed from `sites/wadhu/static/`: `robots.txt`, `sitemap.xml`
+(home + legal + account). Safe response headers live in
+`sites/wadhu/firebase.json` (`X-Content-Type-Options`, `Referrer-Policy`,
+`Permissions-Policy`, `X-Frame-Options`). The wasm shell carries a
+crawlable `<noscript>` summary and JSON-LD `Organization` (Wadhu brand,
+`parentOrganization` Gotigin).
+
+Connect embeds the same legal Markdown and serves the same paths on
 connect.wadhu.com. Do not hand-edit generated HTML under `sites/wadhu/static/`.
 
 Connect is **not** Firebase Hosting — run the Rust binary behind TLS.

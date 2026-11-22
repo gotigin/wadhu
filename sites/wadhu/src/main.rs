@@ -1,8 +1,8 @@
 //! wadhu.com — one Makepad scrolling brand SPA (Khaynjo pattern).
 //!
-//! One Hosting tree: this wasm home + `/privacy` `/terms` `/about` HTML
-//! (presented from `docs/legal/`) + Analytics. Legal is not an in-app route;
-//! nav opens those pages with `open_link` (new tab) so this SPA stays loaded.
+//! One Hosting tree: this wasm home + `/privacy` `/terms` `/cancellation`
+//! `/about` HTML (presented from `docs/legal/`) + Analytics. Legal is not an
+//! in-app route; nav opens those pages with `open_link` so this SPA stays loaded.
 
 pub use makepad_widgets;
 
@@ -19,6 +19,7 @@ const LOCAL_CONNECT_PORT: u16 = 3847;
 const HOME_PATH: &str = "/";
 const PRIVACY_PATH: &str = "/privacy";
 const TERMS_PATH: &str = "/terms";
+const CANCELLATION_PATH: &str = "/cancellation";
 const ABOUT_PATH: &str = "/about";
 const ACCOUNT_PATH: &str = "/account";
 
@@ -275,7 +276,8 @@ impl MatchEvent for App {
 
         let privacy = self.ui.button(cx, ids!(nav_privacy)).clicked(actions)
             || self.ui.button(cx, ids!(tab_privacy)).clicked(actions)
-            || self.ui.button(cx, ids!(cta_privacy)).clicked(actions);
+            || self.ui.button(cx, ids!(cta_privacy)).clicked(actions)
+            || self.ui.button(cx, ids!(cta_privacy_foot)).clicked(actions);
         if privacy {
             open_site(cx, &Self::site_url(cx, PRIVACY_PATH));
         }
@@ -284,6 +286,12 @@ impl MatchEvent for App {
             || self.ui.button(cx, ids!(tab_terms)).clicked(actions)
         {
             open_site(cx, &Self::site_url(cx, TERMS_PATH));
+        }
+
+        if self.ui.button(cx, ids!(nav_cancellation)).clicked(actions)
+            || self.ui.button(cx, ids!(cta_cancellation)).clicked(actions)
+        {
+            open_site(cx, &Self::site_url(cx, CANCELLATION_PATH));
         }
 
         let about = self.ui.button(cx, ids!(nav_about)).clicked(actions)

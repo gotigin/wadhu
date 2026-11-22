@@ -239,10 +239,13 @@ script_mod! {
                                 align: Align{x: 1.0 y: 0.5}
                                 nav_privacy := NavBtn{ text: "Privacy" }
                                 nav_terms := NavBtn{ text: "Terms" }
+                                nav_cancellation := NavBtn{ text: "Cancellation" }
                                 nav_about := NavBtn{ text: "About" }
                                 nav_account := NavBtn{ text: "Account" }
                             }
                             // Phone only (apply_responsive swaps it in for `topnav`).
+                            // Keep four short tabs so one row stays ≥44 px at 320;
+                            // Cancellation is in the desktop chips + closing band.
                             topnav_tabs := View{
                                 visible: false
                                 width: Fill height: Fit
@@ -376,6 +379,14 @@ script_mod! {
                                 Eyebrow{ body: "NEXT" }
                                 closing_title := Headline{ body: "Build with Wadhu." }
                                 Body{ body: "A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free." }
+                                View{
+                                    width: Fill height: Fit
+                                    flow: Right { wrap: true }
+                                    spacing: 14.
+                                    wrap_spacing: 10.
+                                    cta_cancellation := GhostBtn{ text: "Cancellation" }
+                                    cta_privacy_foot := GhostBtn{ text: "Privacy" }
+                                }
                                 View{
                                     width: Fill height: Fit
                                     flow: Down

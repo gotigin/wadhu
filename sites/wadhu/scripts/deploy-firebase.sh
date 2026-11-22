@@ -91,7 +91,13 @@ awk -v bid="$BUILD_ID" '
   }
   /<\/body>/ && !done {
     print "        <script src=\"./js/firebase-init.js?v=" bid "\" defer></script>"
-    print "        <noscript><p>Wadhu — Tools · Apps · More, by Gotigin. <a href=\"/about\">About</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/terms\">Terms</a> · <a href=\"/support\">Support</a></p></noscript>"
+    print "        <noscript>"
+    print "          <h1>Wadhu — Tools · Apps · More</h1>"
+    print "          <p>Wadhu is Memon for <em>more</em>. Reusable tools, utils, and apps by Gotigin — trademark of GOTIGIN SOFTWARE &amp; HARDWARE PRIVATE LIMITED.</p>"
+    print "          <p>Products: <a href=\"/about\">About</a> · SMS Gateway · SMS Relay · <a href=\"https://connect.wadhu.com/\">Wadhu Connect</a>.</p>"
+    print "          <p>Contact: <a href=\"mailto:support@gotigin.com\">support@gotigin.com</a> · Parent: <a href=\"https://gotigin.com/\">gotigin.com</a>.</p>"
+    print "          <p><a href=\"/privacy\">Privacy</a> · <a href=\"/terms\">Terms</a> · <a href=\"/cancellation\">Cancellation</a> · <a href=\"/data-deletion\">Data deletion</a> · <a href=\"/support\">Support</a> · <a href=\"/account\">Account</a>.</p>"
+    print "        </noscript>"
     done = 1
   }
   { print }
@@ -103,9 +109,15 @@ if ! grep -q 'id="boot"' "$INDEX" || ! grep -q 'og:image' "$INDEX"; then
   exit 1
 fi
 
-for need in privacy terms data-deletion support about account; do
+for need in privacy terms cancellation data-deletion support about account; do
   if [[ ! -f "$OUT/$need/index.html" ]]; then
     echo "error: missing /$need after overlay" >&2
+    exit 1
+  fi
+done
+for need in robots.txt sitemap.xml; do
+  if [[ ! -f "$OUT/$need" ]]; then
+    echo "error: missing /$need after overlay (static/)" >&2
     exit 1
   fi
 done
