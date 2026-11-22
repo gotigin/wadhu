@@ -72,9 +72,10 @@ impl Tier {
     fn band_pad_v(self) -> f64 {
         match self {
             // Extra top pad so section heads clear the sticky brand+chip bar
-            // when scrolled (phone evidence 2026-11-22).
-            Self::Phone => 48.0,
-            Self::Narrow => 48.0,
+            // when scrolled (phone evidence 2026-11-22; PRODUCTS still kissed
+            // the chips at 48 — raise once more).
+            Self::Phone => 56.0,
+            Self::Narrow => 52.0,
             _ => 64.0,
         }
     }
