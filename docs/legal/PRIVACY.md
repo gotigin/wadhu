@@ -185,6 +185,11 @@ above and for [wadhu.com](https://wadhu.com). The same text is published at:
 - [wadhu.com/privacy](https://wadhu.com/privacy)
 - [connect.wadhu.com/privacy](https://connect.wadhu.com/privacy)
 
+Related: [Terms](https://wadhu.com/terms) ·
+[Cancellation](https://wadhu.com/cancellation) ·
+[Data deletion](https://wadhu.com/data-deletion) ·
+[Support](https://wadhu.com/support).
+
 ## Contact / grievance
 
 **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED**
