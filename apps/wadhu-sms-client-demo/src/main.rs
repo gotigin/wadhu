@@ -306,11 +306,16 @@ script_mod! {
                                         framed_host_input := FieldInput{
                                             empty_text: "Host (127.0.0.1)"
                                         }
-                                        framed_ping_button := GhostBtn{
-                                            text: "Framed ping :18766"
-                                        }
-                                        framed_send_button := PrimaryBtn{
-                                            text: "Send via framed TCP"
+                                        framed_ops := View{
+                                            width: Fill height: Fit
+                                            flow: Down
+                                            spacing: 10.
+                                            framed_ping_button := GhostBtn{
+                                                text: "Framed ping :18766"
+                                            }
+                                            framed_send_button := PrimaryBtn{
+                                                text: "Send via framed TCP"
+                                            }
                                         }
                                         framed_label := Label{
                                             width: Fill
@@ -359,6 +364,9 @@ script_mod! {
     }
 }
 
+/// Content width where framed ping/send Fit actions sit on one row.
+const FRAMED_ONE_ROW_FROM: f64 = 720.0;
+
 #[derive(Script, ScriptHook)]
 pub struct App {
     #[live]
@@ -374,6 +382,8 @@ pub struct App {
     /// When true, poll every ~300ms until status leaves queued/submitting.
     #[rust]
     watch_active: bool,
+    #[rust]
+    laid_out_w: Option<i64>,
 }
 
 impl MatchEvent for App {
@@ -750,6 +760,28 @@ fn hex_rgb(rgb: u32) -> Vec4f {
     }
 }
 
+impl App {
+    fn apply_responsive(&mut self, cx: &mut Cx) {
+        let size = self.ui.window(cx, ids!(main_window)).get_inner_size(cx);
+        if size.x < 1.0 {
+            return;
+        }
+        let key = size.x.round() as i64;
+        if self.laid_out_w == Some(key) {
+            return;
+        }
+        self.laid_out_w = Some(key);
+        let flow = if size.x >= FRAMED_ONE_ROW_FROM {
+            Flow::right()
+        } else {
+            Flow::Down
+        };
+        if let Some(mut view) = self.ui.view(cx, ids!(framed_ops)).borrow_mut() {
+            view.layout.flow = flow;
+        }
+    }
+}
+
 impl AppMain for App {
     fn script_mod(vm: &mut ScriptVm) -> ScriptValue {
         crate::makepad_widgets::script_mod(vm);
@@ -759,5 +791,9 @@ impl AppMain for App {
     fn handle_event(&mut self, cx: &mut Cx, event: &Event) {
         self.match_event(cx, event);
         self.ui.handle_event(cx, event, &mut Scope::empty());
+        match event {
+            Event::Startup | Event::WindowGeomChange(_) => self.apply_responsive(cx),
+            _ => {}
+        }
     }
 }
