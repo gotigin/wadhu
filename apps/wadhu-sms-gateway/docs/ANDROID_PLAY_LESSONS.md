@@ -103,6 +103,12 @@ Do not ship a Play cut without:
 - SMS permission grant + one successful queue→send
 - Logcat clean of FATAL / ANR; process must show a real UI (pid-alive-without-UI fails)
 
+**Makepad permission status (not PackageManager ints).**  
+`MakepadActivity.checkPermission` returns `0` = not determined, `1` = granted,
+`2` = denied (can retry). Operator UI must treat **`1` as granted**. Comparing
+to PackageManager’s `PERMISSION_GRANTED (== 0)` leaves Do Next stuck on
+“Allow SMS” after a real grant (Pixel_7 emulator, 2026-11-22).
+
 ### Manifest hygiene
 
 - Do **not** declare broad media / sensitive permissions you do not need.
