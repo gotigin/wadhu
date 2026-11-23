@@ -2,7 +2,13 @@
 // Bundled into static/js/firebase-init.js and reused by account.js.
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAD-K5O2xyDY8kQ7mb_xbqFHhlDv8mn4BY",
@@ -23,6 +29,19 @@ try {
   analytics = getAnalytics(app);
 } catch {
   // Analytics may fail in some local/offline contexts; Auth still works.
+}
+
+if (typeof window !== "undefined") {
+  window.__SITE_AUTH__ = auth;
+  window.__SITE_APP__ = app;
+  window.__SITE_PRODUCT_NAME__ = window.__SITE_PRODUCT_NAME__ || "Wadhu";
+  window.__SITE_ACCOUNT_HREF__ = window.__SITE_ACCOUNT_HREF__ || "/account";
+  window.__SITE_SIGN_IN_GOOGLE__ = () =>
+    signInWithPopup(auth, new GoogleAuthProvider());
+  window.__SITE_SIGN_IN_EMAIL__ = (email, password) =>
+    signInWithEmailAndPassword(auth, email, password);
+  window.__SITE_REGISTER_EMAIL__ = (email, password) =>
+    createUserWithEmailAndPassword(auth, email, password);
 }
 
 export { app, auth, analytics };

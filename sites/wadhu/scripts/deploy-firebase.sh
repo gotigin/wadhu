@@ -71,6 +71,7 @@ rsync -a --exclude='*.br' "$WASM_PKG/" "$OUT/"
 mkdir -p "$OUT/js"
 cp "$SITE/static/js/firebase-init.js" "$OUT/js/firebase-init.js"
 cp "$SITE/static/js/account.js" "$OUT/js/account.js"
+mkdir -p "$OUT/css"
 
 BUILD_ID="$(date -u +%Y%m%d%H%M%S)-$(git -C "$ROOT" rev-parse --short HEAD 2>/dev/null || echo local)"
 INDEX="$OUT/index.html"
@@ -90,7 +91,6 @@ awk -v bid="$BUILD_ID" '
     stamped = 1
   }
   /<\/body>/ && !done {
-    print "        <script src=\"./js/firebase-init.js?v=" bid "\" defer></script>"
     print "        <noscript>"
     print "          <h1>Wadhu — Tools · Apps · More</h1>"
     print "          <p>Wadhu is Memon for <em>more</em>. Reusable tools, utils, and apps by Gotigin — trademark of GOTIGIN SOFTWARE &amp; HARDWARE PRIVATE LIMITED.</p>"

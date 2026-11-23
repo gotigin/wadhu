@@ -82,12 +82,16 @@ impl Tier {
     }
 }
 
+const NAV_INLINE_FROM: f64 = 960.0;
+
 #[derive(Script, ScriptHook)]
 pub struct App {
     #[live]
     ui: WidgetRef,
     #[rust]
     laid_out: Option<(Tier, i64, i64)>,
+    #[rust]
+    nav_open: bool,
 }
 
 fn open_site(cx: &mut Cx, url: &str) {
@@ -180,6 +184,10 @@ impl App {
                 view.layout.padding = band_pad;
             }
         }
+        let nav_inline = layout_w >= NAV_INLINE_FROM;
+        if nav_inline {
+            self.nav_open = false;
+        }
         if let Some(mut bar) = self.ui.view(cx, ids!(top)).borrow_mut() {
             let pad = if tier == Tier::Phone { 12.0 } else { 24.0 };
             bar.layout.padding = Inset {
@@ -188,29 +196,33 @@ impl App {
                 top: 12.0,
                 bottom: 12.0,
             };
-            // Phone/narrow: logo row, then wrapping nav. Wider: one row.
-            if matches!(tier, Tier::Phone | Tier::Narrow) {
-                bar.layout.flow = Flow::Down;
-                bar.layout.spacing = 10.0;
-            } else {
-                bar.layout.flow = Flow::right();
-                bar.layout.spacing = 16.0;
-            }
+            bar.layout.flow = if nav_inline { Flow::right() } else { Flow::Down };
+            bar.layout.spacing = if nav_inline { 10.0 } else { 8.0 };
         }
+        if let Some(mut chrome) = self.ui.view(cx, ids!(top_chrome)).borrow_mut() {
+            chrome.walk.width = Size::fill();
+        }
+        self.ui
+            .button(cx, ids!(nav_toggle))
+            .set_visible(cx, !nav_inline);
+        self.ui.button(cx, ids!(nav_toggle)).set_text(
+            cx,
+            if self.nav_open { "Close" } else { "Menu" },
+        );
+        let show_nav = nav_inline || self.nav_open;
+        self.ui.view(cx, ids!(topnav)).set_visible(cx, show_nav);
         if let Some(mut nav) = self.ui.view(cx, ids!(topnav)).borrow_mut() {
-            nav.layout.flow = Flow::right_wrap();
-            nav.layout.align.x = if matches!(tier, Tier::Phone | Tier::Narrow) {
-                0.0
+            nav.layout.flow = if nav_inline {
+                Flow::right()
             } else {
-                1.0
+                Flow::Down
             };
-        }
-        // Phone: four equal tabs in one row instead of wrapping chips.
-        let phone = tier == Tier::Phone;
-        self.ui.view(cx, ids!(topnav)).set_visible(cx, !phone);
-        self.ui.view(cx, ids!(topnav_tabs)).set_visible(cx, phone);
-        if let Some(mut cta) = self.ui.view(cx, ids!(cta_row)).borrow_mut() {
-            cta.layout.flow = Flow::right_wrap();
+            nav.walk.width = if nav_inline {
+                Size::fit()
+            } else {
+                Size::fill()
+            };
+            nav.layout.align.x = if nav_inline { 1.0 } else { 0.0 };
         }
 
         if let Some(mut cards) = self.ui.view(cx, ids!(cards)).borrow_mut() {
@@ -265,6 +277,13 @@ impl MatchEvent for App {
     }
 
     fn handle_actions(&mut self, cx: &mut Cx, actions: &Actions) {
+        if self.ui.button(cx, ids!(nav_toggle)).clicked(actions) {
+            self.nav_open = !self.nav_open;
+            self.laid_out = None;
+            self.apply_responsive(cx);
+            return;
+        }
+
         if self
             .ui
             .view(cx, ids!(brand_home))
@@ -274,41 +293,44 @@ impl MatchEvent for App {
             open_site(cx, &Self::site_url(cx, HOME_PATH));
         }
 
+        let mut close_nav = false;
         let privacy = self.ui.button(cx, ids!(nav_privacy)).clicked(actions)
-            || self.ui.button(cx, ids!(tab_privacy)).clicked(actions)
-            || self.ui.button(cx, ids!(cta_privacy)).clicked(actions)
             || self.ui.button(cx, ids!(cta_privacy_foot)).clicked(actions);
         if privacy {
+            close_nav = true;
             open_site(cx, &Self::site_url(cx, PRIVACY_PATH));
         }
 
-        if self.ui.button(cx, ids!(nav_terms)).clicked(actions)
-            || self.ui.button(cx, ids!(tab_terms)).clicked(actions)
-        {
+        if self.ui.button(cx, ids!(nav_terms)).clicked(actions) {
+            close_nav = true;
             open_site(cx, &Self::site_url(cx, TERMS_PATH));
         }
 
         if self.ui.button(cx, ids!(nav_cancellation)).clicked(actions)
             || self.ui.button(cx, ids!(cta_cancellation)).clicked(actions)
         {
+            close_nav = true;
             open_site(cx, &Self::site_url(cx, CANCELLATION_PATH));
         }
 
-        let about = self.ui.button(cx, ids!(nav_about)).clicked(actions)
-            || self.ui.button(cx, ids!(tab_about)).clicked(actions)
-            || self.ui.button(cx, ids!(cta_about)).clicked(actions);
-        if about {
+        if self.ui.button(cx, ids!(nav_about)).clicked(actions) {
+            close_nav = true;
             open_site(cx, &Self::site_url(cx, ABOUT_PATH));
         }
 
-        if self.ui.button(cx, ids!(nav_account)).clicked(actions)
-            || self.ui.button(cx, ids!(tab_account)).clicked(actions)
-        {
+        if self.ui.button(cx, ids!(nav_account)).clicked(actions) {
+            close_nav = true;
             open_site(cx, &Self::site_url(cx, ACCOUNT_PATH));
         }
 
         if self.ui.button(cx, ids!(open_connect)).clicked(actions) {
             open_external(cx, &Self::connect_url(cx));
+        }
+
+        if close_nav && self.nav_open {
+            self.nav_open = false;
+            self.laid_out = None;
+            self.apply_responsive(cx);
         }
     }
 }

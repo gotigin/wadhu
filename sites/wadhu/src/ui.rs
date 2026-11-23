@@ -187,74 +187,68 @@ script_mod! {
                         width: Fill height: Fill
                         draw_bg +: { color: Night }
                         flow: Down
-                        // Same split as legal HTML `.topbar`: brand left, nav right.
+                        // Phone: [mark · Menu]. Desk: [mark ····· chips] on one row.
                         top := SolidView{
                             width: Fill height: Fit
                             padding: Inset{left: 24. right: 24. top: 12. bottom: 12.}
                             draw_bg +: { color: Navy }
-                            flow: Right
-                            spacing: 16.
+                            flow: Down
+                            spacing: 8.
                             align: Align{y: 0.5}
-                            // Logo + title; tap → `/`.
-                            brand_home := View{
-                                width: Fit height: Fit
+                            top_chrome := View{
+                                width: Fill height: Fit
                                 flow: Right
                                 spacing: 10.
                                 align: Align{y: 0.5}
-                                cursor: MouseCursor.Hand
-                                brand_icon := Image{
-                                    width: 40 height: 40
-                                    fit: ImageFit.Stretch
-                                    src: crate_resource("self:resources/media/wadhu-brand-logo.webp")
-                                }
-                                brand_lockup := View{
+                                brand_home := View{
                                     width: Fit height: Fit
-                                    flow: Down
-                                    spacing: 1.
-                                    align: Align{x: 0.0 y: 0.5}
-                                    brand_name := Label{
-                                        width: Fit
-                                        text: "Wadhu"
-                                        draw_text +: {
-                                            color: Lime
-                                            text_style: theme.font_bold{font_size: 14.}
-                                        }
+                                    flow: Right
+                                    spacing: 10.
+                                    align: Align{y: 0.5}
+                                    cursor: MouseCursor.Hand
+                                    brand_icon := Image{
+                                        width: 40 height: 40
+                                        fit: ImageFit.Stretch
+                                        src: crate_resource("self:resources/media/wadhu-brand-logo.webp")
                                     }
-                                    brand_tag := Label{
-                                        width: Fit
-                                        text: "Tools · Apps · More"
-                                        draw_text +: {
-                                            color: Muted
-                                            text_style: theme.font_bold{font_size: 10.}
+                                    brand_lockup := View{
+                                        width: Fit height: Fit
+                                        flow: Down
+                                        spacing: 1.
+                                        align: Align{x: 0.0 y: 0.5}
+                                        brand_name := Label{
+                                            width: Fit
+                                            text: "Wadhu"
+                                            draw_text +: {
+                                                color: Lime
+                                                text_style: theme.font_bold{font_size: 14.}
+                                            }
+                                        }
+                                        brand_tag := Label{
+                                            width: Fit
+                                            text: "Tools · Apps · More"
+                                            draw_text +: {
+                                                color: Muted
+                                                text_style: theme.font_bold{font_size: 10.}
+                                            }
                                         }
                                     }
                                 }
+                                top_spacer := View{ width: Fill height: 1. }
+                                nav_toggle := NavBtn{ text: "Menu" }
                             }
-                            // Fill remaining width; children hug the right edge.
                             topnav := View{
+                                visible: false
                                 width: Fill height: Fit
-                                flow: Right { wrap: true }
+                                flow: Down
                                 spacing: 8.
                                 wrap_spacing: 8.
-                                align: Align{x: 1.0 y: 0.5}
+                                align: Align{y: 0.5}
                                 nav_privacy := NavBtn{ text: "Privacy" }
                                 nav_terms := NavBtn{ text: "Terms" }
                                 nav_cancellation := NavBtn{ text: "Cancellation" }
                                 nav_about := NavBtn{ text: "About" }
                                 nav_account := NavBtn{ text: "Account" }
-                            }
-                            // Phone only (apply_responsive swaps it in for `topnav`).
-                            // Keep four short tabs so one row stays ≥44 px at 320;
-                            // Cancellation is in the desktop chips + closing band.
-                            topnav_tabs := View{
-                                visible: false
-                                width: Fill height: Fit
-                                flow: Right
-                                spacing: 6.
-                                tab_privacy := TabBtn{ text: "Privacy" }
-                                tab_terms := TabBtn{ text: "Terms" }
-                                tab_about := TabBtn{ text: "About" }
-                                tab_account := TabBtn{ text: "Account" }
                             }
                         }
                         // One scrolling SPA (Khaynjo). Legal pages are separate HTML
@@ -272,15 +266,7 @@ script_mod! {
                                     Eyebrow{ body: "WADHU · BY GOTIGIN" }
                                 }
                                 hero_title := Headline{ body: "Wadhu means more." }
-                                hero_lede := Lede{ body: "Memon for more. Reusable tools, utils, and apps — Tools · Apps · More." }
-                                cta_row := View{
-                                    width: Fill height: Fit
-                                    flow: Right { wrap: true }
-                                    spacing: 14.
-                                    wrap_spacing: 10.
-                                    cta_about := LinkBtn{ text: "About Wadhu" }
-                                    cta_privacy := GhostBtn{ text: "Privacy policy" }
-                                }
+                                hero_lede := Lede{ body: "Reusable tools, utils, and apps — Tools · Apps · More." }
                             }
 
                             what := BandAlt{
