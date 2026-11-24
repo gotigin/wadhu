@@ -16,8 +16,11 @@ use crate::identity;
 use wadhu_sms_client_demo::identity;
 
 use makepad_widgets::*;
+use makepad_widgets::makepad_platform::event::finger::TouchState;
 use wadhu_sms_client::framed::FramedClient;
 use wadhu_sms_client::{AcceptRequest, Client};
+use std::sync::OnceLock;
+use std::time::{Duration, Instant};
 
 app_main!(App);
 
@@ -145,6 +148,13 @@ script_mod! {
                                 text: ""
                                 draw_text.color: #x9fb4d0
                                 draw_text.text_style.font_size: 11
+                            }
+                            exit_back_notice := Label{
+                                width: Fill
+                                height: Fit
+                                text: ""
+                                draw_text.color: #xadfb15
+                                draw_text.text_style.font_size: 12
                             }
                         }
 
@@ -367,6 +377,42 @@ script_mod! {
 /// Content width where framed ping/send Fit actions sit on one row.
 const FRAMED_ONE_ROW_FROM: f64 = 720.0;
 
+const PRESS_BACK_AGAIN_EXIT: &str = "Press back again to exit";
+const EXIT_BACK_SECS: u64 = 10;
+
+fn exit_back_armed_at() -> &'static std::sync::Mutex<Option<Instant>> {
+    static SLOT: OnceLock<std::sync::Mutex<Option<Instant>>> = OnceLock::new();
+    SLOT.get_or_init(|| std::sync::Mutex::new(None))
+}
+
+fn clear_exit_back_arm() {
+    *exit_back_armed_at().lock().unwrap() = None;
+}
+
+fn note_exit_back_press(cx: &mut Cx) -> Result<bool, ()> {
+    let now = Instant::now();
+    let mut armed = exit_back_armed_at().lock().unwrap();
+    if let Some(prev) = *armed
+        && now.duration_since(prev) < Duration::from_secs(EXIT_BACK_SECS)
+    {
+        *armed = None;
+        drop(armed);
+        #[cfg(target_os = "android")]
+        {
+            let _ = cx;
+            return Ok(false);
+        }
+        #[cfg(not(target_os = "android"))]
+        {
+            cx.quit();
+            return Err(());
+        }
+    }
+    *armed = Some(now);
+    drop(armed);
+    Ok(true)
+}
+
 #[derive(Script, ScriptHook)]
 pub struct App {
     #[live]
@@ -398,6 +444,10 @@ impl MatchEvent for App {
         );
         // Fast interval while watching a send; cheap no-op when idle.
         self.poll_timer = cx.start_interval(0.3);
+    }
+
+    fn handle_back_pressed(&mut self, cx: &mut Cx) -> bool {
+        self.handle_visit_root_back(cx)
     }
 
     fn handle_timer(&mut self, cx: &mut Cx, e: &TimerEvent) {
@@ -761,6 +811,115 @@ fn hex_rgb(rgb: u32) -> Vec4f {
 }
 
 impl App {
+    fn text_field_consumes_back(&mut self, cx: &mut Cx) -> bool {
+        let fields = [
+            ids!(pair_code_input),
+            ids!(url_input),
+            ids!(key_input),
+            ids!(to_input),
+            ids!(body_input),
+            ids!(framed_host_input),
+        ];
+        for id in fields {
+            let field = self.ui.text_input(cx, id);
+            if cx.has_key_focus(field.area()) {
+                cx.set_key_focus(Area::Empty);
+                return true;
+            }
+        }
+        false
+    }
+
+    fn show_exit_back_hint(&mut self, cx: &mut Cx) {
+        self.ui
+            .label(cx, ids!(exit_back_notice))
+            .set_text(cx, PRESS_BACK_AGAIN_EXIT);
+    }
+
+    fn clear_exit_back_hint(&mut self, cx: &mut Cx) {
+        self.ui.label(cx, ids!(exit_back_notice)).set_text(cx, "");
+    }
+
+    fn handle_visit_root_back(&mut self, cx: &mut Cx) -> bool {
+        if self.text_field_consumes_back(cx) {
+            clear_exit_back_arm();
+            self.clear_exit_back_hint(cx);
+            return true;
+        }
+        match note_exit_back_press(cx) {
+            Ok(true) => {
+                self.show_exit_back_hint(cx);
+                true
+            }
+            Ok(false) => false, // Android: unhandled → moveTaskToBack
+            Err(()) => true,
+        }
+    }
+
+    /// Left-edge swipe → back / double-back-to-exit (64css edge, 56px travel).
+    fn edge_swipe_pointer(&mut self, cx: &mut Cx, event: &Event) -> bool {
+        static ORIGIN: OnceLock<std::sync::Mutex<Option<DVec2>>> = OnceLock::new();
+        static TOUCH: OnceLock<std::sync::Mutex<Option<(u64, DVec2)>>> = OnceLock::new();
+        let mouse = ORIGIN.get_or_init(|| std::sync::Mutex::new(None));
+        let touch = TOUCH.get_or_init(|| std::sync::Mutex::new(None));
+        let go = |start: DVec2, end: DVec2, app: &mut App, cx: &mut Cx| -> bool {
+            let dx = end.x - start.x;
+            let dy = (end.y - start.y).abs();
+            if dx > 56.0 && dx > dy * 1.25 {
+                app.handle_visit_root_back(cx)
+            } else {
+                false
+            }
+        };
+        match event {
+            Event::MouseDown(e) if e.button.is_primary() => {
+                let mut o = mouse.lock().unwrap();
+                *o = if e.abs.x < 64.0 {
+                    Some(e.abs)
+                } else {
+                    None
+                };
+                false
+            }
+            Event::MouseUp(e) if e.button.is_primary() => {
+                if let Some(start) = mouse.lock().unwrap().take() {
+                    go(start, e.abs, self, cx)
+                } else {
+                    false
+                }
+            }
+            Event::TouchUpdate(e) => {
+                let mut o = touch.lock().unwrap();
+                let mut pair = None;
+                for t in &e.touches {
+                    match t.state {
+                        TouchState::Start => {
+                            if t.abs.x < 64.0 {
+                                *o = Some((t.uid, t.abs));
+                            }
+                        }
+                        TouchState::Stop => {
+                            if let Some((uid, start)) = *o
+                                && uid == t.uid
+                            {
+                                pair = Some((start, t.abs));
+                                *o = None;
+                            }
+                        }
+                        _ => {}
+                    }
+                }
+                drop(o);
+                if let Some((start, end)) = pair {
+                    go(start, end, self, cx)
+                } else {
+                    false
+                }
+            }
+            _ => false,
+        }
+    }
+
     fn apply_responsive(&mut self, cx: &mut Cx) {
         let size = self.ui.window(cx, ids!(main_window)).get_inner_size(cx);
         if size.x < 1.0 {
@@ -793,7 +952,26 @@ impl AppMain for App {
         self.ui.handle_event(cx, event, &mut Scope::empty());
         match event {
             Event::Startup | Event::WindowGeomChange(_) => self.apply_responsive(cx),
+            Event::MouseDown(mouse) if mouse.button.is_back() => {
+                if self.handle_visit_root_back(cx) {
+                    return;
+                }
+            }
+            Event::KeyDown(key)
+                if key.key_code == KeyCode::Escape
+                    || (key.key_code == KeyCode::Back && !cfg!(target_os = "android"))
+                    || (key.key_code == KeyCode::ArrowLeft && key.modifiers.alt) =>
+            {
+                // Android KEYCODE_BACK is Event::BackPressed only — KeyCode::Back
+                // here would double-fire. Desktop XF86Back / Escape / Alt+← share exit arm.
+                if self.handle_visit_root_back(cx) {
+                    return;
+                }
+            }
             _ => {}
+        }
+        if self.edge_swipe_pointer(cx, event) {
+            return;
         }
     }
 }

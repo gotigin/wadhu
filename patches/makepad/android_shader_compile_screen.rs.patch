@@ -1,0 +1,62 @@
+--- a/platform/src/os/linux/android/android_jni.rs	2026-11-24 10:56:11.198609700 +0530
++++ b/platform/src/os/linux/android/android_jni.rs	2026-11-24 10:56:11.198723029 +0530
+@@ -1453,6 +1453,11 @@
+     ndk_utils::call_void_method!(env, get_activity(), "requestSurfaceSnapshotRefresh", "()V");
+ }
+ 
++/// Cold GL program cache: show Makepad PR #1432 "Compiling shaders" on the cover.
++pub unsafe fn to_java_show_shader_compile_screen() {
++    let env = attach_jni_env();
++    ndk_utils::call_void_method!(env, get_activity(), "showShaderCompileScreen", "()V");
++}
+ 
+ pub unsafe fn to_java_switch_activity(env: *mut jni_sys::JNIEnv) {
+     ndk_utils::call_void_method!(env, get_activity(), "switchActivity", "()V");
+--- a/platform/src/os/linux/android/android.rs	2026-11-24 10:56:11.198908868 +0530
++++ b/platform/src/os/linux/android/android.rs	2026-11-24 10:56:11.199098086 +0530
+@@ -380,6 +380,15 @@
+                             // this one (body size 0→real). Extra redraws avoid a
+                             // stuck clear-color present on API 26.
+                             self.os.post_layout_redraws_left = 8;
++                            self.os.hide_surface_cover_after_first_present = true;
++                            // Makepad PR #1432 / #1459: only claim "Compiling
++                            // shaders" when this launch's GL program cache is
++                            // empty (fresh install / fingerprint change).
++                            if android_gl_program_cache_is_cold(&self.os_type) {
++                                unsafe {
++                                    android_jni::to_java_show_shader_compile_screen();
++                                }
++                            }
+                             self.redraw_all();
+                         } else if self.os.post_layout_redraws_left > 0 {
+                             self.os.post_layout_redraws_left -= 1;
+@@ -3786,3 +3795,29 @@
+         assert!(res != 0);
+     }
+ }
++
++/// True when the on-disk GL program binary cache has no entries for this
++/// device fingerprint — same idea as Makepad `PIPELINE_CACHE_COLD` (#1459).
++fn android_gl_program_cache_is_cold(os_type: &OsType) -> bool {
++    let OsType::Android(params) = os_type else {
++        return false;
++    };
++    let cache_dir = std::path::Path::new(&params.cache_path);
++    let Ok(entries) = std::fs::read_dir(cache_dir) else {
++        return true;
++    };
++    let needle = format!(
++        "_av{}_bn{}_kv{}",
++        params.android_version, params.build_number, params.kernel_version
++    );
++    for entry in entries.flatten() {
++        let name = entry.file_name();
++        let Some(name) = name.to_str() else {
++            continue;
++        };
++        if name.starts_with("shader_") && name.ends_with(".bin") && name.contains(&needle) {
++            return false;
++        }
++    }
++    true
++}
