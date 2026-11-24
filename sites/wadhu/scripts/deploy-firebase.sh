@@ -93,7 +93,7 @@ awk -v bid="$BUILD_ID" '
   /<\/body>/ && !done {
     print "        <noscript>"
     print "          <h1>Wadhu — Tools · Apps · More</h1>"
-    print "          <p>Wadhu is Memon for <em>more</em>. Reusable tools, utils, and apps by Gotigin — trademark of GOTIGIN SOFTWARE &amp; HARDWARE PRIVATE LIMITED.</p>"
+    print "          <p>Wadhu is Memon for <em>more</em>. Reusable tools, utils, and apps under Gotigin — a trademark that GOTIGIN SOFTWARE &amp; HARDWARE PRIVATE LIMITED is authorized to use, operate under, and represent.</p>"
     print "          <p>Products: <a href=\"/about\">About</a> · SMS Gateway · SMS Relay · <a href=\"https://connect.wadhu.com/\">Wadhu Connect</a>.</p>"
     print "          <p>Contact: <a href=\"mailto:support@gotigin.com\">support@gotigin.com</a> · Parent: <a href=\"https://gotigin.com/\">gotigin.com</a>.</p>"
     print "          <p><a href=\"/privacy\">Privacy</a> · <a href=\"/terms\">Terms</a> · <a href=\"/cancellation\">Cancellation</a> · <a href=\"/data-deletion\">Data deletion</a> · <a href=\"/support\">Support</a> · <a href=\"/account\">Account</a>.</p>"
