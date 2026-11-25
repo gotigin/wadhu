@@ -26,6 +26,12 @@ if [[ ! -f "$PKG/index.html" ]]; then
 fi
 
 "$SITE/scripts/overlay-legal-onto-pkg.sh" "$PKG"
+# Language packs (site i18n): the wasm and site-i18n.js fetch /i18n/<code>.tsv.
+# patch-web-shell.sh (via the overlay) injects lang-nav.js for the language chip.
+mkdir -p "$PKG/i18n" "$PKG/js"
+cp "$SITE"/translations/*.tsv "$PKG/i18n/"
+cp "$SITE/static/js/lang-nav.js" "$PKG/js/lang-nav.js"
+cp "$SITE/static/js/site-i18n.js" "$PKG/js/site-i18n.js"
 
 # Free :$PORT if a previous run still holds it.
 if command -v fuser >/dev/null 2>&1; then
@@ -44,6 +50,7 @@ fi
 
 echo "Serving $PKG at http://127.0.0.1:${PORT}/ (Ctrl+C to stop)"
 echo "    One tree: / = Makepad SPA; /privacy /terms /about = same site"
+echo "    /i18n/hi.tsv and /i18n/ur.tsv are the Hindi and Urdu packs"
 echo "    Hard-refresh if an old tab still looks cached."
 cd "$PKG"
 exec python3 -m http.server "$PORT" --bind 127.0.0.1

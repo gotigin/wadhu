@@ -9,3 +9,7 @@ publish = false
 
 [dependencies]
 makepad-widgets = { workspace = true }
+
+# Font coverage test for the language packs (locale.rs) — not in the wasm.
+[dev-dependencies]
+rustybuzz = { version = "0.18.0", path = "../../vendor/makepad/libs/rustybuzz" }

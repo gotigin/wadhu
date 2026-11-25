@@ -66,6 +66,11 @@ mkdir -p "$OUT"
 # compresses on its own and never serves those, so they stay out of the tree.
 rsync -a --exclude='*.br' "$WASM_PKG/" "$OUT/"
 "$SITE/scripts/overlay-legal-onto-pkg.sh" "$OUT"
+# Language packs (site i18n): the wasm and site-i18n.js fetch /i18n/<code>.tsv.
+mkdir -p "$OUT/i18n" "$OUT/js"
+cp "$SITE"/translations/*.tsv "$OUT/i18n/"
+cp "$SITE/static/js/lang-nav.js" "$OUT/js/lang-nav.js"
+cp "$SITE/static/js/site-i18n.js" "$OUT/js/site-i18n.js"
 # Fonts: only the characters this site draws (the originals stay whole).
 "$SITE/scripts/subset-fonts.sh" "$OUT"
 mkdir -p "$OUT/js"
@@ -135,6 +140,14 @@ if ! grep -q "link-preview.jpg?v=${PREVIEW_V}" "$OUT/account/index.html"; then
 fi
 if [[ ! -f "$OUT/js/firebase-init.js" || ! -f "$OUT/js/account.js" ]]; then
   echo "error: missing $OUT/js/firebase-init.js or account.js" >&2
+  exit 1
+fi
+if ! grep -q 'lang-nav.js' "$OUT/index.html"; then
+  echo "error: wasm shell missing lang-nav.js" >&2
+  exit 1
+fi
+if [[ ! -f "$OUT/i18n/hi.tsv" || ! -f "$OUT/i18n/ur.tsv" ]]; then
+  echo "error: staged /i18n packs missing hi.tsv or ur.tsv" >&2
   exit 1
 fi
 if ! grep -q "Wadhu privacy policy" "$OUT/privacy/index.html"; then

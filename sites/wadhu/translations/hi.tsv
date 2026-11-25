@@ -1,0 +1,84 @@
+# Hindi — हिन्दी (hi). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+menu	मेनू
+close	बंद करें
+home	होम
+about	परिचय
+privacy	गोपनीयता
+terms	शर्तें
+cancellation	रद्दीकरण
+data_deletion	डेटा हटाना
+support	सहायता
+account	खाता
+email	ईमेल
+window_title	Wadhu — टूल · ऐप · और भी
+tagline	टूल · ऐप · और भी
+hero_kicker	WADHU · GOTIGIN की ओर से
+hero_title	Wadhu का मतलब और है।
+hero_lede	बार-बार काम आने वाले टूल, यूटिल और ऐप — टूल · ऐप · और भी।
+the_brand	यह ब्रांड
+what_title	टूल, यूटिल और ऐप।
+what_lede	एक बार लिखा, ताकि Gotigin के दूसरे उत्पाद और कोई भी ठीक वही हिस्सा ले सके जिसकी ज़रूरत है।
+what_body	लाइब्रेरी, छोटे प्रोग्राम और सेवाएँ यहीं हैं। हर हिस्सा अपने आप खड़ा है।
+reuse	पुनः उपयोग
+reuse_title	एक हिस्सा लीजिए।
+reuse_body	क्रेट एक लाइब्रेरी है। ऐप वह प्रोग्राम है जो आपके अपने प्रोग्राम के साथ चलता है। साइट वह पेज है जिसे आप खोलते हैं। एक हिस्से का बदलना किसी दूसरे हिस्से को बदलने पर मजबूर नहीं करता।
+products	उत्पाद
+products_title	Wadhu ब्रांड के अंतर्गत
+products_lede	जो उत्पाद इस ब्रांड के नीचे आते हैं।
+sms_gateway_blurb	Android-पहले SIM गेटवे। LAN और Bluetooth हमेशा मुफ़्त रहते हैं।
+sms_relay_blurb	जोड़े गए गेटवे तक वैकल्पिक इंटरनेट रास्ता। स्थानीय भेजने के लिए इसकी ज़रूरत नहीं।
+connect_blurb	WhatsApp Cloud API टेक प्रोवाइडर पुल। कारोबार अपना नंबर रखते हैं; ऐप Embedded Signup के बाद भेजते और पाते हैं।
+open_connect	Wadhu Connect खोलें
+names	नाम
+about_title	हम कौन हैं
+trademark	ट्रेडमार्क
+find_it	मेमन में “इसे ढूंढो” · उच्चारण गो-टी-गीन
+slogan	जहाँ तकनीक खोज से मिलती है
+company	कंपनी
+director_line	निदेशक · mearaj@gmail.com
+brand	ब्रांड
+more_line	मेमन में “और” · टूल · ऐप · और भी
+products_line	SIM गेटवे, वैकल्पिक रिले, और WhatsApp Cloud API का पुल
+next	आगे
+closing_title	Wadhu के साथ बनाइए।
+closing_body	wadhu.com खाता होस्ट की गई सुविधाओं के लिए है। LAN और Bluetooth वाले स्थानीय टूल मुफ़्त रहते हैं।
+acct_page_title	खाता — Wadhu
+acct_lede	होस्ट की गई Wadhu सुविधाओं के लिए साइन इन करें। LAN और Bluetooth वाले स्थानीय टूल बिना खाते के चलते रहते हैं।
+acct_continue_with	ईमेल, किसी प्रदाता, या फोन से आगे बढ़ें।
+acct_name_optional	नाम (वैकल्पिक)
+acct_password	पासवर्ड
+acct_continue	आगे बढ़ें
+acct_or_continue	या इसके साथ आगे बढ़ें
+acct_federated	संघीय साइन-इन
+acct_phone	फोन
+acct_mobile	मोबाइल नंबर
+acct_phone_placeholder	जैसे +91…
+acct_send_sms	SMS कोड भेजें
+acct_sms_code	SMS कोड
+acct_confirm_code	कोड की पुष्टि करें
+acct_signed_in	साइन इन हो चुका है
+acct_signed_in_as	इस नाम से साइन इन
+acct_status_label	स्थिति
+acct_resend_verify	सत्यापन ईमेल फिर भेजें
+acct_sign_out	साइन आउट
+acct_home_aria	Wadhu होम
+acct_nav_aria	मुख्य
+company_privacy	कंपनी की गोपनीयता
+err_invalid_email	मान्य ईमेल पता लिखें।
+err_weak_password	कम से कम 6 अक्षरों का पासवर्ड रखें।
+err_wrong_password	गलत पासवर्ड।
+err_invalid_credential	ईमेल या पासवर्ड गलत है।
+err_popup_closed	साइन-इन विंडो बंद हो गई।
+err_cancelled	साइन-इन रद्द हुआ।
+err_unauthorized_domain	यह डोमेन Firebase Auth के लिए अधिकृत नहीं है।
+err_not_allowed	यह साइन-इन तरीका अभी चालू नहीं है।
+err_too_many	बहुत अधिक प्रयास। बाद में फिर कोशिश करें।
+err_invalid_phone	देश कोड के साथ पूरा फोन नंबर लिखें (जैसे +91…)।
+err_bad_code	वह SMS कोड गलत है या खत्म हो चुका है।
+err_generic	कुछ गड़बड़ हो गई।
+acct_no_email	(ईमेल नहीं)
+acct_email_verified	ईमेल सत्यापित है
+acct_email_unverified	ईमेल अभी सत्यापित नहीं — इनबॉक्स देखें
+acct_phone_signed_in	फोन से साइन इन
+acct_you_are_in	आप साइन इन हैं।
+acct_verify_sent	सत्यापन ईमेल भेज दिया — इनबॉक्स देखें

@@ -33,7 +33,25 @@ if [[ ! -f "$PKG/$WASM_NAME" ]]; then
   echo "error: missing $PKG/$WASM_NAME (needed for the progress ring)" >&2
   exit 1
 fi
+# Language picker for the Makepad EN/HI chip (#lang / #l=). Idempotent.
+inject_lang_nav() {
+  local index="$1"
+  if grep -q 'lang-nav.js' "$index"; then
+    return 0
+  fi
+  awk '
+    /<\/body>/ && !done {
+      print "        <script src=\"./js/lang-nav.js\" defer></script>"
+      done = 1
+    }
+    { print }
+    END { if (!done) exit 3 }
+  ' "$index" > "$index.langtmp"
+  mv "$index.langtmp" "$index"
+}
+
 if grep -q 'id="boot"' "$INDEX"; then
+  inject_lang_nav "$INDEX"
   echo "Already patched: $INDEX"
   exit 0
 fi
@@ -91,8 +109,13 @@ awk -v css="$SHELL_SRC/boot.css" -v body="$BODY_TMP" -v js="$SHELL_SRC/boot.js" 
     skip = 2
     next
   }
+  /<\/body>/ && !langjs {
+    # Language picker for the Makepad EN/HI chip (#lang / #l=).
+    print "        <script src=\"./js/lang-nav.js\" defer></script>"
+    langjs = 1
+  }
   { print }
-  END { if (!styled || !booted) exit 3 }
+  END { if (!styled || !booted || !langjs) exit 3 }
 ' "$INDEX" > "$INDEX.tmp"
 mv "$INDEX.tmp" "$INDEX"
 
@@ -100,4 +123,8 @@ if ! grep -q 'id="boot"' "$INDEX" || grep -q 'Loading\.\.$' "$INDEX"; then
   echo "error: start-up screen was not placed in $INDEX" >&2
   exit 1
 fi
-echo "Patched $INDEX (start-up screen, wasm $WASM_BYTES bytes)"
+if ! grep -q 'lang-nav.js' "$INDEX"; then
+  echo "error: lang-nav.js was not injected into $INDEX" >&2
+  exit 1
+fi
+echo "Patched $INDEX (start-up screen, lang-nav, wasm $WASM_BYTES bytes)"

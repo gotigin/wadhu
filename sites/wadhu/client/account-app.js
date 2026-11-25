@@ -16,6 +16,7 @@ import {
 } from "firebase/auth";
 
 const $ = (id) => document.getElementById(id);
+const T = (key, english) => (window.siteT ? window.siteT(key, english) : english);
 
 const els = {
   gate: $("auth-gate"),
@@ -35,10 +36,16 @@ const els = {
 
 let confirmationResult = null;
 let recaptcha = null;
+let lastErr = null;
 
 function showError(msg) {
   els.error.textContent = msg || "";
   els.error.hidden = !msg;
+}
+
+function reportError(err) {
+  lastErr = err || null;
+  showError(err ? friendlyError(err) : "");
 }
 
 function setBusy(busy) {
@@ -50,38 +57,38 @@ function setBusy(busy) {
 function friendlyError(err) {
   const code = err?.code || "";
   const map = {
-    "auth/invalid-email": "Enter a valid email address.",
-    "auth/weak-password": "Use a password with at least 6 characters.",
-    "auth/wrong-password": "Wrong password.",
-    "auth/invalid-credential": "Email or password is wrong.",
-    "auth/popup-closed-by-user": "Sign-in window was closed.",
-    "auth/cancelled-popup-request": "Sign-in was cancelled.",
-    "auth/unauthorized-domain": "This domain is not authorized for Firebase Auth.",
-    "auth/operation-not-allowed": "That sign-in method is not enabled yet.",
-    "auth/too-many-requests": "Too many attempts. Try again later.",
-    "auth/invalid-phone-number": "Use a full phone number with country code (e.g. +91…).",
-    "auth/invalid-verification-code": "That SMS code is wrong or expired.",
+    "auth/invalid-email": T("err_invalid_email", "Enter a valid email address."),
+    "auth/weak-password": T("err_weak_password", "Use a password with at least 6 characters."),
+    "auth/wrong-password": T("err_wrong_password", "Wrong password."),
+    "auth/invalid-credential": T("err_invalid_credential", "Email or password is wrong."),
+    "auth/popup-closed-by-user": T("err_popup_closed", "Sign-in window was closed."),
+    "auth/cancelled-popup-request": T("err_cancelled", "Sign-in was cancelled."),
+    "auth/unauthorized-domain": T("err_unauthorized_domain", "This domain is not authorized for Firebase Auth."),
+    "auth/operation-not-allowed": T("err_not_allowed", "That sign-in method is not enabled yet."),
+    "auth/too-many-requests": T("err_too_many", "Too many attempts. Try again later."),
+    "auth/invalid-phone-number": T("err_invalid_phone", "Use a full phone number with country code (e.g. +91…)."),
+    "auth/invalid-verification-code": T("err_bad_code", "That SMS code is wrong or expired."),
   };
-  return map[code] || err?.message || "Something went wrong.";
+  return map[code] || err?.message || T("err_generic", "Something went wrong.");
 }
 
 function renderSession(user) {
   if (user) {
     els.gate.hidden = true;
     els.session.hidden = false;
-    els.userEmail.textContent = user.email || user.phoneNumber || "(no email)";
+    els.userEmail.textContent = user.email || user.phoneNumber || T("acct_no_email", "(no email)");
     els.userVerified.textContent = user.email
       ? user.emailVerified
-        ? "Email verified"
-        : "Email not verified yet — check your inbox"
+        ? T("acct_email_verified", "Email verified")
+        : T("acct_email_unverified", "Email not verified yet — check your inbox")
       : user.phoneNumber
-        ? "Signed in with phone"
-        : "Signed in";
-    els.status.textContent = "You’re signed in.";
+        ? T("acct_phone_signed_in", "Signed in with phone")
+        : T("acct_signed_in", "Signed in");
+    els.status.textContent = T("acct_you_are_in", "You’re signed in.");
   } else {
     els.gate.hidden = false;
     els.session.hidden = true;
-    els.status.textContent = "Continue with email, a provider, or phone.";
+    els.status.textContent = T("acct_continue_with", "Continue with email, a provider, or phone.");
   }
 }
 
@@ -93,13 +100,13 @@ async function afterAuth(user, { sendVerify } = {}) {
       // Non-fatal; user can request again later.
     }
   }
-  showError("");
+  reportError(null);
   renderSession(user);
 }
 
 async function handleEmail(e) {
   e.preventDefault();
-  showError("");
+  reportError(null);
   setBusy(true);
   try {
     const email = els.email.value.trim();
@@ -116,20 +123,20 @@ async function handleEmail(e) {
       await afterAuth(cred.user);
     }
   } catch (err) {
-    showError(friendlyError(err));
+    reportError(err);
   } finally {
     setBusy(false);
   }
 }
 
 async function popup(provider) {
-  showError("");
+  reportError(null);
   setBusy(true);
   try {
     const cred = await signInWithPopup(auth, provider);
     await afterAuth(cred.user);
   } catch (err) {
-    showError(friendlyError(err));
+    reportError(err);
   } finally {
     setBusy(false);
   }
@@ -145,7 +152,7 @@ function ensureRecaptcha() {
 
 async function sendSms(e) {
   e.preventDefault();
-  showError("");
+  reportError(null);
   setBusy(true);
   try {
     const phone = els.phone.value.trim();
@@ -155,7 +162,7 @@ async function sendSms(e) {
     els.smsStep.hidden = false;
     els.smsCode.focus();
   } catch (err) {
-    showError(friendlyError(err));
+    reportError(err);
     try {
       recaptcha?.clear();
     } catch {
@@ -169,21 +176,21 @@ async function sendSms(e) {
 
 async function confirmSms(e) {
   e.preventDefault();
-  showError("");
+  reportError(null);
   setBusy(true);
   try {
     const code = els.smsCode.value.trim();
     const cred = await confirmationResult.confirm(code);
     await afterAuth(cred.user);
   } catch (err) {
-    showError(friendlyError(err));
+    reportError(err);
   } finally {
     setBusy(false);
   }
 }
 
 async function doSignOut() {
-  showError("");
+  reportError(null);
   await signOut(auth);
   confirmationResult = null;
   els.phoneStep.hidden = false;
@@ -209,14 +216,19 @@ function wire() {
     if (!u?.email) return;
     try {
       await sendEmailVerification(u);
-      els.userVerified.textContent = "Verification email sent — check your inbox";
+      els.userVerified.textContent = T("acct_verify_sent", "Verification email sent — check your inbox");
     } catch (err) {
-      showError(friendlyError(err));
+      reportError(err);
     }
   });
 
   onAuthStateChanged(auth, (user) => {
     renderSession(user);
+  });
+
+  window.addEventListener("site:i18n", () => {
+    renderSession(auth.currentUser);
+    if (lastErr) showError(friendlyError(lastErr));
   });
 }
 

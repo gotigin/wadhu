@@ -26,10 +26,16 @@
   var nav = document.getElementById("topnav");
   if (!bar || !toggle || !nav) return;
 
+  function label(open) {
+    var key = open ? "close" : "menu";
+    var english = open ? "Close" : "Menu";
+    return window.siteT ? window.siteT(key, english) : english;
+  }
+
   function setOpen(open) {
     bar.classList.toggle("nav-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    toggle.textContent = open ? "Close" : "Menu";
+    toggle.textContent = label(open);
   }
 
   toggle.addEventListener("click", function () {
@@ -38,5 +44,9 @@
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") setOpen(false);
+  });
+
+  window.addEventListener("site:i18n", function () {
+    setOpen(bar.classList.contains("nav-open"));
   });
 })();

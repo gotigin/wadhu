@@ -7,6 +7,14 @@
 pub use makepad_widgets;
 
 use makepad_widgets::*;
+use std::collections::HashSet;
+
+mod locale;
+
+#[path = "../../_shared/i18n/site_i18n.rs"]
+mod site_i18n;
+
+use site_i18n::{ScriptGroup, SiteLang};
 
 app_main!(App);
 
@@ -92,6 +100,71 @@ pub struct App {
     laid_out: Option<(Tier, i64, i64)>,
     #[rust]
     nav_open: bool,
+    /// Language the page shows (`#l=` from lang-nav.js), its packs, and which
+    /// widget shows which `locale::EN` key.
+    #[rust]
+    lang: SiteLang,
+}
+
+
+/// Font files that draw a script's copy (crate-relative) — the `Ui*`
+/// families in `ui.rs`. Latin languages keep each widget's own family;
+/// the coverage test still checks those packs against IBM Plex.
+pub fn script_font_files(group: ScriptGroup) -> Vec<&'static str> {
+    const PLEX: &str = "resources/fonts/IBMPlexSans-Text.ttf";
+    let script = match group {
+        ScriptGroup::Latin | ScriptGroup::Cyrillic | ScriptGroup::Greek => None,
+        ScriptGroup::Devanagari => Some("resources/fonts/NotoSansDevanagari-Regular.ttf"),
+        ScriptGroup::Bengali => Some("resources/fonts/NotoSansBengali-Regular.ttf"),
+        ScriptGroup::Gurmukhi => Some("resources/fonts/NotoSansGurmukhi-Regular.ttf"),
+        ScriptGroup::Gujarati => Some("resources/fonts/NotoSansGujarati-Regular.ttf"),
+        ScriptGroup::Oriya => Some("resources/fonts/NotoSansOriya-Regular.ttf"),
+        ScriptGroup::Tamil => Some("resources/fonts/NotoSansTamil-Regular.ttf"),
+        ScriptGroup::Telugu => Some("resources/fonts/NotoSansTelugu-Regular.ttf"),
+        ScriptGroup::Kannada => Some("resources/fonts/NotoSansKannada-Regular.ttf"),
+        ScriptGroup::Malayalam => Some("resources/fonts/NotoSansMalayalam-Regular.ttf"),
+        ScriptGroup::Sinhala => Some("resources/fonts/NotoSansSinhala-Regular.ttf"),
+        ScriptGroup::Arabic => Some("resources/fonts/NotoSansArabic-Regular.ttf"),
+        ScriptGroup::Hebrew => Some("resources/fonts/NotoSansHebrew-Regular.ttf"),
+        ScriptGroup::Thaana => Some("resources/fonts/NotoSansThaana-Regular.ttf"),
+        ScriptGroup::Tibetan => Some("resources/fonts/NotoSerifTibetan-Regular.ttf"),
+        ScriptGroup::OlChiki => Some("resources/fonts/NotoSansOlChiki-Regular.ttf"),
+        ScriptGroup::MeeteiMayek => Some("resources/fonts/NotoSansMeeteiMayek-Regular.ttf"),
+        ScriptGroup::Thai => Some("resources/fonts/NotoSansThai-Regular.ttf"),
+        ScriptGroup::Lao => Some("resources/fonts/NotoSansLao-Regular.ttf"),
+        ScriptGroup::Khmer => Some("resources/fonts/NotoSansKhmer-Regular.ttf"),
+        ScriptGroup::Myanmar => Some("resources/fonts/NotoSansMyanmar-Regular.ttf"),
+        ScriptGroup::Ethiopic => Some("resources/fonts/NotoSansEthiopic-Regular.ttf"),
+        ScriptGroup::Armenian => Some("resources/fonts/NotoSansArmenian-Regular.ttf"),
+        ScriptGroup::Georgian => Some("resources/fonts/NotoSansGeorgian-Regular.ttf"),
+        ScriptGroup::CjkSc => Some("resources/fonts/SiteCJK-SC.otf"),
+        ScriptGroup::CjkTc => Some("resources/fonts/SiteCJK-TC.otf"),
+        ScriptGroup::CjkJp => Some("resources/fonts/SiteCJK-JP.otf"),
+        ScriptGroup::CjkKr => Some("resources/fonts/SiteCJK-KR.otf"),
+        ScriptGroup::LatinExt => Some("resources/fonts/NotoSans-Regular.ttf"),
+    };
+    let mut files = vec![PLEX];
+    files.extend(script);
+    files
+}
+
+/// Makepad language chip → `#lang` (lang-nav.js opens the 115-language picker).
+fn open_lang_picker(cx: &mut Cx) {
+    #[cfg(target_arch = "wasm32")]
+    {
+        let mut url = "#lang".to_string();
+        if let OsType::Web(page) = cx.os_type() {
+            if let Some(lang) = site_i18n::lang_from_hash(&page.hash) {
+                url.push_str(&format!("&l={lang}"));
+            }
+        }
+        cx.open_url(&url, OpenUrlInPlace::Yes);
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        let _ = cx;
+        log!("language picker is web-only");
+    }
 }
 
 fn open_site(cx: &mut Cx, url: &str) {
@@ -129,6 +202,144 @@ fn open_external(cx: &mut Cx, url: &str) {
 }
 
 impl App {
+    /// Site copy for `key` in the language the page shows.
+    fn tr(&self, key: &str) -> String {
+        self.lang.text(key, locale::en(key))
+    }
+
+    /// Language named by the URL hash (`#l=hi`, written by lang-nav.js), or
+    /// `SITE_LANG=hi` for a native preview.
+    fn hash_lang(cx: &Cx) -> Option<&'static str> {
+        if let OsType::Web(page) = cx.os_type() {
+            return site_i18n::lang_from_hash(&page.hash);
+        }
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            std::env::var("SITE_LANG")
+                .ok()
+                .and_then(|c| site_i18n::language_by_code(&c))
+                .map(|l| l.code)
+        }
+        #[cfg(target_arch = "wasm32")]
+        {
+            None
+        }
+    }
+
+    /// Widgets painted from code (Menu/Close, the language code chip). The
+    /// walker must not key them — their text changes at run time.
+    fn code_skip(&self, cx: &mut Cx) -> HashSet<WidgetUid> {
+        let mut skip = HashSet::new();
+        for path in [ids!(nav_toggle), ids!(nav_lang)] {
+            skip.insert(self.ui.widget(cx, path).widget_uid());
+        }
+        skip
+    }
+
+    fn paint_nav_toggle(&mut self, cx: &mut Cx) {
+        let label = if self.nav_open {
+            self.tr("close")
+        } else {
+            self.tr("menu")
+        };
+        self.ui.button(cx, ids!(nav_toggle)).set_text(cx, &label);
+    }
+
+    /// Top-bar language chip shows the language in use (`HI`, `UR`, `EN`).
+    fn paint_lang_chip(&mut self, cx: &mut Cx) {
+        let code = if self.lang.wanted.is_empty() {
+            "en".to_string()
+        } else {
+            self.lang.wanted.clone()
+        };
+        self.ui
+            .button(cx, ids!(nav_lang))
+            .set_text(cx, &code.to_uppercase());
+    }
+
+    /// Startup / hashchange: follow the picker's choice.
+    fn sync_lang(&mut self, cx: &mut Cx) {
+        let want = Self::hash_lang(cx).unwrap_or("en");
+        if self.lang.last_hash_lang.as_deref() == Some(want) {
+            return;
+        }
+        self.lang.last_hash_lang = Some(want.to_string());
+        if let Some(table) = self.lang.want(want) {
+            self.fetch_pack(cx, table);
+        } else {
+            self.apply_lang(cx);
+        }
+        self.paint_lang_chip(cx);
+    }
+
+    /// `/i18n/<code>.tsv` next to the wasm (staged from `translations/`);
+    /// native reads the crate's file.
+    fn fetch_pack(&mut self, cx: &mut Cx, table: String) {
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                .join("translations")
+                .join(format!("{table}.tsv"));
+            match std::fs::read_to_string(&path) {
+                Ok(text) => {
+                    self.lang.insert_pack(&table, &text);
+                    self.apply_lang(cx);
+                }
+                Err(err) => log!("wadhu-site: {}: {err}", path.display()),
+            }
+        }
+        #[cfg(target_arch = "wasm32")]
+        {
+            let id = LiveId::unique();
+            cx.http_request(
+                id,
+                HttpRequest::new(site_i18n::pack_web_path(&table), HttpMethod::GET),
+            );
+            self.lang.set_pending(id, table);
+        }
+    }
+
+    fn handle_lang_responses(&mut self, cx: &mut Cx, responses: &NetworkResponsesEvent) {
+        for response in responses {
+            let (request_id, body) = match response {
+                NetworkResponse::HttpResponse { request_id, response } => (
+                    *request_id,
+                    (200..300)
+                        .contains(&response.status_code)
+                        .then(|| response.body.clone())
+                        .flatten(),
+                ),
+                NetworkResponse::HttpError { request_id, .. } => (*request_id, None),
+                _ => continue,
+            };
+            if self.lang.take_response(request_id, body.as_deref()) {
+                self.apply_lang(cx);
+            }
+        }
+    }
+
+    /// Show the wanted language everywhere once its pack is here.
+    fn apply_lang(&mut self, cx: &mut Cx) {
+        let lang = self.lang.wanted.clone();
+        if lang.is_empty() || !self.lang.has_pack(&lang) {
+            return;
+        }
+        let font = site_i18n::script_family(cx, &self.ui, site_i18n::script_group(&lang));
+        let rtl = site_i18n::is_rtl(&lang);
+        let skip = self.code_skip(cx);
+        let ui = self.ui.clone();
+        self.lang
+            .apply(cx, &ui, &lang, &locale::key_for, &locale::en, font.as_ref(), &skip);
+        let toggle = self.ui.widget(cx, ids!(nav_toggle));
+        self.lang.style_widget(&toggle, font.as_ref(), rtl);
+        self.paint_nav_toggle(cx);
+        self.paint_lang_chip(cx);
+        self.ui
+            .window(cx, ids!(main_window))
+            .set_title(cx, &self.tr("window_title"));
+        self.ui.redraw(cx);
+    }
+
     fn site_url(cx: &Cx, path: &str) -> String {
         if matches!(cx.os_type(), OsType::Web(_)) {
             path.to_string()
@@ -205,10 +416,7 @@ impl App {
         self.ui
             .button(cx, ids!(nav_toggle))
             .set_visible(cx, !nav_inline);
-        self.ui.button(cx, ids!(nav_toggle)).set_text(
-            cx,
-            if self.nav_open { "Close" } else { "Menu" },
-        );
+        self.paint_nav_toggle(cx);
         let show_nav = nav_inline || self.nav_open;
         self.ui.view(cx, ids!(topnav)).set_visible(cx, show_nav);
         if let Some(mut nav) = self.ui.view(cx, ids!(topnav)).borrow_mut() {
@@ -272,8 +480,10 @@ impl MatchEvent for App {
     fn handle_startup(&mut self, cx: &mut Cx) {
         self.ui
             .window(cx, ids!(main_window))
-            .set_title(cx, "Wadhu — Tools · Apps · More");
+            .set_title(cx, &self.tr("window_title"));
         self.apply_responsive(cx);
+        // `#l=<code>` from lang-nav.js (or SITE_LANG natively): fetch that pack.
+        self.sync_lang(cx);
     }
 
     fn handle_actions(&mut self, cx: &mut Cx, actions: &Actions) {
@@ -322,6 +532,12 @@ impl MatchEvent for App {
             close_nav = true;
             open_site(cx, &Self::site_url(cx, ACCOUNT_PATH));
         }
+        // Language chip: shows the code (`EN`, `HI`, `UR`) and opens the HTML
+        // 115-language picker via `#lang` (lang-nav.js on the wasm shell).
+        if self.ui.button(cx, ids!(nav_lang)).clicked(actions) {
+            close_nav = true;
+            open_lang_picker(cx);
+        }
 
         if self.ui.button(cx, ids!(open_connect)).clicked(actions) {
             open_external(cx, &Self::connect_url(cx));
@@ -342,10 +558,15 @@ impl AppMain for App {
     }
 
     fn handle_event(&mut self, cx: &mut Cx, event: &Event) {
+        if let Event::NetworkResponses(responses) = event {
+            self.handle_lang_responses(cx, responses);
+        }
         self.match_event(cx, event);
         self.ui.handle_event(cx, event, &mut Scope::empty());
         match event {
             Event::Startup | Event::WindowGeomChange(_) => self.apply_responsive(cx),
+            // hashchange (`#l=`, `#lang`) arrives as Signal on web.
+            Event::Signal => self.sync_lang(cx),
             _ => {}
         }
     }

@@ -1,0 +1,84 @@
+# Urdu — اردو (ur). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+menu	مینیو
+close	بند کریں
+home	گھر
+about	تعارف
+privacy	رازداری
+terms	شرائط
+cancellation	منسوخی
+data_deletion	ڈیٹا حذف
+support	معاونت
+account	کھاتہ
+email	ای میل
+window_title	Wadhu — ٹولز · ایپس · مزید
+tagline	ٹولز · ایپس · مزید
+hero_kicker	WADHU · GOTIGIN کی جانب سے
+hero_title	Wadhu کا مطلب مزید ہے۔
+hero_lede	بار بار کام آنے والے ٹول، یوٹیل اور ایپ — ٹولز · ایپس · مزید۔
+the_brand	یہ برانڈ
+what_title	ٹول، یوٹیل اور ایپ۔
+what_lede	ایک بار لکھا، تاکہ Gotigin کی دوسری مصنوعات اور کوئی بھی ٹھیک وہی ٹکڑا لے سکے جس کی ضرورت ہے۔
+what_body	لائبریریاں، چھوٹے پروگرام اور خدمتیں یہیں ہیں۔ ہر حصہ اپنے آپ کھڑا ہے۔
+reuse	دوبارہ استعمال
+reuse_title	ایک ٹکڑا لیجیے۔
+reuse_body	کریٹ ایک لائبریری ہے۔ ایپ وہ پروگرام ہے جو آپ کے اپنے پروگرام کے ساتھ چلتا ہے۔ سائٹ وہ صفحہ ہے جسے آپ کھولتے ہیں۔ ایک حصے کا بدلنا کسی دوسرے حصے کو بدلنے پر مجبور نہیں کرتا۔
+products	مصنوعات
+products_title	Wadhu برانڈ کے تحت
+products_lede	جو مصنوعات اس برانڈ کے نیچے آتی ہیں۔
+sms_gateway_blurb	Android پہلے SIM گیٹ وے۔ LAN اور Bluetooth ہمیشہ مفت رہتے ہیں۔
+sms_relay_blurb	جوڑے گئے گیٹ وے تک اختیاری انٹرنیٹ راستہ۔ مقامی بھیجنے کے لیے اس کی ضرورت نہیں۔
+connect_blurb	WhatsApp Cloud API ٹیک فراہم کنندہ پل۔ کاروبار اپنا نمبر رکھتے ہیں؛ ایپ Embedded Signup کے بعد بھیجتی اور پاتی ہیں۔
+open_connect	Wadhu Connect کھولیں
+names	نام
+about_title	ہم کون ہیں
+trademark	تجارتی نشان
+find_it	میمن میں “ڈھونڈ لو” · تلفظ گو-ٹی-گین
+slogan	جہاں ٹیکنالوجی دریافت سے ملتی ہے
+company	کمپنی
+director_line	ڈائریکٹر · mearaj@gmail.com
+brand	برانڈ
+more_line	میمن میں “مزید” · ٹولز · ایپس · مزید
+products_line	SIM گیٹ وے، اختیاری ریلے، اور WhatsApp Cloud API کا پل
+next	آگے
+closing_title	Wadhu کے ساتھ بنائیں۔
+closing_body	wadhu.com کھاتہ میزبانی والی سہولتوں کے لیے ہے۔ LAN اور Bluetooth والے مقامی ٹول مفت رہتے ہیں۔
+acct_page_title	کھاتہ — Wadhu
+acct_lede	میزبانی والی Wadhu سہولتوں کے لیے سائن ان کریں۔ LAN اور Bluetooth کے مقامی ٹول بغیر کھاتے کے چلتے رہتے ہیں۔
+acct_continue_with	ای میل، کسی فراہم کنندہ، یا فون سے آگے بڑھیں۔
+acct_name_optional	نام (اختیاری)
+acct_password	پاس ورڈ
+acct_continue	آگے بڑھیں
+acct_or_continue	یا اس کے ساتھ آگے بڑھیں
+acct_federated	مشترکہ سائن ان
+acct_phone	فون
+acct_mobile	موبائل نمبر
+acct_phone_placeholder	مثال +91…
+acct_send_sms	SMS کوڈ بھیجیں
+acct_sms_code	SMS کوڈ
+acct_confirm_code	کوڈ کی تصدیق کریں
+acct_signed_in	سائن ان ہو چکا
+acct_signed_in_as	سائن ان بطور
+acct_status_label	حالت
+acct_resend_verify	تصدیقی ای میل دوبارہ بھیجیں
+acct_sign_out	سائن آؤٹ
+acct_home_aria	Wadhu گھر
+acct_nav_aria	مرکزی
+company_privacy	کمپنی کی رازداری
+err_invalid_email	درست ای میل پتہ لکھیں۔
+err_weak_password	کم از کم 6 حروف کا پاس ورڈ رکھیں۔
+err_wrong_password	غلط پاس ورڈ۔
+err_invalid_credential	ای میل یا پاس ورڈ غلط ہے۔
+err_popup_closed	سائن ان کی کھڑکی بند ہو گئی۔
+err_cancelled	سائن ان منسوخ ہوا۔
+err_unauthorized_domain	یہ ڈومین Firebase Auth کے لیے مجاز نہیں۔
+err_not_allowed	سائن ان کا یہ طریقہ ابھی چالو نہیں۔
+err_too_many	کوششیں بہت زیادہ ہیں۔ بعد میں پھر کریں۔
+err_invalid_phone	ملک کے کوڈ کے ساتھ پورا فون نمبر لکھیں (مثلاً +91…)۔
+err_bad_code	وہ SMS کوڈ غلط ہے یا ختم ہو چکا۔
+err_generic	کچھ غلط ہو گیا۔
+acct_no_email	(ای میل نہیں)
+acct_email_verified	ای میل تصدیق شدہ ہے
+acct_email_unverified	ای میل ابھی تصدیق شدہ نہیں — ان باکس دیکھیں
+acct_phone_signed_in	فون سے سائن ان
+acct_you_are_in	آپ سائن ان ہیں۔
+acct_verify_sent	تصدیقی ای میل بھیج دی گئی — ان باکس دیکھیں
