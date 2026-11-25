@@ -1,15 +1,15 @@
-# Amharic — አማርኛ (am). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# am. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	ግላዊነት
+terms	ውሎች
+cancellation	ስረዛ
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	መለያ
+email	ኢሜይል
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	በኢሜይል፣ በአቅራቢ ወይም በስልክ ይቀጥሉ።
+acct_name_optional	ስም (አማራጭ)
+acct_password	የይለፍ ቃል
+acct_continue	ቀጥል
+acct_or_continue	ወይም በዚህ ይቀጥሉ
+acct_federated	በሌላ መለያ መግባት
+acct_phone	ስልክ
+acct_mobile	የሞባይል ቁጥር
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	የSMS ኮድ ላክ
+acct_sms_code	የSMS ኮድ
+acct_confirm_code	ኮዱን አረጋግጥ
+acct_signed_in	ገብተዋል
+acct_signed_in_as	በዚህ መለያ ገብተዋል፦
+acct_status_label	ሁኔታ
+acct_resend_verify	የማረጋገጫ ኢሜይሉን እንደገና ላክ
+acct_sign_out	ውጣ
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	ትክክለኛ የኢሜይል አድራሻ ያስገቡ።
+err_weak_password	ቢያንስ 6 ቁምፊዎች ያሉት የይለፍ ቃል ይጠቀሙ።
+err_wrong_password	የተሳሳተ የይለፍ ቃል።
+err_invalid_credential	ኢሜይሉ ወይም የይለፍ ቃሉ የተሳሳተ ነው።
+err_popup_closed	የመግቢያ መስኮቱ ተዘግቷል።
+err_cancelled	መግባት ተሰርዟል።
+err_unauthorized_domain	ይህ ጎራ ለFirebase Auth አልተፈቀደም።
+err_not_allowed	ያ የመግቢያ ዘዴ ገና አልነቃም።
+err_too_many	በጣም ብዙ ሙከራዎች። ቆይተው እንደገና ይሞክሩ።
+err_invalid_phone	ሙሉ ስልክ ቁጥር ከሀገር ኮድ ጋር ይጠቀሙ (ለምሳሌ +91…)።
+err_bad_code	ያ የSMS ኮድ የተሳሳተ ነው ወይም ጊዜው አልፎበታል።
+err_generic	የሆነ ችግር ተፈጥሯል።
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	ኢሜይል ተረጋግጧል
+acct_email_unverified	ኢሜይል ገና አልተረጋገጠም — የገቢ መልእክት ሳጥንዎን ይመልከቱ
+acct_phone_signed_in	በስልክ ገብተዋል
+acct_you_are_in	ገብተዋል።
 acct_verify_sent	Verification email sent — check your inbox

@@ -1,84 +1,84 @@
-# Slovak — Slovenčina (sk). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
-data_deletion	Data deletion
-support	Support
-account	Account
-email	Email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+# sk. key<TAB>text. Keep {placeholders}. \n = line break.
+menu	Ponuka
+close	Zavrieť
+home	Domov
+about	O nás
+privacy	Súkromie
+terms	Podmienky
+cancellation	Zrušenie
+data_deletion	Výmaz údajov
+support	Podpora
+account	Môj účet
+email	E-mail
+window_title	Wadhu — Nástroje · aplikácie · viac
+tagline	Nástroje · aplikácie · viac
+hero_kicker	WADHU · OD GOTIGIN
+hero_title	Wadhu znamená viac.
+hero_lede	Znova použiteľné nástroje, utility a aplikácie — Nástroje · aplikácie · viac.
+the_brand	ZNAČKA
+what_title	Nástroje, utility a aplikácie.
+what_lede	Napísané raz, aby ostatné produkty Gotigin aj ktokoľvek iný vzali presne ten kus, ktorý potrebujú.
+what_body	Knižnice, malé programy a služby sú tu. Každá časť stojí sama.
+reuse	OPÄTOVNÉ POUŽITIE
+reuse_title	Vezmite jeden kus.
+reuse_body	Crate je knižnica. Aplikácia je program, ktorý spúšťate vedľa svojho. Web je stránka, ktorú otvoríte. Keď sa jedna časť zmení, susedná časť sa meniť nemusí.
+products	PRODUKTY
+products_title	Pod značkou Wadhu
+products_lede	Produkty, ktoré vychádzajú pod touto značkou.
+sms_gateway_blurb	Brána SIM, najprv Android. LAN a Bluetooth ostávajú navždy zadarmo.
+sms_relay_blurb	Voliteľná internetová cesta k spárovanej bráne. Miestne odoslanie ju nepotrebuje.
+connect_blurb	Most Tech Provider k WhatsApp Cloud API. Podniky si nechávajú svoje číslo; aplikácie posielajú a prijímajú po Embedded Signup.
+open_connect	Otvoriť Wadhu Connect
+names	NÁZVY
+about_title	Kto sme
+trademark	OCHRANNÁ ZNÁMKA
+find_it	Memon pre „nájdi to“ · vyslovuje sa go-tee-geen
+slogan	Tam, kde sa technológia stretáva s objavom
+company	SPOLOČNOSŤ
+director_line	Konateľ · mearaj@gmail.com
+brand	ZNAČKA
+more_line	Memon pre „viac“ · Nástroje · aplikácie · viac
+products_line	Brána SIM, voliteľné postúpenie a most k WhatsApp Cloud API
+next	ĎALEJ
+closing_title	Stavajte s Wadhu.
+closing_body	Účet na wadhu.com je pre hostované funkcie. Miestne nástroje cez LAN a Bluetooth ostávajú zadarmo.
+acct_page_title	Môj účet — Wadhu
+acct_lede	Prihláste sa k hostovaným funkciám Wadhu. Miestne nástroje cez LAN a Bluetooth fungujú bez účtu.
+acct_continue_with	Pokračujte e-mailom, cez poskytovateľa alebo telefónom.
+acct_name_optional	Meno (nepovinné)
+acct_password	Heslo
+acct_continue	Pokračovať
+acct_or_continue	alebo pokračovať cez
+acct_federated	Federované prihlásenie
+acct_phone	Telefón
+acct_mobile	Číslo mobilu
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
-acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
-acct_verify_sent	Verification email sent — check your inbox
+acct_send_sms	Poslať kód SMS
+acct_sms_code	Kód z SMS
+acct_confirm_code	Potvrdiť kód
+acct_signed_in	Prihlásené
+acct_signed_in_as	Prihlásený účet
+acct_status_label	Stav
+acct_resend_verify	Znova poslať overovací e-mail
+acct_sign_out	Odhlásiť sa
+acct_home_aria	Domov Wadhu
+acct_nav_aria	Hlavné
+company_privacy	Súkromie spoločnosti
+err_invalid_email	Zadajte platnú e-mailovú adresu.
+err_weak_password	Použite heslo s aspoň 6 znakmi.
+err_wrong_password	Nesprávne heslo.
+err_invalid_credential	Nesprávny e-mail alebo heslo.
+err_popup_closed	Okno prihlásenia bolo zatvorené.
+err_cancelled	Prihlásenie bolo zrušené.
+err_unauthorized_domain	Táto doména nie je pre Firebase Auth autorizovaná.
+err_not_allowed	Tento spôsob prihlásenia zatiaľ nie je zapnutý.
+err_too_many	Príliš veľa pokusov. Skúste to neskôr.
+err_invalid_phone	Použite celé telefónne číslo s predvoľbou krajiny (napr. +91…).
+err_bad_code	Tento kód z SMS je nesprávny alebo vypršal.
+err_generic	Niečo sa pokazilo.
+acct_no_email	(žiadny e-mail)
+acct_email_verified	E-mail overený
+acct_email_unverified	E-mail zatiaľ nie je overený — skontrolujte doručenú poštu
+acct_phone_signed_in	Prihlásené telefónom
+acct_you_are_in	Ste prihlásení.
+acct_verify_sent	Overovací e-mail odoslaný — skontrolujte doručenú poštu

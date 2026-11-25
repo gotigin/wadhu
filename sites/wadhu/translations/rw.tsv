@@ -1,15 +1,15 @@
-# Kinyarwanda — Ikinyarwanda (rw). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# rw. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Ibanga
+terms	Amabwiriza
+cancellation	Guhagarika
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Konti
+email	Imeri
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	Komeza ukoresheje imeri, utanga serivisi, cyangwa telefone.
+acct_name_optional	Izina (ku bushake)
+acct_password	Ijambo ry’ibanga
+acct_continue	Komeza
+acct_or_continue	cyangwa ukomeze ukoresheje
+acct_federated	Kwinjira ukoresheje indi konti
+acct_phone	Telefone
+acct_mobile	Nimero ya telefone igendanwa
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	Ohereza kode ya SMS
+acct_sms_code	Kode ya SMS
+acct_confirm_code	Emeza kode
+acct_signed_in	Winjiye
+acct_signed_in_as	Winjiye nka
+acct_status_label	Imiterere
+acct_resend_verify	Ongera wohereze imeri yo kwemeza
+acct_sign_out	Sohoka
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Andika aderesi ya imeri yemewe.
+err_weak_password	Koresha ijambo ry’ibanga rifite nibura inyuguti 6.
+err_wrong_password	Ijambo ry’ibanga si ryo.
+err_invalid_credential	Imeri cyangwa ijambo ry’ibanga si byo.
+err_popup_closed	Idirishya ryo kwinjira ryafunzwe.
+err_cancelled	Kwinjira byahagaritswe.
+err_unauthorized_domain	Iyi domeni ntiyemerewe kuri Firebase Auth.
+err_not_allowed	Ubwo buryo bwo kwinjira ntiburafungurwa.
+err_too_many	Wagerageje inshuro nyinshi cyane. Ongera ugerageze nyuma.
+err_invalid_phone	Koresha nimero ya telefone yuzuye ifite kode y’igihugu (urugero +91…).
+err_bad_code	Iyo kode ya SMS si yo cyangwa yararengeje igihe.
+err_generic	Hari ikitagenze neza.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	Imeri yemejwe
+acct_email_unverified	Imeri ntiraremezwa — reba agasanduku k’ubutumwa bwawe
+acct_phone_signed_in	Winjiye ukoresheje telefone
+acct_you_are_in	Winjiye.
 acct_verify_sent	Verification email sent — check your inbox

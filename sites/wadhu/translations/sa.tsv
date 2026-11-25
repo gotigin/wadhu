@@ -1,15 +1,15 @@
-# Sanskrit — संस्कृतम् (sa). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# sa. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	गोपनीयता
+terms	नियमाः
+cancellation	निरसन-नीतिः
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	खाता
+email	ईपत्रम्
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	ईपत्रेण, प्रदात्रा, दूरभाषेण वा निरन्तरं कुर्वन्तु।
+acct_name_optional	नाम (ऐच्छिकम्)
+acct_password	गुप्तशब्दः
+acct_continue	निरन्तरं कुर्वन्तु
+acct_or_continue	अथवा अनेन निरन्तरं कुर्वन्तु
+acct_federated	संघीय-प्रवेशः
+acct_phone	दूरभाषः
+acct_mobile	चलदूरभाष-सङ्ख्या
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	SMS सङ्केतं प्रेषयन्तु
+acct_sms_code	SMS सङ्केतः
+acct_confirm_code	सङ्केतं पुष्टीकुर्वन्तु
+acct_signed_in	प्रविष्टम्
+acct_signed_in_as	एतेन रूपेण प्रविष्टम्
+acct_status_label	स्थितिः
+acct_resend_verify	सत्यापन-ईपत्रं पुनः प्रेषयन्तु
+acct_sign_out	निर्गमनम्
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	शुद्धम् ईपत्र-सङ्केतं लिखन्तु।
+err_weak_password	न्यूनातिन्यूनं 6 अक्षराणां गुप्तशब्दं प्रयुञ्जताम्।
+err_wrong_password	अशुद्धः गुप्तशब्दः।
+err_invalid_credential	ईपत्रं गुप्तशब्दः वा अशुद्धः।
+err_popup_closed	प्रवेश-गवाक्षः पिहितः।
+err_cancelled	प्रवेशः निरस्तः अभवत्।
+err_unauthorized_domain	एतत् डोमेन् Firebase Auth कृते अधिकृतं नास्ति।
+err_not_allowed	अयं प्रवेशविधिः अद्यापि सक्रियः नास्ति।
+err_too_many	अत्यधिकाः प्रयत्नाः। पश्चात् पुनः प्रयतन्ताम्।
+err_invalid_phone	देशसङ्केतेन सह पूर्णां दूरभाषसङ्ख्यां लिखन्तु (यथा +91…)।
+err_bad_code	सः SMS सङ्केतः अशुद्धः कालातीतः वा।
+err_generic	कश्चित् दोषः अभवत्।
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	ईपत्रं सत्यापितम्
+acct_email_unverified	ईपत्रम् अद्यापि असत्यापितम् — स्व-इनबॉक्स् पश्यन्तु
+acct_phone_signed_in	दूरभाषेण प्रविष्टम्
+acct_you_are_in	भवान् प्रविष्टः अस्ति।
 acct_verify_sent	Verification email sent — check your inbox

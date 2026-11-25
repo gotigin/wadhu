@@ -1,84 +1,84 @@
-# Finnish — Suomi (fi). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
-data_deletion	Data deletion
-support	Support
-account	Account
-email	Email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+# fi. key<TAB>text. Keep {placeholders}. \n = line break.
+menu	Valikko
+close	Sulje
+home	Etusivu
+about	Tietoa
+privacy	Tietosuoja
+terms	Ehdot
+cancellation	Peruutus
+data_deletion	Tietojen poisto
+support	Tuki
+account	Tili
+email	Sähköposti
+window_title	Wadhu — Työkalut · sovellukset · lisää
+tagline	Työkalut · sovellukset · lisää
+hero_kicker	WADHU · GOTIGINILTA
+hero_title	Wadhu tarkoittaa lisää.
+hero_lede	Uudelleen käytettävät työkalut, apuohjelmat ja sovellukset — Työkalut · sovellukset · lisää.
+the_brand	TUOTEMERKKI
+what_title	Työkalut, apuohjelmat ja sovellukset.
+what_lede	Kirjoitettu kerran, jotta Gotiginin muut tuotteet ja kuka tahansa voi ottaa juuri tarvitsemansa palan.
+what_body	Kirjastot, pienet ohjelmat ja palvelut ovat täällä. Jokainen osa seisoo omillaan.
+reuse	UUDELLEENKÄYTTÖ
+reuse_title	Ota yksi pala.
+reuse_body	Crate on kirjasto. Sovellus on ohjelma, jonka ajat oman ohjelmasi vieressä. Sivusto on sivu, jonka avaat. Kun yksi osa muuttuu, viereisen osan ei tarvitse muuttua.
+products	TUOTTEET
+products_title	Wadhu-tuotemerkin alla
+products_lede	Tuotteet, jotka julkaistaan tämän tuotemerkin alla.
+sms_gateway_blurb	SIM-yhdyskäytävä, Android ensin. LAN ja Bluetooth pysyvät maksuttomina ikuisesti.
+sms_relay_blurb	Valinnainen internetpolku paritettuun yhdyskäytävään. Paikallinen lähetys ei tarvitse sitä.
+connect_blurb	Tech Provider -silta WhatsApp Cloud API:hin. Yritykset pitävät oman numerosi; sovellukset lähettävät ja vastaanottavat Embedded Signupin jälkeen.
+open_connect	Avaa Wadhu Connect
+names	NIMET
+about_title	Keitä olemme
+trademark	TAVARAMERKKI
+find_it	Memon ilmaukselle ”löydä se” · äännetään go-tee-geen
+slogan	Siellä missä teknologia kohtaa löytämisen
+company	YHTIÖ
+director_line	Johtaja · mearaj@gmail.com
+brand	TUOTEMERKKI
+more_line	Memon ilmaukselle ”lisää” · Työkalut · sovellukset · lisää
+products_line	SIM-yhdyskäytävä, valinnainen välitys ja silta WhatsApp Cloud API:hin
+next	SEURAAVA
+closing_title	Rakenna Wadhun kanssa.
+closing_body	wadhu.com-tili on isännöidyille ominaisuuksille. Paikalliset työkalut LAN- ja Bluetooth-yhteydellä pysyvät maksuttomina.
+acct_page_title	Tili — Wadhu
+acct_lede	Kirjaudu Wadhun isännöityjä ominaisuuksia varten. Paikalliset työkalut LAN- ja Bluetooth-yhteydellä toimivat ilman tiliä.
+acct_continue_with	Jatka sähköpostilla, palveluntarjoajalla tai puhelimella.
+acct_name_optional	Nimi (valinnainen)
+acct_password	Salasana
+acct_continue	Jatka
+acct_or_continue	tai jatka käyttäen
+acct_federated	Federoitu kirjautuminen
+acct_phone	Puhelin
+acct_mobile	Matkapuhelinnumero
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
-acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
-acct_verify_sent	Verification email sent — check your inbox
+acct_send_sms	Lähetä tekstiviestikoodi
+acct_sms_code	Tekstiviestikoodi
+acct_confirm_code	Vahvista koodi
+acct_signed_in	Kirjautunut
+acct_signed_in_as	Kirjautuneena
+acct_status_label	Tila
+acct_resend_verify	Lähetä vahvistusviesti uudelleen
+acct_sign_out	Kirjaudu ulos
+acct_home_aria	Wadhun etusivu
+acct_nav_aria	Ensisijainen
+company_privacy	Yhtiön tietosuoja
+err_invalid_email	Anna kelvollinen sähköpostiosoite.
+err_weak_password	Käytä vähintään 6 merkin salasanaa.
+err_wrong_password	Väärä salasana.
+err_invalid_credential	Sähköposti tai salasana on väärin.
+err_popup_closed	Kirjautumisikkuna suljettiin.
+err_cancelled	Kirjautuminen peruttiin.
+err_unauthorized_domain	Tätä verkkotunnusta ei ole valtuutettu Firebase Authille.
+err_not_allowed	Tätä kirjautumistapaa ei ole vielä otettu käyttöön.
+err_too_many	Liian monta yritystä. Yritä myöhemmin uudelleen.
+err_invalid_phone	Käytä koko puhelinnumeroa maatunnuksen kanssa (esim. +91…).
+err_bad_code	Tekstiviestikoodi on väärä tai vanhentunut.
+err_generic	Jokin meni pieleen.
+acct_no_email	(ei sähköpostia)
+acct_email_verified	Sähköposti vahvistettu
+acct_email_unverified	Sähköpostia ei ole vielä vahvistettu — tarkista saapuneet viestit
+acct_phone_signed_in	Kirjautunut puhelimella
+acct_you_are_in	Olet kirjautunut sisään.
+acct_verify_sent	Vahvistusviesti lähetetty — tarkista saapuneet

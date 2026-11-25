@@ -1,4 +1,4 @@
-# Hindi — हिन्दी (hi). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# hi. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	मेनू
 close	बंद करें
 home	होम

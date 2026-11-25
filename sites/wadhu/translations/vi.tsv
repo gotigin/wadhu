@@ -1,84 +1,84 @@
-# Vietnamese — Tiếng Việt (vi). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
-data_deletion	Data deletion
-support	Support
-account	Account
-email	Email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+# vi. key<TAB>text. Keep {placeholders}. \n = line break.
+menu	Trình đơn
+close	Đóng
+home	Trang chủ
+about	Giới thiệu
+privacy	Quyền riêng tư
+terms	Điều khoản
+cancellation	Hủy
+data_deletion	Xóa dữ liệu
+support	Hỗ trợ
+account	Tài khoản
+email	Địa chỉ email
+window_title	Wadhu — Công cụ · ứng dụng · thêm
+tagline	Công cụ · ứng dụng · thêm
+hero_kicker	WADHU · TỪ GOTIGIN
+hero_title	Wadhu có nghĩa là thêm.
+hero_lede	Công cụ, tiện ích và ứng dụng dùng lại được — Công cụ · ứng dụng · thêm.
+the_brand	THƯƠNG HIỆU
+what_title	Công cụ, tiện ích và ứng dụng.
+what_lede	Viết một lần, để sản phẩm khác của Gotigin và bất kỳ ai lấy đúng phần mình cần.
+what_body	Thư viện, chương trình nhỏ và dịch vụ ở đây. Mỗi phần tự đứng.
+reuse	DÙNG LẠI
+reuse_title	Lấy một phần.
+reuse_body	Một crate là một thư viện. Ứng dụng là chương trình bạn chạy cạnh chương trình của mình. Trang là nơi bạn mở. Một phần đổi không bao giờ buộc phần kế bên phải đổi.
+products	SẢN PHẨM
+products_title	Dưới thương hiệu Wadhu
+products_lede	Sản phẩm phát hành dưới thương hiệu này.
+sms_gateway_blurb	Cổng SIM, Android trước. LAN và Bluetooth mãi miễn phí.
+sms_relay_blurb	Đường internet tùy chọn tới cổng đã ghép. Gửi tại chỗ không cần nó.
+connect_blurb	Cầu Tech Provider tới WhatsApp Cloud API. Doanh nghiệp giữ số của mình; ứng dụng gửi và nhận sau Embedded Signup.
+open_connect	Mở Wadhu Connect
+names	TÊN
+about_title	Chúng tôi là ai
+trademark	NHÃN HIỆU
+find_it	Memon của «tìm ra nó» · đọc là go-tee-geen
+slogan	Nơi công nghệ gặp sự khám phá
+company	CÔNG TY
+director_line	Giám đốc · mearaj@gmail.com
+brand	THƯƠNG HIỆU
+more_line	Memon của «thêm» · Công cụ · ứng dụng · thêm
+products_line	Cổng SIM, chuyển tiếp tùy chọn và một cầu tới WhatsApp Cloud API
+next	TIẾP
+closing_title	Làm cùng Wadhu.
+closing_body	Tài khoản wadhu.com dành cho tính năng được lưu trữ. Công cụ tại chỗ qua LAN và Bluetooth vẫn miễn phí.
+acct_page_title	Tài khoản — Wadhu
+acct_lede	Đăng nhập cho tính năng được lưu trữ của Wadhu. Công cụ tại chỗ qua LAN và Bluetooth dùng được khi không có tài khoản.
+acct_continue_with	Tiếp tục bằng email, nhà cung cấp đăng nhập hoặc điện thoại.
+acct_name_optional	Tên (không bắt buộc)
+acct_password	Mật khẩu
+acct_continue	Tiếp tục
+acct_or_continue	hoặc tiếp tục với
+acct_federated	Đăng nhập liên kết
+acct_phone	Điện thoại
+acct_mobile	Số di động
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
-acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
-acct_verify_sent	Verification email sent — check your inbox
+acct_send_sms	Gửi mã SMS
+acct_sms_code	Mã SMS
+acct_confirm_code	Xác nhận mã
+acct_signed_in	Đã đăng nhập
+acct_signed_in_as	Đăng nhập với tên
+acct_status_label	Trạng thái
+acct_resend_verify	Gửi lại email xác minh
+acct_sign_out	Đăng xuất
+acct_home_aria	Trang chủ Wadhu
+acct_nav_aria	Chính
+company_privacy	Quyền riêng tư của công ty
+err_invalid_email	Nhập địa chỉ email hợp lệ.
+err_weak_password	Dùng mật khẩu có ít nhất 6 ký tự.
+err_wrong_password	Sai mật khẩu.
+err_invalid_credential	Email hoặc mật khẩu không đúng.
+err_popup_closed	Cửa sổ đăng nhập đã bị đóng.
+err_cancelled	Đã hủy đăng nhập.
+err_unauthorized_domain	Tên miền này chưa được cấp quyền cho Firebase Auth.
+err_not_allowed	Cách đăng nhập đó chưa được bật.
+err_too_many	Thử quá nhiều lần. Vui lòng thử lại sau.
+err_invalid_phone	Dùng số điện thoại đầy đủ kèm mã quốc gia (ví dụ +91…).
+err_bad_code	Mã SMS sai hoặc đã hết hạn.
+err_generic	Đã xảy ra lỗi.
+acct_no_email	(không có email)
+acct_email_verified	Email đã xác minh
+acct_email_unverified	Email chưa được xác minh — hãy kiểm tra hộp thư
+acct_phone_signed_in	Đã đăng nhập bằng điện thoại
+acct_you_are_in	Bạn đã đăng nhập.
+acct_verify_sent	Email xác minh đã gửi — hãy kiểm tra hộp thư

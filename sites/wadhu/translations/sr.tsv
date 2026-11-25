@@ -1,15 +1,15 @@
-# Serbian — Српски (sr). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# sr. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Приватност
+terms	Услови
+cancellation	Отказивање
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Мој налог
+email	Е-пошта
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	Наставите е-поштом, преко пружаоца или телефоном.
+acct_name_optional	Име (необавезно)
+acct_password	Лозинка
+acct_continue	Настави
+acct_or_continue	или наставите преко
+acct_federated	Федерисана пријава
+acct_phone	Телефон
+acct_mobile	Број мобилног
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	Пошаљи SMS код
+acct_sms_code	SMS код
+acct_confirm_code	Потврди код
+acct_signed_in	Пријављени сте
+acct_signed_in_as	Пријављени налог
+acct_status_label	Стање
+acct_resend_verify	Поново пошаљи е-поруку за потврду
+acct_sign_out	Одјави се
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Унесите исправну адресу е-поште.
+err_weak_password	Употребите лозинку од најмање 6 знакова.
+err_wrong_password	Погрешна лозинка.
+err_invalid_credential	Погрешна е-пошта или лозинка.
+err_popup_closed	Прозор за пријаву је затворен.
+err_cancelled	Пријава је отказана.
+err_unauthorized_domain	Овај домен није овлашћен за Firebase Auth.
+err_not_allowed	Тај начин пријаве још није укључен.
+err_too_many	Превише покушаја. Покушајте касније.
+err_invalid_phone	Употребите цео број телефона са позивним бројем земље (нпр. +91…).
+err_bad_code	Тај SMS код је погрешан или је истекао.
+err_generic	Нешто је пошло наопако.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	Е-пошта потврђена
+acct_email_unverified	Е-пошта још није потврђена — проверите пријемно сандуче
+acct_phone_signed_in	Пријављени телефоном
+acct_you_are_in	Пријављени сте.
 acct_verify_sent	Verification email sent — check your inbox

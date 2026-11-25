@@ -1,15 +1,15 @@
-# Maltese — Malti (mt). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# mt. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Privatezza
+terms	Termini
+cancellation	Kanċellazzjoni
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Kont
+email	Imejl
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	Kompli bl-imejl, b’fornitur jew bit-telefon.
+acct_name_optional	Isem (mhux obbligatorju)
+acct_password	Kelma tal-passaġġ
+acct_continue	Kompli
+acct_or_continue	jew kompli permezz ta’
+acct_federated	Dħul federat
+acct_phone	Telefon
+acct_mobile	Numru tal-mowbajl
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	Ibgħat kodiċi SMS
+acct_sms_code	Kodiċi SMS
+acct_confirm_code	Ikkonferma l-kodiċi
+acct_signed_in	Dħalt
+acct_signed_in_as	Dħalt bħala
+acct_status_label	Stat
+acct_resend_verify	Erġa’ ibgħat l-imejl tal-verifika
+acct_sign_out	Oħroġ
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Daħħal indirizz tal-imejl validu.
+err_weak_password	Uża kelma tal-passaġġ ta’ mill-inqas 6 karattri.
+err_wrong_password	Kelma tal-passaġġ ħażina.
+err_invalid_credential	L-imejl jew il-kelma tal-passaġġ huma ħżiena.
+err_popup_closed	It-tieqa tad-dħul ingħalqet.
+err_cancelled	Id-dħul ġie kkanċellat.
+err_unauthorized_domain	Dan id-dominju mhuwiex awtorizzat għal Firebase Auth.
+err_not_allowed	Dak il-metodu ta’ dħul għadu mhux attivat.
+err_too_many	Wisq tentattivi. Erġa’ pprova aktar tard.
+err_invalid_phone	Uża n-numru tat-telefon sħiħ bil-kodiċi tal-pajjiż (eż. +91…).
+err_bad_code	Dak il-kodiċi SMS huwa ħażin jew skada.
+err_generic	Xi ħaġa marret ħażin.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	Imejl ivverifikat
+acct_email_unverified	L-imejl għadu mhux ivverifikat — iċċekkja l-kaxxa tal-posta
+acct_phone_signed_in	Dħalt bit-telefon
+acct_you_are_in	Dħalt.
 acct_verify_sent	Verification email sent — check your inbox

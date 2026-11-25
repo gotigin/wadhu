@@ -1,84 +1,84 @@
-# Romanian — Română (ro). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
-data_deletion	Data deletion
-support	Support
-account	Account
-email	Email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
+# ro. key<TAB>text. Keep {placeholders}. \n = line break.
+menu	Meniu
+close	Închide
+home	Acasă
+about	Despre
+privacy	Confidențialitate
+terms	Termeni
+cancellation	Anulare
+data_deletion	Ștergerea datelor
+support	Asistență
+account	Cont
+email	E-mail
+window_title	Wadhu — Unelte · aplicații · mai mult
+tagline	Unelte · aplicații · mai mult
+hero_kicker	WADHU · DE LA GOTIGIN
+hero_title	Wadhu înseamnă mai mult.
+hero_lede	Unelte, utilitare și aplicații reutilizabile — Unelte · aplicații · mai mult.
+the_brand	MARCA
+what_title	Unelte, utilitare și aplicații.
+what_lede	Scrise o dată, ca celelalte produse Gotigin și oricine altcineva să ia exact bucata de care au nevoie.
+what_body	Biblioteci, programe mici și servicii stau aici. Fiecare parte stă singură.
+reuse	REUTILIZARE
+reuse_title	Ia o bucată.
+reuse_body	Un crate este o bibliotecă. O aplicație este un program pe care îl rulezi lângă al tău. Un site este o pagină pe care o deschizi. Când o parte se schimbă, o parte vecină nu e niciodată obligată să se schimbe.
+products	PRODUSE
+products_title	Sub marca Wadhu
+products_lede	Produse care apar sub această marcă.
+sms_gateway_blurb	Gateway SIM, Android întâi. LAN și Bluetooth rămân gratuite pentru totdeauna.
+sms_relay_blurb	Cale de internet opțională către un gateway împerecheat. Trimiterea locală nu are nevoie de ea.
+connect_blurb	Punte Tech Provider către WhatsApp Cloud API. Afacerile își păstrează numărul; aplicațiile trimit și primesc după Embedded Signup.
+open_connect	Deschide Wadhu Connect
+names	NUME
+about_title	Cine suntem
+trademark	MARCĂ ÎNREGISTRATĂ
+find_it	Memon pentru „găsește-l” · se pronunță go-tee-geen
+slogan	Acolo unde tehnologia întâlnește descoperirea
+company	SOCIETATE
 director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+brand	MARCĂ
+more_line	Memon pentru „mai mult” · Unelte · aplicații · mai mult
+products_line	Gateway SIM, releu opțional și o punte către WhatsApp Cloud API
+next	MAI DEPARTE
+closing_title	Construiește cu Wadhu.
+closing_body	Un cont wadhu.com este pentru funcțiile găzduite. Uneltele locale prin LAN și Bluetooth rămân gratuite.
+acct_page_title	Cont — Wadhu
+acct_lede	Autentifică-te pentru funcțiile găzduite Wadhu. Uneltele locale prin LAN și Bluetooth se pot folosi fără cont.
+acct_continue_with	Continuă cu e-mailul, un furnizor sau telefonul.
+acct_name_optional	Nume (opțional)
+acct_password	Parolă
+acct_continue	Continuă
+acct_or_continue	sau continuă cu
+acct_federated	Autentificare federată
+acct_phone	Telefon
+acct_mobile	Număr de mobil
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
-acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
-acct_verify_sent	Verification email sent — check your inbox
+acct_send_sms	Trimite codul prin SMS
+acct_sms_code	Cod SMS
+acct_confirm_code	Confirmă codul
+acct_signed_in	Autentificat
+acct_signed_in_as	Autentificat ca
+acct_status_label	Stare
+acct_resend_verify	Retrimite e-mailul de verificare
+acct_sign_out	Deconectare
+acct_home_aria	Pagina de start Wadhu
+acct_nav_aria	Principal
+company_privacy	Confidențialitatea societății
+err_invalid_email	Introdu o adresă de e-mail validă.
+err_weak_password	Folosește o parolă de cel puțin 6 caractere.
+err_wrong_password	Parolă greșită.
+err_invalid_credential	E-mailul sau parola sunt greșite.
+err_popup_closed	Fereastra de autentificare a fost închisă.
+err_cancelled	Autentificarea a fost anulată.
+err_unauthorized_domain	Acest domeniu nu este autorizat pentru Firebase Auth.
+err_not_allowed	Această metodă de autentificare nu este încă activată.
+err_too_many	Prea multe încercări. Încearcă din nou mai târziu.
+err_invalid_phone	Folosește numărul de telefon complet, cu prefixul țării (de ex. +91…).
+err_bad_code	Codul SMS e greșit sau a expirat.
+err_generic	Ceva n-a mers bine.
+acct_no_email	(fără e-mail)
+acct_email_verified	E-mail verificat
+acct_email_unverified	E-mailul nu e încă verificat — verifică-ți căsuța de e-mail
+acct_phone_signed_in	Autentificat cu telefonul
+acct_you_are_in	Ești autentificat.
+acct_verify_sent	E-mailul de verificare a fost trimis — verifică-ți căsuța de e-mail

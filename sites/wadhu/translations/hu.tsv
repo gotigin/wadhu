@@ -1,84 +1,84 @@
-# Hungarian — Magyar (hu). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
-data_deletion	Data deletion
-support	Support
-account	Account
-email	Email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+# hu. key<TAB>text. Keep {placeholders}. \n = line break.
+menu	Menü
+close	Bezárás
+home	Kezdőlap
+about	Rólunk
+privacy	Adatvédelem
+terms	Feltételek
+cancellation	Lemondás
+data_deletion	Adattörlés
+support	Támogatás
+account	Fiók
+email	E-mail
+window_title	Wadhu — Eszközök · alkalmazások · több
+tagline	Eszközök · alkalmazások · több
+hero_kicker	WADHU · A GOTIGINTÓL
+hero_title	A Wadhu többet jelent.
+hero_lede	Újrahasználható eszközök, segédprogramok és alkalmazások — Eszközök · alkalmazások · több.
+the_brand	A MÁRKA
+what_title	Eszközök, segédprogramok és alkalmazások.
+what_lede	Egyszer megírva, hogy a Gotigin más termékei és bárki pontosan azt a darabot vegye, amire szüksége van.
+what_body	Könyvtárak, kis programok és szolgáltatások vannak itt. Minden rész megáll a maga lábán.
+reuse	ÚJRAHASZNÁLAT
+reuse_title	Vegyen egy darabot.
+reuse_body	A crate könyvtár. Az alkalmazás olyan program, amelyet a sajátja mellett futtat. A webhely olyan oldal, amelyet megnyit. Ha egy rész megváltozik, a szomszédos résznek soha nem kell változnia.
+products	TERMÉKEK
+products_title	A Wadhu márka alatt
+products_lede	Termékek, amelyek e márka alatt jelennek meg.
+sms_gateway_blurb	SIM-átjáró, először Android. A LAN és a Bluetooth örökre ingyenes marad.
+sms_relay_blurb	Választható internetes út egy párosított átjáróhoz. A helyi küldésnek nincs rá szüksége.
+connect_blurb	Tech Provider híd a WhatsApp Cloud API-hoz. A vállalkozások megtartják a számukat; az alkalmazások az Embedded Signup után küldenek és fogadnak.
+open_connect	A Wadhu Connect megnyitása
+names	NEVEK
+about_title	Kik vagyunk
+trademark	VÉDJEGY
+find_it	Memon erre: „találd meg” · kiejtése go-tee-geen
+slogan	Ahol a technológia találkozik a felfedezéssel
+company	TÁRSASÁG
+director_line	Igazgató · mearaj@gmail.com
+brand	MÁRKA
+more_line	Memon erre: „több” · Eszközök · alkalmazások · több
+products_line	SIM-átjáró, választható továbbító és híd a WhatsApp Cloud API-hoz
+next	TOVÁBB
+closing_title	Építsen a Wadhuval.
+closing_body	A wadhu.com fiók a tárolt funkciókhoz való. A helyi eszközök LAN-on és Bluetoothon ingyenesek maradnak.
+acct_page_title	Fiók — Wadhu
+acct_lede	Jelentkezzen be a Wadhu tárolt funkcióihoz. A helyi eszközök LAN-on és Bluetoothon fiók nélkül is használhatók.
+acct_continue_with	Folytassa e-maillel, szolgáltatóval vagy telefonnal.
+acct_name_optional	Név (nem kötelező)
+acct_password	Jelszó
+acct_continue	Folytatás
+acct_or_continue	vagy folytassa ezzel:
+acct_federated	Összevont bejelentkezés
+acct_phone	Telefon
+acct_mobile	Mobilszám
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
-acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
-acct_verify_sent	Verification email sent — check your inbox
+acct_send_sms	SMS-kód küldése
+acct_sms_code	SMS-kód
+acct_confirm_code	Kód megerősítése
+acct_signed_in	Bejelentkezve
+acct_signed_in_as	Bejelentkezve mint
+acct_status_label	Állapot
+acct_resend_verify	Megerősítő e-mail újraküldése
+acct_sign_out	Kijelentkezés
+acct_home_aria	A Wadhu kezdőlapja
+acct_nav_aria	Elsődleges
+company_privacy	A társaság adatvédelme
+err_invalid_email	Adjon meg érvényes e-mail-címet.
+err_weak_password	Legalább 6 karakteres jelszót használjon.
+err_wrong_password	Hibás jelszó.
+err_invalid_credential	Hibás e-mail-cím vagy jelszó.
+err_popup_closed	A bejelentkezési ablak bezárult.
+err_cancelled	A bejelentkezés megszakadt.
+err_unauthorized_domain	Ez a domain nincs engedélyezve a Firebase Auth számára.
+err_not_allowed	Ez a bejelentkezési mód még nincs bekapcsolva.
+err_too_many	Túl sok próbálkozás. Próbálja újra később.
+err_invalid_phone	Teljes telefonszámot adjon meg országkóddal (pl. +91…).
+err_bad_code	Ez az SMS-kód hibás vagy lejárt.
+err_generic	Valami hiba történt.
+acct_no_email	(nincs e-mail)
+acct_email_verified	E-mail-cím megerősítve
+acct_email_unverified	Az e-mail-cím még nincs megerősítve — nézze meg a postafiókját
+acct_phone_signed_in	Bejelentkezve telefonnal
+acct_you_are_in	Bejelentkezett.
+acct_verify_sent	Megerősítő e-mail elküldve — nézze meg a postafiókját

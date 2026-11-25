@@ -1,15 +1,15 @@
-# Mizo — Mizo ṭawng (lus). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# lus. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Mimal thuruk
+terms	Dan te
+cancellation	Tihbo dan
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Akaunt
+email	E-mail
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	E-mail, provider emaw fon hmangin chhunzawm rawh.
+acct_name_optional	Hming (i duh chuan)
+acct_password	Thuruk
+acct_continue	Chhunzawm
+acct_or_continue	emaw hei hmangin chhunzawm rawh
+acct_federated	Inzawm luhna
+acct_phone	Fon
+acct_mobile	Fon number
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	SMS code thawn rawh
+acct_sms_code	SMS-a code
+acct_confirm_code	Code finfiah rawh
+acct_signed_in	I lut tawh
+acct_signed_in_as	Lut tawh
+acct_status_label	Dinhmun
+acct_resend_verify	Finfiahna e-mail thawn leh rawh
+acct_sign_out	Chhuak rawh
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	E-mail address dik ziak rawh.
+err_weak_password	Hawrawp 6 tal awmna thuruk hmang rawh.
+err_wrong_password	Thuruk a dik lo.
+err_invalid_credential	E-mail emaw thuruk a dik lo.
+err_popup_closed	Luhna tukverh a khar.
+err_cancelled	Luhna tihbo a ni.
+err_unauthorized_domain	He domain hi Firebase Auth atan phalsak a ni lo.
+err_not_allowed	He luh kawng hi tun thleng hian a ṭan lo.
+err_too_many	Tum tam lutuk. A hnuah tum leh rawh.
+err_invalid_phone	Ram code nen fon number pum hmang rawh (entirnan +91…).
+err_bad_code	SMS code chu a dik lo emaw a hun a tawp tawh.
+err_generic	Engemaw a dik lo.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	E-mail finfiah a ni
+acct_email_unverified	E-mail a la finfiah lo — i inbox en rawh
+acct_phone_signed_in	Fon hmangin i lut
+acct_you_are_in	I lut tawh.
 acct_verify_sent	Verification email sent — check your inbox

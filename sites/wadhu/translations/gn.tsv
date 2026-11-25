@@ -1,15 +1,15 @@
-# Guarani — Avañe'ẽ (gn). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# gn. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Ñemigua
+terms	Ñemboguata rape
+cancellation	Jeheja rei
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Kuénta
+email	Ñandutiveve
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	Eho tenonde ñandutiveve, me’ẽhára térã pumbyry rupive.
+acct_name_optional	Téra (reiporavóramo)
+acct_password	Ñe’ẽñemi
+acct_continue	Eho tenonde
+acct_or_continue	térã eho tenonde ko’ãva ndive
+acct_federated	Jeike ambue kuénta rupive
+acct_phone	Pumbyry
+acct_mobile	Pumbyry popegua papapy
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	Emondo SMS papapy
+acct_sms_code	SMS papapy
+acct_confirm_code	Emoneĩ papapy
+acct_signed_in	Reike
+acct_signed_in_as	Reikéma ko kuénta rupive
+acct_status_label	Mba’éichapa oĩ
+acct_resend_verify	Emondo jey ñandutiveve ñemoneĩrã
+acct_sign_out	Esẽ
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Emoinge ñandutiveve oikóva.
+err_weak_password	Eiporu ñe’ẽñemi orekóva 6 tai sa’ivéramo.
+err_wrong_password	Ñe’ẽñemi ndaha’éi hekopete.
+err_invalid_credential	Ñandutiveve térã ñe’ẽñemi ndaha’éi hekopete.
+err_popup_closed	Jeike ovetã oñembotýma.
+err_cancelled	Jeike ojeheja rei.
+err_unauthorized_domain	Ko dominio noñemoneĩri Firebase Auth-pe g̃uarã.
+err_not_allowed	Upe jeike rape noñemyendýi gueteri.
+err_too_many	Heta ñeha’ã. Eha’ã jey upéi.
+err_invalid_phone	Eiporu pumbyry papapy henyhẽva tetã papapy ndive (techapyrã +91…).
+err_bad_code	Upe SMS papapy ndaha’éi hekopete térã opáma.
+err_generic	Oiko peteĩ mba’e vai.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	Ñandutiveve oñemoneĩma
+acct_email_unverified	Ñandutiveve noñemoneĩri gueteri — ehecha nde marandu ryru
+acct_phone_signed_in	Reike pumbyry rupive
+acct_you_are_in	Reikéma.
 acct_verify_sent	Verification email sent — check your inbox

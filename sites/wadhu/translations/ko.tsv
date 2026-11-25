@@ -1,84 +1,84 @@
-# Korean — 한국어 (ko). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
-data_deletion	Data deletion
-support	Support
-account	Account
-email	Email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+# ko. key<TAB>text. Keep {placeholders}. \n = line break.
+menu	메뉴
+close	닫기
+home	홈
+about	소개
+privacy	개인정보 처리방침
+terms	이용약관
+cancellation	취소
+data_deletion	데이터 삭제
+support	지원
+account	계정
+email	이메일
+window_title	Wadhu — 도구 · 앱 · 더
+tagline	도구 · 앱 · 더
+hero_kicker	WADHU · GOTIGIN에서
+hero_title	Wadhu는 더를 뜻합니다.
+hero_lede	다시 쓰는 도구, 유틸, 앱 — 도구 · 앱 · 더.
+the_brand	브랜드
+what_title	도구, 유틸, 앱.
+what_lede	한 번 써서, Gotigin의 다른 제품과 누구든 필요한 조각만 가져가게 합니다.
+what_body	라이브러리, 작은 프로그램, 서비스가 여기 있습니다. 각 부분은 스스로 섭니다.
+reuse	다시 쓰기
+reuse_title	한 조각을 가져가세요.
+reuse_body	crate는 라이브러리입니다. 앱은 자기 프로그램 곁에서 실행하는 프로그램입니다. 사이트는 열어 보는 페이지입니다. 한 부분이 바뀌어도 옆 부분이 따라 바뀔 필요는 없습니다.
+products	제품
+products_title	Wadhu 브랜드 아래
+products_lede	이 브랜드로 나오는 제품.
+sms_gateway_blurb	Android를 먼저 두는 SIM 게이트웨이. LAN과 Bluetooth는 영원히 무료입니다.
+sms_relay_blurb	짝을 이룬 게이트웨이로 가는 선택적 인터넷 경로. 로컬 전송에는 필요 없습니다.
+connect_blurb	WhatsApp Cloud API의 Tech Provider 다리. 사업자는 자기 번호를 유지하고, 앱은 Embedded Signup 뒤에 보내고 받습니다.
+open_connect	Wadhu Connect 열기
+names	이름
+about_title	우리는 누구인가
+trademark	상표
+find_it	Memon으로 «그것을 찾다» · 발음 go-tee-geen
+slogan	기술이 발견과 만나는 곳
+company	회사
+director_line	이사 · mearaj@gmail.com
+brand	브랜드
+more_line	Memon으로 «더» · 도구 · 앱 · 더
+products_line	SIM 게이트웨이, 선택적 중계, WhatsApp Cloud API로 가는 다리
+next	다음
+closing_title	Wadhu로 만드세요.
+closing_body	wadhu.com 계정은 호스팅된 기능용입니다. LAN과 Bluetooth의 로컬 도구는 무료로 남습니다.
+acct_page_title	계정 — Wadhu
+acct_lede	Wadhu의 호스팅된 기능을 쓰려면 로그인하세요. LAN과 Bluetooth의 로컬 도구는 계정 없이 쓸 수 있습니다.
+acct_continue_with	이메일, 외부 로그인 서비스 또는 휴대폰으로 계속하세요.
+acct_name_optional	이름 (선택)
+acct_password	비밀번호
+acct_continue	계속
+acct_or_continue	또는 다음으로 계속
+acct_federated	통합 로그인
+acct_phone	전화
+acct_mobile	휴대폰 번호
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
-acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
-acct_verify_sent	Verification email sent — check your inbox
+acct_send_sms	SMS 코드 보내기
+acct_sms_code	SMS 코드
+acct_confirm_code	코드 확인
+acct_signed_in	로그인됨
+acct_signed_in_as	로그인 계정
+acct_status_label	상태
+acct_resend_verify	인증 메일 다시 보내기
+acct_sign_out	로그아웃
+acct_home_aria	Wadhu 홈
+acct_nav_aria	기본
+company_privacy	회사 개인정보
+err_invalid_email	올바른 이메일 주소를 입력하세요.
+err_weak_password	6자 이상의 비밀번호를 사용하세요.
+err_wrong_password	비밀번호가 틀렸습니다.
+err_invalid_credential	이메일 또는 비밀번호가 틀렸습니다.
+err_popup_closed	로그인 창이 닫혔습니다.
+err_cancelled	로그인이 취소되었습니다.
+err_unauthorized_domain	이 도메인은 Firebase Auth에 승인되지 않았습니다.
+err_not_allowed	그 로그인 방법은 아직 사용할 수 없습니다.
+err_too_many	시도 횟수가 너무 많습니다. 나중에 다시 시도하세요.
+err_invalid_phone	국가 번호를 포함한 전체 전화번호를 입력하세요 (예: +91…).
+err_bad_code	SMS 코드가 틀렸거나 만료되었습니다.
+err_generic	문제가 발생했습니다.
+acct_no_email	(이메일 없음)
+acct_email_verified	이메일 인증됨
+acct_email_unverified	이메일이 아직 인증되지 않았습니다 — 받은편지함을 확인하세요
+acct_phone_signed_in	휴대폰으로 로그인됨
+acct_you_are_in	로그인되었습니다.
+acct_verify_sent	인증 메일을 보냈습니다 — 받은편지함을 확인하세요

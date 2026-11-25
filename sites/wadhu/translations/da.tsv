@@ -1,84 +1,84 @@
-# Danish — Dansk (da). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# da. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
-close	Close
-home	Home
-about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
-data_deletion	Data deletion
+close	Luk
+home	Hjem
+about	Om os
+privacy	Privatliv
+terms	Vilkår
+cancellation	Opsigelse
+data_deletion	Sletning af data
 support	Support
-account	Account
-email	Email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+account	Konto
+email	E-mail
+window_title	Wadhu — Værktøjer · apps · mere
+tagline	Værktøjer · apps · mere
+hero_kicker	WADHU · FRA GOTIGIN
+hero_title	Wadhu betyder mere.
+hero_lede	Genbrugelige værktøjer, hjælpeprogrammer og apps — Værktøjer · apps · mere.
+the_brand	MÆRKET
+what_title	Værktøjer, hjælpeprogrammer og apps.
+what_lede	Skrevet én gang, så andre produkter fra Gotigin og enhver kan tage netop det stykke, de har brug for.
+what_body	Biblioteker, små programmer og tjenester er her. Hver del står for sig selv.
+reuse	GENBRUG
+reuse_title	Tag ét stykke.
+reuse_body	En crate er et bibliotek. En app er et program, du kører ved siden af dit eget. Et websted er en side, du åbner. Når én del ændres, tvinges en nabodel aldrig til at ændre sig.
+products	PRODUKTER
+products_title	Under mærket Wadhu
+products_lede	Produkter, der udgives under dette mærke.
+sms_gateway_blurb	SIM-gateway, Android først. LAN og Bluetooth forbliver gratis for altid.
+sms_relay_blurb	Valgfri internetvej til en parret gateway. Lokal afsendelse behøver den ikke.
+connect_blurb	Tech Provider-bro til WhatsApp Cloud API. Virksomheder beholder deres nummer; apps sender og modtager efter Embedded Signup.
+open_connect	Åbn Wadhu Connect
+names	NAVNE
+about_title	Hvem vi er
+trademark	VAREMÆRKE
+find_it	Memon for ”find det” · udtales go-tee-geen
+slogan	Der hvor teknologien møder opdagelsen
+company	VIRKSOMHED
+director_line	Direktør · mearaj@gmail.com
+brand	MÆRKE
+more_line	Memon for ”mere” · Værktøjer · apps · mere
+products_line	SIM-gateway, valgfrit relæ og en bro til WhatsApp Cloud API
+next	NÆSTE
+closing_title	Byg med Wadhu.
+closing_body	En konto på wadhu.com er til hostede funktioner. Lokale værktøjer over LAN og Bluetooth forbliver gratis.
+acct_page_title	Konto — Wadhu
+acct_lede	Log ind for Wadhus hostede funktioner. Lokale værktøjer over LAN og Bluetooth kan bruges uden konto.
+acct_continue_with	Fortsæt med e-mail, en udbyder eller telefon.
+acct_name_optional	Navn (valgfrit)
+acct_password	Adgangskode
+acct_continue	Fortsæt
+acct_or_continue	eller fortsæt med
+acct_federated	Fødereret login
+acct_phone	Telefon
+acct_mobile	Mobilnummer
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
-acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
-acct_verify_sent	Verification email sent — check your inbox
+acct_send_sms	Send SMS-kode
+acct_sms_code	SMS-kode
+acct_confirm_code	Bekræft kode
+acct_signed_in	Logget ind
+acct_signed_in_as	Logget ind som
+acct_status_label	Kontostatus
+acct_resend_verify	Send bekræftelsesmail igen
+acct_sign_out	Log ud
+acct_home_aria	Wadhus startside
+acct_nav_aria	Primær
+company_privacy	Virksomhedens privatliv
+err_invalid_email	Indtast en gyldig e-mailadresse.
+err_weak_password	Brug en adgangskode på mindst 6 tegn.
+err_wrong_password	Forkert adgangskode.
+err_invalid_credential	E-mail eller adgangskode er forkert.
+err_popup_closed	Login-vinduet blev lukket.
+err_cancelled	Login blev annulleret.
+err_unauthorized_domain	Dette domæne er ikke godkendt til Firebase Auth.
+err_not_allowed	Den login-metode er ikke slået til endnu.
+err_too_many	For mange forsøg. Prøv igen senere.
+err_invalid_phone	Brug et fuldt telefonnummer med landekode (f.eks. +91…).
+err_bad_code	Den SMS-kode er forkert eller udløbet.
+err_generic	Noget gik galt.
+acct_no_email	(ingen e-mail)
+acct_email_verified	E-mail bekræftet
+acct_email_unverified	E-mail ikke bekræftet endnu — tjek din indbakke
+acct_phone_signed_in	Logget ind med telefon
+acct_you_are_in	Du er logget ind.
+acct_verify_sent	Bekræftelsesmail sendt — tjek din indbakke

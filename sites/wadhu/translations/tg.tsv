@@ -1,15 +1,15 @@
-# Tajik — Тоҷикӣ (tg). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# tg. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Махфият
+terms	Шартҳо
+cancellation	Бекоркунӣ
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Аккаунт
+email	Почтаи электронӣ
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	Бо почтаи электронӣ, провайдер ё телефон давом диҳед.
+acct_name_optional	Ном (ихтиёрӣ)
+acct_password	Парол
+acct_continue	Давом додан
+acct_or_continue	ё бо ин давом диҳед
+acct_federated	Воридшавии муттаҳид
+acct_phone	Телефон
+acct_mobile	Рақами мобилӣ
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	Фиристодани рамзи SMS
+acct_sms_code	Рамзи SMS
+acct_confirm_code	Тасдиқи рамз
+acct_signed_in	Ворид шудед
+acct_signed_in_as	Ворид шуда ҳамчун
+acct_status_label	Ҳолат
+acct_resend_verify	Номаи тасдиқро бори дигар фиристед
+acct_sign_out	Баромадан
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Суроғаи дурусти почтаи электрониро ворид кунед.
+err_weak_password	Паролеро истифода баред, ки на камтар аз 6 аломат дошта бошад.
+err_wrong_password	Парол нодуруст аст.
+err_invalid_credential	Почта ё парол нодуруст аст.
+err_popup_closed	Равзанаи воридшавӣ баста шуд.
+err_cancelled	Воридшавӣ бекор карда шуд.
+err_unauthorized_domain	Ин домен барои Firebase Auth иҷозат надорад.
+err_not_allowed	Ин усули воридшавӣ ҳоло фаъол нашудааст.
+err_too_many	Кӯшишҳо аз ҳад зиёданд. Баъдтар боз кӯшиш кунед.
+err_invalid_phone	Рақами пурраи телефонро бо рамзи кишвар истифода баред (масалан +91…).
+err_bad_code	Ин рамзи SMS нодуруст аст ё мӯҳлаташ гузаштааст.
+err_generic	Хатое рух дод.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	Почта тасдиқ шуд
+acct_email_unverified	Почта ҳанӯз тасдиқ нашудааст — қуттии воридотиро санҷед
+acct_phone_signed_in	Бо телефон ворид шуд
+acct_you_are_in	Шумо ворид шудед.
 acct_verify_sent	Verification email sent — check your inbox

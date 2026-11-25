@@ -1,15 +1,15 @@
-# Manipuri — ꯃꯤꯇꯩꯂꯣꯟ (mni). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# mni. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	ꯄ꯭ꯔꯥꯏꯚꯦꯁꯤ
+terms	ꯆꯠꯅꯕꯤꯁꯤꯡ
+cancellation	ꯇꯣꯛꯄꯒꯤ ꯆꯠꯅꯕꯤ
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	ꯑꯦꯀꯥꯎꯟꯠ
+email	ꯏꯃꯦꯏꯜ
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	ꯏꯃꯦꯏꯜ, ꯄ꯭ꯔꯣꯚꯥꯏꯗꯔ ꯅꯠꯔꯒꯥ ꯐꯣꯅꯅꯥ ꯃꯈꯥ ꯆꯠꯂꯨ꯫
+acct_name_optional	ꯃꯤꯡ (ꯄꯥꯝꯂꯕꯗꯤ)
+acct_password	ꯄꯥꯁꯋꯥꯔꯗ
+acct_continue	ꯃꯈꯥ ꯆꯠꯂꯨ
+acct_or_continue	ꯅꯠꯔꯒꯥ ꯃꯁꯤꯅꯥ ꯃꯈꯥ ꯆꯠꯂꯨ
+acct_federated	ꯐꯦꯗꯔꯦꯇꯦꯗ ꯁꯥꯏꯟ-ꯏꯟ
+acct_phone	ꯐꯣꯟ
+acct_mobile	ꯃꯣꯕꯥꯏꯜ ꯅꯝꯕꯔ
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	SMS ꯀꯣꯗ ꯊꯥꯔꯛꯄꯤꯌꯨ
+acct_sms_code	SMS ꯀꯣꯗ
+acct_confirm_code	ꯀꯣꯗ ꯁꯣꯏꯗꯅꯥ ꯇꯧꯕꯤꯌꯨ
+acct_signed_in	ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯔꯦ
+acct_signed_in_as	ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯔꯕ ꯑꯦꯀꯥꯎꯟꯠ
+acct_status_label	ꯐꯤꯚꯝ
+acct_resend_verify	ꯆꯦꯛꯁꯤꯟꯅꯕꯒꯤ ꯏꯃꯦꯏꯜ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯊꯥꯔꯛꯄꯤꯌꯨ
+acct_sign_out	ꯁꯥꯏꯟ ꯑꯥꯎꯠ
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	ꯆꯨꯝꯕ ꯏꯃꯦꯏꯜ ꯑꯦꯗ꯭ꯔꯦꯁ ꯏꯕꯤꯌꯨ꯫
+err_weak_password	ꯌꯥꯃꯗ꯭ꯔꯕꯗꯥ ꯃꯌꯦꯛ 6 ꯂꯩꯕ ꯄꯥꯁꯋꯥꯔꯗ ꯁꯤꯖꯤꯟꯅꯕꯤꯌꯨ꯫
+err_wrong_password	ꯑꯔꯥꯟꯕ ꯄꯥꯁꯋꯥꯔꯗ꯫
+err_invalid_credential	ꯏꯃꯦꯏꯜ ꯅꯠꯔꯒꯥ ꯄꯥꯁꯋꯥꯔꯗ ꯑꯔꯥꯟꯕꯅꯤ꯫
+err_popup_closed	ꯁꯥꯏꯟ-ꯏꯟ ꯋꯤꯟꯗꯣ ꯊꯤꯡꯖꯤꯜꯂꯦ꯫
+err_cancelled	ꯁꯥꯏꯟ-ꯏꯟ ꯇꯣꯛꯈ꯭ꯔꯦ꯫
+err_unauthorized_domain	ꯗꯣꯃꯦꯟ ꯑꯁꯤ Firebase Auth ꯒꯤꯗꯃꯛ ꯌꯥꯕ ꯄꯤꯗ꯭ꯔꯤ꯫
+err_not_allowed	ꯁꯥꯏꯟ-ꯏꯟꯒꯤ ꯃꯑꯣꯡ ꯑꯗꯨ ꯍꯧꯖꯤꯛ ꯐꯥꯑꯣꯕ ꯍꯥꯡꯗꯣꯛꯂꯃꯗ꯭ꯔꯤ꯫
+err_too_many	ꯍꯣꯠꯅꯕ ꯌꯥꯝꯅꯥ ꯇꯧꯔꯦ꯫ ꯃꯇꯨꯡꯗꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫
+err_invalid_phone	ꯂꯩꯕꯥꯛꯀꯤ ꯀꯣꯗ ꯌꯥꯎꯕ ꯃꯄꯨꯡ ꯐꯥꯕ ꯐꯣꯟ ꯅꯝꯕꯔ ꯁꯤꯖꯤꯟꯅꯕꯤꯌꯨ (ꯈꯨꯗꯝ +91…)꯫
+err_bad_code	SMS ꯀꯣꯗ ꯑꯗꯨ ꯑꯔꯥꯟꯕ ꯅꯠꯔꯒꯥ ꯃꯇꯝ ꯂꯣꯏꯔꯦ꯫
+err_generic	ꯀꯔꯤꯒꯨꯝꯕ ꯑꯃꯥ ꯑꯔꯥꯅꯕ ꯊꯣꯛꯂꯦ꯫
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	ꯏꯃꯦꯏꯜ ꯆꯦꯛꯁꯤꯟꯔꯦ
+acct_email_unverified	ꯏꯃꯦꯏꯜ ꯍꯧꯖꯤꯛ ꯐꯥꯑꯣꯕ ꯆꯦꯛꯁꯤꯟꯗ꯭ꯔꯤ — ꯅꯍꯥꯛꯀꯤ ꯏꯅꯕꯣꯛꯁ ꯌꯦꯡꯕꯤꯌꯨ
+acct_phone_signed_in	ꯐꯣꯅꯅꯥ ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯔꯦ
+acct_you_are_in	ꯅꯍꯥꯛ ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯔꯦ꯫
 acct_verify_sent	Verification email sent — check your inbox

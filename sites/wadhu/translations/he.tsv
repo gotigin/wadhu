@@ -1,84 +1,84 @@
-# Hebrew — עברית (he). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
-data_deletion	Data deletion
-support	Support
-account	Account
-email	Email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+# he. key<TAB>text. Keep {placeholders}. \n = line break.
+menu	תפריט
+close	סגור
+home	בית
+about	אודות
+privacy	פרטיות
+terms	תנאים
+cancellation	ביטול
+data_deletion	מחיקת נתונים
+support	תמיכה
+account	חשבון
+email	אימייל
+window_title	Wadhu — כלים · יישומים · עוד
+tagline	כלים · יישומים · עוד
+hero_kicker	WADHU · מאת GOTIGIN
+hero_title	Wadhu פירושו עוד.
+hero_lede	כלים, כלי עזר ויישומים לשימוש חוזר — כלים · יישומים · עוד.
+the_brand	המותג
+what_title	כלים, כלי עזר ויישומים.
+what_lede	נכתב פעם אחת, כדי שמוצרים אחרים של Gotigin וכל אחד אחר ייקחו בדיוק את החלק שצריך.
+what_body	ספריות, תוכניות קטנות ושירותים נמצאים כאן. כל חלק עומד בפני עצמו.
+reuse	שימוש חוזר
+reuse_title	קחו חלק אחד.
+reuse_body	crate היא ספרייה. יישום הוא תוכנית שמריצים לצד התוכנית שלכם. אתר הוא עמוד שנכנסים אליו. שינוי של חלק אחד אף פעם לא כופה שינוי על חלק אח.
+products	מוצרים
+products_title	תחת המותג Wadhu
+products_lede	מוצרים שיוצאים תחת המותג הזה.
+sms_gateway_blurb	שער SIM, קודם Android. LAN ו-Bluetooth נשארים בחינם לתמיד.
+sms_relay_blurb	נתיב אינטרנט רשות אל שער מצומד. שליחה מקומית לא צריכה אותו.
+connect_blurb	גשר Tech Provider אל WhatsApp Cloud API. העסקים שומרים את המספר שלהם; היישומים שולחים ומקבלים אחרי Embedded Signup.
+open_connect	פתחו את Wadhu Connect
+names	שמות
+about_title	מי אנחנו
+trademark	סימן מסחר
+find_it	Memon של «מצא את זה» · הגייה go-tee-geen
+slogan	המקום שבו הטכנולוגיה פוגשת את הגילוי
+company	חברה
+director_line	דירקטור · mearaj@gmail.com
+brand	מותג
+more_line	Memon של «עוד» · כלים · יישומים · עוד
+products_line	שער SIM, ממסר רשות וגשר אל WhatsApp Cloud API
+next	הבא
+closing_title	בנו עם Wadhu.
+closing_body	חשבון ב-wadhu.com מיועד ליכולות מתארחות. כלים מקומיים דרך LAN ו-Bluetooth נשארים בחינם.
+acct_page_title	חשבון — Wadhu
+acct_lede	היכנסו ליכולות המתארחות של Wadhu. כלים מקומיים דרך LAN ו-Bluetooth נשארים שמישים בלי חשבון.
+acct_continue_with	המשיכו עם אימייל, ספק כניסה או טלפון.
+acct_name_optional	שם (לא חובה)
+acct_password	סיסמה
+acct_continue	המשך
+acct_or_continue	או המשיכו עם
+acct_federated	כניסה מאוחדת
+acct_phone	טלפון
+acct_mobile	מספר נייד
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
-acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
-acct_verify_sent	Verification email sent — check your inbox
+acct_send_sms	שליחת קוד SMS
+acct_sms_code	קוד SMS
+acct_confirm_code	אישור הקוד
+acct_signed_in	מחובר
+acct_signed_in_as	מחובר בתור
+acct_status_label	מצב
+acct_resend_verify	שליחה חוזרת של אימייל אימות
+acct_sign_out	יציאה
+acct_home_aria	הבית של Wadhu
+acct_nav_aria	ראשי
+company_privacy	פרטיות החברה
+err_invalid_email	הזינו כתובת אימייל תקינה.
+err_weak_password	השתמשו בסיסמה של 6 תווים לפחות.
+err_wrong_password	סיסמה שגויה.
+err_invalid_credential	האימייל או הסיסמה שגויים.
+err_popup_closed	חלון הכניסה נסגר.
+err_cancelled	הכניסה בוטלה.
+err_unauthorized_domain	הדומיין הזה אינו מורשה ל-Firebase Auth.
+err_not_allowed	שיטת הכניסה הזו עדיין לא הופעלה.
+err_too_many	יותר מדי ניסיונות. נסו שוב מאוחר יותר.
+err_invalid_phone	השתמשו במספר טלפון מלא עם קידומת מדינה (למשל +91…).
+err_bad_code	קוד ה-SMS שגוי או שפג תוקפו.
+err_generic	משהו השתבש.
+acct_no_email	(אין אימייל)
+acct_email_verified	האימייל אומת
+acct_email_unverified	האימייל עדיין לא אומת — בדקו את תיבת הדואר
+acct_phone_signed_in	מחובר באמצעות טלפון
+acct_you_are_in	אתם מחוברים.
+acct_verify_sent	אימייל האימות נשלח — בדקו את תיבת הדואר

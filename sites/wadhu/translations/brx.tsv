@@ -1,15 +1,15 @@
-# Bodo — बर' (brx). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# brx. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	प्राइभेसि
+terms	सर्तफोर
+cancellation	केन्सेल नियम
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	एकाउन्ट
+email	ईमेल
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	ईमेल, प्रभाइडार एबा फोनजों सालाय लां।
+acct_name_optional	मुं (गोसो जायोब्ला)
+acct_password	पासवार्ड
+acct_continue	सालाय लां
+acct_or_continue	एबा बेजों सालाय लां
+acct_federated	फेडारेटेड साइन इन
+acct_phone	फोन
+acct_mobile	मबाइल नम्बर
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	SMS कड दैथाय हो
+acct_sms_code	SMS कड
+acct_confirm_code	कड थार खालाम
+acct_signed_in	साइन इन जाबाय
+acct_signed_in_as	बे बादियै साइन इन
+acct_status_label	अवस्था
+acct_resend_verify	थार खालामनाय ईमेल फिन दैथाय हो
+acct_sign_out	साइन आउट
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	थार ईमेल ठिकाना लिर।
+err_weak_password	खमसेयावबो 6 हांखो गोनां पासवार्ड बाहाय।
+err_wrong_password	भुल पासवार्ड।
+err_invalid_credential	ईमेल एबा पासवार्डआ भुल।
+err_popup_closed	साइन इन उइन्ड' बन्द जाबाय।
+err_cancelled	साइन इन केन्सेल जाबाय।
+err_unauthorized_domain	बे ड'मेनआ Firebase Auth नि थाखाय गनायथि मोनाखै।
+err_not_allowed	बे साइन इन राहाया दासिम जागायाखै।
+err_too_many	जोबोद बांसिन नाजानाय। उनाव फिन नाजा।
+err_invalid_phone	हादरनि कड लोगोसे आबुं फोन नम्बर बाहाय (बिदिन्थि +91…)।
+err_bad_code	बे SMS कडआ भुल एबा सम जोबबाय।
+err_generic	माबा भुल जाबाय।
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	ईमेल थार जाबाय
+acct_email_unverified	ईमेल दासिम थार जायाखै — नोंनि इनबक्स नाय
+acct_phone_signed_in	फोनजों साइन इन जाबाय
+acct_you_are_in	नों साइन इन जाबाय।
 acct_verify_sent	Verification email sent — check your inbox

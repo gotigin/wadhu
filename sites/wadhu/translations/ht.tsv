@@ -1,15 +1,15 @@
-# Haitian Creole — Kreyòl ayisyen (ht). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# ht. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Konfidansyalite
+terms	Kondisyon
+cancellation	Anilasyon
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Kont
+email	Imèl
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	Kontinye ak imèl, yon founisè oswa telefòn.
+acct_name_optional	Non (opsyonèl)
+acct_password	Modpas
+acct_continue	Kontinye
+acct_or_continue	oswa kontinye ak
+acct_federated	Koneksyon federe
+acct_phone	Telefòn
+acct_mobile	Nimewo selilè
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	Voye kòd SMS
+acct_sms_code	Kòd SMS
+acct_confirm_code	Konfime kòd la
+acct_signed_in	Ou konekte
+acct_signed_in_as	Konekte kòm
+acct_status_label	Estati
+acct_resend_verify	Revoye imèl verifikasyon an
+acct_sign_out	Dekonekte
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Antre yon adrès imèl ki valab.
+err_weak_password	Sèvi ak yon modpas ki gen omwen 6 karaktè.
+err_wrong_password	Modpas la pa bon.
+err_invalid_credential	Imèl la oswa modpas la pa bon.
+err_popup_closed	Fenèt koneksyon an fèmen.
+err_cancelled	Koneksyon an anile.
+err_unauthorized_domain	Domèn sa a pa otorize pou Firebase Auth.
+err_not_allowed	Fason koneksyon sa a poko aktive.
+err_too_many	Twòp esè. Eseye ankò pita.
+err_invalid_phone	Sèvi ak yon nimewo telefòn konplè ak kòd peyi a (pa egzanp +91…).
+err_bad_code	Kòd SMS sa a pa bon oswa li ekspire.
+err_generic	Gen yon bagay ki mal pase.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	Imèl verifye
+acct_email_unverified	Imèl la poko verifye — gade bwat resepsyon ou
+acct_phone_signed_in	Konekte ak telefòn
+acct_you_are_in	Ou konekte.
 acct_verify_sent	Verification email sent — check your inbox

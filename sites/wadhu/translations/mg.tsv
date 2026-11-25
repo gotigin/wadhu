@@ -1,15 +1,15 @@
-# Malagasy — Malagasy (mg). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# mg. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Fiainana manokana
+terms	Fepetra
+cancellation	Fanafoanana
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Kaonty
+email	Mailaka
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	Tohizo amin’ny mailaka, mpamatsy na finday.
+acct_name_optional	Anarana (tsy voatery)
+acct_password	Tenimiafina
+acct_continue	Tohizo
+acct_or_continue	na tohizo amin’ny
+acct_federated	Fidirana mitambatra
+acct_phone	Finday
+acct_mobile	Laharan’ny finday
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	Alefaso ny kaody SMS
+acct_sms_code	Kaody SMS
+acct_confirm_code	Hamafiso ny kaody
+acct_signed_in	Tafiditra
+acct_signed_in_as	Tafiditra amin’ny anarana
+acct_status_label	Toe-javatra
+acct_resend_verify	Avereno alefa ny mailaka fanamarinana
+acct_sign_out	Hivoaka
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Ampidiro adiresy mailaka manan-kery.
+err_weak_password	Ampiasao tenimiafina misy tarehin-tsoratra 6 farafahakeliny.
+err_wrong_password	Diso ny tenimiafina.
+err_invalid_credential	Diso ny mailaka na ny tenimiafina.
+err_popup_closed	Nakatona ny varavarankelin’ny fidirana.
+err_cancelled	Nofoanana ny fidirana.
+err_unauthorized_domain	Tsy nahazo alalana ho an’ny Firebase Auth ity sehatra ity.
+err_not_allowed	Mbola tsy alefa io fomba fidirana io.
+err_too_many	Andrana be loatra. Andramo indray any aoriana.
+err_invalid_phone	Ampiasao ny laharana finday feno miaraka amin’ny kaodin’ny firenena (ohatra +91…).
+err_bad_code	Diso na lany daty io kaody SMS io.
+err_generic	Nisy zavatra tsy nety.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	Voamarina ny mailaka
+acct_email_unverified	Mbola tsy voamarina ny mailaka — jereo ny boaty fandraisanao
+acct_phone_signed_in	Tafiditra tamin’ny finday
+acct_you_are_in	Tafiditra ianao.
 acct_verify_sent	Verification email sent — check your inbox

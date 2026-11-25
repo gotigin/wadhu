@@ -1,15 +1,15 @@
-# Welsh — Cymraeg (cy). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# cy. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Preifatrwydd
+terms	Telerau
+cancellation	Canslo
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Cyfrif
+email	E-bost
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	Parhewch ag e-bost, darparwr neu ffôn.
+acct_name_optional	Enw (dewisol)
+acct_password	Cyfrinair
+acct_continue	Parhau
+acct_or_continue	neu parhewch gyda
+acct_federated	Mewngofnodi ffederal
+acct_phone	Ffôn
+acct_mobile	Rhif ffôn symudol
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	Anfon cod SMS
+acct_sms_code	Cod SMS
+acct_confirm_code	Cadarnhau’r cod
+acct_signed_in	Wedi mewngofnodi
+acct_signed_in_as	Wedi mewngofnodi fel
+acct_status_label	Statws
+acct_resend_verify	Ailanfon e-bost dilysu
+acct_sign_out	Allgofnodi
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Rhowch gyfeiriad e-bost dilys.
+err_weak_password	Defnyddiwch gyfrinair gydag o leiaf 6 nod.
+err_wrong_password	Cyfrinair anghywir.
+err_invalid_credential	Mae’r e-bost neu’r cyfrinair yn anghywir.
+err_popup_closed	Caewyd y ffenestr mewngofnodi.
+err_cancelled	Canslwyd y mewngofnodi.
+err_unauthorized_domain	Nid yw’r parth hwn wedi’i awdurdodi ar gyfer Firebase Auth.
+err_not_allowed	Nid yw’r dull mewngofnodi hwnnw wedi’i alluogi eto.
+err_too_many	Gormod o ymdrechion. Rhowch gynnig arall arni nes ymlaen.
+err_invalid_phone	Defnyddiwch rif ffôn llawn gyda chod gwlad (e.e. +91…).
+err_bad_code	Mae’r cod SMS hwnnw’n anghywir neu wedi dod i ben.
+err_generic	Aeth rhywbeth o’i le.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	E-bost wedi’i ddilysu
+acct_email_unverified	E-bost heb ei ddilysu eto — gwiriwch eich mewnflwch
+acct_phone_signed_in	Wedi mewngofnodi â ffôn
+acct_you_are_in	Rydych wedi mewngofnodi.
 acct_verify_sent	Verification email sent — check your inbox

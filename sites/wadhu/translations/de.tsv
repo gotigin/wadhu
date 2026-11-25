@@ -1,84 +1,84 @@
-# German — Deutsch (de). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
-data_deletion	Data deletion
+# de. key<TAB>text. Keep {placeholders}. \n = line break.
+menu	Menü
+close	Schließen
+home	Startseite
+about	Über uns
+privacy	Datenschutz
+terms	Bedingungen
+cancellation	Kündigung
+data_deletion	Datenlöschung
 support	Support
-account	Account
-email	Email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+account	Konto
+email	E-Mail
+window_title	Wadhu — Werkzeuge · Apps · Mehr
+tagline	Werkzeuge · Apps · Mehr
+hero_kicker	WADHU · VON GOTIGIN
+hero_title	Wadhu bedeutet mehr.
+hero_lede	Wiederverwendbare Werkzeuge, Hilfsprogramme und Apps — Werkzeuge · Apps · Mehr.
+the_brand	DIE MARKE
+what_title	Werkzeuge, Hilfsprogramme und Apps.
+what_lede	Einmal geschrieben, damit andere Produkte von Gotigin und alle anderen genau das Stück nehmen können, das sie brauchen.
+what_body	Hier liegen Bibliotheken, kleine Programme und Dienste. Jeder Teil steht für sich.
+reuse	WIEDERVERWENDUNG
+reuse_title	Nehmen Sie ein Stück.
+reuse_body	Eine Crate ist eine Bibliothek. Eine App ist ein Programm, das Sie neben Ihrem eigenen ausführen. Eine Site ist eine Seite, die Sie besuchen. Ändert sich ein Teil, muss sich kein verwandter Teil mitändern.
+products	PRODUKTE
+products_title	Unter der Marke Wadhu
+products_lede	Produkte, die unter dieser Marke erscheinen.
+sms_gateway_blurb	SIM-Gateway, Android zuerst. LAN und Bluetooth bleiben für immer kostenlos.
+sms_relay_blurb	Optionaler Internetweg zu einem gekoppelten Gateway. Lokales Senden braucht ihn nicht.
+connect_blurb	Brücke als Tech Provider für die WhatsApp Cloud API. Unternehmen behalten ihre Nummer; Apps senden und empfangen nach dem Embedded Signup.
+open_connect	Wadhu Connect öffnen
+names	NAMEN
+about_title	Wer wir sind
+trademark	MARKENZEICHEN
+find_it	Memon für „finde es“ · ausgesprochen go-tee-geen
+slogan	Wo Technologie auf Entdeckung trifft
+company	UNTERNEHMEN
+director_line	Direktor · mearaj@gmail.com
+brand	MARKE
+more_line	Memon für „mehr“ · Werkzeuge · Apps · Mehr
+products_line	SIM-Gateway, optionales Relay und eine Brücke zur WhatsApp Cloud API
+next	WEITER
+closing_title	Bauen Sie mit Wadhu.
+closing_body	Ein Konto auf wadhu.com ist für gehostete Funktionen. Lokale Werkzeuge über LAN und Bluetooth bleiben kostenlos.
+acct_page_title	Konto — Wadhu
+acct_lede	Melden Sie sich für gehostete Funktionen von Wadhu an. Lokale Werkzeuge über LAN und Bluetooth bleiben ohne Konto nutzbar.
+acct_continue_with	Weiter mit E-Mail, einem Anbieter oder Telefon.
+acct_name_optional	Name (freiwillig)
+acct_password	Passwort
+acct_continue	Weiter
+acct_or_continue	oder weiter mit
+acct_federated	Föderierte Anmeldung
+acct_phone	Telefon
+acct_mobile	Handynummer
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
-acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
-acct_verify_sent	Verification email sent — check your inbox
+acct_send_sms	SMS-Code senden
+acct_sms_code	SMS-Code
+acct_confirm_code	Code bestätigen
+acct_signed_in	Angemeldet
+acct_signed_in_as	Angemeldet als
+acct_status_label	Kontostatus
+acct_resend_verify	Bestätigungs-E-Mail erneut senden
+acct_sign_out	Abmelden
+acct_home_aria	Startseite von Wadhu
+acct_nav_aria	Primär
+company_privacy	Datenschutz des Unternehmens
+err_invalid_email	Geben Sie eine gültige E-Mail-Adresse ein.
+err_weak_password	Verwenden Sie ein Passwort mit mindestens 6 Zeichen.
+err_wrong_password	Falsches Passwort.
+err_invalid_credential	E-Mail oder Passwort ist falsch.
+err_popup_closed	Das Anmeldefenster wurde geschlossen.
+err_cancelled	Die Anmeldung wurde abgebrochen.
+err_unauthorized_domain	Diese Domain ist für Firebase Auth nicht autorisiert.
+err_not_allowed	Diese Anmeldemethode ist noch nicht aktiviert.
+err_too_many	Zu viele Versuche. Versuchen Sie es später erneut.
+err_invalid_phone	Verwenden Sie die vollständige Telefonnummer mit Ländervorwahl (z. B. +91…).
+err_bad_code	Dieser SMS-Code ist falsch oder abgelaufen.
+err_generic	Etwas ist schiefgelaufen.
+acct_no_email	(keine E-Mail)
+acct_email_verified	E-Mail bestätigt
+acct_email_unverified	E-Mail noch nicht bestätigt — prüfen Sie Ihren Posteingang
+acct_phone_signed_in	Mit Telefon angemeldet
+acct_you_are_in	Sie sind angemeldet.
+acct_verify_sent	Bestätigungs-E-Mail gesendet — prüfen Sie Ihren Posteingang

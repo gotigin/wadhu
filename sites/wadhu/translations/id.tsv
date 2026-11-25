@@ -1,84 +1,84 @@
-# Indonesian — Bahasa Indonesia (id). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# id. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
-close	Close
-home	Home
-about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
-data_deletion	Data deletion
-support	Support
-account	Account
-email	Email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+close	Tutup
+home	Beranda
+about	Tentang
+privacy	Privasi
+terms	Ketentuan
+cancellation	Pembatalan
+data_deletion	Penghapusan data
+support	Dukungan
+account	Akun
+email	Alamat email
+window_title	Wadhu — Alat · aplikasi · lebih
+tagline	Alat · aplikasi · lebih
+hero_kicker	WADHU · DARI GOTIGIN
+hero_title	Wadhu berarti lebih.
+hero_lede	Alat, util, dan aplikasi yang dipakai ulang — Alat · aplikasi · lebih.
+the_brand	MEREK
+what_title	Alat, util, dan aplikasi.
+what_lede	Ditulis sekali, supaya produk Gotigin yang lain dan siapa pun mengambil tepat potongan yang dibutuhkan.
+what_body	Pustaka, program kecil, dan layanan ada di sini. Setiap bagian berdiri sendiri.
+reuse	PAKAI ULANG
+reuse_title	Ambil satu potongan.
+reuse_body	Crate adalah pustaka. Aplikasi adalah program yang Anda jalankan di samping program Anda. Situs adalah halaman yang Anda buka. Satu bagian berubah tidak pernah memaksa bagian lain ikut berubah.
+products	PRODUK
+products_title	Di bawah merek Wadhu
+products_lede	Produk yang terbit di bawah merek ini.
+sms_gateway_blurb	Gerbang SIM, Android lebih dulu. LAN dan Bluetooth tetap gratis selamanya.
+sms_relay_blurb	Jalur internet opsional ke gerbang yang dipasangkan. Kirim lokal tidak membutuhkannya.
+connect_blurb	Jembatan Tech Provider ke WhatsApp Cloud API. Usaha menyimpan nomornya sendiri; aplikasi mengirim dan menerima setelah Embedded Signup.
+open_connect	Buka Wadhu Connect
+names	NAMA
+about_title	Siapa kami
+trademark	MEREK DAGANG
+find_it	Memon untuk «temukan» · diucapkan go-tee-geen
+slogan	Tempat teknologi bertemu penemuan
+company	PERUSAHAAN
+director_line	Direktur · mearaj@gmail.com
+brand	MEREK
+more_line	Memon untuk «lebih» · Alat · aplikasi · lebih
+products_line	Gerbang SIM, relai opsional, dan jembatan ke WhatsApp Cloud API
+next	BERIKUTNYA
+closing_title	Bangun bersama Wadhu.
+closing_body	Akun wadhu.com untuk fitur yang dihos. Alat lokal lewat LAN dan Bluetooth tetap gratis.
+acct_page_title	Akun — Wadhu
+acct_lede	Masuk untuk fitur Wadhu yang dihos. Alat lokal lewat LAN dan Bluetooth tetap bisa dipakai tanpa akun.
+acct_continue_with	Lanjutkan dengan email, penyedia, atau telepon.
+acct_name_optional	Nama (opsional)
+acct_password	Kata sandi
+acct_continue	Lanjut
+acct_or_continue	atau lanjutkan dengan
+acct_federated	Masuk terfederasi
+acct_phone	Telepon
+acct_mobile	Nomor ponsel
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
-acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
-acct_verify_sent	Verification email sent — check your inbox
+acct_send_sms	Kirim kode SMS
+acct_sms_code	Kode SMS
+acct_confirm_code	Konfirmasi kode
+acct_signed_in	Sudah masuk
+acct_signed_in_as	Masuk sebagai
+acct_status_label	Status akun
+acct_resend_verify	Kirim ulang email verifikasi
+acct_sign_out	Keluar
+acct_home_aria	Beranda Wadhu
+acct_nav_aria	Utama
+company_privacy	Privasi perusahaan
+err_invalid_email	Masukkan alamat email yang valid.
+err_weak_password	Gunakan kata sandi minimal 6 karakter.
+err_wrong_password	Kata sandi salah.
+err_invalid_credential	Email atau kata sandi salah.
+err_popup_closed	Jendela masuk ditutup.
+err_cancelled	Masuk dibatalkan.
+err_unauthorized_domain	Domain ini tidak diizinkan untuk Firebase Auth.
+err_not_allowed	Cara masuk itu belum diaktifkan.
+err_too_many	Terlalu banyak percobaan. Coba lagi nanti.
+err_invalid_phone	Gunakan nomor telepon lengkap dengan kode negara (mis. +91…).
+err_bad_code	Kode SMS itu salah atau kedaluwarsa.
+err_generic	Terjadi kesalahan.
+acct_no_email	(tidak ada email)
+acct_email_verified	Email terverifikasi
+acct_email_unverified	Email belum diverifikasi — periksa kotak masuk Anda
+acct_phone_signed_in	Masuk dengan telepon
+acct_you_are_in	Anda sudah masuk.
+acct_verify_sent	Email verifikasi terkirim — periksa kotak masuk Anda

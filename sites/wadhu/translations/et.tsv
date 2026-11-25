@@ -1,15 +1,15 @@
-# Estonian — Eesti (et). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# et. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Privaatsus
+terms	Tingimused
+cancellation	Tühistamine
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Konto
+email	E-post
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	Jätka e-posti, teenusepakkuja või telefoniga.
+acct_name_optional	Nimi (valikuline)
+acct_password	Parool
+acct_continue	Jätka
+acct_or_continue	või jätka teenusega
+acct_federated	Föderatiivne sisselogimine
+acct_phone	Telefon
+acct_mobile	Mobiilinumber
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	Saada SMS-kood
+acct_sms_code	SMS-kood
+acct_confirm_code	Kinnita kood
+acct_signed_in	Sisse logitud
+acct_signed_in_as	Sisse logitud kui
+acct_status_label	Olek
+acct_resend_verify	Saada kinnitusmeil uuesti
+acct_sign_out	Logi välja
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Sisesta kehtiv e-posti aadress.
+err_weak_password	Kasuta vähemalt 6 märgiga parooli.
+err_wrong_password	Vale parool.
+err_invalid_credential	E-post või parool on vale.
+err_popup_closed	Sisselogimisaken suleti.
+err_cancelled	Sisselogimine tühistati.
+err_unauthorized_domain	See domeen pole Firebase Authi jaoks volitatud.
+err_not_allowed	See sisselogimisviis pole veel lubatud.
+err_too_many	Liiga palju katseid. Proovi hiljem uuesti.
+err_invalid_phone	Kasuta täielikku telefoninumbrit koos riigikoodiga (nt +91…).
+err_bad_code	See SMS-kood on vale või aegunud.
+err_generic	Midagi läks valesti.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	E-post kinnitatud
+acct_email_unverified	E-post pole veel kinnitatud — vaata postkasti
+acct_phone_signed_in	Sisse logitud telefoniga
+acct_you_are_in	Oled sisse logitud.
 acct_verify_sent	Verification email sent — check your inbox

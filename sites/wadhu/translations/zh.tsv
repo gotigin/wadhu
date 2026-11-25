@@ -1,84 +1,84 @@
-# Chinese (Simplified) — 中文 (zh). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
-data_deletion	Data deletion
-support	Support
-account	Account
-email	Email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+# zh. key<TAB>text. Keep {placeholders}. \n = line break.
+menu	菜单
+close	关闭
+home	首页
+about	关于
+privacy	隐私
+terms	条款
+cancellation	取消政策
+data_deletion	数据删除
+support	支持
+account	账户
+email	电子邮箱
+window_title	Wadhu — 工具 · 应用 · 更多
+tagline	工具 · 应用 · 更多
+hero_kicker	WADHU · 来自 GOTIGIN
+hero_title	Wadhu 的意思是更多。
+hero_lede	可复用的工具、实用程序和应用 — 工具 · 应用 · 更多。
+the_brand	品牌
+what_title	工具、实用程序和应用。
+what_lede	写一次，让 Gotigin 的其他产品以及任何人都正好取走需要的那一块。
+what_body	库、小程序和服务都在这里。每一块都独立成立。
+reuse	复用
+reuse_title	取走一块。
+reuse_body	crate 是库。应用是放在你自己的程序旁边运行的程序。站点是你打开的页面。一块改变，从不会强迫另一块跟着改。
+products	产品
+products_title	Wadhu 品牌之下
+products_lede	以这个品牌发布的产品。
+sms_gateway_blurb	以 Android 为先的 SIM 网关。LAN 和 Bluetooth 永远免费。
+sms_relay_blurb	通往已配对网关的可选互联网路径。本地发送不需要它。
+connect_blurb	WhatsApp Cloud API 的 Tech Provider 桥。商家保留自己的号码；应用在 Embedded Signup 之后收发。
+open_connect	打开 Wadhu Connect
+names	名称
+about_title	我们是谁
+trademark	商标
+find_it	Memon 语意为「找到它」· 读作 go-tee-geen
+slogan	技术与发现相遇之处
+company	公司
+director_line	董事 · mearaj@gmail.com
+brand	品牌
+more_line	Memon 语意为「更多」· 工具 · 应用 · 更多
+products_line	SIM 网关、可选中继，以及通往 WhatsApp Cloud API 的桥
+next	下一步
+closing_title	用 Wadhu 来做。
+closing_body	wadhu.com 账户用于托管功能。经 LAN 和 Bluetooth 的本地工具保持免费。
+acct_page_title	账户 — Wadhu
+acct_lede	登录以使用 Wadhu 的托管功能。经 LAN 和 Bluetooth 的本地工具无需账户即可使用。
+acct_continue_with	通过邮箱、第三方账户或手机继续。
+acct_name_optional	姓名（可选）
+acct_password	密码
+acct_continue	继续
+acct_or_continue	或通过以下方式继续
+acct_federated	联合登录
+acct_phone	电话
+acct_mobile	手机号码
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
-acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
-acct_verify_sent	Verification email sent — check your inbox
+acct_send_sms	发送短信验证码
+acct_sms_code	短信验证码
+acct_confirm_code	确认验证码
+acct_signed_in	已登录
+acct_signed_in_as	当前登录账户
+acct_status_label	状态
+acct_resend_verify	重新发送验证邮件
+acct_sign_out	退出登录
+acct_home_aria	Wadhu 首页
+acct_nav_aria	主导航
+company_privacy	公司隐私
+err_invalid_email	请输入有效的邮箱地址。
+err_weak_password	密码至少需要 6 个字符。
+err_wrong_password	密码错误。
+err_invalid_credential	邮箱或密码错误。
+err_popup_closed	登录窗口已关闭。
+err_cancelled	登录已取消。
+err_unauthorized_domain	此域名未获 Firebase Auth 授权。
+err_not_allowed	该登录方式尚未启用。
+err_too_many	尝试次数过多，请稍后再试。
+err_invalid_phone	请输入带国家代码的完整电话号码（例如 +91…）。
+err_bad_code	该短信验证码错误或已过期。
+err_generic	出了点问题。
+acct_no_email	（无邮箱）
+acct_email_verified	邮箱已验证
+acct_email_unverified	邮箱尚未验证——请查看收件箱
+acct_phone_signed_in	已通过手机登录
+acct_you_are_in	您已登录。
+acct_verify_sent	验证邮件已发送——请查看收件箱

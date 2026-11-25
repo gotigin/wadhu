@@ -1,15 +1,15 @@
-# Lao — ລາວ (lo). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# lo. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	ຄວາມເປັນ​ສ່ວນຕົວ
+terms	ຂໍ້​ກຳນົດ
+cancellation	ການຍົກ​ເລີກ
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	ບັນຊີ
+email	ອີ​ເມວ
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	ສືບຕໍ່​ດ້ວຍ​ອີ​ເມວ ຜູ້​ໃຫ້​ບໍລິການ ຫຼື ໂທລະສັບ
+acct_name_optional	ຊື່ (ບໍ່​ບັງຄັບ)
+acct_password	ລະຫັດ​ຜ່ານ
+acct_continue	ສືບຕໍ່
+acct_or_continue	ຫຼື ສືບຕໍ່​ດ້ວຍ
+acct_federated	ການເຂົ້າ​ສູ່​ລະບົບ​ຜ່ານ​ຜູ້​ໃຫ້​ບໍລິການ​ພາຍນອກ
+acct_phone	ໂທລະສັບ
+acct_mobile	ເບີ​ມື​ຖື
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	ສົ່ງ​ລະຫັດ SMS
+acct_sms_code	ລະຫັດ SMS
+acct_confirm_code	ຢືນຢັນ​ລະຫັດ
+acct_signed_in	ເຂົ້າສູ່​ລະບົບ​ແລ້ວ
+acct_signed_in_as	ເຂົ້າສູ່​ລະບົບ​ໃນນາມ
+acct_status_label	ສະຖານະ
+acct_resend_verify	ສົ່ງ​ອີ​ເມວ​ຢືນຢັນ​ອີກ​ຄັ້ງ
+acct_sign_out	ອອກຈາກ​ລະບົບ
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	ປ້ອນ​ອີ​ເມວ​ທີ່​ຖືກຕ້ອງ
+err_weak_password	ໃຊ້​ລະຫັດ​ຜ່ານ​ຢ່າງ​ໜ້ອຍ 6 ຕົວ​ອັກສອນ
+err_wrong_password	ລະຫັດ​ຜ່ານ​ບໍ່​ຖືກຕ້ອງ
+err_invalid_credential	ອີ​ເມວ ຫຼື ລະຫັດ​ຜ່ານ​ບໍ່​ຖືກຕ້ອງ
+err_popup_closed	ໜ້າຕ່າງ​ເຂົ້າສູ່​ລະບົບ​ຖືກ​ປິດ
+err_cancelled	ການເຂົ້າ​ສູ່​ລະບົບ​ຖືກ​ຍົກເລີກ
+err_unauthorized_domain	ໂດ​ເມນ​ນີ້​ບໍ່ໄດ້​ຮັບ​ອະນຸຍາດ​ສຳລັບ Firebase Auth
+err_not_allowed	ວິທີ​ເຂົ້າສູ່​ລະບົບ​ນັ້ນ​ຍັງ​ບໍ່​ເປີດ​ໃຊ້
+err_too_many	ລອງ​ຫຼາຍເທື່ອ​ເກີນໄປ ກະລຸນາ​ລອງ​ໃໝ່​ພາຍຫຼັງ
+err_invalid_phone	ໃຊ້​ເບີ​ໂທລະສັບ​ເຕັມ​ພ້ອມ​ລະຫັດ​ປະເທດ (ເຊັ່ນ +91…)
+err_bad_code	ລະຫັດ SMS ບໍ່​ຖືກຕ້ອງ ຫຼື ໝົດ​ອາຍຸ​ແລ້ວ
+err_generic	ເກີດ​ຂໍ້​ຜິດພາດ
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	ຢືນຢັນ​ອີ​ເມວ​ແລ້ວ
+acct_email_unverified	ຍັງ​ບໍ່ໄດ້​ຢືນຢັນ​ອີ​ເມວ — ກວດເບິ່ງ​ກ່ອງ​ຈົດໝາຍ
+acct_phone_signed_in	ເຂົ້າສູ່​ລະບົບ​ດ້ວຍ​ໂທລະສັບ​ແລ້ວ
+acct_you_are_in	ທ່ານ​ເຂົ້າສູ່​ລະບົບ​ແລ້ວ
 acct_verify_sent	Verification email sent — check your inbox

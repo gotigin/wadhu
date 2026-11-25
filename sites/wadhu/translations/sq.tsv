@@ -1,15 +1,15 @@
-# Albanian — Shqip (sq). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# sq. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Privatësia
+terms	Kushtet
+cancellation	Anulimi
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Llogaria
+email	Posta elektronike
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	Vazhdo me email, një ofrues ose telefon.
+acct_name_optional	Emri (opsional)
+acct_password	Fjalëkalimi
+acct_continue	Vazhdo
+acct_or_continue	ose vazhdo me
+acct_federated	Hyrje e federuar
+acct_phone	Telefoni
+acct_mobile	Numri i celularit
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	Dërgo kodin SMS
+acct_sms_code	Kodi SMS
+acct_confirm_code	Konfirmo kodin
+acct_signed_in	Hyrja u krye
+acct_signed_in_as	Hyrje si
+acct_status_label	Statusi
+acct_resend_verify	Ridërgo email-in e verifikimit
+acct_sign_out	Dil
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Fut një adresë email të vlefshme.
+err_weak_password	Përdor një fjalëkalim me të paktën 6 karaktere.
+err_wrong_password	Fjalëkalim i gabuar.
+err_invalid_credential	Email-i ose fjalëkalimi është i gabuar.
+err_popup_closed	Dritarja e hyrjes u mbyll.
+err_cancelled	Hyrja u anulua.
+err_unauthorized_domain	Ky domen nuk është i autorizuar për Firebase Auth.
+err_not_allowed	Kjo mënyrë hyrjeje nuk është aktivizuar ende.
+err_too_many	Shumë përpjekje. Provo përsëri më vonë.
+err_invalid_phone	Përdor numrin e plotë të telefonit me kodin e vendit (p.sh. +91…).
+err_bad_code	Ky kod SMS është i gabuar ose ka skaduar.
+err_generic	Diçka shkoi keq.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	Email-i u verifikua
+acct_email_unverified	Email-i nuk është verifikuar ende — kontrollo kutinë postare
+acct_phone_signed_in	Hyrje me telefon
+acct_you_are_in	Ke hyrë.
 acct_verify_sent	Verification email sent — check your inbox

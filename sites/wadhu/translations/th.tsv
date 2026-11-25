@@ -1,84 +1,84 @@
-# Thai — ไทย (th). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
-data_deletion	Data deletion
-support	Support
-account	Account
-email	Email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+# th. key<TAB>text. Keep {placeholders}. \n = line break.
+menu	เมนู
+close	ปิด
+home	หน้า​แรก
+about	เกี่ยวกับ
+privacy	ความ​เป็น​ส่วน​ตัว
+terms	ข้อ​กำหนด
+cancellation	การ​ยกเลิก
+data_deletion	การ​ลบ​ข้อมูล
+support	ฝ่าย​สนับสนุน
+account	บัญชี
+email	อีเมล
+window_title	Wadhu — เครื่อง​มือ · แอป · มาก​ขึ้น
+tagline	เครื่อง​มือ · แอป · มาก​ขึ้น
+hero_kicker	WADHU · จาก GOTIGIN
+hero_title	Wadhu หมาย​ถึง​มาก​ขึ้น.
+hero_lede	เครื่อง​มือ​ยูทิล​และ​แอป​ที่​ใช้​ซ้ำ​ได้ — เครื่อง​มือ · แอป · มาก​ขึ้น.
+the_brand	แบรนด์
+what_title	เครื่อง​มือ​ยูทิล​และ​แอป.
+what_lede	เขียน​ครั้ง​เดียว​เพื่อ​ให้​ผลิตภัณฑ์​อื่น​ของ Gotigin และ​ใคร​ก็​ตาม​หยิบ​ชิ้น​ที่​ต้องการ​ได้​พอ​ดี.
+what_body	ไลบรารี​โปรแกรม​เล็ก​และ​บริการ​อยู่​ที่​นี่. แต่​ละ​ส่วน​ยืน​ด้วย​ตัว​เอง.
+reuse	ใช้​ซ้ำ
+reuse_title	หยิบ​หนึ่ง​ชิ้น.
+reuse_body	crate คือ​ไลบรารี. แอป​คือ​โปรแกรม​ที่​คุณ​เปิด​ข้าง​โปรแกรม​ของ​คุณ. ไซต์​คือ​หน้า​ที่​คุณ​เปิด. ส่วน​หนึ่ง​เปลี่ยน​ไม่​เคย​บังคับ​ให้​ส่วน​ข้าง​เคียง​เปลี่ยน.
+products	ผลิตภัณฑ์
+products_title	ภาย​ใต้​แบรนด์ Wadhu
+products_lede	ผลิตภัณฑ์​ที่​ออก​ภาย​ใต้​แบรนด์​นี้.
+sms_gateway_blurb	เกตเวย์ SIM, Android ก่อน. LAN และ Bluetooth ฟรี​ตลอด​ไป.
+sms_relay_blurb	ทาง​อินเทอร์เน็ต​ที่​เลือก​ได้​ไป​ยัง​เกตเวย์​ที่​จับ​คู่. การ​ส่ง​ใน​ที่​ไม่​ต้อง​ใช้.
+connect_blurb	สะพาน Tech Provider สู่ WhatsApp Cloud API. ธุรกิจ​เก็บ​เบอร์​ของ​ตน​ไว้. แอป​ส่ง​และ​รับ​หลัง Embedded Signup.
+open_connect	เปิด Wadhu Connect
+names	ชื่อ
+about_title	เรา​คือ​ใคร
+trademark	เครื่องหมาย​การค้า
+find_it	Memon ของ «หา​ให้​เจอ» · อ่าน​ว่า go-tee-geen
+slogan	ที่​ซึ่ง​เทคโนโลยี​พบ​การ​ค้น​พบ
+company	บริษัท
+director_line	กรรมการ · mearaj@gmail.com
+brand	แบรนด์
+more_line	Memon ของ «มาก​ขึ้น» · เครื่อง​มือ · แอป · มาก​ขึ้น
+products_line	เกตเวย์ SIM, รีเลย์​ที่​เลือก​ได้, และ​สะพาน​สู่ WhatsApp Cloud API
+next	ถัด​ไป
+closing_title	สร้าง​ด้วย Wadhu.
+closing_body	บัญชี wadhu.com สำหรับ​ฟีเจอร์​ที่​โฮสต์. เครื่อง​มือ​ใน​ที่​ผ่าน LAN และ Bluetooth ยัง​ฟรี.
+acct_page_title	บัญชี — Wadhu
+acct_lede	ลง​ชื่อ​เข้า​ใช้​สำหรับ​ฟีเจอร์​ที่​โฮสต์​ของ Wadhu. เครื่อง​มือ​ใน​ที่​ผ่าน LAN และ Bluetooth ใช้​ได้​โดย​ไม่​ต้อง​มี​บัญชี.
+acct_continue_with	ดำเนิน​การ​ต่อ​ด้วย​อีเมล ผู้​ให้​บริการ หรือ​โทรศัพท์
+acct_name_optional	ชื่อ (ไม่​บังคับ)
+acct_password	รหัส​ผ่าน
+acct_continue	ดำเนิน​การ​ต่อ
+acct_or_continue	หรือ​ดำเนิน​การ​ต่อ​ด้วย
+acct_federated	การ​เข้า​สู่​ระบบ​แบบ​รวม​ศูนย์
+acct_phone	โทรศัพท์
+acct_mobile	เบอร์​มือ​ถือ
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
-acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
-acct_verify_sent	Verification email sent — check your inbox
+acct_send_sms	ส่ง​รหัส SMS
+acct_sms_code	รหัส SMS
+acct_confirm_code	ยืนยัน​รหัส
+acct_signed_in	เข้า​สู่​ระบบ​แล้ว
+acct_signed_in_as	เข้า​สู่​ระบบ​ใน​ชื่อ
+acct_status_label	สถานะ
+acct_resend_verify	ส่ง​อีเมล​ยืนยัน​อีก​ครั้ง
+acct_sign_out	ออก​จาก​ระบบ
+acct_home_aria	หน้า​แรก Wadhu
+acct_nav_aria	หลัก
+company_privacy	ความ​เป็น​ส่วน​ตัว​ของ​บริษัท
+err_invalid_email	กรอก​อีเมล​ที่​ถูก​ต้อง
+err_weak_password	ใช้​รหัส​ผ่าน​อย่าง​น้อย 6 ตัว​อักษร
+err_wrong_password	รหัส​ผ่าน​ไม่​ถูก​ต้อง
+err_invalid_credential	อีเมล​หรือ​รหัส​ผ่าน​ไม่​ถูก​ต้อง
+err_popup_closed	หน้าต่าง​เข้า​สู่​ระบบ​ถูก​ปิด
+err_cancelled	การ​เข้า​สู่​ระบบ​ถูก​ยกเลิก
+err_unauthorized_domain	โดเมน​นี้​ไม่​ได้​รับ​อนุญาต​สำหรับ Firebase Auth
+err_not_allowed	วิธี​เข้า​สู่​ระบบ​นั้น​ยัง​ไม่​เปิด​ใช้
+err_too_many	ลอง​หลาย​ครั้ง​เกิน​ไป โปรด​ลอง​ใหม่​ภาย​หลัง
+err_invalid_phone	ใช้​เบอร์​โทรศัพท์​เต็ม​พร้อม​รหัส​ประเทศ (เช่น +91…)
+err_bad_code	รหัส SMS ไม่​ถูก​ต้อง​หรือ​หมด​อายุ​แล้ว
+err_generic	เกิด​ข้อ​ผิด​พลาด
+acct_no_email	(ไม่มี​อีเมล)
+acct_email_verified	ยืนยัน​อีเมล​แล้ว
+acct_email_unverified	ยัง​ไม่​ได้​ยืนยัน​อีเมล — ตรวจ​สอบ​กล่อง​จดหมาย
+acct_phone_signed_in	เข้า​สู่​ระบบ​ด้วย​โทรศัพท์​แล้ว
+acct_you_are_in	คุณ​เข้า​สู่​ระบบ​แล้ว
+acct_verify_sent	ส่ง​อีเมล​ยืนยัน​แล้ว — ตรวจ​สอบ​กล่อง​จดหมาย

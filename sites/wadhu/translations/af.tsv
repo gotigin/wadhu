@@ -1,15 +1,15 @@
-# Afrikaans — Afrikaans (af). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# af. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Privaatheid
+terms	Bepalings
+cancellation	Kansellasie
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Rekening
+email	E-pos
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	Gaan voort met e-pos, ’n verskaffer of foon.
+acct_name_optional	Naam (opsioneel)
+acct_password	Wagwoord
+acct_continue	Gaan voort
+acct_or_continue	of gaan voort met
+acct_federated	Gefedereerde aanmelding
+acct_phone	Telefoon
+acct_mobile	Selfoonnommer
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	Stuur SMS-kode
+acct_sms_code	SMS-kode
+acct_confirm_code	Bevestig kode
+acct_signed_in	Aangemeld
+acct_signed_in_as	Aangemeld as
+acct_status_label	Stand
+acct_resend_verify	Stuur verifikasie-e-pos weer
+acct_sign_out	Meld af
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Voer ’n geldige e-posadres in.
+err_weak_password	Gebruik ’n wagwoord met minstens 6 karakters.
+err_wrong_password	Verkeerde wagwoord.
+err_invalid_credential	E-pos of wagwoord is verkeerd.
+err_popup_closed	Aanmeldvenster is toegemaak.
+err_cancelled	Aanmelding is gekanselleer.
+err_unauthorized_domain	Hierdie domein is nie vir Firebase Auth gemagtig nie.
+err_not_allowed	Daardie aanmeldmetode is nog nie geaktiveer nie.
+err_too_many	Te veel pogings. Probeer later weer.
+err_invalid_phone	Gebruik ’n volledige foonnommer met landkode (bv. +91…).
+err_bad_code	Daardie SMS-kode is verkeerd of het verval.
+err_generic	Iets het verkeerd geloop.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	E-pos geverifieer
+acct_email_unverified	E-pos nog nie geverifieer nie — kyk in jou inkassie
+acct_phone_signed_in	Met foon aangemeld
+acct_you_are_in	Jy is aangemeld.
 acct_verify_sent	Verification email sent — check your inbox

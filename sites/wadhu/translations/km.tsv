@@ -1,15 +1,15 @@
-# Khmer — ខ្មែរ (km). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# km. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	ឯកជន​ភាព
+terms	លក្ខខណ្ឌ
+cancellation	ការលុបចោល
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	គណនី
+email	អ៊ីមែល
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	បន្ត​ជាមួយ​អ៊ីមែល អ្នកផ្ដល់​សេវា ឬ​ទូរស័ព្ទ។
+acct_name_optional	ឈ្មោះ (ស្រេចចិត្ត)
+acct_password	ពាក្យសម្ងាត់
+acct_continue	បន្ត
+acct_or_continue	ឬ​បន្ត​ជាមួយ
+acct_federated	ការ​ចូល​តាម​អ្នកផ្ដល់​សេវា​ខាងក្រៅ
+acct_phone	ទូរស័ព្ទ
+acct_mobile	លេខទូរស័ព្ទ​ចល័ត
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	ផ្ញើ​លេខ​កូដ SMS
+acct_sms_code	លេខ​កូដ SMS
+acct_confirm_code	បញ្ជាក់​លេខ​កូដ
+acct_signed_in	បាន​ចូល
+acct_signed_in_as	បាន​ចូល​ជា
+acct_status_label	ស្ថានភាព
+acct_resend_verify	ផ្ញើ​អ៊ីមែល​ផ្ទៀងផ្ទាត់​ម្ដងទៀត
+acct_sign_out	ចាកចេញ
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	បញ្ចូល​អាសយដ្ឋាន​អ៊ីមែល​ត្រឹមត្រូវ។
+err_weak_password	ប្រើពាក្យ​សម្ងាត់​យ៉ាងតិច 6 តួអក្សរ។
+err_wrong_password	ពាក្យសម្ងាត់​ខុស។
+err_invalid_credential	អ៊ីមែល ឬពាក្យ​សម្ងាត់​ខុស។
+err_popup_closed	ផ្ទាំង​ចូល​ត្រូវ​បាន​បិទ។
+err_cancelled	ការ​ចូល​ត្រូវ​បាន​លុបចោល។
+err_unauthorized_domain	ដែន​នេះ​មិន​ត្រូវ​បាន​អនុញ្ញាត​សម្រាប់ Firebase Auth ទេ។
+err_not_allowed	វិធី​ចូល​នោះ​មិនទាន់​បាន​បើក​នៅឡើយ​ទេ។
+err_too_many	ព្យាយាម​ច្រើនដង​ពេក។ សូម​ព្យាយាម​ម្ដងទៀត​នៅពេល​ក្រោយ។
+err_invalid_phone	ប្រើ​លេខទូរស័ព្ទ​ពេញ ជាមួយ​លេខ​កូដ​ប្រទេស (ឧ. +91…)។
+err_bad_code	លេខ​កូដ SMS នោះ​ខុស ឬ​ផុតកំណត់​ហើយ។
+err_generic	មាន​អ្វីមួយ​ខុសប្រក្រតី។
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	អ៊ីមែល​បាន​ផ្ទៀងផ្ទាត់
+acct_email_unverified	អ៊ីមែល​មិនទាន់​បាន​ផ្ទៀងផ្ទាត់ — សូម​ពិនិត្យ​ប្រអប់​សំបុត្រ​របស់​អ្នក
+acct_phone_signed_in	បាន​ចូល​ដោយ​ទូរស័ព្ទ
+acct_you_are_in	អ្នក​បាន​ចូល​ហើយ។
 acct_verify_sent	Verification email sent — check your inbox

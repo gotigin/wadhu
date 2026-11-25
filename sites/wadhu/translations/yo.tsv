@@ -1,15 +1,15 @@
-# Yoruba — Yorùbá (yo). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# yo. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Àṣírí
+terms	Àwọn òfin
+cancellation	Ìfagilé
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Àkáǹtì
+email	Ímeèlì
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	Ẹ tẹ̀síwájú pẹ̀lú ímeèlì, olùpèsè ìwọlé, tàbí fóònù.
+acct_name_optional	Orúkọ (àṣàyàn)
+acct_password	Ọ̀rọ̀ ìgbaniwọlé
+acct_continue	Tẹ̀síwájú
+acct_or_continue	tàbí tẹ̀síwájú pẹ̀lú
+acct_federated	Ìwọlé pẹ̀lú àkáǹtì mìíràn
+acct_phone	Fóònù
+acct_mobile	Nọ́ńbà fóònù
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	Fi kóòdù SMS ránṣẹ́
+acct_sms_code	Kóòdù SMS
+acct_confirm_code	Jẹ́rìí kóòdù
+acct_signed_in	Ẹ ti wọlé
+acct_signed_in_as	Ẹ wọlé gẹ́gẹ́ bí
+acct_status_label	Ipò
+acct_resend_verify	Tún fi ímeèlì ìjẹ́rìísí ránṣẹ́
+acct_sign_out	Jáde
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Tẹ àdírẹ́sì ímeèlì tí ó tọ́.
+err_weak_password	Lo ọ̀rọ̀ ìgbaniwọlé tí ó ní ó kéré tán lẹ́tà 6.
+err_wrong_password	Ọ̀rọ̀ ìgbaniwọlé kò tọ́.
+err_invalid_credential	Ímeèlì tàbí ọ̀rọ̀ ìgbaniwọlé kò tọ́.
+err_popup_closed	A ti pa fèrèsé ìwọlé.
+err_cancelled	A ti fagilé ìwọlé.
+err_unauthorized_domain	Orúkọ ààyè yìí kò ní àṣẹ fún Firebase Auth.
+err_not_allowed	A kò tí ì mú ọ̀nà ìwọlé yẹn ṣiṣẹ́.
+err_too_many	Ìgbìyànjú ti pọ̀ jù. Gbìyànjú lẹ́ẹ̀kan sí i nígbà mìíràn.
+err_invalid_phone	Lo nọ́ńbà fóònù kíkún pẹ̀lú kóòdù orílẹ̀-èdè (fún àpẹẹrẹ +91…).
+err_bad_code	Kóòdù SMS yẹn kò tọ́ tàbí ó ti parí.
+err_generic	Nǹkan kan ṣàṣìṣe.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	A ti jẹ́rìí ímeèlì
+acct_email_unverified	A kò tí ì jẹ́rìí ímeèlì — ẹ wo àpótí ímeèlì yín
+acct_phone_signed_in	Ẹ wọlé pẹ̀lú fóònù
+acct_you_are_in	Ẹ ti wọlé.
 acct_verify_sent	Verification email sent — check your inbox

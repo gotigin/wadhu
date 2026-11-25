@@ -1,15 +1,15 @@
-# Turkmen — Türkmençe (tk). key<TAB>text in locale.rs EN order. Untranslated rows are the English source until rewritten. Keep {placeholders}. \n = line break.
+# tk. key<TAB>text. Keep {placeholders}. \n = line break.
 menu	Menu
 close	Close
 home	Home
 about	About
-privacy	Privacy
-terms	Terms
-cancellation	Cancellation
+privacy	Gizlinlik
+terms	Şertler
+cancellation	Ýatyrmak
 data_deletion	Data deletion
 support	Support
-account	Account
-email	Email
+account	Akkaunt
+email	E-poçta
 window_title	Wadhu — Tools · Apps · More
 tagline	Tools · Apps · More
 hero_kicker	WADHU · BY GOTIGIN
@@ -44,41 +44,41 @@ closing_title	Build with Wadhu.
 closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
 acct_page_title	Account — Wadhu
 acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
-acct_continue_with	Continue with email, a provider, or phone.
-acct_name_optional	Name (optional)
-acct_password	Password
-acct_continue	Continue
-acct_or_continue	or continue with
-acct_federated	Federated sign-in
-acct_phone	Phone
-acct_mobile	Mobile number
+acct_continue_with	E-poçta, prowaýder ýa-da telefon bilen dowam ediň.
+acct_name_optional	Ady (hökmany däl)
+acct_password	Parol
+acct_continue	Dowam et
+acct_or_continue	ýa-da şunuň bilen dowam ediň
+acct_federated	Bilelikdäki giriş
+acct_phone	Telefon
+acct_mobile	Mobil belgi
 acct_phone_placeholder	+91…
-acct_send_sms	Send SMS code
-acct_sms_code	SMS code
-acct_confirm_code	Confirm code
-acct_signed_in	Signed in
-acct_signed_in_as	Signed in as
-acct_status_label	Status
-acct_resend_verify	Resend verification email
-acct_sign_out	Sign out
+acct_send_sms	SMS koduny iber
+acct_sms_code	SMS kody
+acct_confirm_code	Kody tassykla
+acct_signed_in	Girildi
+acct_signed_in_as	Giren akkaunt
+acct_status_label	Ýagdaýy
+acct_resend_verify	Tassyklama hatyny gaýtadan iber
+acct_sign_out	Çykmak
 acct_home_aria	Wadhu home
 acct_nav_aria	Primary
 company_privacy	Company privacy
-err_invalid_email	Enter a valid email address.
-err_weak_password	Use a password with at least 6 characters.
-err_wrong_password	Wrong password.
-err_invalid_credential	Email or password is wrong.
-err_popup_closed	Sign-in window was closed.
-err_cancelled	Sign-in was cancelled.
-err_unauthorized_domain	This domain is not authorized for Firebase Auth.
-err_not_allowed	That sign-in method is not enabled yet.
-err_too_many	Too many attempts. Try again later.
-err_invalid_phone	Use a full phone number with country code (e.g. +91…).
-err_bad_code	That SMS code is wrong or expired.
-err_generic	Something went wrong.
+err_invalid_email	Dogry e-poçta salgysyny giriziň.
+err_weak_password	Azyndan 6 nyşanly parol ulanyň.
+err_wrong_password	Parol nädogry.
+err_invalid_credential	E-poçta ýa-da parol nädogry.
+err_popup_closed	Giriş penjiresi ýapyldy.
+err_cancelled	Giriş ýatyryldy.
+err_unauthorized_domain	Bu domene Firebase Auth üçin rugsat berilmedik.
+err_not_allowed	Bu giriş usuly entek açylmadyk.
+err_too_many	Synanyşyklar gaty köp. Soňrak gaýtadan synanyşyň.
+err_invalid_phone	Ýurt kody bilen doly telefon belgisini ulanyň (meselem +91…).
+err_bad_code	Bu SMS kody nädogry ýa-da möhleti geçen.
+err_generic	Bir zat ýalňyş boldy.
 acct_no_email	(no email)
-acct_email_verified	Email verified
-acct_email_unverified	Email not verified yet — check your inbox
-acct_phone_signed_in	Signed in with phone
-acct_you_are_in	You’re signed in.
+acct_email_verified	E-poçta tassyklandy
+acct_email_unverified	E-poçta entek tassyklanmady — gelen hatlaryňyzy barlaň
+acct_phone_signed_in	Telefon bilen girildi
+acct_you_are_in	Siz girdiňiz.
 acct_verify_sent	Verification email sent — check your inbox
