@@ -1,49 +1,49 @@
 # el. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Μενού
+close	Κλείσιμο
+home	Αρχική
+about	Σχετικά
 privacy	Απόρρητο
 terms	Όροι
 cancellation	Ακύρωση
-data_deletion	Data deletion
-support	Support
+data_deletion	Διαγραφή δεδομένων
+support	Υποστήριξη
 account	Λογαριασμός
 email	E-mail
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Εργαλεία · εφαρμογές · περισσότερα
+tagline	Εργαλεία · εφαρμογές · περισσότερα
+hero_kicker	WADHU · ΑΠΟ ΤΗΝ GOTIGIN
+hero_title	Το Wadhu σημαίνει περισσότερα.
+hero_lede	Επαναχρησιμοποιήσιμα εργαλεία, βοηθήματα και εφαρμογές — Εργαλεία · εφαρμογές · περισσότερα.
+the_brand	Η ΜΑΡΚΑ
+what_title	Εργαλεία, βοηθήματα και εφαρμογές.
+what_lede	Γράφτηκαν μία φορά, ώστε τα άλλα προϊόντα της Gotigin και οποιοσδήποτε να πάρουν ακριβώς το κομμάτι που χρειάζονται.
+what_body	Βιβλιοθήκες, μικρά προγράμματα και υπηρεσίες είναι εδώ. Κάθε μέρος στέκεται μόνο του.
+reuse	ΕΠΑΝΑΧΡΗΣΗ
+reuse_title	Πάρτε ένα κομμάτι.
+reuse_body	Ένα crate είναι βιβλιοθήκη. Μια εφαρμογή είναι πρόγραμμα που τρέχετε δίπλα στο δικό σας. Ένας ιστότοπος είναι σελίδα που ανοίγετε. Όταν ένα μέρος αλλάζει, ένα γειτονικό μέρος δεν αναγκάζεται ποτέ να αλλάξει.
+products	ΠΡΟΪΟΝΤΑ
+products_title	Κάτω από τη μάρκα Wadhu
+products_lede	Προϊόντα που βγαίνουν κάτω από αυτή τη μάρκα.
+sms_gateway_blurb	Πύλη SIM, πρώτα Android. Τα LAN και Bluetooth μένουν για πάντα δωρεάν.
+sms_relay_blurb	Προαιρετική διαδρομή διαδικτύου προς μια ζευγαρωμένη πύλη. Η τοπική αποστολή δεν τη χρειάζεται.
+connect_blurb	Γέφυρα Tech Provider προς το WhatsApp Cloud API. Οι επιχειρήσεις κρατούν τον αριθμό τους· οι εφαρμογές στέλνουν και λαμβάνουν μετά το Embedded Signup.
+open_connect	Άνοιγμα του Wadhu Connect
+names	ΟΝΟΜΑΤΑ
+about_title	Ποιοι είμαστε
+trademark	ΕΜΠΟΡΙΚΟ ΣΗΜΑ
+find_it	Memon για «βρες το» · προφέρεται go-tee-geen
+slogan	Εκεί όπου η τεχνολογία συναντά την ανακάλυψη
+company	ΕΤΑΙΡΕΙΑ
+director_line	Διευθυντής · mearaj@gmail.com
+brand	ΜΑΡΚΑ
+more_line	Memon για «περισσότερα» · Εργαλεία · εφαρμογές · περισσότερα
+products_line	Πύλη SIM, προαιρετική αναμετάδοση και γέφυρα προς το WhatsApp Cloud API
+next	ΕΠΟΜΕΝΟ
+closing_title	Χτίστε με το Wadhu.
+closing_body	Ένας λογαριασμός wadhu.com είναι για φιλοξενούμενες λειτουργίες. Τα τοπικά εργαλεία μέσω LAN και Bluetooth μένουν δωρεάν.
+acct_page_title	Λογαριασμός — Wadhu
+acct_lede	Συνδεθείτε για τις φιλοξενούμενες λειτουργίες του Wadhu. Τα τοπικά εργαλεία μέσω LAN και Bluetooth μένουν χρησιμοποιήσιμα χωρίς λογαριασμό.
 acct_continue_with	Συνεχίστε με e-mail, πάροχο ή τηλέφωνο.
 acct_name_optional	Όνομα (προαιρετικό)
 acct_password	Κωδικός πρόσβασης
@@ -61,9 +61,9 @@ acct_signed_in_as	Σύνδεση ως
 acct_status_label	Κατάσταση
 acct_resend_verify	Επανάληψη αποστολής e-mail επαλήθευσης
 acct_sign_out	Αποσύνδεση
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Αρχική του Wadhu
+acct_nav_aria	Κύρια
+company_privacy	Απόρρητο της εταιρείας
 err_invalid_email	Εισαγάγετε έγκυρη διεύθυνση e-mail.
 err_weak_password	Χρησιμοποιήστε κωδικό με τουλάχιστον 6 χαρακτήρες.
 err_wrong_password	Λάθος κωδικός.
@@ -76,9 +76,9 @@ err_too_many	Πάρα πολλές προσπάθειες. Δοκιμάστε ξ
 err_invalid_phone	Χρησιμοποιήστε πλήρη αριθμό τηλεφώνου με κωδικό χώρας (π.χ. +91…).
 err_bad_code	Αυτός ο κωδικός SMS είναι λάθος ή έχει λήξει.
 err_generic	Κάτι πήγε στραβά.
-acct_no_email	(no email)
+acct_no_email	(χωρίς e-mail)
 acct_email_verified	Το e-mail επαληθεύτηκε
 acct_email_unverified	Το e-mail δεν έχει επαληθευτεί ακόμη — ελέγξτε τα εισερχόμενά σας
 acct_phone_signed_in	Σύνδεση με τηλέφωνο
 acct_you_are_in	Συνδεθήκατε.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Το e-mail επαλήθευσης στάλθηκε — ελέγξτε τα εισερχόμενά σας
