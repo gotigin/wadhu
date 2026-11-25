@@ -5,6 +5,15 @@
 | Brand | https://wadhu.com | `sites/wadhu` (`wadhu-site`) + Firebase |
 | Connect API / ES UI | https://connect.wadhu.com | `apps/wadhu-connect` (Rust) |
 
+## Languages + countries (hard rule)
+
+Same Gotigin product floor as Kumkaj: every Wadhu **app and website**
+supports the full language catalogue (**115+ languages**) and **199
+countries**. wadhu.com must translate marketing home + account chrome
+(legal bodies stay English). No preference-only language picker — packs
+under `/i18n/<code>.tsv`, `lang-nav.js` writes `#l=`, wasm + `site-i18n.js`
+repaint. See `.cursor/rules/languages-countries-floor.mdc`.
+
 ## Responsive (graceful growth)
 
 Same law as [`DESIGN.md`](DESIGN.md) § Always responsive: phone-safe

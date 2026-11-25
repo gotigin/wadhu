@@ -1,0 +1,21 @@
+---
+description: 115+ languages and 199 countries — product floor for Wadhu apps and wadhu.com
+alwaysApply: true
+---
+
+# Languages + countries floor (Wadhu)
+
+Same Gotigin product floor: every Wadhu **app and website** supports the
+full language catalogue (**115+ languages**) and **199 countries**.
+
+## Do
+
+- Full catalogue picker; pack for every selectable table language.
+- Stage `/i18n/<code>.tsv`; `lang-nav.js` writes `#l=`; wasm and HTML
+  chrome must change visible copy.
+- Verify language change locally before any Hosting deploy.
+
+## Do not
+
+- Ship a subset picker or English-only marketing/account while showing EN/HI.
+- Translate legal policy bodies with machine fill (bodies stay English).
