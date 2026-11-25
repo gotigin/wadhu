@@ -1,49 +1,49 @@
 # ig. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Ndepụta
+close	Mechie
+home	Ụlọ
+about	Gbasara anyị
 privacy	Nzuzo
 terms	Usoro
 cancellation	Nkagbu
-data_deletion	Data deletion
-support	Support
+data_deletion	Ihichapụ data
+support	Nkwado
 account	Akaụntụ
 email	Ozi-e
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Ngwaọrụ · Ngwa · Karịa
+tagline	Ngwaọrụ · Ngwa · Karịa
+hero_kicker	WADHU · SITE NA GOTIGIN
+hero_title	Wadhu pụtara karịa.
+hero_lede	Ngwaọrụ, util, na ngwa a na-eji ọzọ — Ngwaọrụ · Ngwa · Karịa.
+the_brand	AKARA A
+what_title	Ngwaọrụ, util, na ngwa.
+what_lede	E dere ya otu ugboro, ka ngwaahịa ndị ọzọ nke Gotigin na onye ọ bụla were kpọmkwem akụkụ ha chọrọ.
+what_body	Ọbá akwụkwọ, mmemme obere, na ọrụ nọ ebe a. Akụkụ ọ bụla guzo n'onwe ya.
+reuse	IJIGHARỊ
+reuse_title	Were otu akụkụ.
+reuse_body	Crate bụ ọbá akwụkwọ. Ngwa bụ mmemme ị na-agba n'akụkụ nke gị. Saịtị bụ ibe ị na-eleta. Mgbanwe otu akụkụ anaghị amanye nke ọzọ ka ọ gbanwee.
+products	NGWAAHỊA
+products_title	N'okpuru akara Wadhu
+products_lede	Ngwaahịa na-apụta n'okpuru akara a.
+sms_gateway_blurb	Ọnụ ụzọ SIM, Android mbụ. LAN na Bluetooth na-anọgide n'efu ruo mgbe ebighị ebi.
+sms_relay_blurb	Ụzọ intanetị nhọrọ gaa na ọnụ ụzọ ejikọtara. Iziga mpaghara achọghị ya.
+connect_blurb	Àkwà mmiri WhatsApp Cloud API Tech Provider. Azụmahịa na-edobe nọmba ha; ngwa na-eziga ma na-anata mgbe Embedded Signup gasịrị.
+open_connect	Mepee Wadhu Connect
+names	AHA
+about_title	Anyị bụ ndị
+trademark	AKARA AHỊA
+find_it	Memon maka «chọta ya» · a na-akpọ ya go-tee-geen
+slogan	Ebe teknụzụ na nchọpụta na-ezute
+company	ỤLỌ ỌRỤ
+director_line	Onye isi · mearaj@gmail.com
+brand	AKARA
+more_line	Memon maka «karịa» · Ngwaọrụ · Ngwa · Karịa
+products_line	Ọnụ ụzọ SIM, relay nhọrọ, na àkwà mmiri gaa na WhatsApp Cloud API
+next	ỌZỌ
+closing_title	Jiri Wadhu wuo.
+closing_body	Akaụntụ wadhu.com bụ maka ihe a kwadoro. Ngwaọrụ mpaghara n'elu LAN na Bluetooth na-anọgide n'efu.
+acct_page_title	Akaụntụ — Wadhu
+acct_lede	Banye maka ihe Wadhu a kwadoro. Ngwaọrụ mpaghara n'elu LAN na Bluetooth na-anọgide na-arụ ọrụ na-enweghị akaụntụ.
 acct_continue_with	Gaa n’ihu site n’ozi-e, onye na-enye ọrụ ịbanye, ma ọ bụ ekwentị.
 acct_name_optional	Aha (nhọrọ)
 acct_password	Okwuntughe
@@ -61,9 +61,9 @@ acct_signed_in_as	Ị banyere dịka
 acct_status_label	Ọnọdụ
 acct_resend_verify	Ziga ozi-e nkwenye ọzọ
 acct_sign_out	Pụọ
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Ụlọ Wadhu
+acct_nav_aria	Isi
+company_privacy	Nzuzo ụlọ ọrụ
 err_invalid_email	Tinye adreesị ozi-e ziri ezi.
 err_weak_password	Jiri okwuntughe nwere opekata mpe mkpụrụedemede 6.
 err_wrong_password	Okwuntughe ezighị ezi.
@@ -76,9 +76,9 @@ err_too_many	Ị nwaala ọtụtụ ugboro. Nwaa ọzọ emechaa.
 err_invalid_phone	Jiri nọmba ekwentị zuru oke ya na koodu mba (dịka +91…).
 err_bad_code	Koodu SMS ahụ ezighị ezi ma ọ bụ agwụla.
 err_generic	Ihe ezighị ezi mere.
-acct_no_email	(no email)
+acct_no_email	(enweghị ozi-e)
 acct_email_verified	E kwadoro ozi-e
 acct_email_unverified	A kwadobeghị ozi-e — lee igbe ozi gị
 acct_phone_signed_in	Ị banyere site n’ekwentị
 acct_you_are_in	Ị banyela.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	E zigara ozi-e nkwenye — lelee igbe ozi gị

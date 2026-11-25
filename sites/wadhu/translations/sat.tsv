@@ -1,49 +1,49 @@
 # sat. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	ᱢᱮᱱᱩ
+close	ᱵᱚᱸᱫᱚ ᱢᱮ
+home	ᱚᱲᱟᱜ
+about	ᱵᱟᱵᱚᱛ
 privacy	ᱯᱨᱟᱭᱵᱷᱮᱥᱤ
 terms	ᱥᱚᱨᱛᱚ ᱠᱚ
 cancellation	ᱵᱚᱱᱫᱚ ᱟᱹᱭᱤᱱ
-data_deletion	Data deletion
-support	Support
+data_deletion	ᱰᱟᱴᱟ ᱢᱮᱴᱟᱣ
+support	ᱥᱚᱦᱚᱫ
 account	ᱮᱠᱟᱣᱩᱱᱴ
 email	ᱤᱢᱮᱞ
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — ᱴᱩᱞ · ᱮᱯ · ᱵᱟᱹᱲᱛᱤ
+tagline	ᱴᱩᱞ · ᱮᱯ · ᱵᱟᱹᱲᱛᱤ
+hero_kicker	WADHU · GOTIGIN ᱠᱷᱚᱱ
+hero_title	Wadhu ᱢᱮᱱᱮᱛ ᱵᱟᱹᱲᱛᱤ.
+hero_lede	ᱫᱚᱦᱲᱟ ᱵᱮᱵᱷᱟᱨ ᱴᱩᱞ, ᱭᱩᱴᱤᱞ ᱟᱨ ᱮᱯ — ᱴᱩᱞ · ᱮᱯ · ᱵᱟᱹᱲᱛᱤ.
+the_brand	ᱵᱨᱟᱱᱰ
+what_title	ᱴᱩᱞ, ᱭᱩᱴᱤᱞ ᱟᱨ ᱮᱯ.
+what_lede	ᱢᱤᱫ ᱫᱷᱟᱣ ᱚᱞ, ᱚᱱᱟᱛᱮ ᱮᱴᱟᱜ Gotigin ᱯᱨᱚᱰᱚᱠᱴ ᱟᱨ ᱚᱠᱚᱭ ᱦᱚᱸ ᱞᱟᱹᱠᱛᱤ ᱦᱟᱹᱴᱤᱧ ᱛᱮᱫ ᱤᱫᱤ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ.
+what_body	ᱞᱟᱭᱵᱨᱮᱨᱤ, ᱦᱩᱰᱤᱧ ᱯᱨᱚᱜᱨᱟᱢ ᱟᱨ ᱥᱮᱵᱟ ᱱᱚᱰᱮ ᱢᱮᱱᱟᱜᱼᱟ. ᱡᱚᱛᱚ ᱦᱟᱹᱴᱤᱧ ᱟᱡ ᱛᱮ ᱛᱟᱦᱮᱸᱱᱟ.
+reuse	ᱫᱚᱦᱲᱟ ᱵᱮᱵᱷᱟᱨ
+reuse_title	ᱢᱤᱫ ᱦᱟᱹᱴᱤᱧ ᱤᱫᱤ ᱢᱮ.
+reuse_body	Crate ᱫᱚ ᱞᱟᱭᱵᱨᱮᱨᱤ ᱠᱟᱱᱟ. ᱮᱯ ᱫᱚ ᱟᱢ ᱟᱢᱟᱜ ᱯᱨᱚᱜᱨᱟᱢ ᱥᱩᱨ ᱪᱟᱞᱟᱣ ᱯᱨᱚᱜᱨᱟᱢ ᱠᱟᱱᱟ. ᱥᱟᱭᱤᱴ ᱫᱚ ᱟᱢ ᱧᱮᱞ ᱥᱟᱦᱴᱟ ᱠᱟᱱᱟ. ᱢᱤᱫ ᱦᱟᱹᱴᱤᱧ ᱵᱚᱫᱚᱞ ᱛᱤᱱ ᱦᱚᱸ ᱮᱴᱟᱜ ᱦᱟᱹᱴᱤᱧ ᱵᱚᱫᱚᱞ ᱵᱟᱭ ᱚᱪᱚᱜᱼᱟ.
+products	ᱯᱨᱚᱰᱚᱠᱴ ᱠᱚ
+products_title	Wadhu ᱵᱨᱟᱱᱰ ᱞᱟᱛᱟᱨ
+products_lede	ᱱᱚᱣᱟ ᱵᱨᱟᱱᱰ ᱞᱟᱛᱟᱨ ᱩᱪᱷᱟᱹᱱ ᱯᱨᱚᱰᱚᱠᱴ ᱠᱚ.
+sms_gateway_blurb	ᱢᱟᱬᱟᱝ Android SIM ᱜᱮᱴᱣᱮ. LAN ᱟᱨ Bluetooth ᱡᱟᱣᱡᱩᱢ ᱯᱷᱨᱤ ᱛᱟᱦᱮᱸᱱᱟ.
+sms_relay_blurb	ᱡᱚᱲᱟᱣ ᱜᱮᱴᱣᱮ ᱫᱷᱟᱹᱵᱤᱡ ᱢᱚᱱᱮ ᱞᱮᱠᱟ ᱤᱱᱴᱚᱨᱱᱮᱴ ᱰᱟᱦᱟᱨ. ᱡᱟᱭᱜᱟ ᱠᱷᱚᱱ ᱠᱩᱞ ᱞᱟᱹᱜᱤᱫ ᱵᱟᱭ ᱞᱟᱹᱠᱛᱤᱜᱼᱟ.
+connect_blurb	WhatsApp Cloud API Tech Provider ᱯᱚᱞ. ᱵᱮᱯᱟᱨ ᱠᱚ ᱱᱚᱢᱵᱚᱨ ᱫᱚᱦᱚᱭᱟ. ᱮᱯ ᱠᱚ Embedded Signup ᱛᱟᱭᱚᱢ ᱠᱩᱞᱟ ᱟᱨ ᱧᱟᱢᱟ.
+open_connect	Wadhu Connect ᱡᱷᱤᱡ ᱢᱮ
+names	ᱧᱩᱛᱩᱢ ᱠᱚ
+about_title	ᱟᱞᱮ ᱚᱠᱚᱭ
+trademark	ᱵᱮᱯᱟᱨ ᱪᱤᱱᱦᱟᱹ
+find_it	Memon ᱢᱮᱱᱮᱛ «ᱧᱟᱢ ᱢᱮ» · ᱢᱮᱱ ᱦᱚᱪᱚ go-tee-geen
+slogan	ᱡᱟᱦᱟᱸᱨᱮ ᱴᱮᱠᱱᱚᱞᱚᱡᱤ ᱧᱟᱢ ᱥᱟᱶ ᱧᱟᱯᱟᱢᱚᱜᱼᱟ
+company	ᱠᱚᱢᱯᱟᱱᱤ
+director_line	ᱰᱤᱨᱮᱠᱴᱚᱨ · mearaj@gmail.com
+brand	ᱵᱨᱟᱱᱰ
+more_line	Memon ᱢᱮᱱᱮᱛ «ᱵᱟᱹᱲᱛᱤ» · ᱴᱩᱞ · ᱮᱯ · ᱵᱟᱹᱲᱛᱤ
+products_line	SIM ᱜᱮᱴᱣᱮ, ᱢᱚᱱᱮ ᱞᱮᱠᱟ ᱨᱤᱞᱮ, ᱟᱨ WhatsApp Cloud API ᱯᱚᱞ
+next	ᱛᱟᱭᱚᱢ
+closing_title	Wadhu ᱥᱟᱶ ᱵᱮᱱᱟᱣ ᱢᱮ.
+closing_body	wadhu.com ᱮᱠᱟᱣᱩᱱᱴ ᱫᱚ ᱦᱚᱥᱴ ᱯᱷᱤᱪᱚᱨ ᱞᱟᱹᱜᱤᱫ. LAN ᱟᱨ Bluetooth ᱨᱮ ᱡᱟᱭᱜᱟ ᱴᱩᱞ ᱯᱷᱨᱤ ᱛᱟᱦᱮᱸᱱᱟ.
+acct_page_title	ᱮᱠᱟᱣᱩᱱᱴ — Wadhu
+acct_lede	ᱦᱚᱥᱴ Wadhu ᱯᱷᱤᱪᱚᱨ ᱞᱟᱹᱜᱤᱫ ᱞᱚᱜᱤᱱ ᱢᱮ. LAN ᱟᱨ Bluetooth ᱨᱮ ᱡᱟᱭᱜᱟ ᱴᱩᱞ ᱮᱠᱟᱣᱩᱱᱴ ᱵᱟᱹᱱᱩᱜ ᱠᱟᱛᱮ ᱦᱚᱸ ᱪᱟᱞᱟᱣᱜᱼᱟ.
 acct_continue_with	ᱤᱢᱮᱞ, ᱯᱨᱚᱵᱷᱟᱭᱤᱰᱟᱨ ᱥᱮ ᱯᱷᱚᱱ ᱛᱮ ᱞᱟᱦᱟᱜ ᱢᱮ᱾
 acct_name_optional	ᱧᱩᱛᱩᱢ (ᱢᱚᱱᱮ ᱞᱮᱠᱟᱛᱮ)
 acct_password	ᱫᱟᱱᱟᱝ ᱥᱟᱵᱟᱫᱽ
@@ -61,9 +61,9 @@ acct_signed_in_as	ᱱᱚᱣᱟ ᱞᱮᱠᱟ ᱥᱟᱭᱤᱱ ᱤᱱ
 acct_status_label	ᱚᱵᱚᱥᱛᱟ
 acct_resend_verify	ᱥᱟᱹᱵᱤᱛ ᱤᱢᱮᱞ ᱫᱚᱦᱲᱟ ᱠᱩᱞ ᱢᱮ
 acct_sign_out	ᱥᱟᱭᱤᱱ ᱟᱣᱴ
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu ᱚᱲᱟᱜ
+acct_nav_aria	ᱢᱩᱬ
+company_privacy	ᱠᱚᱢᱯᱟᱱᱤ ᱯᱨᱟᱭᱵᱷᱮᱥᱤ
 err_invalid_email	ᱴᱷᱤᱠ ᱤᱢᱮᱞ ᱴᱷᱤᱠᱟᱹᱱᱟᱹ ᱚᱞ ᱢᱮ᱾
 err_weak_password	ᱠᱚᱢ ᱠᱷᱚᱱ ᱠᱚᱢ 6 ᱟᱠᱷᱚᱨ ᱨᱮᱭᱟᱜ ᱫᱟᱱᱟᱝ ᱥᱟᱵᱟᱫᱽ ᱵᱮᱵᱷᱟᱨ ᱢᱮ᱾
 err_wrong_password	ᱵᱷᱩᱞ ᱫᱟᱱᱟᱝ ᱥᱟᱵᱟᱫᱽ᱾
@@ -76,9 +76,9 @@ err_too_many	ᱟᱹᱰᱤ ᱵᱟᱹᱲᱛᱤ ᱠᱩᱨᱩᱢᱩᱴᱩ᱾ ᱛᱟ�
 err_invalid_phone	ᱫᱤᱥᱚᱢ ᱠᱳᱰ ᱥᱟᱶ ᱯᱩᱨᱟᱹ ᱯᱷᱚᱱ ᱱᱚᱢᱵᱚᱨ ᱵᱮᱵᱷᱟᱨ ᱢᱮ (ᱡᱮᱞᱮᱠᱟ +91…)᱾
 err_bad_code	ᱚᱱᱟ SMS ᱠᱳᱰ ᱵᱷᱩᱞ ᱥᱮ ᱚᱠᱛᱚ ᱪᱟᱵᱟ ᱮᱱᱟ᱾
 err_generic	ᱪᱮᱫ ᱦᱚᱸ ᱵᱷᱩᱞ ᱦᱩᱭᱮᱱᱟ᱾
-acct_no_email	(no email)
+acct_no_email	(ᱤᱢᱮᱞ ᱵᱟᱹᱱᱩᱜᱼᱟ)
 acct_email_verified	ᱤᱢᱮᱞ ᱥᱟᱹᱵᱤᱛ ᱮᱱᱟ
 acct_email_unverified	ᱤᱢᱮᱞ ᱱᱤᱛᱚᱜ ᱦᱟᱹᱵᱤᱡ ᱵᱟᱝ ᱥᱟᱹᱵᱤᱛ ᱟᱠᱟᱱᱟ — ᱟᱢᱟᱜ ᱤᱱᱵᱚᱠᱥ ᱧᱮᱞ ᱢᱮ
 acct_phone_signed_in	ᱯᱷᱚᱱ ᱛᱮ ᱥᱟᱭᱤᱱ ᱤᱱ ᱮᱱᱟ
 acct_you_are_in	ᱟᱢ ᱥᱟᱭᱤᱱ ᱤᱱ ᱢᱮᱱᱟᱢᱟ᱾
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	ᱥᱟᱹᱵᱤᱛ ᱤᱢᱮᱞ ᱠᱩᱞ ᱮᱱᱟ — ᱤᱱᱵᱚᱠᱥ ᱧᱮᱞ ᱢᱮ

@@ -1,49 +1,49 @@
 # mt. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Lista
+close	Agħlaq
+home	Bidu
+about	Dwarna
 privacy	Privatezza
 terms	Termini
 cancellation	Kanċellazzjoni
-data_deletion	Data deletion
-support	Support
+data_deletion	Tħassir tad-data
+support	Appoġġ
 account	Kont
 email	Imejl
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Għodda · Apps · Aktar
+tagline	Għodda · Apps · Aktar
+hero_kicker	WADHU · MINN GOTIGIN
+hero_title	Wadhu tfisser aktar.
+hero_lede	Għodda, utilitajiet u apps li jerġgħu jintużaw — Għodda · Apps · Aktar.
+the_brand	IL-MARKA
+what_title	Għodda, utilitajiet u apps.
+what_lede	Miktub darba, biex prodotti oħra ta' Gotigin u kullħadd ieħor jieħdu eżatt il-biċċa li jeħtieġu.
+what_body	Libreriji, programmi żgħar u servizzi jinsabu hawn. Kull parti tiegħaf waħedha.
+reuse	UŻU MILL-ĠDID
+reuse_title	Ħu biċċa waħda.
+reuse_body	Crate hija librerija. App hija programm li tħaddem ħdejn tiegħek. Sit hija paġna li żżur. Bidla f'parti qatt ma ġġiegħel oħra tinbidel.
+products	PRODOTTI
+products_title	Taħt il-marka Wadhu
+products_lede	Prodotti li joħorġu taħt din il-marka.
+sms_gateway_blurb	Gateway SIM, Android l-ewwel. LAN u Bluetooth jibqgħu b'xejn għal dejjem.
+sms_relay_blurb	Triq tal-internet fakultattiva lejn gateway imqabbad. Il-bgħit lokali ma jeħtiġhiex.
+connect_blurb	Pont ta' WhatsApp Cloud API Tech Provider. In-negozji jżommu n-numru tagħhom; l-apps jibagħtu u jirċievu wara Embedded Signup.
+open_connect	Iftaħ Wadhu Connect
+names	ISMIJIET
+about_title	Min aħna
+trademark	MARKA
+find_it	Memon għal «sibha» · titkellem go-tee-geen
+slogan	Fejn it-teknoloġija tiltaqa' mal-iskoperta
+company	KUMPANIJA
+director_line	Direttur · mearaj@gmail.com
+brand	MARKA
+more_line	Memon għal «aktar» · Għodda · Apps · Aktar
+products_line	Gateway SIM, relay fakultattiv u pont lejn WhatsApp Cloud API
+next	LI JMISS
+closing_title	Ibni ma' Wadhu.
+closing_body	Kont ta' wadhu.com huwa għal karatteristiċi ospitati. Għodda lokali fuq LAN u Bluetooth jibqgħu b'xejn.
+acct_page_title	Kont — Wadhu
+acct_lede	Idħol għall-karatteristiċi ospitati ta' Wadhu. Għodda lokali fuq LAN u Bluetooth jibqgħu jintużaw mingħajr kont.
 acct_continue_with	Kompli bl-imejl, b’fornitur jew bit-telefon.
 acct_name_optional	Isem (mhux obbligatorju)
 acct_password	Kelma tal-passaġġ
@@ -61,9 +61,9 @@ acct_signed_in_as	Dħalt bħala
 acct_status_label	Stat
 acct_resend_verify	Erġa’ ibgħat l-imejl tal-verifika
 acct_sign_out	Oħroġ
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Bidu ta' Wadhu
+acct_nav_aria	Primarju
+company_privacy	Privatezza tal-kumpanija
 err_invalid_email	Daħħal indirizz tal-imejl validu.
 err_weak_password	Uża kelma tal-passaġġ ta’ mill-inqas 6 karattri.
 err_wrong_password	Kelma tal-passaġġ ħażina.
@@ -76,9 +76,9 @@ err_too_many	Wisq tentattivi. Erġa’ pprova aktar tard.
 err_invalid_phone	Uża n-numru tat-telefon sħiħ bil-kodiċi tal-pajjiż (eż. +91…).
 err_bad_code	Dak il-kodiċi SMS huwa ħażin jew skada.
 err_generic	Xi ħaġa marret ħażin.
-acct_no_email	(no email)
+acct_no_email	(l-ebda imejl)
 acct_email_verified	Imejl ivverifikat
 acct_email_unverified	L-imejl għadu mhux ivverifikat — iċċekkja l-kaxxa tal-posta
 acct_phone_signed_in	Dħalt bit-telefon
 acct_you_are_in	Dħalt.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Intbagħat l-imejl tal-verifika — iċċekkja l-kaxxa

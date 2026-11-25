@@ -1,49 +1,49 @@
 # fil. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Talaan
+close	Isara
+home	Tahanan
+about	Tungkol
 privacy	Pagkapribado
 terms	Mga tuntunin
 cancellation	Pagkansela
-data_deletion	Data deletion
-support	Support
+data_deletion	Pagbura ng data
+support	Suporta
 account	Akawnt
 email	E-mail
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Mga kasangkapan · Mga app · Higit
+tagline	Mga kasangkapan · Mga app · Higit
+hero_kicker	WADHU · MULA SA GOTIGIN
+hero_title	Ang ibig sabihin ng Wadhu ay higit.
+hero_lede	Mga kasangkapan, utility, at app na magagamit ulit — Mga kasangkapan · Mga app · Higit.
+the_brand	ANG TATAR
+what_title	Mga kasangkapan, utility, at app.
+what_lede	Isinulat nang isang beses, para makuha ng ibang produkto ng Gotigin at ng sinuman ang eksaktong bahaging kailangan nila.
+what_body	Narito ang mga library, maliliit na programa, at serbisyo. Nakatayo ang bawat bahagi nang mag-isa.
+reuse	MULING PAGGAMIT
+reuse_title	Kumuha ng isang bahagi.
+reuse_body	Ang crate ay library. Ang app ay programang pinapatakbo mo sa tabi ng iyo. Ang site ay pahinang binibisita mo. Ang pagbabago ng isang bahagi ay hindi kailanman pumipilit sa iba na magbago.
+products	MGA PRODUKTO
+products_title	Sa ilalim ng tatar na Wadhu
+products_lede	Mga produktong lumalabas sa ilalim ng tatar na ito.
+sms_gateway_blurb	Gateway ng SIM, Android muna. Mananatiling libre ang LAN at Bluetooth magpakailanman.
+sms_relay_blurb	Opsyonal na daan ng internet patungo sa magkapares na gateway. Hindi ito kailangan ng lokal na pagpapadala.
+connect_blurb	Tulay na WhatsApp Cloud API Tech Provider. Pinapanatili ng mga negosyo ang kanilang numero; nagpapadala at tumatanggap ang mga app pagkatapos ng Embedded Signup.
+open_connect	Buksan ang Wadhu Connect
+names	MGA PANGALAN
+about_title	Sino kami
+trademark	TATAR
+find_it	Memon para sa «hanapin ito» · bigkas go-tee-geen
+slogan	Kung saan nagtatagpo ang teknolohiya at ang pagtuklas
+company	KUMPANYA
+director_line	Direktor · mearaj@gmail.com
+brand	TATAR
+more_line	Memon para sa «higit» · Mga kasangkapan · Mga app · Higit
+products_line	Gateway ng SIM, opsyonal na relay, at tulay patungo sa WhatsApp Cloud API
+next	SUSUNOD
+closing_title	Gumawa kasama ang Wadhu.
+closing_body	Ang akawnt sa wadhu.com ay para sa mga tampok na naka-host. Mananatiling libre ang mga lokal na kasangkapan sa LAN at Bluetooth.
+acct_page_title	Akawnt — Wadhu
+acct_lede	Mag-sign in para sa mga naka-host na tampok ng Wadhu. Mananatiling magagamit ang mga lokal na kasangkapan sa LAN at Bluetooth nang walang akawnt.
 acct_continue_with	Magpatuloy gamit ang e-mail, isang provider, o telepono.
 acct_name_optional	Pangalan (opsyonal)
 acct_password	Kontrasenyas
@@ -61,9 +61,9 @@ acct_signed_in_as	Naka-sign in bilang
 acct_status_label	Katayuan
 acct_resend_verify	Ipadala muli ang e-mail ng beripikasyon
 acct_sign_out	Mag-sign out
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Tahanan ng Wadhu
+acct_nav_aria	Pangunahin
+company_privacy	Privacy ng kumpanya
 err_invalid_email	Maglagay ng wastong e-mail address.
 err_weak_password	Gumamit ng kontrasenyas na may hindi bababa sa 6 na karakter.
 err_wrong_password	Mali ang kontrasenyas.
@@ -76,9 +76,9 @@ err_too_many	Masyadong maraming pagsubok. Subukang muli mamaya.
 err_invalid_phone	Gumamit ng buong numero ng telepono na may code ng bansa (hal. +91…).
 err_bad_code	Mali o expired na ang SMS code na iyon.
 err_generic	May nangyaring mali.
-acct_no_email	(no email)
+acct_no_email	(walang e-mail)
 acct_email_verified	Na-verify ang e-mail
 acct_email_unverified	Hindi pa na-verify ang e-mail — tingnan ang inbox mo
 acct_phone_signed_in	Naka-sign in gamit ang telepono
 acct_you_are_in	Naka-sign in ka na.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Naipadala ang e-mail sa pag-verify — tingnan ang inbox mo

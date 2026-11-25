@@ -1,49 +1,49 @@
 # bs. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Izbornik
+close	Zatvori
+home	Početna
+about	O nama
 privacy	Privatnost
 terms	Uslovi
 cancellation	Otkazivanje
-data_deletion	Data deletion
-support	Support
+data_deletion	Brisanje podataka
+support	Podrška
 account	Moj račun
 email	E-pošta
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Alati · Aplikacije · Više
+tagline	Alati · Aplikacije · Više
+hero_kicker	WADHU · OD GOTIGINA
+hero_title	Wadhu znači više.
+hero_lede	Alati, utiliti i aplikacije za ponovnu upotrebu — Alati · Aplikacije · Više.
+the_brand	TAJ BREND
+what_title	Alati, utiliti i aplikacije.
+what_lede	Napisano jednom, da drugi proizvodi Gotigin i bilo ko drugi uzmu tačno onaj dio koji im treba.
+what_body	Biblioteke, mali programi i usluge su ovdje. Svaki dio stoji sam.
+reuse	PONOVNA UPOTREBA
+reuse_title	Uzmite jedan dio.
+reuse_body	Crate je biblioteka. Aplikacija je program koji pokrećete pored svog. Sajt je stranica koju posjećujete. Promjena jednog dijela nikad ne tjera drugi da se promijeni.
+products	PROIZVODI
+products_title	Pod brendom Wadhu
+products_lede	Proizvodi koji izlaze pod ovim brendom.
+sms_gateway_blurb	SIM pristupnik, prvo Android. LAN i Bluetooth ostaju zauvijek besplatni.
+sms_relay_blurb	Opcionalni internetski put do uparenog pristupnika. Lokalno slanje ga ne treba.
+connect_blurb	Most WhatsApp Cloud API Tech Provider. Biznisi zadržavaju svoj broj; aplikacije šalju i primaju nakon Embedded Signup.
+open_connect	Otvori Wadhu Connect
+names	IMENA
+about_title	Ko smo
+trademark	ŽIG
+find_it	Memonski za „nađi to“ · izgovara se go-tee-geen
+slogan	Gdje se tehnologija susreće s otkrićem
+company	KOMPANIJA
+director_line	Direktor · mearaj@gmail.com
+brand	BREND
+more_line	Memonski za „više“ · Alati · Aplikacije · Više
+products_line	SIM pristupnik, opcionalni relej i most prema WhatsApp Cloud API
+next	DALJE
+closing_title	Gradite s Wadhu.
+closing_body	Račun na wadhu.com je za smještene mogućnosti. Lokalni alati preko LAN i Bluetooth ostaju besplatni.
+acct_page_title	Račun — Wadhu
+acct_lede	Prijavite se za smještene mogućnosti Wadhu. Lokalni alati preko LAN i Bluetooth ostaju upotrebljivi bez računa.
 acct_continue_with	Nastavite e-poštom, putem pružaoca ili telefonom.
 acct_name_optional	Ime (neobavezno)
 acct_password	Lozinka
@@ -61,9 +61,9 @@ acct_signed_in_as	Prijavljeni račun
 acct_status_label	Stanje
 acct_resend_verify	Ponovo pošalji e-poruku za potvrdu
 acct_sign_out	Odjavi se
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu početna
+acct_nav_aria	Primarno
+company_privacy	Privatnost kompanije
 err_invalid_email	Unesite ispravnu adresu e-pošte.
 err_weak_password	Upotrijebite lozinku od najmanje 6 znakova.
 err_wrong_password	Pogrešna lozinka.
@@ -76,9 +76,9 @@ err_too_many	Previše pokušaja. Pokušajte kasnije.
 err_invalid_phone	Upotrijebite cijeli broj telefona s pozivnim brojem zemlje (npr. +91…).
 err_bad_code	Taj SMS kod je pogrešan ili je istekao.
 err_generic	Nešto je pošlo naopako.
-acct_no_email	(no email)
+acct_no_email	(nema e-pošte)
 acct_email_verified	E-pošta potvrđena
 acct_email_unverified	E-pošta još nije potvrđena — provjerite prijemno sanduče
 acct_phone_signed_in	Prijavljeni telefonom
 acct_you_are_in	Prijavljeni ste.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	E-pošta za potvrdu je poslana — provjerite prijemno sanduče

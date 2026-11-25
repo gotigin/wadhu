@@ -1,49 +1,49 @@
 # lt. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Meniu
+close	Uždaryti
+home	Pradžia
+about	Apie
 privacy	Privatumas
 terms	Sąlygos
 cancellation	Atšaukimas
-data_deletion	Data deletion
-support	Support
+data_deletion	Duomenų ištrynimas
+support	Palaikymas
 account	Paskyra
 email	El. paštas
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Įrankiai · Programos · Daugiau
+tagline	Įrankiai · Programos · Daugiau
+hero_kicker	WADHU · NUO GOTIGIN
+hero_title	Wadhu reiškia daugiau.
+hero_lede	Pakartotinai naudojami įrankiai, utilitos ir programos — Įrankiai · Programos · Daugiau.
+the_brand	ŠIS PREKĖS ŽENKLAS
+what_title	Įrankiai, utilitos ir programos.
+what_lede	Parašyta vieną kartą, kad kiti Gotigin produktai ir bet kas kitas paimtų būtent tą dalį, kurios reikia.
+what_body	Bibliotekos, mažos programos ir paslaugos yra čia. Kiekviena dalis stovi pati.
+reuse	PAKARTOTINIS NAUDOJIMAS
+reuse_title	Paimkite vieną dalį.
+reuse_body	Crate yra biblioteka. Programa yra tai, ką paleidžiate šalia savosios. Svetainė yra puslapis, kurį lankote. Vienos dalies pokytis niekada neverčia keistis kitos.
+products	PRODUKTAI
+products_title	Po Wadhu prekės ženklu
+products_lede	Produktai, kurie išeina po šiuo prekės ženklu.
+sms_gateway_blurb	SIM šliuzas, pirmiausia Android. LAN ir Bluetooth lieka nemokami visam laikui.
+sms_relay_blurb	Pasirenkamas interneto kelias į susietą šliuzą. Vietiniam siuntimui jo nereikia.
+connect_blurb	WhatsApp Cloud API Tech Provider tiltas. Verslai pasilieka savo numerį; programos siunčia ir gauna po Embedded Signup.
+open_connect	Atidaryti Wadhu Connect
+names	PAVADINIMAI
+about_title	Kas mes
+trademark	PREKĖS ŽENKLAS
+find_it	Memonų kalba „rask tai“ · tariama go-tee-geen
+slogan	Kur technologija susitinka su atradimu
+company	ĮMONĖ
+director_line	Direktorius · mearaj@gmail.com
+brand	PREKĖS ŽENKLAS
+more_line	Memonų kalba „daugiau“ · Įrankiai · Programos · Daugiau
+products_line	SIM šliuzas, pasirenkama relė ir tiltas į WhatsApp Cloud API
+next	TOLIAU
+closing_title	Kurkite su Wadhu.
+closing_body	wadhu.com paskyra skirta talpinamoms galimybėms. Vietiniai įrankiai per LAN ir Bluetooth lieka nemokami.
+acct_page_title	Paskyra — Wadhu
+acct_lede	Prisijunkite prie talpinamų Wadhu galimybių. Vietiniai įrankiai per LAN ir Bluetooth lieka naudojami be paskyros.
 acct_continue_with	Tęskite el. paštu, per paslaugų teikėją arba telefonu.
 acct_name_optional	Vardas (neprivaloma)
 acct_password	Slaptažodis
@@ -61,9 +61,9 @@ acct_signed_in_as	Prisijungta kaip
 acct_status_label	Būsena
 acct_resend_verify	Iš naujo siųsti patvirtinimo laišką
 acct_sign_out	Atsijungti
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu pradžia
+acct_nav_aria	Pagrindinis
+company_privacy	Įmonės privatumas
 err_invalid_email	Įveskite galiojantį el. pašto adresą.
 err_weak_password	Naudokite bent 6 simbolių slaptažodį.
 err_wrong_password	Neteisingas slaptažodis.
@@ -76,9 +76,9 @@ err_too_many	Per daug bandymų. Bandykite vėliau.
 err_invalid_phone	Naudokite visą telefono numerį su šalies kodu (pvz., +91…).
 err_bad_code	Šis SMS kodas neteisingas arba nebegalioja.
 err_generic	Kažkas nepavyko.
-acct_no_email	(no email)
+acct_no_email	(nėra el. pašto)
 acct_email_verified	El. paštas patvirtintas
 acct_email_unverified	El. paštas dar nepatvirtintas — patikrinkite pašto dėžutę
 acct_phone_signed_in	Prisijungta telefonu
 acct_you_are_in	Esate prisijungę.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Patvirtinimo el. laiškas išsiųstas — patikrinkite pašto dėžutę

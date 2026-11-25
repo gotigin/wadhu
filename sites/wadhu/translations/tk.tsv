@@ -1,49 +1,49 @@
 # tk. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Menýu
+close	Ýapmak
+home	Baş sahypa
+about	Biz barada
 privacy	Gizlinlik
 terms	Şertler
 cancellation	Ýatyrmak
-data_deletion	Data deletion
-support	Support
+data_deletion	Maglumatlary pozmak
+support	Goldaw
 account	Akkaunt
 email	E-poçta
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Gurallar · Programmalar · Köpräk
+tagline	Gurallar · Programmalar · Köpräk
+hero_kicker	WADHU · GOTIGIN TARAPYNDAN
+hero_title	Wadhu «köpräk» diýmekdir.
+hero_lede	Gaýtadan ulanylýan gurallar, utilitler we programmalar — Gurallar · Programmalar · Köpräk.
+the_brand	BU BREND
+what_title	Gurallar, utilitler we programmalar.
+what_lede	Bir gezek ýazylan, şonuň üçin beýleki Gotigin önümleri we islendik adam takyk gerek bölegi alyp biler.
+what_body	Kitaphanalar, kiçi programmalar we hyzmatlar şu ýerde. Her bölek özbaşdak durýar.
+reuse	GAÝTADAN ULANMAK
+reuse_title	Bir bölegi alyň.
+reuse_body	Crate kitaphanadyr. Programma öz programmaňyzyň ýanynda işledýän programma. Sahypa siziň açýan sahypaňyz. Bir bölegiň üýtgemegi beýlekini hiç haçan üýtgetmäge mejbur etmeýär.
+products	ÖNÜMLER
+products_title	Wadhu brendiniň astynda
+products_lede	Şu brendiň astynda çykýan önümler.
+sms_gateway_blurb	SIM şlýuzy, ilki Android. LAN we Bluetooth hemişelik mugt galýar.
+sms_relay_blurb	Jübütlenen şlýuza islege görä internet ýoly. Ýerli ibermäge ol gerek däl.
+connect_blurb	WhatsApp Cloud API Tech Provider köprüsi. Işewürlik belgisini saklaýar; programmalar Embedded Signup soň iberýär we kabul edýär.
+open_connect	Wadhu Connect açmak
+names	ATLAR
+about_title	Biz kim
+trademark	SÖWDA BELGISI
+find_it	Memon dilinde «ony tap» · aýdylyşy go-tee-geen
+slogan	Tehnologiýa açyş bilen duşýan ýer
+company	KOMPANIÝA
+director_line	Direktor · mearaj@gmail.com
+brand	BREND
+more_line	Memon dilinde «köpräk» · Gurallar · Programmalar · Köpräk
+products_line	SIM şlýuzy, islege görä rele we WhatsApp Cloud API köprüsi
+next	INDIKI
+closing_title	Wadhu bilen guruň.
+closing_body	wadhu.com hasaby ýerleşdirilen mümkinçilikler üçin. LAN we Bluetooth arkaly ýerli gurallar mugt galýar.
+acct_page_title	Akkaunt — Wadhu
+acct_lede	Ýerleşdirilen Wadhu mümkinçilikleri üçin giriň. LAN we Bluetooth arkaly ýerli gurallar hasapsyz hem işleýär.
 acct_continue_with	E-poçta, prowaýder ýa-da telefon bilen dowam ediň.
 acct_name_optional	Ady (hökmany däl)
 acct_password	Parol
@@ -61,9 +61,9 @@ acct_signed_in_as	Giren akkaunt
 acct_status_label	Ýagdaýy
 acct_resend_verify	Tassyklama hatyny gaýtadan iber
 acct_sign_out	Çykmak
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu baş sahypasy
+acct_nav_aria	Esasy
+company_privacy	Kompaniýanyň gizlinligi
 err_invalid_email	Dogry e-poçta salgysyny giriziň.
 err_weak_password	Azyndan 6 nyşanly parol ulanyň.
 err_wrong_password	Parol nädogry.
@@ -76,9 +76,9 @@ err_too_many	Synanyşyklar gaty köp. Soňrak gaýtadan synanyşyň.
 err_invalid_phone	Ýurt kody bilen doly telefon belgisini ulanyň (meselem +91…).
 err_bad_code	Bu SMS kody nädogry ýa-da möhleti geçen.
 err_generic	Bir zat ýalňyş boldy.
-acct_no_email	(no email)
+acct_no_email	(e-poçta ýok)
 acct_email_verified	E-poçta tassyklandy
 acct_email_unverified	E-poçta entek tassyklanmady — gelen hatlaryňyzy barlaň
 acct_phone_signed_in	Telefon bilen girildi
 acct_you_are_in	Siz girdiňiz.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Tassyklama haty iberildi — gelen hatlaryňyzy barlaň

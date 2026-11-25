@@ -1,49 +1,49 @@
 # so. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Liiska
+close	Xir
+home	Guriga
+about	Nagu saabsan
 privacy	Asturnaanta
 terms	Shuruudaha
 cancellation	Joojinta
-data_deletion	Data deletion
-support	Support
+data_deletion	Tirtiridda xogta
+support	Taageero
 account	Akoon
 email	Iimayl
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Qalab · App · Dheeraad
+tagline	Qalab · App · Dheeraad
+hero_kicker	WADHU · GOTIGIN AYAA LEEHAY
+hero_title	Wadhu macnaheedu waa dheeraad.
+hero_lede	Qalab, util, iyo app dib loo isticmaalo — Qalab · App · Dheeraad.
+the_brand	SUMMADDAN
+what_title	Qalab, util, iyo app.
+what_lede	Hal mar baa la qoray, si alaabaha kale ee Gotigin iyo qof kasta ay u qaataan qaybta ay u baahan yihiin.
+what_body	Maktabadaha, barnaamijyada yaryar, iyo adeegyadu halkan ayay ku yaalliin. Qayb kastaa keligeed ayay taagan tahay.
+reuse	DIB U ISTICMAAL
+reuse_title	Qaado hal qayb.
+reuse_body	Crate waa maktabad. App waa barnaamij aad ku shaqaysid agtaaga. Goob waa bog aad booqato. Isbeddelka hal qayb waligiis qayb kale kuma qasbo inay isbedesho.
+products	ALAABAHA
+products_title	Hoos summadda Wadhu
+products_lede	Alaabaha ka soo baxa summaddan.
+sms_gateway_blurb	Albaabka SIM, Android marka hore. LAN iyo Bluetooth weligood way sii ahaanayaan bilaash.
+sms_relay_blurb	Waddo internet oo ikhtiyaari ah oo loo maro albaab la isku lammaaniyay. Dirista maxalliga ah uma baahna.
+connect_blurb	Buundada WhatsApp Cloud API Tech Provider. Ganacsigu wuxuu hayaa lambarkiisa; app-yadu waxay diraan oo helaan ka dib Embedded Signup.
+open_connect	Fur Wadhu Connect
+names	MAGACYO
+about_title	Aanu nahay
+trademark	SUMMAD GANACSI
+find_it	Memon oo macnaheedu yahay «hel» · loo dhawaaqo go-tee-geen
+slogan	Meesha tignoolajiyadu ay la kulanto daahfurka
+company	SHIRKAD
+director_line	Agaasime · mearaj@gmail.com
+brand	SUMMAD
+more_line	Memon oo macnaheedu yahay «dheeraad» · Qalab · App · Dheeraad
+products_line	Albaabka SIM, gudbin ikhtiyaari ah, iyo buundada WhatsApp Cloud API
+next	XIGA
+closing_title	Ku dhis Wadhu.
+closing_body	Akoonka wadhu.com waa loogu talagalay astaamaha la martigeliyay. Qalabka maxalliga ah ee LAN iyo Bluetooth way sii ahaanayaan bilaash.
+acct_page_title	Akoon — Wadhu
+acct_lede	Soo gal astaamaha la martigeliyay ee Wadhu. Qalabka maxalliga ah ee LAN iyo Bluetooth waa la isticmaali karaa akoon la'aan.
 acct_continue_with	Ku sii wad iimayl, bixiye ama taleefan.
 acct_name_optional	Magac (ikhtiyaari)
 acct_password	Furaha sirta
@@ -61,9 +61,9 @@ acct_signed_in_as	Waxaad ku soo gashay
 acct_status_label	Xaaladda
 acct_resend_verify	Dib u dir iimaylka xaqiijinta
 acct_sign_out	Ka bax
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Guriga Wadhu
+acct_nav_aria	Aasaasi
+company_privacy	Asturnaanta shirkadda
 err_invalid_email	Geli ciwaan iimayl oo sax ah.
 err_weak_password	Isticmaal furaha sirta oo ugu yaraan 6 xaraf leh.
 err_wrong_password	Furaha sirta waa khalad.
@@ -76,9 +76,9 @@ err_too_many	Isku dayo aad u badan. Mar kale isku day hadhow.
 err_invalid_phone	Isticmaal lambarka taleefanka oo dhammaystiran oo leh koodhka waddanka (tusaale +91…).
 err_bad_code	Koodhkaas SMS waa khalad ama wuu dhacay.
 err_generic	Wax baa khaldamay.
-acct_no_email	(no email)
+acct_no_email	(iimayl ma jiro)
 acct_email_verified	Iimaylka waa la xaqiijiyay
 acct_email_unverified	Iimaylka weli lama xaqiijin — eeg sanduuqa fariimahaaga
 acct_phone_signed_in	Waxaad ku gashay taleefan
 acct_you_are_in	Waad soo gashay.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Iimaylka xaqiijinta waa la diray — eeg sanduuqa fariimahaaga

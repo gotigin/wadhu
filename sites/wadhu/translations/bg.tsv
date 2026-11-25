@@ -1,49 +1,49 @@
 # bg. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Меню
+close	Затвори
+home	Начало
+about	За нас
 privacy	Поверителност
 terms	Условия
 cancellation	Анулиране
-data_deletion	Data deletion
-support	Support
+data_deletion	Изтриване на данни
+support	Поддръжка
 account	Профил
 email	Имейл
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Инструменти · Приложения · Повече
+tagline	Инструменти · Приложения · Повече
+hero_kicker	WADHU · ОТ GOTIGIN
+hero_title	Wadhu означава повече.
+hero_lede	Инструменти, помощни програми и приложения за повторна употреба — Инструменти · Приложения · Повече.
+the_brand	МАРКАТА
+what_title	Инструменти, помощни програми и приложения.
+what_lede	Написано веднъж, за да могат другите продукти на Gotigin и всеки друг да вземат точно частта, която им трябва.
+what_body	Библиотеки, малки програми и услуги са тук. Всяка част стои сама.
+reuse	ПОВТОРНА УПОТРЕБА
+reuse_title	Вземете една част.
+reuse_body	Crate е библиотека. Приложението е програма, която пускате до своята. Сайтът е страница, която посещавате. Промяна на една част никога не принуждава друга да се промени.
+products	ПРОДУКТИ
+products_title	Под марката Wadhu
+products_lede	Продукти, които излизат под тази марка.
+sms_gateway_blurb	SIM шлюз, Android първо. LAN и Bluetooth остават безплатни завинаги.
+sms_relay_blurb	Незадължителен интернет път до сдвоен шлюз. Локалното изпращане не се нуждае от него.
+connect_blurb	Мост WhatsApp Cloud API Tech Provider. Бизнесът запазва номера си; приложенията изпращат и получават след Embedded Signup.
+open_connect	Отвори Wadhu Connect
+names	ИМЕНА
+about_title	Кои сме
+trademark	ТЪРГОВСКА МАРКА
+find_it	Memon за „намери го“ · произнася се go-tee-geen
+slogan	Където технологията среща откритието
+company	КОМПАНИЯ
+director_line	Директор · mearaj@gmail.com
+brand	МАРКА
+more_line	Memon за „повече“ · Инструменти · Приложения · Повече
+products_line	SIM шлюз, незадължително реле и мост към WhatsApp Cloud API
+next	НАПРЕД
+closing_title	Стройте с Wadhu.
+closing_body	Профил в wadhu.com е за хоствани възможности. Локалните инструменти през LAN и Bluetooth остават безплатни.
+acct_page_title	Профил — Wadhu
+acct_lede	Влезте за хостваните възможности на Wadhu. Локалните инструменти през LAN и Bluetooth остават използваеми без профил.
 acct_continue_with	Продължете с имейл, доставчик или телефон.
 acct_name_optional	Име (по желание)
 acct_password	Парола
@@ -61,9 +61,9 @@ acct_signed_in_as	Влезли сте като
 acct_status_label	Статус
 acct_resend_verify	Изпрати отново имейла за потвърждение
 acct_sign_out	Изход
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Начало на Wadhu
+acct_nav_aria	Основно
+company_privacy	Поверителност на компанията
 err_invalid_email	Въведете валиден имейл адрес.
 err_weak_password	Използвайте парола с поне 6 знака.
 err_wrong_password	Грешна парола.
@@ -76,9 +76,9 @@ err_too_many	Твърде много опити. Опитайте по-късн�
 err_invalid_phone	Използвайте пълен телефонен номер с код на държавата (напр. +91…).
 err_bad_code	Този SMS код е грешен или е изтекъл.
 err_generic	Нещо се обърка.
-acct_no_email	(no email)
+acct_no_email	(няма имейл)
 acct_email_verified	Имейлът е потвърден
 acct_email_unverified	Имейлът още не е потвърден — проверете входящата поща
 acct_phone_signed_in	Влезли сте с телефон
 acct_you_are_in	Влязохте.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Имейлът за потвърждение е изпратен — проверете входящата поща

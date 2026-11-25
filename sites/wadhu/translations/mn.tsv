@@ -1,49 +1,49 @@
 # mn. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Цэс
+close	Хаах
+home	Нүүр
+about	Бидний тухай
 privacy	Нууцлал
 terms	Нөхцөл
 cancellation	Цуцлалт
-data_deletion	Data deletion
-support	Support
+data_deletion	Өгөгдөл устгах
+support	Дэмжлэг
 account	Бүртгэл
 email	И-мэйл
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Хэрэгсэл · Апп · Илүү
+tagline	Хэрэгсэл · Апп · Илүү
+hero_kicker	WADHU · GOTIGIN-ЭЭС
+hero_title	Wadhu илүү гэсэн үг.
+hero_lede	Дахин ашиглах хэрэгсэл, утилит, апп — Хэрэгсэл · Апп · Илүү.
+the_brand	ЭНЭ БРЭНД
+what_title	Хэрэгсэл, утилит, апп.
+what_lede	Нэг удаа бичигдсэн, ингэснээр Gotigin-ийн бусад бүтээгдэхүүн болон хэн ч хэрэгтэй хэсгээ яг авна.
+what_body	Номын сан, жижиг програм, үйлчилгээ энд байна. Хэсэг бүр өөрөө зогсоно.
+reuse	ДАХИН АШИГЛАХ
+reuse_title	Нэг хэсгийг аваарай.
+reuse_body	Crate бол номын сан. Апп бол өөрийнхөө програмын хажууд ажиллуулдаг програм. Сайт бол таны зочлох хуудас. Нэг хэсэг өөрчлөгдөхөд нөгөөг хэзээ ч өөрчлөхийг албадахгүй.
+products	БҮТЭЭГДЭХҮҮНҮҮД
+products_title	Wadhu брэнд дор
+products_lede	Энэ брэнд дор гарч буй бүтээгдэхүүн.
+sms_gateway_blurb	SIM гарц, Android эхэлж. LAN ба Bluetooth үүрд үнэгүй үлдэнэ.
+sms_relay_blurb	Хосолсон гарц руу нэмэлт интернетийн зам. Орон нутгийн илгээлтэд хэрэггүй.
+connect_blurb	WhatsApp Cloud API Tech Provider гүүр. Бизнес дугаараа хадгална; аппууд Embedded Signup дараа илгээж хүлээн авна.
+open_connect	Wadhu Connect нээх
+names	НЭРС
+about_title	Бид хэн бэ
+trademark	ХУДАЛДААНЫ ТЭМДЭГ
+find_it	Memon хэлээр «ол» · дуудлага go-tee-geen
+slogan	Технологи нээлтийг угтах газар
+company	КОМПАНИ
+director_line	Захирал · mearaj@gmail.com
+brand	БРЭНД
+more_line	Memon хэлээр «илүү» · Хэрэгсэл · Апп · Илүү
+products_line	SIM гарц, нэмэлт релей, WhatsApp Cloud API гүүр
+next	ДАРААХ
+closing_title	Wadhu-тай бүтээгээрэй.
+closing_body	wadhu.com бүртгэл байршуулсан боломжид зориулагдсан. LAN ба Bluetooth дээрх орон нутгийн хэрэгсэл үнэгүй үлдэнэ.
+acct_page_title	Бүртгэл — Wadhu
+acct_lede	Байршуулсан Wadhu боломжид нэвтэрнэ үү. LAN ба Bluetooth дээрх орон нутгийн хэрэгсэл бүртгэлгүйгээр ашиглагдана.
 acct_continue_with	И-мэйл, үйлчилгээ үзүүлэгч эсвэл утсаар үргэлжлүүлнэ үү.
 acct_name_optional	Нэр (заавал биш)
 acct_password	Нууц үг
@@ -61,9 +61,9 @@ acct_signed_in_as	Нэвтэрсэн бүртгэл
 acct_status_label	Төлөв
 acct_resend_verify	Баталгаажуулах и-мэйлийг дахин илгээх
 acct_sign_out	Гарах
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu нүүр
+acct_nav_aria	Үндсэн
+company_privacy	Компанийн нууцлал
 err_invalid_email	Зөв и-мэйл хаяг оруулна уу.
 err_weak_password	Хамгийн багадаа 6 тэмдэгттэй нууц үг ашиглана уу.
 err_wrong_password	Нууц үг буруу.
@@ -76,9 +76,9 @@ err_too_many	Хэт олон оролдлого. Дараа дахин орол�
 err_invalid_phone	Улсын кодтой бүтэн утасны дугаар ашиглана уу (ж.нь +91…).
 err_bad_code	Энэ SMS код буруу эсвэл хугацаа нь дууссан.
 err_generic	Ямар нэг алдаа гарлаа.
-acct_no_email	(no email)
+acct_no_email	(и-мэйл байхгүй)
 acct_email_verified	И-мэйл баталгаажсан
 acct_email_unverified	И-мэйл хараахан баталгаажаагүй — ирсэн шуудангаа шалгаарай
 acct_phone_signed_in	Утсаар нэвтэрсэн
 acct_you_are_in	Та нэвтэрлээ.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Баталгаажуулах и-мэйл илгээгдлээ — ирсэн хайрцгаа шалгана уу

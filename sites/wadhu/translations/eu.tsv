@@ -1,49 +1,49 @@
 # eu. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Menua
+close	Itxi
+home	Hasiera
+about	Guri buruz
 privacy	Pribatutasuna
 terms	Baldintzak
 cancellation	Ezeztapena
-data_deletion	Data deletion
-support	Support
+data_deletion	Datuen ezabatzea
+support	Euskarria
 account	Kontua
 email	Posta elektronikoa
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Tresnak · Aplikazioak · Gehiago
+tagline	Tresnak · Aplikazioak · Gehiago
+hero_kicker	WADHU · GOTIGINEN ESKUTIK
+hero_title	Wadhu gehiago esan nahi du.
+hero_lede	Berrerabiltzeko tresnak, utilitateak eta aplikazioak — Tresnak · Aplikazioak · Gehiago.
+the_brand	MARKA HAU
+what_title	Tresnak, utilitateak eta aplikazioak.
+what_lede	Behin idatzia, Gotiginen beste produktuek eta beste edonork behar duten pieza zehatza har dezaten.
+what_body	Liburutegiak, programa txikiak eta zerbitzuak hemen daude. Zati bakoitza bere kabuz dago.
+reuse	BERRERABILTZEA
+reuse_title	Hartu pieza bat.
+reuse_body	Crate liburutegi bat da. Aplikazioa zurearen ondoan exekutatzen duzun programa da. Gunea bisitatzen duzun orri bat da. Zati bat aldatzeak ez du inoiz bestea aldatzera behartzen.
+products	PRODUKTUAK
+products_title	Wadhu markaren pean
+products_lede	Marka honen pean ateratzen diren produktuak.
+sms_gateway_blurb	SIM atebidea, Android lehenik. LAN eta Bluetooth betiko doan geratzen dira.
+sms_relay_blurb	Aukerako internet-bidea atebide parekatu batera. Tokiko bidalketak ez du behar.
+connect_blurb	WhatsApp Cloud API Tech Provider zubia. Negozioek beren zenbakia gordetzen dute; aplikazioek Embedded Signup ondoren bidaltzen eta jasotzen dute.
+open_connect	Ireki Wadhu Connect
+names	IZENAK
+about_title	Nor garen
+trademark	MARKA ERREGISTRATUA
+find_it	Memoneraz «aurkitu» · ahoskatzen da go-tee-geen
+slogan	Teknologia aurkikuntzarekin elkartzen den tokia
+company	ENPRESA
+director_line	Zuzendaria · mearaj@gmail.com
+brand	MARKA
+more_line	Memoneraz «gehiago» · Tresnak · Aplikazioak · Gehiago
+products_line	SIM atebidea, errele aukerakoa eta zubia WhatsApp Cloud API aldera
+next	HURRENGOA
+closing_title	Eraiki Wadhurekin.
+closing_body	wadhu.com kontu bat ostatatutako eginbideetarako da. LAN eta Bluetooth bidezko tresna lokalak doan geratzen dira.
+acct_page_title	Kontua — Wadhu
+acct_lede	Hasi saioa ostatatutako Wadhu eginbideetarako. LAN eta Bluetooth bidezko tresna lokalak konturik gabe erabilgarri geratzen dira.
 acct_continue_with	Jarraitu posta elektronikoarekin, hornitzaile batekin edo telefonoarekin.
 acct_name_optional	Izena (aukerakoa)
 acct_password	Pasahitza
@@ -61,9 +61,9 @@ acct_signed_in_as	Saioa hasita honela:
 acct_status_label	Egoera
 acct_resend_verify	Bidali berriro egiaztapen-mezua
 acct_sign_out	Amaitu saioa
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu hasiera
+acct_nav_aria	Nagusia
+company_privacy	Enpresaren pribatutasuna
 err_invalid_email	Idatzi baliozko helbide elektroniko bat.
 err_weak_password	Erabili gutxienez 6 karaktereko pasahitz bat.
 err_wrong_password	Pasahitz okerra.
@@ -76,9 +76,9 @@ err_too_many	Saiakera gehiegi. Saiatu berriro geroago.
 err_invalid_phone	Erabili telefono-zenbaki osoa herrialde-kodearekin (adib. +91…).
 err_bad_code	SMS kode hori okerra da edo iraungi da.
 err_generic	Zerbait gaizki atera da.
-acct_no_email	(no email)
+acct_no_email	(posta elektronikorik ez)
 acct_email_verified	Posta egiaztatuta
 acct_email_unverified	Posta ez dago egiaztatuta oraindik — begiratu sarrera-ontzia
 acct_phone_signed_in	Saioa telefonoz hasita
 acct_you_are_in	Saioa hasi duzu.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Egiaztapen-mezua bidali da — begiratu sarrera-ontzia

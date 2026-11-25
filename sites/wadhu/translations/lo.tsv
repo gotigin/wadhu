@@ -1,49 +1,49 @@
 # lo. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	ເມນູ
+close	ປິດ
+home	ໜ້າ​ຫຼັກ
+about	ກ່ຽວ​ກັບ
 privacy	ຄວາມເປັນ​ສ່ວນຕົວ
 terms	ຂໍ້​ກຳນົດ
 cancellation	ການຍົກ​ເລີກ
-data_deletion	Data deletion
-support	Support
+data_deletion	ລຶບ​ຂໍ້​ມູນ
+support	ສະໜັບ​ສະໜູນ
 account	ບັນຊີ
 email	ອີ​ເມວ
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — ເຄື່ອງ​ມື · ແອັບ · ເພີ່ມ
+tagline	ເຄື່ອງ​ມື · ແອັບ · ເພີ່ມ
+hero_kicker	WADHU · ໂດຍ GOTIGIN
+hero_title	Wadhu ໝາຍ​ເຖິງ​ເພີ່ມ.
+hero_lede	ເຄື່ອງ​ມື​ໃຊ້​ຊ້ຳ, ຢູທິລ​ແລະ​ແອັບ — ເຄື່ອງ​ມື · ແອັບ · ເພີ່ມ.
+the_brand	ແບຣນ
+what_title	ເຄື່ອງ​ມື, ຢູທິລ​ແລະ​ແອັບ.
+what_lede	ຂຽນ​ຄັ້ງ​ດຽວ, ເພື່ອ​ໃຫ້​ຜະລິດ​ຕະພັນ Gotigin ອື່ນ​ແລະ​ໃຜ​ກໍ​ຕາມ​ເອົາ​ຊິ້ນ​ທີ່​ຕ້ອງ​ການ​ໄດ້.
+what_body	ຫ້ອງ​ສະໝຸດ, ໂປຣ​ແກຣມ​ນ້ອຍ​ແລະ​ບໍ​ລິ​ການ​ຢູ່​ທີ່​ນີ້. ແຕ່​ລະ​ສ່ວນ​ຢືນ​ເອງ.
+reuse	ໃຊ້​ຊ້ຳ
+reuse_title	ເອົາ​ຊິ້ນ​ໜຶ່ງ.
+reuse_body	Crate ແມ່ນ​ຫ້ອງ​ສະໝຸດ. ແອັບ​ແມ່ນ​ໂປຣ​ແກຣມ​ທີ່​ທ່ານ​ແລ່ນ​ຂ້າງ​ໂປຣ​ແກຣມ​ຂອງ​ທ່ານ. ເວັບ​ແມ່ນ​ໜ້າ​ທີ່​ທ່ານ​ເຂົ້າ. ສ່ວນ​ໜຶ່ງ​ປ່ຽນ​ບໍ່​ບັງ​ຄັບ​ສ່ວນ​ອ້າຍ​ໃຫ້​ປ່ຽນ.
+products	ຜະລິດ​ຕະພັນ
+products_title	ພາຍ​ໃຕ້​ແບຣນ Wadhu
+products_lede	ຜະລິດ​ຕະພັນ​ທີ່​ອອກ​ພາຍ​ໃຕ້​ແບຣນ​ນີ້.
+sms_gateway_blurb	ປະຕູ SIM Android ກ່ອນ. LAN ແລະ Bluetooth ຢູ່​ຟຣີ​ຕະຫຼອດ.
+sms_relay_blurb	ເສັ້ນ​ທາງ​ອິນ​ເຕີ​ເນັດ​ເລືອກ​ໄດ້​ໄປ​ປະຕູ​ຄູ່. ການ​ສົ່ງ​ໃນ​ທ້ອງ​ຖິ່ນ​ບໍ່​ຕ້ອງ​ການ​ມັນ.
+connect_blurb	ຂົວ WhatsApp Cloud API Tech Provider. ທຸລະ​ກິດ​ເກັບ​ເບີ​ຂອງ​ຕົນ. ແອັບ​ສົ່ງ​ແລະ​ຮັບ​ຫຼັງ Embedded Signup.
+open_connect	ເປີດ Wadhu Connect
+names	ຊື່
+about_title	ພວກ​ເຮົາ​ແມ່ນ​ໃຜ
+trademark	ເຄື່ອງ​ໝາຍ​ການ​ຄ້າ
+find_it	Memon ໝາຍ​ເຖິງ «ຊອກ​ໃຫ້​ພົບ» · ອ່ານ go-tee-geen
+slogan	ບ່ອນ​ທີ່​ເຕັກ​ໂນ​ໂລ​ຊີ​ພົບ​ການ​ຄົ້ນ​ພົບ
+company	ບໍລິສັດ
+director_line	ຜູ້​ອຳ​ນວຍ​ການ · mearaj@gmail.com
+brand	ແບຣນ
+more_line	Memon ໝາຍ​ເຖິງ «ເພີ່ມ» · ເຄື່ອງ​ມື · ແອັບ · ເພີ່ມ
+products_line	ປະຕູ SIM, ຣີເລ​ເລືອກ​ໄດ້, ແລະ​ຂົວ WhatsApp Cloud API
+next	ຕໍ່​ໄປ
+closing_title	ສ້າງ​ກັບ Wadhu.
+closing_body	ບັນຊີ wadhu.com ສຳ​ລັບ​ຄຸນ​ສົມ​ບັດ​ທີ່​ໂຮສ. ເຄື່ອງ​ມື​ໃນ​ທ້ອງ​ຖິ່ນ​ຜ່ານ LAN ແລະ Bluetooth ຢູ່​ຟຣີ.
+acct_page_title	ບັນຊີ — Wadhu
+acct_lede	ເຂົ້າ​ສູ່​ລະບົບ​ສຳ​ລັບ​ຄຸນ​ສົມ​ບັດ Wadhu ທີ່​ໂຮສ. ເຄື່ອງ​ມື​ໃນ​ທ້ອງ​ຖິ່ນ​ຜ່ານ LAN ແລະ Bluetooth ຍັງ​ໃຊ້​ໄດ້​ໂດຍ​ບໍ່​ມີ​ບັນຊີ.
 acct_continue_with	ສືບຕໍ່​ດ້ວຍ​ອີ​ເມວ ຜູ້​ໃຫ້​ບໍລິການ ຫຼື ໂທລະສັບ
 acct_name_optional	ຊື່ (ບໍ່​ບັງຄັບ)
 acct_password	ລະຫັດ​ຜ່ານ
@@ -61,9 +61,9 @@ acct_signed_in_as	ເຂົ້າສູ່​ລະບົບ​ໃນນາມ
 acct_status_label	ສະຖານະ
 acct_resend_verify	ສົ່ງ​ອີ​ເມວ​ຢືນຢັນ​ອີກ​ຄັ້ງ
 acct_sign_out	ອອກຈາກ​ລະບົບ
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	ໜ້າ​ຫຼັກ Wadhu
+acct_nav_aria	ຫຼັກ
+company_privacy	ຄວາມ​ເປັນ​ສ່ວນ​ຕົວ​ບໍລິສັດ
 err_invalid_email	ປ້ອນ​ອີ​ເມວ​ທີ່​ຖືກຕ້ອງ
 err_weak_password	ໃຊ້​ລະຫັດ​ຜ່ານ​ຢ່າງ​ໜ້ອຍ 6 ຕົວ​ອັກສອນ
 err_wrong_password	ລະຫັດ​ຜ່ານ​ບໍ່​ຖືກຕ້ອງ
@@ -76,9 +76,9 @@ err_too_many	ລອງ​ຫຼາຍເທື່ອ​ເກີນໄປ ກະ
 err_invalid_phone	ໃຊ້​ເບີ​ໂທລະສັບ​ເຕັມ​ພ້ອມ​ລະຫັດ​ປະເທດ (ເຊັ່ນ +91…)
 err_bad_code	ລະຫັດ SMS ບໍ່​ຖືກຕ້ອງ ຫຼື ໝົດ​ອາຍຸ​ແລ້ວ
 err_generic	ເກີດ​ຂໍ້​ຜິດພາດ
-acct_no_email	(no email)
+acct_no_email	(ບໍ່​ມີ​ອີເມວ)
 acct_email_verified	ຢືນຢັນ​ອີ​ເມວ​ແລ້ວ
 acct_email_unverified	ຍັງ​ບໍ່ໄດ້​ຢືນຢັນ​ອີ​ເມວ — ກວດເບິ່ງ​ກ່ອງ​ຈົດໝາຍ
 acct_phone_signed_in	ເຂົ້າສູ່​ລະບົບ​ດ້ວຍ​ໂທລະສັບ​ແລ້ວ
 acct_you_are_in	ທ່ານ​ເຂົ້າສູ່​ລະບົບ​ແລ້ວ
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	ອີເມວ​ຢືນ​ຢັນ​ສົ່ງ​ແລ້ວ — ເບິ່ງ​ກ່ອງ​ຈົດ​ໝາຍ

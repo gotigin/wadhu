@@ -1,49 +1,49 @@
 # my. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	မီနူး
+close	ပိတ်ရန်
+home	အိမ်
+about	အကြောင်း
 privacy	ကိုယ်ရေးကိုယ်တာ
 terms	စည်းကမ်း​ချက်​များ
 cancellation	ပယ်ဖျက်​ခြင်း
-data_deletion	Data deletion
-support	Support
+data_deletion	ဒေတာ​ဖျက်​ခြင်း
+support	ပံ့ပိုးမှု
 account	အ​ကော​င့်
 email	အီး​မေး​လ်
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — ကိရိယာ · အက်ပ် · ပို
+tagline	ကိရိယာ · အက်ပ် · ပို
+hero_kicker	WADHU · GOTIGIN မှ
+hero_title	Wadhu ဆို​သည်​ပို.
+hero_lede	ပြန်​သုံး​ကိရိယာ, ယူတီလ်​နှင့်​အက်ပ် — ကိရိယာ · အက်ပ် · ပို.
+the_brand	အမှတ်​တံဆိပ်
+what_title	ကိရိယာ, ယူတီလ်​နှင့်​အက်ပ်.
+what_lede	တစ်​ကြိမ်​ရေး​ပြီး, အခြား Gotigin ထုတ်​ကုန်​နှင့်​မည်​သူ​မ​ဆို​လို​အပ်​သော​အပိုင်း​ကို​အတိ​အကျ​ယူ​နိုင်​သည်.
+what_body	စာ​ကြည့်​တိုက်, ပရို​ဂရမ်​ငယ်​နှင့်​ဝန်​ဆောင်​မှု​ဤ​မှာ​ရှိ​သည်. အပိုင်း​တိုင်း​ကိုယ့်​ဘာ​သာ​ရပ်​သည်.
+reuse	ပြန်​သုံး
+reuse_title	အပိုင်း​တစ်​ခု​ယူ​ပါ.
+reuse_body	Crate သည်​စာ​ကြည့်​တိုက်. အက်ပ်​သည်​သင့်​ပရို​ဂရမ်​ဘေး​တွင်​မောင်း​သော​ပရို​ဂရမ်. ဆိုက်​သည်​သင်​ဝင်​သော​စာ​မျက်​နှာ. အပိုင်း​တစ်​ခု​ပြောင်း​လျှင်​ညီ​အစ်​ကို​အပိုင်း​ကို​ပြောင်း​ရန်​မ​တွန်း.
+products	ထုတ်​ကုန်
+products_title	Wadhu အမှတ်​တံဆိပ်​အောက်
+products_lede	ဤ​အမှတ်​တံဆိပ်​အောက်​ထွက်​သော​ထုတ်​ကုန်.
+sms_gateway_blurb	Android ဦး​စား​ပေး SIM ဂိတ်. LAN နှင့် Bluetooth အမြဲ​အခ​မဲ့.
+sms_relay_blurb	တွဲ​ဂိတ်​သို့​ရွေး​ချယ်​ရန်​အင်တာ​နက်​လမ်း. ဒေ​သ​ဆိုင်​ရာ​ပို့​ခြင်း​သည်​၎င်း​ကို​မ​လို.
+connect_blurb	WhatsApp Cloud API Tech Provider တံ​တား. လုပ်ငန်း​များ​က​နံပါတ်​ကို​ထိန်း. အက်ပ်​များ​က Embedded Signup နောက်​ပို့​ပြီး​လက်​ခံ.
+open_connect	Wadhu Connect ဖွင့်​ပါ
+names	အမည်
+about_title	ကျွန်ုပ်​တို့​ဘယ်​သူ​လဲ
+trademark	ကုန်​အမှတ်​တံဆိပ်
+find_it	Memon ဆို​သည် «ရှာ​ပါ» · အသံ​ထွက် go-tee-geen
+slogan	နည်း​ပညာ​ရှာ​ဖွေ​မှု​နှင့်​တွေ့​ဆုံ​ရာ
+company	ကုမ္ပဏီ
+director_line	ဒါရိုက်​တာ · mearaj@gmail.com
+brand	အမှတ်​တံဆိပ်
+more_line	Memon ဆို​သည် «ပို» · ကိရိယာ · အက်ပ် · ပို
+products_line	SIM ဂိတ်, ရွေး​ချယ်​ရန်​ရီလေး, နှင့် WhatsApp Cloud API တံ​တား
+next	နောက်
+closing_title	Wadhu နှင့်​တည်​ဆောက်​ပါ.
+closing_body	wadhu.com အ​ကော​င့်​သည်​လက်​ခံ​ထား​သော​လုပ်​ဆောင်​ချက်​အတွက်. LAN နှင့် Bluetooth ပေါ်​ဒေ​သ​ဆိုင်​ရာ​ကိရိယာ​အခ​မဲ့.
+acct_page_title	အ​ကော​င့် — Wadhu
+acct_lede	လက်​ခံ​ထား​သော Wadhu လုပ်​ဆောင်​ချက်​အတွက်​ဝင်​ရောက်​ပါ. LAN နှင့် Bluetooth ပေါ်​ဒေ​သ​ဆိုင်​ရာ​ကိရိယာ​သည်​အ​ကော​င့်​မ​ရှိ​ဘဲ​လည်း​သုံး​နိုင်.
 acct_continue_with	အီး​မေး​လ်၊ ဝန်ဆောင်မှု​ပေး​သူ သို့မဟုတ် ဖုန်း​ဖြင့် ဆက်​လုပ်​ပါ။
 acct_name_optional	အမည် (မ​ဖြစ်​မ​နေ မဟုတ်)
 acct_password	စကားဝှက်
@@ -61,9 +61,9 @@ acct_signed_in_as	ဝင်​ရောက်​ထား​သည့် အ​�
 acct_status_label	အခြေအနေ
 acct_resend_verify	အတည်ပြု အီး​မေး​လ် ပြန်​ပို့​ပါ
 acct_sign_out	ထွက်​ရန်
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu အိမ်
+acct_nav_aria	အဓိက
+company_privacy	ကုမ္ပဏီ​ကိုယ်​ရေး​ကိုယ်​တာ
 err_invalid_email	မှန်ကန်​သော အီး​မေး​လ်​လိပ်စာ ထည့်​ပါ။
 err_weak_password	အနည်းဆုံး စာလုံး 6 လုံး​ပါ​သော စကားဝှက် သုံး​ပါ။
 err_wrong_password	စကားဝှက် မှား​နေသည်။
@@ -76,9 +76,9 @@ err_too_many	ကြိုးစား​မှု များ​လွန်း
 err_invalid_phone	နိုင်ငံ​ကုဒ်​ပါ​သော ဖုန်း​နံပါတ် အပြည့်အစုံ သုံး​ပါ (ဥပမာ +91…)။
 err_bad_code	ထို SMS ကုဒ် မှား​နေသည် သို့မဟုတ် သက်တမ်း​ကုန်​သွား​ပြီ။
 err_generic	တစ်ခုခု မှားယွင်း​သွား​သည်။
-acct_no_email	(no email)
+acct_no_email	(အီး​မေး​လ်​မ​ရှိ)
 acct_email_verified	အီး​မေး​လ် အတည်ပြု​ပြီး
 acct_email_unverified	အီး​မေး​လ် အတည်​မ​ပြု​ရ​သေးပါ — သင့်​စာ​ဝင်​ပုံး​ကို စစ်​ပါ
 acct_phone_signed_in	ဖုန်း​ဖြင့် ဝင်​ရောက်​ပြီး
 acct_you_are_in	သင် ဝင်​ရောက်​ပြီး​ပါ​ပြီ။
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	အတည်​ပြု​အီး​မေး​လ်​ပို့​ပြီး — စာ​ဝင်​ပုံး​ကြည့်​ပါ

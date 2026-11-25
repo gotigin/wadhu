@@ -1,49 +1,49 @@
 # rw. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Urutonde
+close	Funga
+home	Ahabanza
+about	Ibyerekeye
 privacy	Ibanga
 terms	Amabwiriza
 cancellation	Guhagarika
-data_deletion	Data deletion
-support	Support
+data_deletion	Gusiba amakuru
+support	Inkunga
 account	Konti
 email	Imeri
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Ibikoresho · Porogaramu · Byinshi
+tagline	Ibikoresho · Porogaramu · Byinshi
+hero_kicker	WADHU · IVA KURI GOTIGIN
+hero_title	Wadhu bisobanura byinshi.
+hero_lede	Ibikoresho, util, na porogaramu bikoreshwa kenshi — Ibikoresho · Porogaramu · Byinshi.
+the_brand	IRI KIRANGO
+what_title	Ibikoresho, util, na porogaramu.
+what_lede	Byanditswe rimwe, kugira ngo ibicuruzwa bindi bya Gotigin n'undi muntu wese bafate igice bakeneye.
+what_body	Isomero, porogaramu nto, n'ibikorwa biri hano. Igice cyose kirahagaze cyonyine.
+reuse	KONGESHA
+reuse_title	Fata igice kimwe.
+reuse_body	Crate ni isomero. Porogaramu ni porogaramu ukoresha iruhande rw'iyawe. Urubuga ni paji usura. Guhindura igice kimwe ntibigombye guhindura ikindi.
+products	IBICURUZWA
+products_title	Munsi y'ikirango cya Wadhu
+products_lede	Ibicuruzwa bisohoka munsi y'iri kirango.
+sms_gateway_blurb	Irembo rya SIM, Android mbere. LAN na Bluetooth biguma ubuntu iteka.
+sms_relay_blurb	Inzira y'interineti y'ubushake ijya ku irembo rihuza. Kohereza hafi ntibikenewe.
+connect_blurb	Ikiraro cya WhatsApp Cloud API Tech Provider. Ubucuruzi bugumana nimero; porogaramu zohereza kandi zakira nyuma ya Embedded Signup.
+open_connect	Fungura Wadhu Connect
+names	AMAZINA
+about_title	Turi bande
+trademark	IKIRANGO
+find_it	Memon isobanura «shaka» · ivugwa go-tee-geen
+slogan	Aho ikoranabuhanga rihurira n'ubuvumbuzi
+company	IKIGO
+director_line	Umuyobozi · mearaj@gmail.com
+brand	IKIRANGO
+more_line	Memon isobanura «byinshi» · Ibikoresho · Porogaramu · Byinshi
+products_line	Irembo rya SIM, relay y'ubushake, n'ikiraro cya WhatsApp Cloud API
+next	IBIKURIKIRA
+closing_title	Kubaka na Wadhu.
+closing_body	Konti ya wadhu.com ni iy'ibintu byakirwa. Ibikoresho by'ahafi kuri LAN na Bluetooth biguma ubuntu.
+acct_page_title	Konti — Wadhu
+acct_lede	Injira mu bintu byakirwa bya Wadhu. Ibikoresho by'ahafi kuri LAN na Bluetooth bikomeza gukoreshwa nta konti.
 acct_continue_with	Komeza ukoresheje imeri, utanga serivisi, cyangwa telefone.
 acct_name_optional	Izina (ku bushake)
 acct_password	Ijambo ry’ibanga
@@ -61,9 +61,9 @@ acct_signed_in_as	Winjiye nka
 acct_status_label	Imiterere
 acct_resend_verify	Ongera wohereze imeri yo kwemeza
 acct_sign_out	Sohoka
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Ahabanza ka Wadhu
+acct_nav_aria	Ibanze
+company_privacy	Ibanga ry'ikigo
 err_invalid_email	Andika aderesi ya imeri yemewe.
 err_weak_password	Koresha ijambo ry’ibanga rifite nibura inyuguti 6.
 err_wrong_password	Ijambo ry’ibanga si ryo.
@@ -76,9 +76,9 @@ err_too_many	Wagerageje inshuro nyinshi cyane. Ongera ugerageze nyuma.
 err_invalid_phone	Koresha nimero ya telefone yuzuye ifite kode y’igihugu (urugero +91…).
 err_bad_code	Iyo kode ya SMS si yo cyangwa yararengeje igihe.
 err_generic	Hari ikitagenze neza.
-acct_no_email	(no email)
+acct_no_email	(nta meri)
 acct_email_verified	Imeri yemejwe
 acct_email_unverified	Imeri ntiraremezwa — reba agasanduku k’ubutumwa bwawe
 acct_phone_signed_in	Winjiye ukoresheje telefone
 acct_you_are_in	Winjiye.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Imeri yo kwemeza yoherejwe — reba agasanduku k'ubutumwa bwawe

@@ -1,49 +1,49 @@
 # ht. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Meni
+close	Fèmen
+home	Akèy
+about	Sou nou
 privacy	Konfidansyalite
 terms	Kondisyon
 cancellation	Anilasyon
-data_deletion	Data deletion
-support	Support
+data_deletion	Efase done
+support	Sipò
 account	Kont
 email	Imèl
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Zouti · Aplikasyon · Plis
+tagline	Zouti · Aplikasyon · Plis
+hero_kicker	WADHU · PA GOTIGIN
+hero_title	Wadhu vle di plis.
+hero_lede	Zouti, utilitè ak aplikasyon ki ka itilize ankò — Zouti · Aplikasyon · Plis.
+the_brand	MAK LA
+what_title	Zouti, utilitè ak aplikasyon.
+what_lede	Ekri yon sèl fwa, pou lòt pwodwi Gotigin ak nenpòt lòt moun pran egzakteman moso yo bezwen.
+what_body	Bibliyotèk, ti pwogram ak sèvis la. Chak pati kanpe pou kont li.
+reuse	ITILIZE ANKÒ
+reuse_title	Pran yon moso.
+reuse_body	Yon crate se yon bibliyotèk. Yon aplikasyon se yon pwogram ou kouri bò kote pa ou. Yon sit se yon paj ou vizite. Chanjman yon pati pa janm fòse yon lòt chanje.
+products	PWODWI YO
+products_title	Anba mak Wadhu
+products_lede	Pwodwi ki soti anba mak sa a.
+sms_gateway_blurb	Pòtay SIM, Android an premye. LAN ak Bluetooth rete gratis pou tout tan.
+sms_relay_blurb	Chemen entènèt si ou vle vè yon pòtay ki pè. Voye lokal pa bezwen li.
+connect_blurb	Pon WhatsApp Cloud API Tech Provider. Biznis yo kenbe nimewo yo; aplikasyon yo voye epi resevwa apre Embedded Signup.
+open_connect	Louvri Wadhu Connect
+names	NON
+about_title	Kilès nou ye
+trademark	MAK KOMÈSYAL
+find_it	Memon pou «jwenn li» · pwononse go-tee-geen
+slogan	Kote teknoloji rankontre dekouvèt
+company	KONPAYI
+director_line	Direktè · mearaj@gmail.com
+brand	MAK
+more_line	Memon pou «plis» · Zouti · Aplikasyon · Plis
+products_line	Pòtay SIM, relè si ou vle, ak yon pon vè WhatsApp Cloud API
+next	APRE
+closing_title	Bati ak Wadhu.
+closing_body	Yon kont wadhu.com se pou fonksyon ki akomode. Zouti lokal sou LAN ak Bluetooth rete gratis.
+acct_page_title	Kont — Wadhu
+acct_lede	Konekte pou fonksyon Wadhu ki akomode. Zouti lokal sou LAN ak Bluetooth rete itil san kont.
 acct_continue_with	Kontinye ak imèl, yon founisè oswa telefòn.
 acct_name_optional	Non (opsyonèl)
 acct_password	Modpas
@@ -61,9 +61,9 @@ acct_signed_in_as	Konekte kòm
 acct_status_label	Estati
 acct_resend_verify	Revoye imèl verifikasyon an
 acct_sign_out	Dekonekte
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Akèy Wadhu
+acct_nav_aria	Prensipal
+company_privacy	Vi prive konpayi an
 err_invalid_email	Antre yon adrès imèl ki valab.
 err_weak_password	Sèvi ak yon modpas ki gen omwen 6 karaktè.
 err_wrong_password	Modpas la pa bon.
@@ -76,9 +76,9 @@ err_too_many	Twòp esè. Eseye ankò pita.
 err_invalid_phone	Sèvi ak yon nimewo telefòn konplè ak kòd peyi a (pa egzanp +91…).
 err_bad_code	Kòd SMS sa a pa bon oswa li ekspire.
 err_generic	Gen yon bagay ki mal pase.
-acct_no_email	(no email)
+acct_no_email	(pa gen imèl)
 acct_email_verified	Imèl verifye
 acct_email_unverified	Imèl la poko verifye — gade bwat resepsyon ou
 acct_phone_signed_in	Konekte ak telefòn
 acct_you_are_in	Ou konekte.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Imèl verifikasyon an voye — tcheke bwat resepsyon ou

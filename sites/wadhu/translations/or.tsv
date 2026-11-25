@@ -1,49 +1,49 @@
 # or. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	ମେନୁ
+close	ବନ୍ଦ କରନ୍ତୁ
+home	ଘର
+about	ଆମ ବିଷୟରେ
 privacy	ଗୋପନୀୟତା
 terms	ସର୍ତ୍ତାବଳୀ
 cancellation	ବାତିଲ ନୀତି
-data_deletion	Data deletion
-support	Support
+data_deletion	ଡାଟା ଲିଭାଇବା
+support	ସହଯୋଗ
 account	ଆକାଉଣ୍ଟ
 email	ଇମେଲ୍
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — ଉପକରଣ · ଆପ · ଅଧିକ
+tagline	ଉପକରଣ · ଆପ · ଅଧିକ
+hero_kicker	WADHU · GOTIGIN ଠାରୁ
+hero_title	Wadhu ର ଅର୍ଥ ଅଧିକ.
+hero_lede	ପୁନର୍ବାର ବ୍ୟବହାରଯୋଗ୍ୟ ଉପକରଣ, ଇଉଟିଲ ଓ ଆପ — ଉପକରଣ · ଆପ · ଅଧିକ.
+the_brand	ଏହି ବ୍ରାଣ୍ଡ
+what_title	ଉପକରଣ, ଇଉଟିଲ ଓ ଆପ.
+what_lede	ଥରେ ଲେଖାଗଲା, ଯେପରି Gotigin ର ଅନ୍ୟ ଉତ୍ପାଦ ଓ ଯେ କେହି ଠିକ ସେହି ଖଣ୍ଡ ନେଇପାରିବେ ଯାହା ଦରକାର.
+what_body	ଲାଇବ୍ରେରୀ, ଛୋଟ ପ୍ରୋଗ୍ରାମ ଓ ସେବା ଏଠାରେ ଅଛି. ପ୍ରତି ଖଣ୍ଡ ନିଜେ ଠିଆ ହୋଇ ରହେ.
+reuse	ପୁନର୍ବାର ବ୍ୟବହାର
+reuse_title	ଗୋଟିଏ ଖଣ୍ଡ ନିଅନ୍ତୁ.
+reuse_body	Crate ଗୋଟିଏ ଲାଇବ୍ରେରୀ. ଆପ ସେହି ପ୍ରୋଗ୍ରାମ ଯାହା ଆପଣ ନିଜ ପ୍ରୋଗ୍ରାମ ପାଖରେ ଚଳାନ୍ତି. ସାଇଟ ସେହି ପୃଷ୍ଠା ଯାହା ଆପଣ ଖୋଲନ୍ତି. ଗୋଟିଏ ଖଣ୍ଡ ବଦଳିଲେ ଅନ୍ୟଟିକୁ ବଦଳିବାକୁ ବାଧ୍ୟ କରେ ନାହିଁ.
+products	ଉତ୍ପାଦଗୁଡ଼ିକ
+products_title	Wadhu ବ୍ରାଣ୍ଡ ତଳେ
+products_lede	ଏହି ବ୍ରାଣ୍ଡ ତଳେ ବାହାରୁଥିବା ଉତ୍ପାଦ.
+sms_gateway_blurb	SIM ଗେଟୱେ, ପ୍ରଥମେ Android. LAN ଓ Bluetooth ସବୁବେଳେ ମାଗଣା ରହେ.
+sms_relay_blurb	ଯୋଡ଼ା ଗେଟୱେ ପର୍ଯ୍ୟନ୍ତ ଐଚ୍ଛିକ ଇଣ୍ଟରନେଟ ରାସ୍ତା. ସ୍ଥାନୀୟ ପଠାଇବାକୁ ଏହା ଦରକାର ନାହିଁ.
+connect_blurb	WhatsApp Cloud API Tech Provider ପୋଲ. ବ୍ୟବସାୟ ନିଜ ନମ୍ବର ରଖେ; ଆପ Embedded Signup ପରେ ପଠାଏ ଓ ପାଏ.
+open_connect	Wadhu Connect ଖୋଲନ୍ତୁ
+names	ନାମ
+about_title	ଆମେ କିଏ
+trademark	ଟ୍ରେଡମାର୍କ
+find_it	Memon ଅର୍ଥ «ଖୋଜି ବାହାର କରନ୍ତୁ» · ଉଚ୍ଚାରଣ go-tee-geen
+slogan	ଯେଉଁଠି ପ୍ରଯୁକ୍ତି ଆବିଷ୍କାର ସହ ମିଳେ
+company	କମ୍ପାନୀ
+director_line	ନିର୍ଦ୍ଦେଶକ · mearaj@gmail.com
+brand	ବ୍ରାଣ୍ଡ
+more_line	Memon ଅର୍ଥ «ଅଧିକ» · ଉପକରଣ · ଆପ · ଅଧିକ
+products_line	SIM ଗେଟୱେ, ଐଚ୍ଛିକ ରିଲେ ଓ WhatsApp Cloud API ପୋଲ
+next	ଆଗକୁ
+closing_title	Wadhu ସହ ଗଢ଼ନ୍ତୁ.
+closing_body	wadhu.com ଆକାଉଣ୍ଟ ହୋଷ୍ଟ ହୋଇଥିବା ସୁବିଧା ପାଇଁ. LAN ଓ Bluetooth ରେ ସ୍ଥାନୀୟ ଉପକରଣ ମାଗଣା ରହେ.
+acct_page_title	ଆକାଉଣ୍ଟ — Wadhu
+acct_lede	ହୋଷ୍ଟ ହୋଇଥିବା Wadhu ସୁବିଧା ପାଇଁ ସାଇନ ଇନ କରନ୍ତୁ. LAN ଓ Bluetooth ରେ ସ୍ଥାନୀୟ ଉପକରଣ ଆକାଉଣ୍ଟ ବିନା ମଧ୍ୟ ଚଳେ.
 acct_continue_with	ଇମେଲ, କୌଣସି ପ୍ରଦାନକାରୀ ବା ଫୋନରେ ଆଗକୁ ବଢ଼ନ୍ତୁ।
 acct_name_optional	ନାମ (ଇଚ୍ଛାଧୀନ)
 acct_password	ପାସୱାର୍ଡ
@@ -61,9 +61,9 @@ acct_signed_in_as	ସାଇନ ଇନ ଥିବା ଆକାଉଣ୍ଟ
 acct_status_label	ସ୍ଥିତି
 acct_resend_verify	ଯାଞ୍ଚ ଇମେଲ ପୁଣି ପଠାନ୍ତୁ
 acct_sign_out	ସାଇନ ଆଉଟ
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu ଘର
+acct_nav_aria	ମୁଖ୍ୟ
+company_privacy	କମ୍ପାନୀ ଗୋପନୀୟତା
 err_invalid_email	ଠିକ୍ ଇମେଲ ଠିକଣା ଦିଅନ୍ତୁ।
 err_weak_password	ଅତି କମରେ 6 ଅକ୍ଷରର ପାସୱାର୍ଡ ବ୍ୟବହାର କରନ୍ତୁ।
 err_wrong_password	ଭୁଲ ପାସୱାର୍ଡ।
@@ -76,9 +76,9 @@ err_too_many	ବହୁତ ଥର ଚେଷ୍ଟା ହେଲା। ପରେ �
 err_invalid_phone	ଦେଶ କୋଡ ସହ ପୂରା ଫୋନ ନମ୍ବର ଦିଅନ୍ତୁ (ଯେପରି +91…)।
 err_bad_code	ସେହି SMS କୋଡ ଭୁଲ ବା ଅବଧି ସରିଯାଇଛି।
 err_generic	କିଛି ଭୁଲ ହେଲା।
-acct_no_email	(no email)
+acct_no_email	(ଇମେଲ ନାହିଁ)
 acct_email_verified	ଇମେଲ ଯାଞ୍ଚ ହେଲା
 acct_email_unverified	ଇମେଲ ଏଯାଏଁ ଯାଞ୍ଚ ହୋଇନାହିଁ — ଆପଣଙ୍କ ଇନବକ୍ସ ଦେଖନ୍ତୁ
 acct_phone_signed_in	ଫୋନରେ ସାଇନ ଇନ ହୋଇଛି
 acct_you_are_in	ଆପଣ ସାଇନ ଇନ ହୋଇଛନ୍ତି।
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	ସତ୍ୟାପନ ଇମେଲ ପଠାଗଲା — ଇନବକ୍ସ ଦେଖନ୍ତୁ

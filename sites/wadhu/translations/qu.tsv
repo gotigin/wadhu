@@ -1,49 +1,49 @@
 # qu. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Akllana
+close	Wichqay
+home	Wasi
+about	Ñuqaykumanta
 privacy	Pakasqa kay
 terms	Kamachikuykuna
 cancellation	Chinkachiy
-data_deletion	Data deletion
-support	Support
+data_deletion	Willayta pichay
+support	Yanapakuy
 account	Cuenta
 email	Correo
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Llamk'anakuna · Appkuna · Aswan
+tagline	Llamk'anakuna · Appkuna · Aswan
+hero_kicker	WADHU · GOTIGINMANTA
+hero_title	Wadhu aswan ninmi.
+hero_lede	Llamk'anakuna, utilkuna, appkuna hukmanta llamk'achinapaq — Llamk'anakuna · Appkuna · Aswan.
+the_brand	KAY RIKCH'A
+what_title	Llamk'anakuna, utilkuna, appkuna.
+what_lede	Huk kuti qillqasqa, huk Gotigin rurukuna wan pipas munasqan rakita hap'inanpaq.
+what_body	Pukllay wasikuna, huch'uy ruwaykuna, ruwaykuna kaypi kanku. Sapa raki sapallan sayan.
+reuse	HUKMANTA LLAMK'ACHIY
+reuse_title	Huk rakita hap'iy.
+reuse_body	Crate pukllay wasim. App qampa ruwayki kinraypi purichiq ruwaymi. Tiyana raphim yaykunki. Huk raki tikrayqa manam hukta tikrachinmanchu.
+products	RURUKUNA
+products_title	Wadhu rikch'a uraypi
+products_lede	Kay rikch'a uraypi lluqsiq rurukuna.
+sms_gateway_blurb	SIM punku, Android ñawpaqta. LAN wan Bluetooth wiñaypaq mana qullqiyuq kakunku.
+sms_relay_blurb	Munaspalla intirnit ñan huñusqa punkuman. Kaylla apachiyqa manam munanmanchu.
+connect_blurb	Chaka WhatsApp Cloud API Tech Provider. Qhatuykuna yupayninta waqaychanku; appkuna Embedded Signup qhipaman apachinku chaskinkutaq.
+open_connect	Kichay Wadhu Connect
+names	SUTIKUNA
+about_title	Pikuna kanchik
+trademark	RIKCH'A
+find_it	Memon «tariy» ninanpaq · go-tee-geen nisqa
+slogan	Maypi llamk'ana tariywan tinkun
+company	AYLLU
+director_line	Kamachiq · mearaj@gmail.com
+brand	RIKCH'A
+more_line	Memon «aswan» ninanpaq · Llamk'anakuna · Appkuna · Aswan
+products_line	SIM punku, munaspalla relé, chaka WhatsApp Cloud API man
+next	QATIQ
+closing_title	Wadhuwan ruway.
+closing_body	wadhu.com cuenta churay ruwaykunapaqmi. LAN wan Bluetooth patapi kaylla llamk'anakuna mana qullqiyuq kakunku.
+acct_page_title	Cuenta — Wadhu
+acct_lede	Yaykuy churasqa Wadhu ruwaykunapaq. LAN wan Bluetooth patapi kaylla llamk'anakuna mana cuentawan llamk'achikunku.
 acct_continue_with	Correowan, yaykuchiqwan, utaq teléfonowan qatiy.
 acct_name_optional	Suti (akllana)
 acct_password	Yaykuna rimay
@@ -61,9 +61,9 @@ acct_signed_in_as	Kay cuentawan yaykusqa
 acct_status_label	Imayna kasqan
 acct_resend_verify	Takyachina correota yapamanta kachay
 acct_sign_out	Lluqsiy
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wasi Wadhu
+acct_nav_aria	Ñawpaq
+company_privacy	Ayllu pakasqa kaynin
 err_invalid_email	Allin correota qillqay.
 err_weak_password	Aswan pisimanta 6 sananchayuq yaykuna rimayta llamk’achiy.
 err_wrong_password	Yaykuna rimayqa pantasqam.
@@ -76,9 +76,9 @@ err_too_many	Ancha askha kuti malliykuna. Qhipaman yapamanta malliy.
 err_invalid_phone	Suyup unanchanwan hunt’asqa teléfono yupayta llamk’achiy (kayhina +91…).
 err_bad_code	Chay SMS unanchaqa pantasqam utaq tukukapunña.
 err_generic	Imapas mana allinchu karqan.
-acct_no_email	(no email)
+acct_no_email	(mana correo kanchu)
 acct_email_verified	Correo takyachisqa
 acct_email_unverified	Correoqa manaraq takyachisqachu — willakuy waqaychanaykita qhaway
 acct_phone_signed_in	Teléfonowan yaykusqa
 acct_you_are_in	Yaykusqañam kanki.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Chiqa correo apachisqa — yaykuna qillqata qhaway

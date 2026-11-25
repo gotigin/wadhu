@@ -1,49 +1,49 @@
 # yo. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Àkójọ
+close	Padé
+home	Ilé
+about	Nípa wa
 privacy	Àṣírí
 terms	Àwọn òfin
 cancellation	Ìfagilé
-data_deletion	Data deletion
-support	Support
+data_deletion	Píparẹ́ dátà
+support	Àtìlẹ́yìn
 account	Àkáǹtì
 email	Ímeèlì
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Irinṣẹ́ · Áàpù · Púpọ̀ sí i
+tagline	Irinṣẹ́ · Áàpù · Púpọ̀ sí i
+hero_kicker	WADHU · LÁTI ỌWỌ́ GOTIGIN
+hero_title	Wadhu túmọ̀ sí púpọ̀ sí i.
+hero_lede	Irinṣẹ́, util, àti áàpù tí a lè tún lò — Irinṣẹ́ · Áàpù · Púpọ̀ sí i.
+the_brand	ÀMÌ YÌÍ
+what_title	Irinṣẹ́, util, àti áàpù.
+what_lede	A kọ ọ́ lẹ́ẹ̀kan, kí àwọn ọjà mìíràn ti Gotigin àti ẹnikẹ́ni lè gba ẹ̀yà tí wọ́n nílò gan-an.
+what_body	Àwọn ilé ìkàwé, ètò kékeré, àti iṣẹ́ wà níbí. Ẹ̀yà kọ̀ọ̀kan dúró fúnra rẹ̀.
+reuse	LÍLO LẸ́Ẹ̀KANSI
+reuse_title	Mú ẹ̀yà kan.
+reuse_body	Crate jẹ́ ilé ìkàwé. Áàpù jẹ́ ètò tí o ń ṣiṣẹ́ lẹ́gbẹ̀ẹ́ tirẹ. Ojú òpó jẹ́ ojú ewé tí o ń ṣàbẹ̀wò. Yíyí ẹ̀yà kan padà kì í fipá mú ẹ̀yà mìíràn yí padà.
+products	ÀWỌN ỌJA
+products_title	Lábẹ́ àmì Wadhu
+products_lede	Àwọn ọjà tó ń jáde lábẹ́ àmì yìí.
+sms_gateway_blurb	Ẹnu-ọ̀nà SIM, Android ní àkọ́kọ́. LAN àti Bluetooth ń wà lọ́fẹ̀ẹ́ títí láé.
+sms_relay_blurb	Ọ̀nà íńtánẹ́ẹ̀tì àṣàyàn sí ẹnu-ọ̀nà tí a so pọ̀. Fífi ránṣẹ́ agbègbè kò nílò rẹ̀.
+connect_blurb	Afárá WhatsApp Cloud API Tech Provider. Òwò ń pa nọ́mbà rẹ̀ mọ́; àwọn áàpù ń fi ránṣẹ́ tí wọ́n sì ń gbà lẹ́yìn Embedded Signup.
+open_connect	Ṣí Wadhu Connect
+names	ÀWỌN ORÚKỌ
+about_title	Ta ni àwa
+trademark	ÀMÌ ÌṢÒWÒ
+find_it	Memon fún «wá a» · a ń pè é go-tee-geen
+slogan	Ibí ìmọ̀ ẹ̀rọ tí pàdé ìwárí
+company	ILÉ IṢẸ́
+director_line	Olùdarí · mearaj@gmail.com
+brand	ÀMÌ
+more_line	Memon fún «púpọ̀ sí i» · Irinṣẹ́ · Áàpù · Púpọ̀ sí i
+products_line	Ẹnu-ọ̀nà SIM, relè àṣàyàn, àti afárá sí WhatsApp Cloud API
+next	TÓKÀN
+closing_title	Kọ́ pẹ̀lú Wadhu.
+closing_body	Àkáǹtì wadhu.com jẹ́ fún àwọn ohun tí a gbé sí orí. Irinṣẹ́ agbègbè lórí LAN àti Bluetooth ń wà lọ́fẹ̀ẹ́.
+acct_page_title	Àkáǹtì — Wadhu
+acct_lede	Wọlé fún àwọn ohun Wadhu tí a gbé sí orí. Irinṣẹ́ agbègbè lórí LAN àti Bluetooth ṣì ń ṣiṣẹ́ láìsí àkáǹtì.
 acct_continue_with	Ẹ tẹ̀síwájú pẹ̀lú ímeèlì, olùpèsè ìwọlé, tàbí fóònù.
 acct_name_optional	Orúkọ (àṣàyàn)
 acct_password	Ọ̀rọ̀ ìgbaniwọlé
@@ -61,9 +61,9 @@ acct_signed_in_as	Ẹ wọlé gẹ́gẹ́ bí
 acct_status_label	Ipò
 acct_resend_verify	Tún fi ímeèlì ìjẹ́rìísí ránṣẹ́
 acct_sign_out	Jáde
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Ilé Wadhu
+acct_nav_aria	Pàtàkì
+company_privacy	Ìkọ̀kọ̀ ilé iṣẹ́
 err_invalid_email	Tẹ àdírẹ́sì ímeèlì tí ó tọ́.
 err_weak_password	Lo ọ̀rọ̀ ìgbaniwọlé tí ó ní ó kéré tán lẹ́tà 6.
 err_wrong_password	Ọ̀rọ̀ ìgbaniwọlé kò tọ́.
@@ -76,9 +76,9 @@ err_too_many	Ìgbìyànjú ti pọ̀ jù. Gbìyànjú lẹ́ẹ̀kan sí i nígb
 err_invalid_phone	Lo nọ́ńbà fóònù kíkún pẹ̀lú kóòdù orílẹ̀-èdè (fún àpẹẹrẹ +91…).
 err_bad_code	Kóòdù SMS yẹn kò tọ́ tàbí ó ti parí.
 err_generic	Nǹkan kan ṣàṣìṣe.
-acct_no_email	(no email)
+acct_no_email	(kò sí ímeèlì)
 acct_email_verified	A ti jẹ́rìí ímeèlì
 acct_email_unverified	A kò tí ì jẹ́rìí ímeèlì — ẹ wo àpótí ímeèlì yín
 acct_phone_signed_in	Ẹ wọlé pẹ̀lú fóònù
 acct_you_are_in	Ẹ ti wọlé.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	A ti fi ímeèlì ìjẹ́rìísí ránṣẹ́ — wo àpótí rẹ

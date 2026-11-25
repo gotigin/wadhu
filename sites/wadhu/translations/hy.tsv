@@ -1,49 +1,49 @@
 # hy. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Ընտրացանկ
+close	Փակել
+home	Գլխավոր
+about	Մեր մասին
 privacy	Գաղտնիություն
 terms	Պայմաններ
 cancellation	Չեղարկում
-data_deletion	Data deletion
-support	Support
+data_deletion	Տվյալների ջնջում
+support	Աջակցություն
 account	Հաշիվ
 email	Էլ. փոստ
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Գործիքներ · Հավելվածներ · Ավելին
+tagline	Գործիքներ · Հավելվածներ · Ավելին
+hero_kicker	WADHU · GOTIGIN-ԻՑ
+hero_title	Wadhu նշանակում է ավելին.
+hero_lede	Կրկնակի օգտագործվող գործիքներ, ուտիլներ և հավելվածներ — Գործիքներ · Հավելվածներ · Ավելին.
+the_brand	ԱՊՐԱՆՔԱՆԻՇԸ
+what_title	Գործիքներ, ուտիլներ և հավելվածներ.
+what_lede	Գրված մեկ անգամ, որպեսզի Gotigin-ի մյուս ապրանքները և ցանկացած ոք վերցնի հենց այն կտորը, որն իրեն պետք է.
+what_body	Գրադարաններ, փոքր ծրագրեր և ծառայություններ ապրում են այստեղ. Յուրաքանչյուր մաս կանգնած է ինքնուրույն.
+reuse	ԿՐԿՆԱԿԻ ՕԳՏԱԳՈՐԾՈՒՄ
+reuse_title	Վերցրեք մեկ կտոր.
+reuse_body	Crate-ը գրադարան է. Հավելվածը ծրագիր է, որն աշխատեցնում եք ձեր ծրագրի կողքին. Կայքը էջ է, որ այցելում եք. Մեկ մասի փոփոխությունը երբեք չի ստիպում եղբայր մասին փոխվել.
+products	ԱՊՐԱՆՔՆԵՐ
+products_title	Wadhu ապրանքանիշի ներքո
+products_lede	Ապրանքներ, որոնք դուրս են գալիս այս ապրանքանիշի ներքո.
+sms_gateway_blurb	Նախ Android SIM դարպաս. LAN-ը և Bluetooth-ը միշտ անվճար են մնում.
+sms_relay_blurb	Ընտրովի ինտերնետային ուղի զույգ դարպասին. Տեղական ուղարկումը դրա կարիքը չունի.
+connect_blurb	WhatsApp Cloud API Tech Provider կամուրջ. Բիզնեսները պահում են իրենց համարը. հավելվածները ուղարկում և ստանում են Embedded Signup-ից հետո.
+open_connect	Բացել Wadhu Connect
+names	ԱՆՈՒՆՆԵՐ
+about_title	Ով ենք մենք
+trademark	ԱՊՐԱՆՔԱՅԻՆ ՆՇԱՆ
+find_it	Memon՝ «գտիր այն» բառի համար · արտասանություն go-tee-geen
+slogan	Որտեղ տեխնոլոգիան հանդիպում է հայտնագործությանը
+company	ԸՆԿԵՐՈՒԹՅՈՒՆ
+director_line	Տնօրեն · mearaj@gmail.com
+brand	ԱՊՐԱՆՔԱՆԻՇ
+more_line	Memon՝ «ավելին» բառի համար · Գործիքներ · Հավելվածներ · Ավելին
+products_line	SIM դարպաս, ընտրովի ռելե և WhatsApp Cloud API կամուրջ
+next	ՀԱՋՈՐԴԸ
+closing_title	Կառուցեք Wadhu-ի հետ.
+closing_body	wadhu.com հաշիվը հոսթավորված հնարավորությունների համար է. Տեղական գործիքները LAN-ով և Bluetooth-ով մնում են անվճար.
+acct_page_title	Հաշիվ — Wadhu
+acct_lede	Մուտք գործեք հոսթավորված Wadhu հնարավորությունների համար. Տեղական գործիքները LAN-ով և Bluetooth-ով մնում են օգտագործելի առանց հաշվի.
 acct_continue_with	Շարունակեք էլ. փոստով, մատակարարով կամ հեռախոսով։
 acct_name_optional	Անուն (ըստ ցանկության)
 acct_password	Գաղտնաբառ
@@ -61,9 +61,9 @@ acct_signed_in_as	Մուտք եք գործել որպես
 acct_status_label	Կարգավիճակ
 acct_resend_verify	Կրկին ուղարկել հաստատման նամակը
 acct_sign_out	Ելք
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu գլխավոր
+acct_nav_aria	Հիմնական
+company_privacy	Ընկերության գաղտնիություն
 err_invalid_email	Մուտքագրեք վավեր էլ. փոստի հասցե։
 err_weak_password	Օգտագործեք առնվազն 6 նիշից բաղկացած գաղտնաբառ։
 err_wrong_password	Սխալ գաղտնաբառ։
@@ -76,9 +76,9 @@ err_too_many	Չափազանց շատ փորձեր։ Փորձեք ավելի ու
 err_invalid_phone	Օգտագործեք հեռախոսի ամբողջական համարը՝ երկրի կոդով (օրինակ՝ +91…)։
 err_bad_code	SMS կոդը սխալ է կամ ժամկետանց։
 err_generic	Ինչ-որ բան սխալ ընթացավ։
-acct_no_email	(no email)
+acct_no_email	(էլ. փոստ չկա)
 acct_email_verified	Էլ. փոստը հաստատված է
 acct_email_unverified	Էլ. փոստը դեռ հաստատված չէ՝ ստուգեք մուտքային արկղը
 acct_phone_signed_in	Մուտք եք գործել հեռախոսով
 acct_you_are_in	Դուք մուտք եք գործել։
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Հաստատման նամակն ուղարկվել է — ստուգեք մուտքային արկղը

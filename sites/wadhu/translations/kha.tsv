@@ -1,49 +1,49 @@
 # kha. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Ka list
+close	Khang
+home	Ka iing
+about	Shaphang jong ngi
 privacy	Ka jingrieh
 terms	Ki kyndon
 cancellation	Ka jingpynsangeh
-data_deletion	Data deletion
-support	Support
+data_deletion	Pynjot data
+support	Jingiarap
 account	Ka account
 email	Ka email
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Ki tiar · Ki app · Shuh shuh
+tagline	Ki tiar · Ki app · Shuh shuh
+hero_kicker	WADHU · NA GOTIGIN
+hero_title	Wadhu ka mut shuh shuh.
+hero_lede	Ki tiar, ki util, bad ki app kiba lah ban pyndonkam biang — Ki tiar · Ki app · Shuh shuh.
+the_brand	KANE KA MAR
+what_title	Ki tiar, ki util, bad ki app.
+what_lede	La thoh shisien, ba ki jingpule kiwei Gotigin bad uno ruh kin ioh kata ka bynta kaba ki donkam.
+what_body	Ki library, ki program rit, bad ki service ki don hangne. Ka bynta baroh ka ieng hi.
+reuse	PYNDONKAM BIANG
+reuse_title	Shim ka bynta wei.
+reuse_body	Crate ka dei ka library. Ka app ka dei ka program ba phi pynlong hajan jong phi. Ka jaka ka dei ka slaid ba phi leit. Ka jingkylla ka bynta wei kam pynbor ia kawei ban kylla.
+products	KI JINGPULE
+products_title	Hapoh ka mar Wadhu
+products_lede	Ki jingpule kiba mih hapoh kane ka mar.
+sms_gateway_blurb	Ka gateway SIM, Android shwa. LAN bad Bluetooth ki sah sha free junom.
+sms_relay_blurb	Ka lynti internet ba lah ban jied sha ka gateway ba la iasoh. Ka jingphah jaka kam donkam ia ka.
+connect_blurb	Ka jingkynthup WhatsApp Cloud API Tech Provider. Ki business ki bat ia ka number jong ki; ki app ki phah bad ki ioh hadien Embedded Signup.
+open_connect	Plie Wadhu Connect
+names	KI KYRTENG
+about_title	Uei ngi
+trademark	KA MAR
+find_it	Memon na ka bynta «iap shem» · la kren go-tee-geen
+slogan	Haba ka teknologi i iakynduh bad ka jingshem
+company	KA KOMPANI
+director_line	U director · mearaj@gmail.com
+brand	KA MAR
+more_line	Memon na ka bynta «shuh shuh» · Ki tiar · Ki app · Shuh shuh
+products_line	Ka gateway SIM, ka relay ba lah ban jied, bad ka jingkynthup sha WhatsApp Cloud API
+next	SHUH
+closing_title	Tei bad Wadhu.
+closing_body	Ka account wadhu.com ka na ka bynta ki jingpule ba la shong. Ki tiar jaka ha LAN bad Bluetooth ki sah sha free.
+acct_page_title	Ka account — Wadhu
+acct_lede	Rung na ka bynta ki jingpule Wadhu ba la shong. Ki tiar jaka ha LAN bad Bluetooth ki sah ban pyndonkam khlem account.
 acct_continue_with	Bteng da ka email, u nongai, lane ka phone.
 acct_name_optional	Ka kyrteng (lada phi kwah)
 acct_password	Ka ktien rieh
@@ -61,9 +61,9 @@ acct_signed_in_as	La rung kum
 acct_status_label	Ka jinglong
 acct_resend_verify	Phah biang ia ka email jingpynshisha
 acct_sign_out	Mih
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Ka iing Wadhu
+acct_nav_aria	Ka ba kongsan
+company_privacy	Ka privacy ka kompani
 err_invalid_email	Thoh ia ka address email ba dei.
 err_weak_password	Pyndonkam ia ka ktien rieh ba don 6 ki dak lane kham bun.
 err_wrong_password	Ka ktien rieh ka bakla.
@@ -76,9 +76,9 @@ err_too_many	Bun palat ki jingpyrshang. Pyrshang biang hadien.
 err_invalid_phone	Pyndonkam ia u nombar phone baroh bad u code ri (kum +91…).
 err_bad_code	Uta u code SMS u bakla lane u la kut ka por.
 err_generic	Don ei ei kaba la bakla.
-acct_no_email	(no email)
+acct_no_email	(ym don email)
 acct_email_verified	La pynshisha ia ka email
 acct_email_unverified	Ym pat pynshisha ia ka email — peit ia ka inbox jong phi
 acct_phone_signed_in	La rung da ka phone
 acct_you_are_in	Phi la rung.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	La phah ka email pynskhem — peit ia ka inbox jong phi

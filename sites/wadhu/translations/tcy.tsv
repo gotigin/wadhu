@@ -1,49 +1,49 @@
 # tcy. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	ಮೆನು
+close	ಮುಚ್ಚುಲೆ
+home	ಇಲ್ಲ್
+about	ಎಂಕುಲೆನ ಬಗ್ಗೆ
 privacy	ಗೌಪ್ಯತೆ
 terms	ನಿಯಮೊಲು
 cancellation	ರದ್ದತಿ ನೀತಿ
-data_deletion	Data deletion
-support	Support
+data_deletion	ಡೇಟಾ ದೆತ್ತ್ ಪಾಡುನ
+support	ಬೆಂಬಲ
 account	ಖಾತೆ
 email	ಇಮೇಲ್
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — ಸಾಧನ · ಆ್ಯಪ್ · ಜಾಸ್ತಿ
+tagline	ಸಾಧನ · ಆ್ಯಪ್ · ಜಾಸ್ತಿ
+hero_kicker	WADHU · GOTIGIN ಡ್ದ್
+hero_title	Wadhu ಪಂದ್ ಜಾಸ್ತಿ.
+hero_lede	ಪಿರ ಮಲ್ಪುನ ಸಾಧನ, ಯುಟಿಲ್ ಬೊಕ್ಕ ಆ್ಯಪ್ — ಸಾಧನ · ಆ್ಯಪ್ · ಜಾಸ್ತಿ.
+the_brand	ಈ ಬ್ರಾಂಡ್
+what_title	ಸಾಧನ, ಯುಟಿಲ್ ಬೊಕ್ಕ ಆ್ಯಪ್.
+what_lede	ಒರ ದೆತ್ ಬರೆತಿನಿ, Gotigin ದ ಬೇತೆ ಉತ್ಪನ್ನ ಬೊಕ್ಕ ಏರ್‌ಲಾ ಬೋಡಾಯಿನ ತುಂಡುನು ದೆತೊನುಗೆ.
+what_body	ಲೈಬ್ರರಿ, ಎಲ್ಯ ಪ್ರೋಗ್ರಾಂ ಬೊಕ್ಕ ಸೇವೆ ಮುಲ್ಪ ಉಂಡು. ಪ್ರತಿ ತುಂಡು ತನ್ನಾತೆ ನಿಲ್ಲುಂಡು.
+reuse	ಪಿರ ಬಳಕೆ
+reuse_title	ಒಂಜಿ ತುಂಡು ದೆತೊನುಲೆ.
+reuse_body	Crate ಒಂಜಿ ಲೈಬ್ರರಿ. ಆ್ಯಪ್ ಈರ್ ಈರೆನ ಪ್ರೋಗ್ರಾಂದ ಪಕ್ಕ ದ್ ನಡಪುನ ಪ್ರೋಗ್ರಾಂ. ಸೈಟ್ ಈರ್ ತೂಪುನ ಪುಟ. ಒಂಜಿ ತುಂಡು ಬದಲಾಂಡ ನನೊಂಜಿ ತುಂಡು ಬದಲಾವುನ ಅಗತ್ಯ ಇಜ್ಜಿ.
+products	ಉತ್ಪನ್ನೊಲು
+products_title	Wadhu ಬ್ರಾಂಡ್ ದ ಅಡಿಟ್
+products_lede	ಈ ಬ್ರಾಂಡ್ ದ ಅಡಿಟ್ ಪಿದಯಿ ಬರ್ಪುನ ಉತ್ಪನ್ನ.
+sms_gateway_blurb	SIM ಗೇಟ್‌ವೇ, ಸುರುಕು Android. LAN ಬೊಕ್ಕ Bluetooth ಯಾಪಲ ಉಚಿತ ಉಪ್ಪುಂಡು.
+sms_relay_blurb	ಸೇರಾಯಿನ ಗೇಟ್‌ವೇ ಮುಟ್ಟ ಐಚ್ಛಿಕ ಇಂಟರ್ನೆಟ್ ದಾರಿ. ಜಾಗೆದ ಕಡಪುಡುಗೆಗ್ ಅವು ಬೋಡುಜ್ಜಿ.
+connect_blurb	WhatsApp Cloud API Tech Provider ಸೇತುವೆ. ವ್ಯಾಪಾರ ತನ್ನ ಸಂಖ್ಯೆನ್ ದೀಪುಂಡು; ಆ್ಯಪ್ Embedded Signup ದ ಬೊಕ್ಕ ಕಡಪುಡುಂಡು ಬೊಕ್ಕ ದೆತೊನುಂಡು.
+open_connect	Wadhu Connect ತೆರೆಯಲೆ
+names	ಪುದರ್
+about_title	ಎಂಕುಲು ಏರ್
+trademark	ಟ್ರೇಡ್‌ಮಾರ್ಕ್
+find_it	Memon ಅಂದ್ «ನಾಡ್» · ಉಚ್ಚಾರ go-tee-geen
+slogan	ತಾಂತ್ರಿಕತೆ ಶೋಧನೆನ್ ಸೇರುನ ಜಾಗೆ
+company	ಕಂಪನಿ
+director_line	ನಿರ್ದೇಶಕ · mearaj@gmail.com
+brand	ಬ್ರಾಂಡ್
+more_line	Memon ಅಂದ್ «ಜಾಸ್ತಿ» · ಸಾಧನ · ಆ್ಯಪ್ · ಜಾಸ್ತಿ
+products_line	SIM ಗೇಟ್‌ವೇ, ಐಚ್ಛಿಕ ರಿಲೇ ಬೊಕ್ಕ WhatsApp Cloud API ಸೇತುವೆ
+next	ಮುಂದೆ
+closing_title	Wadhu ದೊಟ್ಟುಗು ಮಲ್ಪುಲೆ.
+closing_body	wadhu.com ಖಾತೆ ಹೋಸ್ಟ್ ಆಯಿನ ಸೌಲಭ್ಯಗ್. LAN ಬೊಕ್ಕ Bluetooth ಡ್ ಜಾಗೆದ ಸಾಧನ ಉಚಿತ ಉಪ್ಪುಂಡು.
+acct_page_title	ಖಾತೆ — Wadhu
+acct_lede	ಹೋಸ್ಟ್ ಆಯಿನ Wadhu ಸೌಲಭ್ಯಗ್ ಸೈನ್ ಇನ್ ಮಲ್ಪುಲೆ. LAN ಬೊಕ್ಕ Bluetooth ಡ್ ಜಾಗೆದ ಸಾಧನ ಖಾತೆ ಇಜ್ಜಂದೆಲಾ ನಡಪುಂಡು.
 acct_continue_with	ಇಮೇಲ್, ಪ್ರೊವೈಡರ್ ಅತ್ತಂಡ ಫೋನ್‌ಡ್ ಮುಂದುವರಿಸಲೆ.
 acct_name_optional	ಪುದರ್ (ಐಚ್ಛಿಕ)
 acct_password	ಗುಪ್ತಪದ
@@ -61,9 +61,9 @@ acct_signed_in_as	ಸೈನ್ ಇನ್ ಆಯಿನ ಖಾತೆ
 acct_status_label	ಸ್ಥಿತಿ
 acct_resend_verify	ಪರಿಶೀಲನೆ ಇಮೇಲ್ ಕುಡ ಕಡಪುಡ್ಲೆ
 acct_sign_out	ಸೈನ್ ಔಟ್
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu ಇಲ್ಲ್
+acct_nav_aria	ಮುಖ್ಯ
+company_privacy	ಕಂಪನಿದ ಗೌಪ್ಯತೆ
 err_invalid_email	ಸರಿಯಾಯಿನ ಇಮೇಲ್ ವಿಳಾಸ ಬರೆಲೆ.
 err_weak_password	ಕನಿಷ್ಠ 6 ಅಕ್ಷರೊದ ಗುಪ್ತಪದ ಬಳಸಲೆ.
 err_wrong_password	ತಪ್ಪು ಗುಪ್ತಪದ.
@@ -76,9 +76,9 @@ err_too_many	ಮಸ್ತ್ ಪ್ರಯತ್ನ ಆಂಡ್. ಬುಕ್ಕ
 err_invalid_phone	ದೇಶೊದ ಕೋಡ್‌ದೊಟ್ಟುಗು ಮಾತ ಫೋನ್ ನಂಬರ್ ಬಳಸಲೆ (ಉದಾ. +91…).
 err_bad_code	ಆ SMS ಕೋಡ್ ತಪ್ಪು ಅತ್ತಂಡ ಅವಧಿ ಮುಗಿಂಡ್.
 err_generic	ದಾದೋ ತಪ್ಪಾಂಡ್.
-acct_no_email	(no email)
+acct_no_email	(ಇಮೇಲ್ ಇಜ್ಜಿ)
 acct_email_verified	ಇಮೇಲ್ ಪರಿಶೀಲನೆ ಆಂಡ್
 acct_email_unverified	ಇಮೇಲ್ ಇಂಚಿಪ್ಪ ಪರಿಶೀಲನೆ ಆತಿಜಿ — ಇರೆನ ಇನ್‌ಬಾಕ್ಸ್ ತೂಲೆ
 acct_phone_signed_in	ಫೋನ್‌ಡ್ ಸೈನ್ ಇನ್ ಆಂಡ್
 acct_you_are_in	ಈರ್ ಸೈನ್ ಇನ್ ಆದುಲ್ಲರ್.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	ಖಚಿತ ಇಮೇಲ್ ಕಡಪುಡ್ಡ್ — ಇನ್‌ಬಾಕ್ಸ್ ತೂಲೆ

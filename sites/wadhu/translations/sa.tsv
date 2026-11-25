@@ -1,49 +1,49 @@
 # sa. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	सूची
+close	पिधत्स्व
+home	गृहम्
+about	अस्माकं विषये
 privacy	गोपनीयता
 terms	नियमाः
 cancellation	निरसन-नीतिः
-data_deletion	Data deletion
-support	Support
+data_deletion	दत्तांशअपमार्जनम्
+support	समर्थनम्
 account	खाता
 email	ईपत्रम्
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — उपकरणानि · अनुप्रयोगाः · अधिकम्
+tagline	उपकरणानि · अनुप्रयोगाः · अधिकम्
+hero_kicker	WADHU · GOTIGIN तः
+hero_title	Wadhu इत्यस्य अर्थः अधिकम्.
+hero_lede	पुनरुपयोज्यानि उपकरणानि, युटिलानि च अनुप्रयोगाः — उपकरणानि · अनुप्रयोगाः · अधिकम्.
+the_brand	इदं चिह्नम्
+what_title	उपकरणानि, युटिलानि, अनुप्रयोगाः च.
+what_lede	सकृद् लिखितम्, येन Gotigin इतरोत्पादानि कोऽपि च यत् खण्डम् अपेक्षते तत् गृह्णीयुः.
+what_body	ग्रन्थालयाः, लघुकार्यक्रमाः, सेवाः च अत्र सन्ति. प्रत्येकं खण्डं स्वयमेव तिष्ठति.
+reuse	पुनरुपयोगः
+reuse_title	एकं खण्डं गृह्यताम्.
+reuse_body	Crate ग्रन्थालयः. अनुप्रयोगः स कार्यक्रमः यं स्वकार्यक्रमस्य पार्श्वे चालयति. स्थलं तत् पृष्ठं यत् त्वं विवृणोषि. एकस्य खण्डस्य परिवर्तनं खण्डान्तरं परिवर्तयितुं न कदापि बलात्करोति.
+products	उत्पादानि
+products_title	Wadhu चिह्नस्य अधः
+products_lede	अस्य चिह्नस्य अधः निर्गच्छन्ति उत्पादानि.
+sms_gateway_blurb	SIM द्वारा, प्रथमम् Android. LAN Bluetooth च सदा निःशुल्के तिष्ठतः.
+sms_relay_blurb	युक्तद्वारपर्यन्तम् ऐच्छिकः अन्तर्जालमार्गः. स्थानीयप्रेषणाय अस्य आवश्यकता नास्ति.
+connect_blurb	WhatsApp Cloud API Tech Provider सेतुः. व्यापारः स्वसङ्ख्यां धारयति; अनुप्रयोगाः Embedded Signup अनन्तरं प्रेषयन्ति गृह्णन्ति च.
+open_connect	Wadhu Connect उद्घाट्यताम्
+names	नामानि
+about_title	वयं के स्मः
+trademark	व्यापारचिह्नम्
+find_it	Memon इति «अन्विष्यताम्» · उच्चारणम् go-tee-geen
+slogan	यत्र तन्त्रज्ञानम् अन्वेषणेन मिलति
+company	कम्पनी
+director_line	निर्देशकः · mearaj@gmail.com
+brand	चिह्नम्
+more_line	Memon इति «अधिकम्» · उपकरणानि · अनुप्रयोगाः · अधिकम्
+products_line	SIM द्वारा, ऐच्छिकः रिले, WhatsApp Cloud API सेतुः च
+next	अग्रे
+closing_title	Wadhu सह निर्मीयताम्.
+closing_body	wadhu.com खाता आतिथ्यसुविधाभ्यः. LAN Bluetooth च उपरि स्थानियोपकरणानि निःशुल्कानि तिष्ठन्ति.
+acct_page_title	खाता — Wadhu
+acct_lede	आतिथ्यसुविधाभ्यः Wadhu प्रवेशः क्रियताम्. LAN Bluetooth च उपरि स्थानियोपकरणानि खातां विनापि चलन्ति.
 acct_continue_with	ईपत्रेण, प्रदात्रा, दूरभाषेण वा निरन्तरं कुर्वन्तु।
 acct_name_optional	नाम (ऐच्छिकम्)
 acct_password	गुप्तशब्दः
@@ -61,9 +61,9 @@ acct_signed_in_as	एतेन रूपेण प्रविष्टम्
 acct_status_label	स्थितिः
 acct_resend_verify	सत्यापन-ईपत्रं पुनः प्रेषयन्तु
 acct_sign_out	निर्गमनम्
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu गृहम्
+acct_nav_aria	मुख्यम्
+company_privacy	कम्पन्याः गोपनीयता
 err_invalid_email	शुद्धम् ईपत्र-सङ्केतं लिखन्तु।
 err_weak_password	न्यूनातिन्यूनं 6 अक्षराणां गुप्तशब्दं प्रयुञ्जताम्।
 err_wrong_password	अशुद्धः गुप्तशब्दः।
@@ -76,9 +76,9 @@ err_too_many	अत्यधिकाः प्रयत्नाः। पश�
 err_invalid_phone	देशसङ्केतेन सह पूर्णां दूरभाषसङ्ख्यां लिखन्तु (यथा +91…)।
 err_bad_code	सः SMS सङ्केतः अशुद्धः कालातीतः वा।
 err_generic	कश्चित् दोषः अभवत्।
-acct_no_email	(no email)
+acct_no_email	(ईपत्रं नास्ति)
 acct_email_verified	ईपत्रं सत्यापितम्
 acct_email_unverified	ईपत्रम् अद्यापि असत्यापितम् — स्व-इनबॉक्स् पश्यन्तु
 acct_phone_signed_in	दूरभाषेण प्रविष्टम्
 acct_you_are_in	भवान् प्रविष्टः अस्ति।
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	सत्यापनईपत्रं प्रेषितम् — आगमपेटिकां पश्यतु

@@ -1,49 +1,49 @@
 # az. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Menyu
+close	Bağla
+home	Ana səhifə
+about	Haqqımızda
 privacy	Məxfilik
 terms	Şərtlər
 cancellation	Ləğvetmə
-data_deletion	Data deletion
-support	Support
+data_deletion	Verilənlərin silinməsi
+support	Dəstək
 account	Hesab
 email	E-poçt
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Alətlər · Tətbiqlər · Daha çox
+tagline	Alətlər · Tətbiqlər · Daha çox
+hero_kicker	WADHU · GOTIGIN TƏRƏFINDƏN
+hero_title	Wadhu «daha çox» deməkdir.
+hero_lede	Təkrar işlənən alətlər, utilitlər və tətbiqlər — Alətlər · Tətbiqlər · Daha çox.
+the_brand	BU BREND
+what_title	Alətlər, utilitlər və tətbiqlər.
+what_lede	Bir dəfə yazılıb ki, digər Gotigin məhsulları və hər kəs məhz lazım olan parçanı götürə bilsin.
+what_body	Kitabxanalar, kiçik proqramlar və xidmətlər buradadır. Hər hissə özü dayanır.
+reuse	YENİDƏN İSTİFADƏ
+reuse_title	Bir parçanı götürün.
+reuse_body	Crate kitabxanadır. Tətbiq öz proqramınızın yanında işlətdiyiniz proqramdır. Sayt ziyarət etdiyiniz səhifədir. Bir hissənin dəyişməsi digərini dəyişməyə məcbur etmir.
+products	MƏHSULLAR
+products_title	Wadhu brendi altında
+products_lede	Bu brend altında çıxan məhsullar.
+sms_gateway_blurb	SIM şlüzü, öncə Android. LAN və Bluetooth həmişəlik pulsuz qalır.
+sms_relay_blurb	Qoşulmuş şlüzə istəyə bağlı internet yolu. Yerli göndərişə ehtiyac yoxdur.
+connect_blurb	WhatsApp Cloud API Tech Provider körpüsü. Bizneslər nömrələrini saxlayır; tətbiqlər Embedded Signup sonra göndərir və alır.
+open_connect	Wadhu Connect açın
+names	ADLAR
+about_title	Biz kimik
+trademark	ƏMTƏƏ NİŞANI
+find_it	Memonca «onu tap» · tələffüz go-tee-geen
+slogan	Texnologiyanın kəşflə qovuşduğu yer
+company	ŞİRKƏT
+director_line	Direktor · mearaj@gmail.com
+brand	BREND
+more_line	Memonca «daha çox» · Alətlər · Tətbiqlər · Daha çox
+products_line	SIM şlüzü, istəyə bağlı rele və WhatsApp Cloud API körpüsü
+next	NÖVBƏTİ
+closing_title	Wadhu ilə qurun.
+closing_body	wadhu.com hesabı yerləşdirilmiş imkanlar üçündür. LAN və Bluetooth üzərindən yerli alətlər pulsuz qalır.
+acct_page_title	Hesab — Wadhu
+acct_lede	Yerləşdirilmiş Wadhu imkanları üçün daxil olun. LAN və Bluetooth üzərindən yerli alətlər hesab olmadan işlək qalır.
 acct_continue_with	E-poçt, provayder və ya telefonla davam edin.
 acct_name_optional	Ad (istəyə bağlı)
 acct_password	Parol
@@ -61,9 +61,9 @@ acct_signed_in_as	Daxil olan
 acct_status_label	Vəziyyət
 acct_resend_verify	Təsdiq məktubunu yenidən göndər
 acct_sign_out	Çıxış
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu ana səhifəsi
+acct_nav_aria	Əsas
+company_privacy	Şirkət məxfiliyi
 err_invalid_email	Düzgün e-poçt ünvanı daxil edin.
 err_weak_password	Ən azı 6 simvollu parol istifadə edin.
 err_wrong_password	Parol səhvdir.
@@ -76,9 +76,9 @@ err_too_many	Həddən çox cəhd. Sonra yenidən cəhd edin.
 err_invalid_phone	Ölkə kodu ilə tam telefon nömrəsi istifadə edin (məs. +91…).
 err_bad_code	Bu SMS kodu səhvdir və ya vaxtı keçib.
 err_generic	Nəsə səhv getdi.
-acct_no_email	(no email)
+acct_no_email	(e-poçt yoxdur)
 acct_email_verified	E-poçt təsdiqlənib
 acct_email_unverified	E-poçt hələ təsdiqlənməyib — gələnlər qutusuna baxın
 acct_phone_signed_in	Telefonla daxil olunub
 acct_you_are_in	Daxil oldunuz.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Təsdiq e-poçtu göndərildi — gələnlər qutusuna baxın

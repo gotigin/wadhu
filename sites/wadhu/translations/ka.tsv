@@ -1,49 +1,49 @@
 # ka. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	მენიუ
+close	დახურვა
+home	მთავარი
+about	ჩვენს შესახებ
 privacy	კონფიდენციალურობა
 terms	პირობები
 cancellation	გაუქმება
-data_deletion	Data deletion
-support	Support
+data_deletion	მონაცემების წაშლა
+support	მხარდაჭერა
 account	ანგარიში
 email	ელფოსტა
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — ხელსაწყოები · აპები · მეტი
+tagline	ხელსაწყოები · აპები · მეტი
+hero_kicker	WADHU · GOTIGIN-ისგან
+hero_title	Wadhu ნიშნავს მეტს.
+hero_lede	ხელახლა გამოსაყენებელი ხელსაწყოები, უტილები და აპები — ხელსაწყოები · აპები · მეტი.
+the_brand	ბრენდი
+what_title	ხელსაწყოები, უტილები და აპები.
+what_lede	ერთხელ დაწერილი, რომ Gotigin-ის სხვა პროდუქტებმა და ნებისმიერმა აიღოს ზუსტად ის ნაწილი, რომელიც სჭირდება.
+what_body	ბიბლიოთეკები, მცირე პროგრამები და სერვისები აქ ცხოვრობენ. თითოეული ნაწილი თავისით დგას.
+reuse	ხელახალი გამოყენება
+reuse_title	აიღეთ ერთი ნაწილი.
+reuse_body	Crate ბიბლიოთეკაა. აპი პროგრამაა, რომელსაც თქვენს პროგრამასთან აშვებთ. საიტი გვერდია, რომელსაც სტუმრობთ. ერთი ნაწილის შეცვლა არასოდეს აიძულებს მეორეს შეიცვალოს.
+products	პროდუქტები
+products_title	Wadhu ბრენდის ქვეშ
+products_lede	პროდუქტები, რომლებიც ამ ბრენდის ქვეშ გამოდის.
+sms_gateway_blurb	ჯერ Android SIM კარიბჭე. LAN და Bluetooth სამუდამოდ უფასო რჩება.
+sms_relay_blurb	არასავალდებულო ინტერნეტის გზა დაწყვილებულ კარიბჭემდე. ადგილობრივ გაგზავნას ის არ სჭირდება.
+connect_blurb	WhatsApp Cloud API Tech Provider ხიდი. ბიზნესები ინახავენ თავიანთ ნომერს. აპები აგზავნიან და იღებენ Embedded Signup-ის შემდეგ.
+open_connect	გახსენით Wadhu Connect
+names	სახელები
+about_title	ვინ ვართ ჩვენ
+trademark	სავაჭრო ნიშანი
+find_it	Memon ნიშნავს «იპოვე» · წარმოთქმა go-tee-geen
+slogan	სადაც ტექნოლოგია აღმოჩენას ხვდება
+company	კომპანია
+director_line	დირექტორი · mearaj@gmail.com
+brand	ბრენდი
+more_line	Memon ნიშნავს «მეტს» · ხელსაწყოები · აპები · მეტი
+products_line	SIM კარიბჭე, არასავალდებულო რელე და WhatsApp Cloud API ხიდი
+next	შემდეგი
+closing_title	ააშენეთ Wadhu-სთან.
+closing_body	wadhu.com ანგარიში ჰოსტინგის შესაძლებლობებისთვისაა. ადგილობრივი ხელსაწყოები LAN-ზე და Bluetooth-ზე უფასო რჩება.
+acct_page_title	ანგარიში — Wadhu
+acct_lede	შედით ჰოსტინგის Wadhu შესაძლებლობებისთვის. ადგილობრივი ხელსაწყოები LAN-ზე და Bluetooth-ზე ანგარიშის გარეშეც მუშაობს.
 acct_continue_with	განაგრძეთ ელფოსტით, პროვაიდერით ან ტელეფონით.
 acct_name_optional	სახელი (არასავალდებულო)
 acct_password	პაროლი
@@ -61,9 +61,9 @@ acct_signed_in_as	შესული ხართ როგორც
 acct_status_label	სტატუსი
 acct_resend_verify	დადასტურების წერილის ხელახლა გაგზავნა
 acct_sign_out	გასვლა
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu მთავარი
+acct_nav_aria	ძირითადი
+company_privacy	კომპანიის კონფიდენციალურობა
 err_invalid_email	შეიყვანეთ სწორი ელფოსტის მისამართი.
 err_weak_password	გამოიყენეთ მინიმუმ 6 სიმბოლოიანი პაროლი.
 err_wrong_password	პაროლი არასწორია.
@@ -76,9 +76,9 @@ err_too_many	ძალიან ბევრი მცდელობა. სც
 err_invalid_phone	გამოიყენეთ სრული ტელეფონის ნომერი ქვეყნის კოდით (მაგ. +91…).
 err_bad_code	SMS კოდი არასწორია ან ვადა გაუვიდა.
 err_generic	რაღაც შეცდომა მოხდა.
-acct_no_email	(no email)
+acct_no_email	(ელფოსტა არ არის)
 acct_email_verified	ელფოსტა დადასტურებულია
 acct_email_unverified	ელფოსტა ჯერ არ არის დადასტურებული — შეამოწმეთ შემოსულები
 acct_phone_signed_in	შესული ხართ ტელეფონით
 acct_you_are_in	შესული ხართ.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	დამადასტურებელი წერილი გაიგზავნა — შეამოწმეთ შემოსულები

@@ -1,49 +1,49 @@
 # af. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Kieslys
+close	Maak toe
+home	Tuis
+about	Oor ons
 privacy	Privaatheid
 terms	Bepalings
 cancellation	Kansellasie
-data_deletion	Data deletion
-support	Support
+data_deletion	Dataskrapping
+support	Ondersteuning
 account	Rekening
 email	E-pos
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Gereedskap · Toepassings · Meer
+tagline	Gereedskap · Toepassings · Meer
+hero_kicker	WADHU · DEUR GOTIGIN
+hero_title	Wadhu beteken meer.
+hero_lede	Herbruikbare gereedskap, nutsprogramme en toepassings — Gereedskap · Toepassings · Meer.
+the_brand	DIE HANDELSMERK
+what_title	Gereedskap, nutsprogramme en toepassings.
+what_lede	Een keer geskryf, sodat ander Gotigin-produkte en enigiemand anders presies die stuk kan neem wat hulle nodig het.
+what_body	Biblioteke, klein programme en dienste bly hier. Elke deel staan op sy eie.
+reuse	HERGEBRUIK
+reuse_title	Neem een stuk.
+reuse_body	’n Crate is ’n biblioteek. ’n Toepassing is ’n program wat jy langs jou eie laat loop. ’n Werf is ’n bladsy wat jy besoek. As een deel verander, dwing dit nooit ’n ander om te verander nie.
+products	PRODUKTE
+products_title	Onder die Wadhu-handelsmerk
+products_lede	Produkte wat onder hierdie handelsmerk uitkom.
+sms_gateway_blurb	SIM-deurgang, Android eerste. LAN en Bluetooth bly vir altyd gratis.
+sms_relay_blurb	Opsionele internetpad na ’n gekoppelde deurgang. Plaaslike stuur het dit nie nodig nie.
+connect_blurb	Brug vir ’n WhatsApp Cloud API Tech Provider. Besighede hou hul nommer; toepassings stuur en ontvang ná Embedded Signup.
+open_connect	Maak Wadhu Connect oop
+names	NAME
+about_title	Wie ons is
+trademark	HANDELSMERK
+find_it	Memon vir “vind dit” · uitgespreek go-tee-geen
+slogan	Waar tegnologie ontdekking ontmoet
+company	MAATSKAPPY
+director_line	Direkteur · mearaj@gmail.com
+brand	HANDELSMERK
+more_line	Memon vir “meer” · Gereedskap · Toepassings · Meer
+products_line	SIM-deurgang, opsionele herlei, en ’n brug na die WhatsApp Cloud API
+next	VOLGENDE
+closing_title	Bou met Wadhu.
+closing_body	’n wadhu.com-rekening is vir aangebode funksies. Plaaslike gereedskap oor LAN en Bluetooth bly gratis.
+acct_page_title	Rekening — Wadhu
+acct_lede	Meld aan vir aangebode Wadhu-funksies. Plaaslike gereedskap oor LAN en Bluetooth bly bruikbaar sonder ’n rekening.
 acct_continue_with	Gaan voort met e-pos, ’n verskaffer of foon.
 acct_name_optional	Naam (opsioneel)
 acct_password	Wagwoord
@@ -61,9 +61,9 @@ acct_signed_in_as	Aangemeld as
 acct_status_label	Stand
 acct_resend_verify	Stuur verifikasie-e-pos weer
 acct_sign_out	Meld af
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu-tuis
+acct_nav_aria	Primêr
+company_privacy	Maatskappyprivaatheid
 err_invalid_email	Voer ’n geldige e-posadres in.
 err_weak_password	Gebruik ’n wagwoord met minstens 6 karakters.
 err_wrong_password	Verkeerde wagwoord.
@@ -76,9 +76,9 @@ err_too_many	Te veel pogings. Probeer later weer.
 err_invalid_phone	Gebruik ’n volledige foonnommer met landkode (bv. +91…).
 err_bad_code	Daardie SMS-kode is verkeerd of het verval.
 err_generic	Iets het verkeerd geloop.
-acct_no_email	(no email)
+acct_no_email	(geen e-pos)
 acct_email_verified	E-pos geverifieer
 acct_email_unverified	E-pos nog nie geverifieer nie — kyk in jou inkassie
 acct_phone_signed_in	Met foon aangemeld
 acct_you_are_in	Jy is aangemeld.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Bevestigings-e-pos gestuur — kyk in jou inkassie

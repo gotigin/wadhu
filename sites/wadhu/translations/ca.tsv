@@ -1,49 +1,49 @@
 # ca. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Menú
+close	Tanca
+home	Inici
+about	Quant a nosaltres
 privacy	Privadesa
 terms	Condicions
 cancellation	Cancel·lació
-data_deletion	Data deletion
-support	Support
+data_deletion	Supressió de dades
+support	Assistència
 account	Compte
 email	Correu electrònic
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
+window_title	Wadhu — Eines · Aplicacions · Més
+tagline	Eines · Aplicacions · Més
+hero_kicker	WADHU · DE GOTIGIN
+hero_title	Wadhu vol dir més.
+hero_lede	Eines, utilitats i aplicacions reutilitzables — Eines · Aplicacions · Més.
+the_brand	LA MARCA
+what_title	Eines, utilitats i aplicacions.
+what_lede	Escrit una vegada, perquè els altres productes de Gotigin i qualsevol altra persona puguin agafar exactament la peça que necessiten.
+what_body	Les biblioteques, els programes petits i els serveis són aquí. Cada part se sosté sola.
+reuse	REUTILITZACIÓ
+reuse_title	Agafeu una peça.
+reuse_body	Un crate és una biblioteca. Una aplicació és un programa que executeu al costat del vostre. Un lloc és una pàgina que visiteu. Que una part canviï no obliga mai una altra a canviar.
+products	PRODUCTES
+products_title	Sota la marca Wadhu
+products_lede	Productes que surten sota aquesta marca.
+sms_gateway_blurb	Passarel·la SIM, Android primer. LAN i Bluetooth segueixen sent gratuïts per sempre.
+sms_relay_blurb	Camí d'internet opcional cap a una passarel·la aparellada. L'enviament local no el necessita.
+connect_blurb	Pont de WhatsApp Cloud API Tech Provider. Els negocis conserven el seu número; les aplicacions envien i reben després d'Embedded Signup.
+open_connect	Obre Wadhu Connect
+names	NOMS
+about_title	Qui som
+trademark	MARCA REGISTRADA
+find_it	Memon per a «troba-ho» · es pronuncia go-tee-geen
+slogan	On la tecnologia es troba amb el descobriment
+company	EMPRESA
 director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+brand	MARCA
+more_line	Memon per a «més» · Eines · Aplicacions · Més
+products_line	Passarel·la SIM, relé opcional i un pont cap a la WhatsApp Cloud API
+next	SEGÜENT
+closing_title	Construïu amb Wadhu.
+closing_body	Un compte de wadhu.com és per a funcions allotjades. Les eines locals per LAN i Bluetooth segueixen sent gratuïtes.
+acct_page_title	Compte — Wadhu
+acct_lede	Inicieu la sessió per a les funcions allotjades de Wadhu. Les eines locals per LAN i Bluetooth segueixen sent utilitzables sense compte.
 acct_continue_with	Continua amb el correu, un proveïdor o el telèfon.
 acct_name_optional	Nom (opcional)
 acct_password	Contrasenya
@@ -61,9 +61,9 @@ acct_signed_in_as	Sessió iniciada com a
 acct_status_label	Estat
 acct_resend_verify	Torna a enviar el correu de verificació
 acct_sign_out	Tanca la sessió
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Inici de Wadhu
+acct_nav_aria	Principal
+company_privacy	Privadesa de l'empresa
 err_invalid_email	Introdueix una adreça electrònica vàlida.
 err_weak_password	Fes servir una contrasenya d’almenys 6 caràcters.
 err_wrong_password	Contrasenya incorrecta.
@@ -76,9 +76,9 @@ err_too_many	Massa intents. Torna-ho a provar més tard.
 err_invalid_phone	Fes servir el número de telèfon complet amb el prefix del país (p. ex. +91…).
 err_bad_code	Aquest codi SMS és incorrecte o ha caducat.
 err_generic	Alguna cosa ha anat malament.
-acct_no_email	(no email)
+acct_no_email	(sense correu)
 acct_email_verified	Correu verificat
 acct_email_unverified	El correu encara no està verificat — revisa la safata d’entrada
 acct_phone_signed_in	Sessió iniciada amb el telèfon
 acct_you_are_in	Has iniciat la sessió.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	S'ha enviat el correu de verificació — reviseu la safata d'entrada

@@ -1,49 +1,49 @@
 # is. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Valmynd
+close	Loka
+home	Heim
+about	Um okkur
 privacy	Persónuvernd
 terms	Skilmálar
 cancellation	Afpöntun
-data_deletion	Data deletion
-support	Support
+data_deletion	Eyðing gagna
+support	Aðstoð
 account	Aðgangur
 email	Netfang
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Verkfæri · Forrit · Meira
+tagline	Verkfæri · Forrit · Meira
+hero_kicker	WADHU · FRÁ GOTIGIN
+hero_title	Wadhu þýðir meira.
+hero_lede	Endurnýtanleg verkfæri, tól og forrit — Verkfæri · Forrit · Meira.
+the_brand	VÖRUMERKIÐ
+what_title	Verkfæri, tól og forrit.
+what_lede	Skrifað einu sinni svo aðrar Gotigin vörur og hver sem er geti tekið nákvæmlega þann hluta sem þarf.
+what_body	Söfn, lítil forrit og þjónustur eru hér. Hver hluti stendur einn.
+reuse	ENDURNOTKUN
+reuse_title	Taktu einn hluta.
+reuse_body	Crate er safn. Forrit er það sem þú keyrir við hliðina á þínu. Síða er blaðsíða sem þú heimsækir. Breyting á einum hluta neyðir aldrei annan til að breytast.
+products	VÖRUR
+products_title	Undir vörumerkinu Wadhu
+products_lede	Vörur sem koma út undir þessu vörumerki.
+sms_gateway_blurb	SIM-hlið, Android fyrst. LAN og Bluetooth haldast ókeypis að eilífu.
+sms_relay_blurb	Valfrjáls internetleið að pöruðu hliði. Staðbundin sending þarf hana ekki.
+connect_blurb	Brú WhatsApp Cloud API Tech Provider. Fyrirtæki halda númerinu sínu; forrit senda og taka við eftir Embedded Signup.
+open_connect	Opna Wadhu Connect
+names	NÖFN
+about_title	Hver við erum
+trademark	VÖRUMERKI
+find_it	Memon fyrir „finndu það“ · borið fram go-tee-geen
+slogan	Þar sem tækni mætir uppgötvun
+company	FYRIRTÆKI
+director_line	Stjórnandi · mearaj@gmail.com
+brand	VÖRUMERKI
+more_line	Memon fyrir „meira“ · Verkfæri · Forrit · Meira
+products_line	SIM-hlið, valfrjáls endurvarp og brú að WhatsApp Cloud API
+next	NÆST
+closing_title	Byggðu með Wadhu.
+closing_body	wadhu.com aðgangur er fyrir hýsta eiginleika. Staðbundin verkfæri um LAN og Bluetooth haldast ókeypis.
+acct_page_title	Aðgangur — Wadhu
+acct_lede	Skráðu þig inn fyrir hýsta Wadhu eiginleika. Staðbundin verkfæri um LAN og Bluetooth haldast nothæf án aðgangs.
 acct_continue_with	Haltu áfram með netfangi, þjónustuaðila eða síma.
 acct_name_optional	Nafn (valfrjálst)
 acct_password	Lykilorð
@@ -61,9 +61,9 @@ acct_signed_in_as	Innskráð sem
 acct_status_label	Staða
 acct_resend_verify	Senda staðfestingarpóst aftur
 acct_sign_out	Skrá út
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu heim
+acct_nav_aria	Aðal
+company_privacy	Persónuvernd fyrirtækis
 err_invalid_email	Sláðu inn gilt netfang.
 err_weak_password	Notaðu lykilorð með minnst 6 stöfum.
 err_wrong_password	Rangt lykilorð.
@@ -76,9 +76,9 @@ err_too_many	Of margar tilraunir. Reyndu aftur síðar.
 err_invalid_phone	Notaðu fullt símanúmer með landsnúmeri (t.d. +91…).
 err_bad_code	Þessi SMS-kóði er rangur eða útrunninn.
 err_generic	Eitthvað fór úrskeiðis.
-acct_no_email	(no email)
+acct_no_email	(ekkert netfang)
 acct_email_verified	Netfang staðfest
 acct_email_unverified	Netfang ekki staðfest enn — athugaðu pósthólfið
 acct_phone_signed_in	Innskráð með síma
 acct_you_are_in	Innskráning tókst.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Staðfestingarpóstur sendur — athugaðu innhólfið

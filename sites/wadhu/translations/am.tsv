@@ -1,49 +1,49 @@
 # am. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	ምናሌ
+close	ዝጋ
+home	መነሻ
+about	ስለ እኛ
 privacy	ግላዊነት
 terms	ውሎች
 cancellation	ስረዛ
-data_deletion	Data deletion
-support	Support
+data_deletion	የውሂብ ስረዛ
+support	ድጋፍ
 account	መለያ
 email	ኢሜይል
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — መሣሪያዎች · መተግበሪያዎች · ተጨማሪ
+tagline	መሣሪያዎች · መተግበሪያዎች · ተጨማሪ
+hero_kicker	WADHU · በ GOTIGIN
+hero_title	Wadhu ማለት ተጨማሪ ነው።
+hero_lede	እንደገና ጥቅም ላይ የሚውሉ መሣሪያዎች፣ ዩቲሎች እና መተግበሪያዎች — መሣሪያዎች · መተግበሪያዎች · ተጨማሪ።
+the_brand	ብራንዱ
+what_title	መሣሪያዎች፣ ዩቲሎች እና መተግበሪያዎች።
+what_lede	አንድ ጊዜ የተጻፈ፣ ስለዚህ ሌሎች የ Gotigin ምርቶች እና ማንም ሰው የሚያስፈልገውን ቁራጭ በትክክል ይወስዳል።
+what_body	ቤተ መጻሕፍት፣ ትናንሽ ፕሮግራሞች እና አገልግሎቶች እዚህ ይኖራሉ። እያንዳንዱ ክፍል በራሱ ይቆማል።
+reuse	እንደገና ጥቅም
+reuse_title	አንድ ቁራጭ ይውሰዱ።
+reuse_body	Crate ቤተ መጻሕፍት ነው። መተግበሪያ ከእርስዎ ፕሮግራም አጠገብ የሚያሄዱት ፕሮግራም ነው። ጣቢያ የሚጎበኙት ገጽ ነው። አንድ ክፍል መቀየር ወንድም ክፍልን እንዲቀየር አያስገድድም።
+products	ምርቶች
+products_title	በ Wadhu ብራንድ ሥር
+products_lede	በዚህ ብራንድ ሥር የሚወጡ ምርቶች።
+sms_gateway_blurb	መጀመሪያ Android SIM መግቢያ። LAN እና Bluetooth ለዘላለም ነጻ ይቀራሉ።
+sms_relay_blurb	ወደ ተጣመረ መግቢያ አማራጭ የበይነመረብ መንገድ። የአካባቢ መላኪያ አያስፈልገውም።
+connect_blurb	የ WhatsApp Cloud API Tech Provider ድልድይ። ንግዶች ቁጥራቸውን ይይዛሉ። መተግበሪያዎች ከ Embedded Signup በኋላ ይልካሉ እና ይቀበላሉ።
+open_connect	Wadhu Connect ክፈት
+names	ስሞች
+about_title	እኛ ማን ነን
+trademark	የንግድ ምልክት
+find_it	Memon ማለት «አግኘው» ነው · አጠራር go-tee-geen
+slogan	ቴክኖሎጂ ግኝትን የሚገናኝበት ቦታ
+company	ኩባንያ
+director_line	ዳይሬክተር · mearaj@gmail.com
+brand	ብራንድ
+more_line	Memon ማለት «ተጨማሪ» ነው · መሣሪያዎች · መተግበሪያዎች · ተጨማሪ
+products_line	SIM መግቢያ፣ አማራጭ ማስተላለፊያ እና የ WhatsApp Cloud API ድልድይ
+next	ቀጣይ
+closing_title	ከ Wadhu ጋር ይገንቡ።
+closing_body	የ wadhu.com መለያ ለተስተናገዱ ባህሪያት ነው። በ LAN እና Bluetooth ላይ የአካባቢ መሣሪያዎች ነጻ ይቀራሉ።
+acct_page_title	መለያ — Wadhu
+acct_lede	ለተስተናገዱ የ Wadhu ባህሪያት ይግቡ። በ LAN እና Bluetooth ላይ የአካባቢ መሣሪያዎች ያለ መለያ ይሠራሉ።
 acct_continue_with	በኢሜይል፣ በአቅራቢ ወይም በስልክ ይቀጥሉ።
 acct_name_optional	ስም (አማራጭ)
 acct_password	የይለፍ ቃል
@@ -61,9 +61,9 @@ acct_signed_in_as	በዚህ መለያ ገብተዋል፦
 acct_status_label	ሁኔታ
 acct_resend_verify	የማረጋገጫ ኢሜይሉን እንደገና ላክ
 acct_sign_out	ውጣ
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	የ Wadhu መነሻ
+acct_nav_aria	ዋና
+company_privacy	የኩባንያ ግላዊነት
 err_invalid_email	ትክክለኛ የኢሜይል አድራሻ ያስገቡ።
 err_weak_password	ቢያንስ 6 ቁምፊዎች ያሉት የይለፍ ቃል ይጠቀሙ።
 err_wrong_password	የተሳሳተ የይለፍ ቃል።
@@ -76,9 +76,9 @@ err_too_many	በጣም ብዙ ሙከራዎች። ቆይተው እንደገና �
 err_invalid_phone	ሙሉ ስልክ ቁጥር ከሀገር ኮድ ጋር ይጠቀሙ (ለምሳሌ +91…)።
 err_bad_code	ያ የSMS ኮድ የተሳሳተ ነው ወይም ጊዜው አልፎበታል።
 err_generic	የሆነ ችግር ተፈጥሯል።
-acct_no_email	(no email)
+acct_no_email	(ኢሜይል የለም)
 acct_email_verified	ኢሜይል ተረጋግጧል
 acct_email_unverified	ኢሜይል ገና አልተረጋገጠም — የገቢ መልእክት ሳጥንዎን ይመልከቱ
 acct_phone_signed_in	በስልክ ገብተዋል
 acct_you_are_in	ገብተዋል።
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	የማረጋገጫ ኢሜይል ተልኳል — የገቢ መልእክት ሳጥንዎን ይመልከቱ

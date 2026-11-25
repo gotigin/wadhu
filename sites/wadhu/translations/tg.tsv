@@ -1,49 +1,49 @@
 # tg. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Меню
+close	Пӯшидан
+home	Асосӣ
+about	Дар бораи мо
 privacy	Махфият
 terms	Шартҳо
 cancellation	Бекоркунӣ
-data_deletion	Data deletion
-support	Support
+data_deletion	Нест кардани додаҳо
+support	Дастгирӣ
 account	Аккаунт
 email	Почтаи электронӣ
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Асбобҳо · Барномаҳо · Бештар
+tagline	Асбобҳо · Барномаҳо · Бештар
+hero_kicker	WADHU · АЗ GOTIGIN
+hero_title	Wadhu маънои бештарро дорад.
+hero_lede	Асбоб, утилит ва барномаҳои такроран истифодашаванда — Асбобҳо · Барномаҳо · Бештар.
+the_brand	ИН БРЕНД
+what_title	Асбобҳо, утилитҳо ва барномаҳо.
+what_lede	Як бор навишта шуд, то маҳсулоти дигари Gotigin ва ҳар кас маҳз қисми лозимаро гиранд.
+what_body	Китобхонаҳо, барномаҳои хурд ва хидматҳо инҷоянд. Ҳар қисм худаш меистад.
+reuse	ИСТИФОДАИ ТАКРОРӢ
+reuse_title	Як қисмро гиред.
+reuse_body	Crate китобхона аст. Барнома барномаест, ки шумо дар канори худ медавонед. Сайт саҳифаест, ки шумо мебинед. Тағйири як қисм ҳеҷ гоҳ қисми дигарро маҷбур намекунад.
+products	МАҲСУЛОТ
+products_title	Зери бренди Wadhu
+products_lede	Маҳсулоте, ки зери ин бренд мебароянд.
+sms_gateway_blurb	Дарвозаи SIM, аввал Android. LAN ва Bluetooth ҳамеша ройгон мемонанд.
+sms_relay_blurb	Роҳи ихтиёрии интернет ба дарвозаи ҷуфт. Фиристодани маҳаллӣ ба он ниёз надорад.
+connect_blurb	Пули WhatsApp Cloud API Tech Provider. Тиҷорат рақамашро нигоҳ медорад; барномаҳо пас аз Embedded Signup мефиристанд ва мегиранд.
+open_connect	Кушодани Wadhu Connect
+names	НОМҲО
+about_title	Мо кистем
+trademark	НИШОНИ ТИҶОРАТӢ
+find_it	Memon барои «ёбаш» · талаффуз go-tee-geen
+slogan	Ҷое, ки технология бо кашфиёт вомехӯрад
+company	ШИРКАТ
+director_line	Директор · mearaj@gmail.com
+brand	БРЕНД
+more_line	Memon барои «бештар» · Асбобҳо · Барномаҳо · Бештар
+products_line	Дарвозаи SIM, релеи ихтиёрӣ ва пули WhatsApp Cloud API
+next	БАЪДӢ
+closing_title	Бо Wadhu созед.
+closing_body	Ҳисоби wadhu.com барои имкониятҳои ҷойгиршуда аст. Асбобҳои маҳаллӣ тавассути LAN ва Bluetooth ройгон мемонанд.
+acct_page_title	Аккаунт — Wadhu
+acct_lede	Барои имкониятҳои ҷойгиршудаи Wadhu ворид шавед. Асбобҳои маҳаллӣ тавассути LAN ва Bluetooth бе ҳисоб ҳам кор мекунанд.
 acct_continue_with	Бо почтаи электронӣ, провайдер ё телефон давом диҳед.
 acct_name_optional	Ном (ихтиёрӣ)
 acct_password	Парол
@@ -61,9 +61,9 @@ acct_signed_in_as	Ворид шуда ҳамчун
 acct_status_label	Ҳолат
 acct_resend_verify	Номаи тасдиқро бори дигар фиристед
 acct_sign_out	Баромадан
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Асосии Wadhu
+acct_nav_aria	Асосӣ
+company_privacy	Махфияти ширкат
 err_invalid_email	Суроғаи дурусти почтаи электрониро ворид кунед.
 err_weak_password	Паролеро истифода баред, ки на камтар аз 6 аломат дошта бошад.
 err_wrong_password	Парол нодуруст аст.
@@ -76,9 +76,9 @@ err_too_many	Кӯшишҳо аз ҳад зиёданд. Баъдтар боз к
 err_invalid_phone	Рақами пурраи телефонро бо рамзи кишвар истифода баред (масалан +91…).
 err_bad_code	Ин рамзи SMS нодуруст аст ё мӯҳлаташ гузаштааст.
 err_generic	Хатое рух дод.
-acct_no_email	(no email)
+acct_no_email	(почтаи электронӣ нест)
 acct_email_verified	Почта тасдиқ шуд
 acct_email_unverified	Почта ҳанӯз тасдиқ нашудааст — қуттии воридотиро санҷед
 acct_phone_signed_in	Бо телефон ворид шуд
 acct_you_are_in	Шумо ворид шудед.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Номаи тасдиқ фиристода шуд — қуттии воридотро бинед

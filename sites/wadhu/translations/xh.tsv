@@ -1,49 +1,49 @@
 # xh. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Uluhlu
+close	Vala
+home	Ikhaya
+about	Malunga
 privacy	Ubumfihlo
 terms	Imiqathango
 cancellation	Ukurhoxisa
-data_deletion	Data deletion
-support	Support
+data_deletion	Ukucima idatha
+support	Inkxaso
 account	I-akhawunti
 email	I-imeyile
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Izixhobo · Ii-app · Kuninzi
+tagline	Izixhobo · Ii-app · Kuninzi
+hero_kicker	WADHU · IVELA KU-GOTIGIN
+hero_title	I-Wadhu ithetha ukuninzi.
+hero_lede	Izixhobo, ii-util, nee-app ezisetyenziswa kwakhona — Izixhobo · Ii-app · Kuninzi.
+the_brand	OLU PHAWU
+what_title	Izixhobo, ii-util, nee-app.
+what_lede	Kubhalwe kanye, ukuze ezinye iimveliso ze-Gotigin nabani na bathathe icandelo abalidingayo.
+what_body	Iithala leencwadi, iinkqubo ezincinci, neenkonzo zilapha. Icandelo ngalinye limi lodwa.
+reuse	UKUSEBENZISA KWAKHONA
+reuse_title	Thatha icandelo elinye.
+reuse_body	I-crate lithala leencwadi. I-app yinkqubo osebenzisa ecaleni kweyakho. Isayithi liphepha olivakashelayo. Ukutshintsha kwecandelo elinye akuzange kuyinyanzele enye ukuba itshintshe.
+products	IIMVELISO
+products_title	Phantsi kophawu lwe-Wadhu
+products_lede	Iimveliso eziphuma phantsi kolu phawu.
+sms_gateway_blurb	Isango le-SIM, i-Android kuqala. I-LAN ne-Bluetooth zihlala simahla ngonaphakade.
+sms_relay_blurb	Indlela ye-intanethi ekhethwayo eya esangweni elidityanisiweyo. Ukuthumela kwendawo akuludingi.
+connect_blurb	Ibhulorho ye-WhatsApp Cloud API Tech Provider. Ishishini ligcina inombolo yalo; ii-app zithumela kwaye zamkele emva kwe-Embedded Signup.
+open_connect	Vula i-Wadhu Connect
+names	AMAGAMA
+about_title	Singobani
+trademark	UPHAWU LORHWEBO
+find_it	I-Memon yokuba «yifumane» · kuthethwa go-tee-geen
+slogan	Apho ubugcisa buhlangana nokufumanisa
+company	INKAMPANI
+director_line	Umlawuli · mearaj@gmail.com
+brand	UPHAWU
+more_line	I-Memon yokuba «kuninzi» · Izixhobo · Ii-app · Kuninzi
+products_line	Isango le-SIM, i-relay ekhethwayo, nebhulorho ye-WhatsApp Cloud API
+next	OKULANDELAYO
+closing_title	Yakha nge-Wadhu.
+closing_body	I-akhawunti ye-wadhu.com yezinto ezihlelweyo. Izixhobo zendawo ku-LAN naku-Bluetooth zihlala simahla.
+acct_page_title	I-akhawunti — Wadhu
+acct_lede	Ngena kwizinto ezihlelweyo ze-Wadhu. Izixhobo zendawo ku-LAN naku-Bluetooth zihlala zisebenziseka ngaphandle kwe-akhawunti.
 acct_continue_with	Qhubeka nge-imeyile, umboneleli, okanye ifowuni.
 acct_name_optional	Igama (ngokuzikhethela)
 acct_password	Igama lokugqitha
@@ -61,9 +61,9 @@ acct_signed_in_as	Ungene njengo
 acct_status_label	Isimo
 acct_resend_verify	Phinda uthumele i-imeyile yokuqinisekisa
 acct_sign_out	Phuma
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Ikhaya le-Wadhu
+acct_nav_aria	Eyona nto
+company_privacy	Ubumfihlo benkampani
 err_invalid_email	Faka idilesi ye-imeyile esebenzayo.
 err_weak_password	Sebenzisa igama lokugqitha elinoonobumba aba-6 ubuncinane.
 err_wrong_password	Igama lokugqitha elingachanekanga.
@@ -76,9 +76,9 @@ err_too_many	Iinzame ezininzi kakhulu. Zama kwakhona kamva.
 err_invalid_phone	Sebenzisa inombolo yefowuni epheleleyo enekhowudi yelizwe (umz. +91…).
 err_bad_code	Loo khowudi ye-SMS ayichanekanga okanye iphelelwe lixesha.
 err_generic	Kukho into engahambanga kakuhle.
-acct_no_email	(no email)
+acct_no_email	(akukho i-imeyile)
 acct_email_verified	I-imeyile iqinisekisiwe
 acct_email_unverified	I-imeyile ayikaqinisekiswa — jonga ibhokisi lakho lemiyalezo
 acct_phone_signed_in	Ungene ngefowuni
 acct_you_are_in	Ungenile.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	I-imeyile yokuqinisekisa ithunyelwe — jonga ibhokisi yakho

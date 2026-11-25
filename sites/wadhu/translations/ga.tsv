@@ -1,49 +1,49 @@
 # ga. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Roghchlár
+close	Dún
+home	Baile
+about	Fúinn
 privacy	Príobháideacht
 terms	Téarmaí
 cancellation	Cealú
-data_deletion	Data deletion
-support	Support
+data_deletion	Scriosadh sonraí
+support	Tacaíocht
 account	Cuntas
 email	Ríomhphost
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Uirlisí · Aipeanna · Tuilleadh
+tagline	Uirlisí · Aipeanna · Tuilleadh
+hero_kicker	WADHU · Ó GOTIGIN
+hero_title	Ciallaíonn Wadhu tuilleadh.
+hero_lede	Uirlisí, fóntais agus aipeanna in-athúsáidte — Uirlisí · Aipeanna · Tuilleadh.
+the_brand	AN TRÁDMHARCA
+what_title	Uirlisí, fóntais agus aipeanna.
+what_lede	Scríofa uair amháin, ionas go nglacfaidh táirgí eile Gotigin agus aon duine eile go díreach an píosa atá uathu.
+what_body	Tá leabharlanna, cláir bheaga agus seirbhísí anseo. Seasann gach cuid léi féin.
+reuse	ATHÚSÁID
+reuse_title	Glac píosa amháin.
+reuse_body	Is leabharlann é crate. Is clár é aip a rithfidh tú taobh le do cheann féin. Is leathanach é suíomh a dtugann tú cuairt air. Ní chuireann athrú ar chuid amháin iachall ar chuid eile athrú.
+products	TÁIRGÍ
+products_title	Faoi thrádmharc Wadhu
+products_lede	Táirgí a thagann amach faoin trádmharc seo.
+sms_gateway_blurb	Geata SIM, Android ar dtús. Fanann LAN agus Bluetooth saor in aisce go deo.
+sms_relay_blurb	Cosán idirlín roghnach chuig geata péireáilte. Níl sé de dhíth ar sheoladh áitiúil.
+connect_blurb	Droichead WhatsApp Cloud API Tech Provider. Coimeádann gnóthaí a n-uimhir; seolann agus faigheann aipeanna tar éis Embedded Signup.
+open_connect	Oscail Wadhu Connect
+names	AINMNEACHA
+about_title	Cé sinne
+trademark	TRÁDMHARCA
+find_it	Memon ar «aimsigh é» · fuaimnítear go-tee-geen
+slogan	Áit a mbuaileann an teicneolaíocht leis an bhfionnachtain
+company	CUIDEACHTA
+director_line	Stiúrthóir · mearaj@gmail.com
+brand	TRÁDMHARCA
+more_line	Memon ar «tuilleadh» · Uirlisí · Aipeanna · Tuilleadh
+products_line	Geata SIM, athsheachadán roghnach agus droichead chuig WhatsApp Cloud API
+next	AR AGHAIDH
+closing_title	Tóg le Wadhu.
+closing_body	Is do ghnéithe óstáilte é cuntas wadhu.com. Fanann uirlisí áitiúla thar LAN agus Bluetooth saor in aisce.
+acct_page_title	Cuntas — Wadhu
+acct_lede	Logáil isteach le haghaidh ghnéithe óstáilte Wadhu. Fanann uirlisí áitiúla thar LAN agus Bluetooth inúsáidte gan chuntas.
 acct_continue_with	Lean ar aghaidh le ríomhphost, soláthraí nó fón.
 acct_name_optional	Ainm (roghnach)
 acct_password	Pasfhocal
@@ -61,9 +61,9 @@ acct_signed_in_as	Logáilte isteach mar
 acct_status_label	Stádas
 acct_resend_verify	Athsheol ríomhphost fíoraithe
 acct_sign_out	Logáil amach
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Baile Wadhu
+acct_nav_aria	Príomhúil
+company_privacy	Príobháideachas na cuideachta
 err_invalid_email	Cuir isteach seoladh ríomhphoist bailí.
 err_weak_password	Úsáid pasfhocal ina bhfuil 6 charachtar ar a laghad.
 err_wrong_password	Pasfhocal mícheart.
@@ -76,9 +76,9 @@ err_too_many	An iomarca iarrachtaí. Bain triail eile as ar ball.
 err_invalid_phone	Úsáid uimhir fóin iomlán le cód tíre (m.sh. +91…).
 err_bad_code	Tá an cód SMS sin mícheart nó imithe in éag.
 err_generic	Chuaigh rud éigin amú.
-acct_no_email	(no email)
+acct_no_email	(gan ríomhphost)
 acct_email_verified	Ríomhphost fíoraithe
 acct_email_unverified	Níl an ríomhphost fíoraithe fós — féach ar do bhosca isteach
 acct_phone_signed_in	Logáilte isteach le fón
 acct_you_are_in	Tá tú logáilte isteach.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Seoladh an ríomhphost deimhnithe — seiceáil do bhosca isteach

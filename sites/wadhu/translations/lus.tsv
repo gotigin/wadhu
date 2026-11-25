@@ -1,49 +1,49 @@
 # lus. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Thil zawng
+close	Khar rawh
+home	In
+about	Kan chungchang
 privacy	Mimal thuruk
 terms	Dan te
 cancellation	Tihbo dan
-data_deletion	Data deletion
-support	Support
+data_deletion	Data paihbo
+support	Inkawp
 account	Akaunt
 email	E-mail
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Hmanraw · App · Tam zawk
+tagline	Hmanraw · App · Tam zawk
+hero_kicker	WADHU · GOTIGIN ATA
+hero_title	Wadhu chuan tam zawk a ti.
+hero_lede	Hmanraw, util, leh app hman nawn theih — Hmanraw · App · Tam zawk.
+the_brand	HE THIL NEIH
+what_title	Hmanraw, util, leh app.
+what_lede	Vawi khat a ziak a, Gotigin thil siam dang leh mi zawng zawngin an mamawh zat an la theih nan.
+what_body	Library te, program te, leh service te hetah an awm. Then tin a ding a.
+reuse	HMAN NAWN
+reuse_title	Then pakhat la rawh.
+reuse_body	Crate chu library a ni. App chu i program bulah i tirlut program a ni. Site chu i tlawh phek a ni. Then pakhat a thlak chuan a dang a thlak ngai lo.
+products	THIL SIAM TE
+products_title	Wadhu thil neih hnuai ah
+products_lede	He thil neih hnuai ah a chhuak thil siam te.
+sms_gateway_blurb	SIM gateway, Android hmasa. LAN leh Bluetooth te a la awm free rei rei.
+sms_relay_blurb	Gateway inpawh tan internet kawng duhthusam. Hmuna thawn nan a ngai lo.
+connect_blurb	WhatsApp Cloud API Tech Provider kaihhruai. Business te an number an vawng; app te Embedded Signup hnuah an thawn a, an dawng bawk.
+open_connect	Wadhu Connect hawng rawh
+names	HMING TE
+about_title	Keini nge kan ni
+trademark	THIL NEIH
+find_it	Memon chuan «zawng rawh» a ti · go-tee-geen tiin a aw
+slogan	Technology leh hmuhchhuah inhmuhna
+company	PAWL
+director_line	Hotu · mearaj@gmail.com
+brand	THIL NEIH
+more_line	Memon chuan «tam zawk» a ti · Hmanraw · App · Tam zawk
+products_line	SIM gateway, relay duhthusam, leh WhatsApp Cloud API kaihhruai
+next	A DHAWN
+closing_title	Wadhu nena siam rawh.
+closing_body	wadhu.com akaunt chu thil chhung tan a ni. LAN leh Bluetooth hmun hmanraw te a la awm free.
+acct_page_title	Akaunt — Wadhu
+acct_lede	Wadhu thil chhung tan lut rawh. LAN leh Bluetooth hmun hmanraw te akaunt awm lo mah se a la hman theih.
 acct_continue_with	E-mail, provider emaw fon hmangin chhunzawm rawh.
 acct_name_optional	Hming (i duh chuan)
 acct_password	Thuruk
@@ -61,9 +61,9 @@ acct_signed_in_as	Lut tawh
 acct_status_label	Dinhmun
 acct_resend_verify	Finfiahna e-mail thawn leh rawh
 acct_sign_out	Chhuak rawh
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu in
+acct_nav_aria	Pawimawh
+company_privacy	Company thuruk
 err_invalid_email	E-mail address dik ziak rawh.
 err_weak_password	Hawrawp 6 tal awmna thuruk hmang rawh.
 err_wrong_password	Thuruk a dik lo.
@@ -76,9 +76,9 @@ err_too_many	Tum tam lutuk. A hnuah tum leh rawh.
 err_invalid_phone	Ram code nen fon number pum hmang rawh (entirnan +91…).
 err_bad_code	SMS code chu a dik lo emaw a hun a tawp tawh.
 err_generic	Engemaw a dik lo.
-acct_no_email	(no email)
+acct_no_email	(e-mail a awm lo)
 acct_email_verified	E-mail finfiah a ni
 acct_email_unverified	E-mail a la finfiah lo — i inbox en rawh
 acct_phone_signed_in	Fon hmangin i lut
 acct_you_are_in	I lut tawh.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Thutlukna e-mail a thawn a — inbox en rawh

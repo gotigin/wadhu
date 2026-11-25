@@ -1,49 +1,49 @@
 # gn. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	Poravorã
+close	Mboty
+home	Ñepyrũ
+about	Ore rehegua
 privacy	Ñemigua
 terms	Ñemboguata rape
 cancellation	Jeheja rei
-data_deletion	Data deletion
-support	Support
+data_deletion	Mba'ekuaarã mbogue
+support	Ñepytyvõ
 account	Kuénta
 email	Ñandutiveve
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — Tembiporu · Tembipuru'i · Hetave
+tagline	Tembiporu · Tembipuru'i · Hetave
+hero_kicker	WADHU · GOTIGIN GUI
+hero_title	Wadhu he'ise hetave.
+hero_lede	Tembiporu, util, ha tembipuru'i ojepurujeyva — Tembiporu · Tembipuru'i · Hetave.
+the_brand	KO TERAÑEMI
+what_title	Tembiporu, util, ha tembipuru'i.
+what_lede	Ojehai peteĩ jey, ikatu hag̃uáicha ambue mba'e Gotigin ha opa tapicha ogueru pe vore oikotevẽva.
+what_body	Aranduka, tembiapo michĩ, ha mba'apo oĩ ko'ápe. Peteĩteĩ vore oĩ ijehegui.
+reuse	JEPURUJEY
+reuse_title	Egueru peteĩ vore.
+reuse_body	Crate ha'e aranduka. Tembipuru'i ha'e tembiapo rejapóva nde ykére. Tenda ha'e kuatiarogue reikeha. Peteĩ vore ñemoambue noñemomba'apói ambue vore.
+products	MBA'EKUÉRA
+products_title	Wadhu terañemi guýpe
+products_lede	Mba'e osẽva ko terañemi guýpe.
+sms_gateway_blurb	Puerta SIM, Android tenonde. LAN ha Bluetooth opyta rei tapia.
+sms_relay_blurb	Tape ñanduti ojeporavóva peteĩ puerta oñembojoajuhápe. Ñemondo tendaguápe noikotevẽi.
+connect_blurb	Jepokuaa WhatsApp Cloud API Tech Provider. Viru renda oguereko hikuái papapy; tembipuru'i omondo ha ogueru Embedded Signup rire.
+open_connect	Eipe'a Wadhu Connect
+names	TÉRA
+about_title	Mávapa ore
+trademark	TERAÑEMI
+find_it	Memon he'iséva «ejuhu» · oñe'ẽ go-tee-geen
+slogan	Moõpa tembiporu ojuajú ojejuhúvare
+company	ATÝRA
+director_line	Motenondehára · mearaj@gmail.com
+brand	TERAÑEMI
+more_line	Memon he'iséva «hetave» · Tembiporu · Tembipuru'i · Hetave
+products_line	Puerta SIM, relé ojeporavóva, ha jepokuaa WhatsApp Cloud API
+next	UPÉICHA
+closing_title	Ejapóke Wadhu ndive.
+closing_body	Kuénta wadhu.com ha'e mba'e oñemohendáva. Tembiporu tendagua LAN ha Bluetooth rupive opyta rei.
+acct_page_title	Kuénta — Wadhu
+acct_lede	Eike Wadhu mba'e oñemohendávape. Tembiporu tendagua LAN ha Bluetooth rupive oĩmba jepe ndaipóri kuénta.
 acct_continue_with	Eho tenonde ñandutiveve, me’ẽhára térã pumbyry rupive.
 acct_name_optional	Téra (reiporavóramo)
 acct_password	Ñe’ẽñemi
@@ -61,9 +61,9 @@ acct_signed_in_as	Reikéma ko kuénta rupive
 acct_status_label	Mba’éichapa oĩ
 acct_resend_verify	Emondo jey ñandutiveve ñemoneĩrã
 acct_sign_out	Esẽ
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Ñepyrũ Wadhu
+acct_nav_aria	Tenondegua
+company_privacy	Ñemigua atýra
 err_invalid_email	Emoinge ñandutiveve oikóva.
 err_weak_password	Eiporu ñe’ẽñemi orekóva 6 tai sa’ivéramo.
 err_wrong_password	Ñe’ẽñemi ndaha’éi hekopete.
@@ -76,9 +76,9 @@ err_too_many	Heta ñeha’ã. Eha’ã jey upéi.
 err_invalid_phone	Eiporu pumbyry papapy henyhẽva tetã papapy ndive (techapyrã +91…).
 err_bad_code	Upe SMS papapy ndaha’éi hekopete térã opáma.
 err_generic	Oiko peteĩ mba’e vai.
-acct_no_email	(no email)
+acct_no_email	(ndaipóri ñanduti veve)
 acct_email_verified	Ñandutiveve oñemoneĩma
 acct_email_unverified	Ñandutiveve noñemoneĩri gueteri — ehecha nde marandu ryru
 acct_phone_signed_in	Reike pumbyry rupive
 acct_you_are_in	Reikéma.
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	Oñemondo ñanduti veve ñemoneĩ — ehecha nde kasilla

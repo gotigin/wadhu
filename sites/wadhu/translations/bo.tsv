@@ -1,49 +1,49 @@
 # bo. key<TAB>text. Keep {placeholders}. \n = line break.
-menu	Menu
-close	Close
-home	Home
-about	About
+menu	ཐོ་གཞུང་།
+close	ཁ་རྒྱག
+home	ཁྱིམ།
+about	ང་ཚོའི་སྐོར།
 privacy	སྒེར་གསང་།
 terms	ཆ་རྐྱེན།
 cancellation	ཆ་མེད་གཏོང་བ།
-data_deletion	Data deletion
-support	Support
+data_deletion	གཞི་གྲངས་སུབ་པ།
+support	རྒྱབ་སྐྱོར།
 account	ཐོ་ཁོངས།
 email	གློག་འཕྲིན།
-window_title	Wadhu — Tools · Apps · More
-tagline	Tools · Apps · More
-hero_kicker	WADHU · BY GOTIGIN
-hero_title	Wadhu means more.
-hero_lede	Reusable tools, utils, and apps — Tools · Apps · More.
-the_brand	THE BRAND
-what_title	Tools, utils, and apps.
-what_lede	Written once, so other Gotigin products and anyone else can take exactly the piece they need.
-what_body	Libraries, small programs, and services live here. Each part stands on its own.
-reuse	REUSE
-reuse_title	Take one piece.
-reuse_body	A crate is a library. An app is a program you run beside your own. A site is a page you visit. One part changing never forces a sibling to change.
-products	PRODUCTS
-products_title	Under the Wadhu brand
-products_lede	Products that ship under this brand.
-sms_gateway_blurb	Android-first SIM gateway. LAN and Bluetooth stay free forever.
-sms_relay_blurb	Optional internet path to a paired gateway. Local send does not need it.
-connect_blurb	WhatsApp Cloud API Tech Provider bridge. Businesses keep their number; apps send and receive after Embedded Signup.
-open_connect	Open Wadhu Connect
-names	NAMES
-about_title	Who we are
-trademark	TRADEMARK
-find_it	Memon for “find it” · pronounced go-tee-geen
-slogan	Where Technology Meets Discovery
-company	COMPANY
-director_line	Director · mearaj@gmail.com
-brand	BRAND
-more_line	Memon for “more” · Tools · Apps · More
-products_line	SIM gateway, optional relay, and a WhatsApp Cloud API bridge
-next	NEXT
-closing_title	Build with Wadhu.
-closing_body	A wadhu.com account is for hosted features. Local tools over LAN and Bluetooth stay free.
-acct_page_title	Account — Wadhu
-acct_lede	Sign in for hosted Wadhu features. Local tools over LAN and Bluetooth stay usable without an account.
+window_title	Wadhu — ལག་ཆ་ · ཉེར་སྤྱོད་ · མང་བ།
+tagline	ལག་ཆ་ · ཉེར་སྤྱོད་ · མང་བ།
+hero_kicker	WADHU · GOTIGIN ནས།
+hero_title	Wadhu ནི་མང་བའི་དོན་ཡིན།
+hero_lede	བསྐྱར་སྤྱོད་ལག་ཆ་། ཡུ་ཊིལ། ཉེར་སྤྱོད་ — ལག་ཆ་ · ཉེར་སྤྱོད་ · མང་བ།
+the_brand	རྟགས།
+what_title	ལག་ཆ་། ཡུ་ཊིལ། ཉེར་སྤྱོད།
+what_lede	ཐེངས་གཅིག་བྲིས་པས། Gotigin གི་ཐོན་རྫས་གཞན་དང་སུས་ཀྱང་དགོས་པའི་དུམ་བུ་ཏག་ཏག་ལེན་ཐུབ།
+what_body	དཔེ་མཛོད། ཉེར་སྤྱོད་ཆུང་བ། ཞབས་ཞུ་འདིར་གནས། ཆ་ཤས་རེ་རེ་རང་ཉིད་ཀྱིས་ལངས།
+reuse	བསྐྱར་སྤྱོད།
+reuse_title	དུམ་བུ་གཅིག་ལོངས།
+reuse_body	Crate ནི་དཔེ་མཛོད་ཡིན། ཉེར་སྤྱོད་ནི་ཁྱེད་ཀྱི་ཉེར་སྤྱོད་ཀྱི་འགྲམ་དུ་འཁོར་བའི་ཉེར་སྤྱོད་ཡིན། དྲ་ཚིགས་ནི་ཁྱེད་ཀྱིས་ལྟ་བའི་ཤོག་ངོས་ཡིན། ཆ་ཤས་གཅིག་བསྒྱུར་ན་གཞན་ཞིག་བསྒྱུར་དགོས་པ་མེད།
+products	ཐོན་རྫས།
+products_title	Wadhu རྟགས་ཀྱི་འོག་ཏུ།
+products_lede	རྟགས་འདིའི་འོག་ཏུ་ཐོན་པའི་ཐོན་རྫས།
+sms_gateway_blurb	Android སྔོན་གྱི་ SIM སྒོ་མོ། LAN དང་ Bluetooth རྟག་ཏུ་རིན་མེད།
+sms_relay_blurb	ཆ་སྒྲིག་སྒོ་མོར་འདེམས་རུང་དྲ་རྒྱའི་ལམ། ས་གནས་ཀྱི་སྐུར་བར་དེ་མི་དགོས།
+connect_blurb	WhatsApp Cloud API Tech Provider ཟམ་པ། ཚོང་ལས་ཀྱིས་ཨང་གྲངས་རང་འཛིན་བྱེད། ཉེར་སྤྱོད་ཀྱིས་ Embedded Signup རྗེས་སུ་སྐུར་ཞིང་ལེན།
+open_connect	Wadhu Connect ཁ་ཕྱེ།
+names	མིང་།
+about_title	ང་ཚོ་སུ་ཡིན།
+trademark	ཚོང་རྟགས།
+find_it	Memon ནི་«རྙེད»ཡིན་ · ཀློག་སྟངས་ go-tee-geen
+slogan	ལག་རྩལ་དང་རྙེད་པ་འཕྲད་ས།
+company	ཀུང་སི།
+director_line	ལམ་སྟོན་པ་ · mearaj@gmail.com
+brand	རྟགས།
+more_line	Memon ནི་«མང་བ»ཡིན་ · ལག་ཆ་ · ཉེར་སྤྱོད་ · མང་བ།
+products_line	SIM སྒོ་མོ། འདེམས་རུང་རིལེ། WhatsApp Cloud API ཟམ་པ།
+next	རྗེས་མ།
+closing_title	Wadhu དང་མཉམ་དུ་བཟོ།
+closing_body	wadhu.com ཐོ་ཁོངས་ནི་གཉེར་བའི་ནུས་པར་ཡིན། LAN དང་ Bluetooth སྟེང་གི་ས་གནས་ལག་ཆ་རིན་མེད།
+acct_page_title	ཐོ་ཁོངས། — Wadhu
+acct_lede	གཉེར་བའི་ Wadhu ནུས་པར་ནང་འཛུལ། LAN དང་ Bluetooth སྟེང་གི་ས་གནས་ལག་ཆ་ཐོ་ཁོངས་མེད་ཀྱང་འཁོར།
 acct_continue_with	གློག་འཕྲིན། ཞབས་ཞུ་མཁོ་སྤྲོད་པ། ཡང་ན་ཁ་པར་གྱིས་མུ་མཐུད།
 acct_name_optional	མིང་། (འདོད་བློ་ལྟར།)
 acct_password	གསང་གྲངས།
@@ -61,9 +61,9 @@ acct_signed_in_as	འདི་ལྟར་ནང་འཛུལ།
 acct_status_label	གནས་བབ།
 acct_resend_verify	ར་སྤྲོད་གློག་འཕྲིན་བསྐྱར་དུ་བསྐུར།
 acct_sign_out	ཕྱིར་ཐོན།
-acct_home_aria	Wadhu home
-acct_nav_aria	Primary
-company_privacy	Company privacy
+acct_home_aria	Wadhu ཁྱིམ།
+acct_nav_aria	གཙོ་བོ།
+company_privacy	ཀུང་སིའི་སྒེར་གསང་།
 err_invalid_email	གློག་འཕྲིན་ཁ་བྱང་ཏག་ཏག་འབྲི་རོགས།
 err_weak_password	ཉུང་མཐར་ཡིག་འབྲུ་ 6 ཡོད་པའི་གསང་གྲངས་བེད་སྤྱོད་རོགས།
 err_wrong_password	གསང་གྲངས་ནོར་འདུག
@@ -76,9 +76,9 @@ err_too_many	ཚོད་ལྟ་མང་དྲགས་སོང་། རྗ
 err_invalid_phone	རྒྱལ་ཁབ་ཀྱི་ཨང་རྟགས་དང་བཅས་པའི་ཁ་པར་ཨང་གྲངས་ཆ་ཚང་བེད་སྤྱོད་རོགས། (དཔེར་ན། +91…)
 err_bad_code	SMS ཨང་རྟགས་དེ་ནོར་བའམ་དུས་ཡོལ་སོང་།
 err_generic	ནོར་འཁྲུལ་ཞིག་བྱུང་སོང་།
-acct_no_email	(no email)
+acct_no_email	(གློག་འཕྲིན་མེད།)
 acct_email_verified	གློག་འཕྲིན་ར་སྤྲོད་ཟིན།
 acct_email_unverified	གློག་འཕྲིན་ད་དུང་ར་སྤྲོད་མེད། — ཁྱེད་ཀྱི་འབྱོར་སྒམ་ལ་ལྟ་རོགས།
 acct_phone_signed_in	ཁ་པར་གྱིས་ནང་འཛུལ་ཟིན།
 acct_you_are_in	ཁྱེད་ནང་འཛུལ་ཟིན།
-acct_verify_sent	Verification email sent — check your inbox
+acct_verify_sent	ར་སྤྲོད་གློག་འཕྲིན་བཏང་ཟིན་ — འབྱོར་སྒམ་ལ་ལྟ་རོགས།
