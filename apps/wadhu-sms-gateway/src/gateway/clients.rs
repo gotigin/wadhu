@@ -1,6 +1,8 @@
 //! Connected apps: pairing codes, per-app tokens, block list, send counts.
 
 use std::sync::{Arc, Mutex};
+
+use super::sync_lock::lock_mutex;
 use std::time::{SystemTime, UNIX_EPOCH};
 
 const PAIR_TTL_MS: u64 = 5 * 60 * 1000;
@@ -52,11 +54,11 @@ impl Clients {
     }
 
     pub fn snapshot(&self) -> Vec<RegisteredClient> {
-        self.inner.lock().expect("clients").clients.clone()
+        lock_mutex(&self.inner).clients.clone()
     }
 
     pub fn pairing_code(&self) -> Option<(String, u64)> {
-        let mut g = self.inner.lock().expect("clients");
+        let mut g = lock_mutex(&self.inner);
         if let Some(p) = &g.pairing {
             if now_ms() < p.expires_at_ms {
                 return Some((p.code.clone(), p.expires_at_ms));
@@ -70,7 +72,7 @@ impl Clients {
     pub fn begin_pairing(&self) -> String {
         let code = format!("{:06}", (now_ms() % 1_000_000) as u32);
         let expires_at_ms = now_ms().saturating_add(PAIR_TTL_MS);
-        let mut g = self.inner.lock().expect("clients");
+        let mut g = lock_mutex(&self.inner);
         g.pairing = Some(PairingSession {
             code: code.clone(),
             expires_at_ms,
@@ -88,7 +90,7 @@ impl Clients {
         if label.is_empty() {
             return Err("label_required".into());
         }
-        let mut g = self.inner.lock().expect("clients");
+        let mut g = lock_mutex(&self.inner);
         let Some(p) = g.pairing.as_ref() else {
             return Err("no_pairing".into());
         };
@@ -118,7 +120,7 @@ impl Clients {
         if presented == operator_token {
             return Ok(AuthKind::Operator);
         }
-        let g = self.inner.lock().expect("clients");
+        let g = lock_mutex(&self.inner);
         for c in &g.clients {
             if c.token == presented {
                 if c.blocked {
@@ -134,7 +136,7 @@ impl Clients {
     }
 
     pub fn record_send(&self, client_id: &str) {
-        let mut g = self.inner.lock().expect("clients");
+        let mut g = lock_mutex(&self.inner);
         if let Some(c) = g.clients.iter_mut().find(|c| c.id == client_id) {
             c.sent_count = c.sent_count.saturating_add(1);
         }
@@ -145,7 +147,7 @@ impl Clients {
         if needle.is_empty() {
             return Err("name_required".into());
         }
-        let mut g = self.inner.lock().expect("clients");
+        let mut g = lock_mutex(&self.inner);
         let Some(c) = g
             .clients
             .iter_mut()
@@ -159,7 +161,7 @@ impl Clients {
 
     /// After operator key rotate: clear all app tokens so they must re-pair.
     pub fn revoke_all_tokens(&self) {
-        let mut g = self.inner.lock().expect("clients");
+        let mut g = lock_mutex(&self.inner);
         g.clients.clear();
         g.pairing = None;
     }
@@ -181,6 +183,20 @@ fn now_ms() -> u64 {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn snapshot_after_poisoned_lock() {
+        let inner = Arc::new(Mutex::new(Inner::default()));
+        let poison = Arc::clone(&inner);
+        let _ = std::thread::spawn(move || {
+            let _g = poison.lock().unwrap();
+            panic!("poison inner");
+        })
+        .join();
+        assert!(inner.lock().is_err());
+        let clients = Clients { inner };
+        assert!(clients.snapshot().is_empty());
+    }
 
     #[test]
     fn pair_block_and_auth() {

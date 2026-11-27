@@ -103,8 +103,7 @@ pub fn save_from_outbox(
     bluetooth_enabled: bool,
     clients: &[RegisteredClient],
 ) {
-    let mut messages = outbox.list(MAX_PERSISTED);
-    messages.reverse(); // list() is newest-first; store oldest-first
+    let messages = outbox.snapshot_for_persist(MAX_PERSISTED);
     let state = PersistedState {
         api_token: api_token.to_string(),
         messages,
@@ -415,6 +414,8 @@ mod tests {
 
     #[test]
     fn round_trip_state() {
+        use super::super::outbox::Outbox;
+
         let dir = std::env::temp_dir().join(format!(
             "wadhu-sms-gateway-persist-test-{}",
             std::process::id()
@@ -441,6 +442,18 @@ mod tests {
         assert_eq!(loaded.messages.len(), 1);
         assert_eq!(loaded.messages[0].to, "+1555");
 
+        let src = Outbox::new();
+        let accepted = src
+            .accept("idem-rt".into(), "+9199".into(), "queued body".into())
+            .unwrap();
+        save_from_outbox("tok-abc", &src, "", "", "", true, &[]);
+        let live = load();
+        let dst = Outbox::new();
+        dst.restore(live.messages);
+        let got = dst.next_queued().expect("queued message after restore");
+        assert_eq!(got.id, accepted.id);
+        assert_eq!(got.body, "queued body");
+
         let _ = fs::remove_dir_all(&dir);
         unsafe {
             std::env::remove_var("WADHU_SMS_GATEWAY_DATA");
@@ -452,4 +465,5 @@ mod tests {
         let p = data_dir();
         assert!(!p.as_os_str().is_empty());
     }
+
 }

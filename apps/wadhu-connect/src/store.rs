@@ -3,7 +3,7 @@
 use std::fs::{self, OpenOptions};
 use std::io::Write;
 use std::path::{Path, PathBuf};
-use std::sync::{Arc, Mutex};
+use std::sync::{Arc, Mutex, MutexGuard};
 
 use serde_json::{Value, json};
 
@@ -36,13 +36,17 @@ impl Store {
     }
 
     pub fn write_connection(&self, patch: Value) -> Value {
-        let g = self.inner.lock().expect("store lock");
+        let g = lock_mutex(&self.inner);
         let mut next = read_connection_file(&g.connection_path).unwrap_or_else(|| json!({}));
+        if !next.is_object() {
+            next = json!({});
+        }
         if let Some(obj) = patch.as_object() {
-            let dst = next.as_object_mut().expect("connection object");
-            for (k, v) in obj {
-                if !v.is_null() {
-                    dst.insert(k.clone(), v.clone());
+            if let Some(dst) = next.as_object_mut() {
+                for (k, v) in obj {
+                    if !v.is_null() {
+                        dst.insert(k.clone(), v.clone());
+                    }
                 }
             }
         }
@@ -102,6 +106,13 @@ impl Store {
 fn read_connection_file(path: &Path) -> Option<Value> {
     let raw = fs::read_to_string(path).ok()?;
     serde_json::from_str(&raw).ok()
+}
+
+fn lock_mutex<T>(m: &Mutex<T>) -> MutexGuard<'_, T> {
+    match m.lock() {
+        Ok(g) => g,
+        Err(p) => p.into_inner(),
+    }
 }
 
 fn chrono_now() -> String {

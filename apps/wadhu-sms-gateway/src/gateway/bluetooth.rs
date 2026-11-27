@@ -20,6 +20,7 @@ use std::thread;
 use super::clients::{AuthFail, AuthKind, Clients};
 use super::frame::{read_frame, write_frame};
 use super::outbox::Outbox;
+use super::sync_lock::lock_mutex;
 
 pub const BT_SIM_PORT: u16 = 18766;
 
@@ -39,7 +40,7 @@ pub struct BluetoothHandle {
 
 impl BluetoothHandle {
     pub fn snapshot(&self) -> BluetoothStatus {
-        self.status.lock().expect("bt status").clone()
+        lock_mutex(&self.status).clone()
     }
 
     /// Signal the listen loop to exit (used on gateway shutdown).
@@ -175,7 +176,7 @@ fn handle_op(
         "ping" => r#"{"ok":true,"pong":true}"#.into(),
         "send" => {
             let token = json_get(raw, "token").unwrap_or_default();
-            let operator = api_token.lock().expect("token").clone();
+            let operator = lock_mutex(api_token).clone();
             let auth = match clients.authorize(&token, &operator) {
                 Ok(a) => a,
                 Err(AuthFail::Blocked) => {

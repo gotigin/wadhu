@@ -1,5 +1,8 @@
 //! SMS Gateway service: outbox, radio, LAN HTTP, Bluetooth framing, optional relay.
 
+pub(crate) mod sync_lock;
+pub use sync_lock::lock_mutex;
+
 pub mod bluetooth;
 pub mod clients;
 pub mod discover;

@@ -7,6 +7,7 @@ use std::thread;
 
 use super::clients::{AuthFail, AuthKind};
 use super::service::GatewayHandle;
+use super::sync_lock::lock_mutex;
 
 const MAX_BODY: usize = 64 * 1024;
 
@@ -50,7 +51,7 @@ fn handle_client(mut stream: TcpStream, handle: &GatewayHandle) {
     }
 
     let presented = extract_token(&headers);
-    let operator = handle.api_token.lock().expect("token").clone();
+    let operator = lock_mutex(&handle.api_token).clone();
     let auth = match presented.as_deref() {
         Some(tok) => handle.clients.authorize(tok, &operator),
         None => Err(AuthFail::Unauthorized),
@@ -126,9 +127,9 @@ fn pair_client(handle: &GatewayHandle, body: &str) -> (u16, &'static str, String
 }
 
 fn persist_handle(handle: &GatewayHandle) {
-    let token = handle.api_token.lock().expect("token").clone();
+    let token = lock_mutex(&handle.api_token).clone();
     // Re-use outbox on_change path by touching meta through a minimal save.
-    let meta = handle.persist_meta.lock().expect("meta").clone();
+    let meta = lock_mutex(&handle.persist_meta).clone();
     super::persist::save_from_outbox(
         &token,
         &handle.outbox,
@@ -263,7 +264,7 @@ fn route(
                     .map(|d| d.as_nanos())
                     .unwrap_or(1)
             });
-            *handle.api_token.lock().expect("token") = next.clone();
+            *lock_mutex(&handle.api_token) = next.clone();
             handle.clients.revoke_all_tokens();
             persist_handle(handle);
             makepad_widgets::makepad_platform::thread::SignalToUI::set_ui_signal();

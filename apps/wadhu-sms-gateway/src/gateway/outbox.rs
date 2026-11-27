@@ -4,6 +4,7 @@ use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 
 use super::message::{now_ms, Message, Status};
+use super::sync_lock::lock_mutex;
 
 #[derive(Clone, Default)]
 pub struct Outbox {
@@ -25,7 +26,7 @@ impl Outbox {
 
     /// Restore previously persisted messages (e.g. after restart).
     pub fn restore(&self, messages: Vec<Message>) {
-        let mut g = self.inner.lock().expect("outbox lock");
+        let mut g = lock_mutex(&self.inner);
         for mut m in messages {
             // Incomplete radio handoffs should not auto-resend after restart.
             if m.status == Status::Submitting {
@@ -43,7 +44,7 @@ impl Outbox {
     }
 
     pub fn set_on_change(&self, hook: Arc<dyn Fn() + Send + Sync>) {
-        let mut g = self.inner.lock().expect("outbox lock");
+        let mut g = lock_mutex(&self.inner);
         g.on_change = Some(hook);
     }
 
@@ -72,7 +73,7 @@ impl Outbox {
         };
 
         let (msg, hook) = {
-            let mut g = self.inner.lock().expect("outbox lock");
+            let mut g = lock_mutex(&self.inner);
             if let Some(id) = g.by_idem.get(&key) {
                 return Ok(g.by_id.get(id).expect("idem map").clone());
             }
@@ -107,7 +108,7 @@ impl Outbox {
             idempotency_key
         };
         let (msg, hook) = {
-            let mut g = self.inner.lock().expect("outbox lock");
+            let mut g = lock_mutex(&self.inner);
             if let Some(existing) = g.by_id.get(&id) {
                 return Ok(existing.clone());
             }
@@ -136,11 +137,46 @@ impl Outbox {
     }
 
     pub fn get(&self, id: &str) -> Option<Message> {
-        self.inner.lock().ok()?.by_id.get(id).cloned()
+        lock_mutex(&self.inner).by_id.get(id).cloned()
+    }
+
+    /// Oldest-first snapshot for disk: never drops queued / in-flight work.
+    pub fn snapshot_for_persist(&self, max: usize) -> Vec<Message> {
+        let g = lock_mutex(&self.inner);
+        let all: Vec<Message> = g
+            .order
+            .iter()
+            .filter_map(|id| g.by_id.get(id).cloned())
+            .collect();
+        let pending = all
+            .iter()
+            .filter(|m| matches!(m.status, Status::Queued | Status::Submitting))
+            .count();
+        if all.len() <= max {
+            return all;
+        }
+        if pending > max {
+            return all
+                .into_iter()
+                .filter(|m| matches!(m.status, Status::Queued | Status::Submitting))
+                .collect();
+        }
+        let need_drop = all.len() - max;
+        let mut dropped = 0usize;
+        all.into_iter()
+            .filter(|m| {
+                let is_pending = matches!(m.status, Status::Queued | Status::Submitting);
+                if !is_pending && dropped < need_drop {
+                    dropped += 1;
+                    return false;
+                }
+                true
+            })
+            .collect()
     }
 
     pub fn list(&self, limit: usize) -> Vec<Message> {
-        let g = self.inner.lock().expect("outbox lock");
+        let g = lock_mutex(&self.inner);
         g.order
             .iter()
             .rev()
@@ -150,7 +186,7 @@ impl Outbox {
     }
 
     pub fn next_queued(&self) -> Option<Message> {
-        let g = self.inner.lock().expect("outbox lock");
+        let g = lock_mutex(&self.inner);
         g.order.iter().find_map(|id| {
             let m = g.by_id.get(id)?;
             (m.status == Status::Queued).then(|| m.clone())
@@ -159,7 +195,7 @@ impl Outbox {
 
     pub fn set_status(&self, id: &str, status: Status, error: Option<String>) -> Option<Message> {
         let (cloned, hook) = {
-            let mut g = self.inner.lock().expect("outbox lock");
+            let mut g = lock_mutex(&self.inner);
             let m = g.by_id.get_mut(id)?;
             m.status = status;
             m.error = error;
@@ -173,7 +209,7 @@ impl Outbox {
     }
 
     pub fn counts(&self) -> (usize, usize, usize) {
-        let g = self.inner.lock().expect("outbox lock");
+        let g = lock_mutex(&self.inner);
         let mut queued = 0;
         let mut failed = 0;
         let mut submitted = 0;
@@ -223,5 +259,35 @@ mod tests {
         box_.restore(vec![m.clone()]);
         let got = box_.get(&m.id).unwrap();
         assert_eq!(got.status, Status::Indeterminate);
+    }
+
+    #[test]
+    fn restore_preserves_queued_for_drain() {
+        let box_ = Outbox::new();
+        let m = box_.accept("k".into(), "+1".into(), "x".into()).unwrap();
+        assert!(box_.next_queued().is_some());
+
+        let fresh = Outbox::new();
+        fresh.restore(vec![m.clone()]);
+        let got = fresh.next_queued().unwrap();
+        assert_eq!(got.id, m.id);
+        assert_eq!(got.status, Status::Queued);
+    }
+
+    #[test]
+    fn snapshot_keeps_pending_when_trimming_history() {
+        let box_ = Outbox::new();
+        for i in 0..10 {
+            let m = box_
+                .accept(format!("k{i}"), "+1".into(), "x".into())
+                .unwrap();
+            box_.set_status(&m.id, Status::Submitted, None);
+        }
+        let pending = box_.accept("pending".into(), "+1".into(), "still".into()).unwrap();
+        let snap = box_.snapshot_for_persist(3);
+        assert!(
+            snap.iter().any(|m| m.id == pending.id && m.status == Status::Queued),
+            "queued job must survive persist cap"
+        );
     }
 }

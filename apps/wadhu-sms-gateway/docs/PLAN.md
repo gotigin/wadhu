@@ -54,7 +54,7 @@ Same app package, same API. `GET /v1/capabilities` tells clients which radio is 
 | Desktop demo [`apps/wadhu-sms-client-demo`](../../wadhu-sms-client-demo) | Done (desktop only) |
 | CORS on gateway / relay HTTP | Done |
 | Desktop modem radio | Not yet |
-| Persist outbox across restarts | Not yet |
+| Persist outbox across restarts | Done (`gateway-state.json`, `WADHU_SMS_GATEWAY_DATA`) |
 | Delivery reports / inbound / STOP | Not yet |
 | mDNS + QR pairing | Not yet |
 

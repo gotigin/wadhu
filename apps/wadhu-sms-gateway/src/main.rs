@@ -25,7 +25,7 @@ use crate::{gateway, identity, lan, permissions};
 #[cfg(not(target_os = "android"))]
 use wadhu_sms_gateway::{gateway, identity, lan, permissions};
 
-use gateway::Gateway;
+use gateway::{lock_mutex, Gateway};
 use makepad_widgets::*;
 use makepad_widgets::makepad_platform::event::finger::TouchState;
 use std::net::SocketAddr;
@@ -739,12 +739,12 @@ fn exit_back_armed_at() -> &'static std::sync::Mutex<Option<Instant>> {
 }
 
 fn clear_exit_back_arm() {
-    *exit_back_armed_at().lock().unwrap() = None;
+    *lock_mutex(exit_back_armed_at()) = None;
 }
 
 fn note_exit_back_press(cx: &mut Cx) -> Result<bool, ()> {
     let now = Instant::now();
-    let mut armed = exit_back_armed_at().lock().unwrap();
+    let mut armed = lock_mutex(exit_back_armed_at());
     if let Some(prev) = *armed
         && now.duration_since(prev) < Duration::from_secs(EXIT_BACK_SECS)
     {
@@ -1417,7 +1417,7 @@ impl App {
         };
         match event {
             Event::MouseDown(e) if e.button.is_primary() => {
-                let mut o = mouse.lock().unwrap();
+                let mut o = lock_mutex(mouse);
                 *o = if e.abs.x < 64.0 {
                     Some(e.abs)
                 } else {
@@ -1426,14 +1426,14 @@ impl App {
                 false
             }
             Event::MouseUp(e) if e.button.is_primary() => {
-                if let Some(start) = mouse.lock().unwrap().take() {
+                if let Some(start) = lock_mutex(mouse).take() {
                     go(start, e.abs, self, cx)
                 } else {
                     false
                 }
             }
             Event::TouchUpdate(e) => {
-                let mut o = touch.lock().unwrap();
+                let mut o = lock_mutex(touch);
                 let mut pair = None;
                 for t in &e.touches {
                     match t.state {

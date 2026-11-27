@@ -8,6 +8,7 @@ use std::thread;
 use std::time::Duration;
 
 use super::message::Status;
+use super::sync_lock::lock_mutex;
 use super::outbox::Outbox;
 use super::ws::WsClient;
 
@@ -46,15 +47,15 @@ pub struct RelayHandle {
 
 impl RelayHandle {
     pub fn snapshot(&self) -> RelayStatus {
-        self.status.lock().expect("relay status").clone()
+        lock_mutex(&self.status).clone()
     }
 
     pub fn config(&self) -> RelayConfig {
-        self.config.lock().expect("relay config").clone()
+        lock_mutex(&self.config).clone()
     }
 
     pub fn update_config(&self, cfg: RelayConfig) {
-        *self.config.lock().expect("relay config") = cfg;
+        *lock_mutex(&self.config) = cfg;
     }
 
     /// Signal relay worker threads to exit (used on gateway shutdown).
@@ -127,7 +128,7 @@ fn relay_loop(
 ) {
     let mut backoff = 1u64;
     while !stop.load(Ordering::Relaxed) {
-        let cfg = config.lock().expect("cfg").clone();
+        let cfg = lock_mutex(&config).clone();
         if cfg.url.is_empty() || cfg.device_id.is_empty() || cfg.device_secret.is_empty() {
             if let Ok(mut s) = status.lock() {
                 s.configured = false;

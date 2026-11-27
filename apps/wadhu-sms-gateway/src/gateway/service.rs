@@ -7,6 +7,7 @@ use std::thread;
 use std::time::Duration;
 
 use super::bluetooth::{self, BluetoothHandle};
+use super::sync_lock::lock_mutex;
 use super::clients::Clients;
 use super::discover;
 use super::http;
@@ -122,7 +123,7 @@ impl Gateway {
     }
 
     pub fn operator_token(&self) -> String {
-        self.handle.api_token.lock().expect("token").clone()
+        lock_mutex(&self.handle.api_token).clone()
     }
 
     pub fn begin_pairing(&self) -> String {
@@ -142,7 +143,7 @@ impl Gateway {
     /// New operator key; clears paired apps (they must Allow again).
     pub fn rotate_operator_key(&self) -> String {
         let next = generate_token();
-        *self.handle.api_token.lock().expect("token") = next.clone();
+        *lock_mutex(&self.handle.api_token) = next.clone();
         self.handle.clients.revoke_all_tokens();
         self.persist();
         makepad_widgets::makepad_platform::thread::SignalToUI::set_ui_signal();
@@ -161,7 +162,7 @@ impl Gateway {
     /// Update relay pairing and persist. Restarts are picked up by the relay loop.
     pub fn configure_relay(&self, url: String, device_id: String, device_secret: String) {
         {
-            let mut meta = self.handle.persist_meta.lock().expect("persist meta");
+            let mut meta = lock_mutex(&self.handle.persist_meta);
             meta.relay_url = url.clone();
             meta.relay_device_id = device_id.clone();
             meta.relay_device_secret = device_secret.clone();
@@ -190,14 +191,10 @@ impl Gateway {
     }
 
     pub fn persisted_snapshot(&self) -> PersistedState {
-        let meta = self.handle.persist_meta.lock().expect("meta").clone();
+        let meta = lock_mutex(&self.handle.persist_meta).clone();
         PersistedState {
             api_token: self.operator_token(),
-            messages: {
-                let mut m = self.handle.outbox.list(500);
-                m.reverse();
-                m
-            },
+            messages: self.handle.outbox.snapshot_for_persist(500),
             relay_url: meta.relay_url,
             relay_device_id: meta.relay_device_id,
             relay_device_secret: meta.relay_device_secret,
@@ -216,6 +213,7 @@ impl Gateway {
 
 impl Drop for Gateway {
     fn drop(&mut self) {
+        self.persist();
         self.shutdown();
     }
 }
@@ -226,8 +224,8 @@ fn persist_now(
     meta: &Arc<Mutex<PersistMeta>>,
     clients: &Clients,
 ) {
-    let token = api_token.lock().expect("token").clone();
-    let meta = meta.lock().expect("persist meta").clone();
+    let token = lock_mutex(api_token).clone();
+    let meta = lock_mutex(meta).clone();
     persist::save_from_outbox(
         &token,
         outbox,
