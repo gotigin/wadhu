@@ -10,6 +10,7 @@ _Last updated: 20 November 2026_
 | **Company** | **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** (“we”, “us”) |
 | **Brand** | **Wadhu** (*more* in Memon — *Tools · Apps · More*) — reusable tools, utils, and apps — [wadhu.com](https://wadhu.com) |
 | CIN | U62011GJ2026PTC179660 |
+| Udyam | UDYAM-GJ-20-0301312 |
 | PAN | AANCG1628G |
 | GSTIN | 24AANCG1628G1ZP |
 | Registered office | Gosiya Manzil, Darbargadh, Dhoraji, Rajkot, Gujarat 360410, India |

@@ -12,6 +12,7 @@ missing.
 | --- | --- |
 | Legal name | GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED |
 | CIN | U62011GJ2026PTC179660 |
+| Udyam | UDYAM-GJ-20-0301312 · Micro · Services · registered 02 July 2026 |
 | Incorporation | 24 June 2026 |
 | PAN | AANCG1628G |
 | TAN | RKTG08602G |

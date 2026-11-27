@@ -110,7 +110,9 @@ awk -v css="$SHELL_SRC/boot.css" -v body="$BODY_TMP" -v js="$SHELL_SRC/boot.js" 
     next
   }
   /<\/body>/ && !langjs {
-    # Language picker for the Makepad EN/HI chip (#lang / #l=).
+    # Language picker for the Makepad EN/HI chip (#lang / #l=). CSS must load
+    # too — without it the float panel is an unstyled search + endless list.
+    print "        <link rel=\"stylesheet\" href=\"./css/auth-nav.css\" />"
     print "        <script src=\"./js/lang-nav.js\" defer></script>"
     langjs = 1
   }
@@ -127,4 +129,8 @@ if ! grep -q 'lang-nav.js' "$INDEX"; then
   echo "error: lang-nav.js was not injected into $INDEX" >&2
   exit 1
 fi
-echo "Patched $INDEX (start-up screen, lang-nav, wasm $WASM_BYTES bytes)"
+if ! grep -q 'auth-nav.css' "$INDEX"; then
+  echo "error: auth-nav.css was not injected into $INDEX" >&2
+  exit 1
+fi
+echo "Patched $INDEX (start-up screen, lang-nav, auth-nav.css, wasm $WASM_BYTES bytes)"

@@ -367,6 +367,7 @@ mod tests {
         assert!(PRIVACY_MD.contains("Wadhu privacy policy"));
         assert!(PRIVACY_MD.contains("com.wadhu.smsgateway"));
         assert!(PRIVACY_MD.contains("U62011GJ2026PTC179660"));
+        assert!(PRIVACY_MD.contains("UDYAM-GJ-20-0301312"));
         let html = privacy_html();
         assert!(html.contains("<h1>"));
         assert!(html.contains("<strong>one</strong>") || html.contains("one</strong>"));

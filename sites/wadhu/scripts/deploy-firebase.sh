@@ -71,6 +71,8 @@ mkdir -p "$OUT/i18n" "$OUT/js"
 cp "$SITE"/translations/*.tsv "$OUT/i18n/"
 cp "$SITE/static/js/lang-nav.js" "$OUT/js/lang-nav.js"
 cp "$SITE/static/js/site-i18n.js" "$OUT/js/site-i18n.js"
+mkdir -p "$OUT/css"
+cp "$SITE/static/css/auth-nav.css" "$OUT/css/auth-nav.css"
 # Fonts: only the characters this site draws (the originals stay whole).
 "$SITE/scripts/subset-fonts.sh" "$OUT"
 mkdir -p "$OUT/js"

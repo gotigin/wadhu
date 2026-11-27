@@ -13,7 +13,7 @@ represent that you have authority to bind that business.
 **GOTIGIN SOFTWARE & HARDWARE PRIVATE LIMITED** (the company; “we”) for
 reusable tools, utils, and apps. **Gotigin** is the company’s trademark. SMS
 Gateway, SMS Relay, and Wadhu Connect are products under that brand. CIN
-U62011GJ2026PTC179660, registered office Gosiya Manzil,
+U62011GJ2026PTC179660 · Udyam UDYAM-GJ-20-0301312, registered office Gosiya Manzil,
 Darbargadh, Dhoraji, Rajkot, Gujarat 360410, India. Names:
 [About](/about).
 

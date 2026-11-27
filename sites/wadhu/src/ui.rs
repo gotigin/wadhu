@@ -374,6 +374,26 @@ script_mod! {
                                 nav_cancellation := NavBtn{ text: "Cancellation" }
                                 nav_about := NavBtn{ text: "About" }
                                 nav_account := NavBtn{ text: "Account" }
+                                go_github := View{
+                                    width: 44 height: 44
+                                    flow: Overlay
+                                    align: Align{x: 0.5 y: 0.5}
+                                    View{
+                                        width: Fill height: Fill
+                                        flow: Down
+                                        align: Align{x: 0.5 y: 0.5}
+                                        Image{
+                                            width: 18 height: 18
+                                            fit: ImageFit.Stretch
+                                            src: crate_resource("self:resources/media/github-mark.webp")
+                                        }
+                                    }
+                                    open_nav_github := Button{
+                                        width: Fill height: Fill
+                                        text: ""
+                                        draw_bg +: { color: #x00000000 }
+                                    }
+                                }
                                 nav_lang := NavBtn{ text: "EN" }
                             }
                         }

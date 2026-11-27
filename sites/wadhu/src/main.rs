@@ -534,6 +534,9 @@ impl MatchEvent for App {
         }
         // Language chip: shows the code (`EN`, `HI`, `UR`) and opens the HTML
         // 115-language picker via `#lang` (lang-nav.js on the wasm shell).
+        if self.ui.button(cx, ids!(open_nav_github)).clicked(actions) {
+            open_external(cx, "https://github.com/gotigin/wadhu");
+        }
         if self.ui.button(cx, ids!(nav_lang)).clicked(actions) {
             close_nav = true;
             open_lang_picker(cx);
